@@ -1,1 +1,12 @@
 color de fondo: #825abd
+
+Denominación social 		C.I.F
+Nombre comercial
+Dirección
+Municipio
+Provincia
+Codigo postal
+Teléfono
+Persona de contacto       
+Correo electrónico
+Contraseña
