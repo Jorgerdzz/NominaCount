@@ -32,15 +32,25 @@
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
-                      <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                      <h1 class="modal-title fs-5" id="titulo">Iniciar Sesion</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      ...
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
+                      <form method="POST">
+                          <div class="mb-3">
+                              <label for="cifInicioSesion" class="form-label">C.I.F:</label>
+                              <input type="text" class="form-control" id="cifInicioSesion" name="cifInicioSesion" aria-describedby="cifHelp">
+                          </div>
+                          <div class="mb-3">
+                              <label for="contraInicioSesion" class="form-label">Contraseña:</label>
+                              <input type="password" class="form-control" id="contraInicioSesion" name="contraInicioSesion" aria-describedby="contraHelp">
+                          </div>
+                          <div class="modal-footer">
+                              <div class="d-grid w-100">
+                                  <button type="button" class="btn btn-primary">Confirmar</button>
+                              </div>
+                          </div>
+                      </form>
                   </div>
               </div>
           </div>
@@ -51,30 +61,20 @@
           <div class="modal-dialog">
               <div class="modal-content">
                   <div class="modal-header">
-                      <div class="row">
-                          <div class="col-md-4">
-                              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                          </div>
-                          <div class="col-md-6">
-                              <div class="d-flex justify-content-center align-items-center">
-                                  <div class="col-md-3">
-                                      <label for="cif" class="form-label">C.I.F:</label>
-                                  </div>
-                                  <div class="col-md-9">
-                                      <input type="text" class="form-control" id="cif" name="cif" aria-describedby="cifHelp">
-                                  </div>
+                      <div class="row align-items-center">
+                          <div class="col-md-11">
+                              <div class="d-flex align-items-center">
+                                  <h1 class="modal-title fs-5" id="titulo">Registro de Empresa</h1>
+                                  <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
                               </div>
                           </div>
-                          <div class="col-md-2">
-                              <div class="d-flex justify-content-center align-items-center">
-                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
+                          <div class="col-md-1">
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                       </div>
-
                   </div>
                   <div class="modal-body">
-                      <form>
+                      <form method="POST">
                           <div class="mb-3">
                               <label for="denominacionSocial" class="form-label">Denominación social:</label>
                               <input type="text" class="form-control" id="denominacionSocial" name="denominacionSocial" aria-describedby="denominacionSocialHelp">
@@ -88,9 +88,9 @@
                               <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp">
                           </div>
                           <div class="mb-3">
-                              <div class="d-flex align-items-center">
+                              <div class="row">
                                   <div class="col-md-6">
-                                      <div class="d-flex justify-content-center align-items-center m-1">
+                                      <div class="d-flex align-items-center">
                                           <div class="col-md-3">
                                               <label for="ciudaD" class="form-label">Ciudad:</label>
                                           </div>
@@ -100,7 +100,7 @@
                                       </div>
                                   </div>
                                   <div class="col-md-6">
-                                      <div class="d-flex justify-content-center align-items-center m-1">
+                                      <div class="d-flex align-items-center">
                                           <div class="col-md-4">
                                               <label for="provincia" class="form-label">Provincia:</label>
                                           </div>
@@ -110,22 +110,55 @@
                                       </div>
                                   </div>
                               </div>
-
                           </div>
-                          <div class="col-md-4">
-                              <label for="cp" class="form-label">C.P:</label>
-                              <input type="text" class="form-control" id="cp" name="cp" aria-describedby="cpHelp">
+                          <div class="mb-3">
+                              <div class="row">
+                                  <div class="col-md-6">
+                                      <div class="d-flex align-items-center">
+                                          <div class="col-md-3">
+                                              <div class="d-flex justify-content-center">
+                                                  <label for="cp" class="form-label">C.P:</label>
+                                              </div>
+                                          </div>
+                                          <div class="col-md-9">
+                                              <input type="text" class="form-control" id="cp" name="cp" aria-describedby="cpHelp">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="d-flex align-items-center">
+                                          <div class="col-md-4">
+                                              <label for="cp" class="form-label">Teléfono:</label>
+                                          </div>
+                                          <div class="col-md-8">
+                                              <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp">
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="mb-3">
+                              <label for="persona" class="form-label">Persona de contacto:</label>
+                              <input type="text" class="form-control" id="persona" name="persona" aria-describedby="personaHelp">
+                          </div>
+                          <div class="mb-3">
+                              <label for="email" class="form-label">Correo electrónico:</label>
+                              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                          </div>
+                          <div class="mb-3">
+                              <label for="contra" class="form-label">Contraseña:</label>
+                              <input type="password" class="form-control" id="contra" name="contra" aria-describedby="contraHelp">
                           </div>
                           <div class="mb-3 form-check">
-                              <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                              <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                              <input type="checkbox" class="form-check-input" id="privacidad" name="privacidad">
+                              <label class="form-check-label" for="privacidad">Acepto la política de privacidad</label>
                           </div>
-                          <button type="submit" class="btn btn-primary">Submit</button>
+                          <div class="modal-footer">
+                              <div class="d-grid w-100">
+                                  <button type="submit" class="btn btn-primary" id="signin">Registrarse</button>
+                              </div>
+                          </div>
                       </form>
-                  </div>
-                  <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary">Save changes</button>
                   </div>
               </div>
           </div>
