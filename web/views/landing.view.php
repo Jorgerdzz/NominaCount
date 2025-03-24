@@ -13,16 +13,18 @@
   <?php require 'views/partials/head.php'; ?>
 
   <div id="particles-js"></div>
-  <main>
+  <main class="d-flex align-items-center">
       <div class="container">
           <div class="row">
               <div class="col d-flex flex-column align-items-center justify-content-center">
                   <h1>NominaCount</h1>
-                  <h2>La mejor aplicacion para gestionar tu empresa</h2>
+                  <h2>¡La mejor aplicacion para gestionar tu empresa!</h2>
               </div>
           </div>
-          <div class="row">
+          <div class="row m-3">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inicio-sesion">Iniciar sesion</button>
+          </div>
+          <div class="row m-3">
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registrarse">Registrarse</button>
           </div>
       </div>
@@ -30,8 +32,8 @@
       <!-- Modal Inicio Sesion -->
       <div class="modal fade" id="inicio-sesion" tabindex="-1" aria-labelledby="inicio-sesionLabel" aria-hidden="true">
           <div class="modal-dialog">
-              <div class="modal-content">
-                  <div class="modal-header">
+              <div class="modal-content" style="background-color: 825abd;">
+                  <div class="modal-header" data-bs-theme="dark">
                       <h1 class="modal-title fs-5" id="titulo">Iniciar Sesion</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
@@ -47,7 +49,7 @@
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
-                                  <button type="button" class="btn btn-primary">Confirmar</button>
+                                  <button type="submit" class="btn btn-primary" id="botonInicioSesion" disabled>Confirmar</button>
                               </div>
                           </div>
                       </form>
@@ -59,7 +61,7 @@
       <!-- Modal Registro -->
       <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true">
           <div class="modal-dialog">
-              <div class="modal-content">
+              <div class="modal-content" style="background-color: 825abd;">
                   <div class="modal-header">
                       <div class="row align-items-center">
                           <div class="col-md-11">
@@ -68,7 +70,7 @@
                                   <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
                               </div>
                           </div>
-                          <div class="col-md-1">
+                          <div class="col-md-1" data-bs-theme="dark">
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                       </div>
@@ -77,35 +79,35 @@
                       <form method="POST">
                           <div class="mb-3">
                               <label for="denominacionSocial" class="form-label">Denominación social:</label>
-                              <input type="text" class="form-control" id="denominacionSocial" name="denominacionSocial" aria-describedby="denominacionSocialHelp">
+                              <input type="text" class="form-control" id="denominacionSocial" name="denominacionSocial" aria-describedby="denominacionSocialHelp" placeholder="Ej: El Corte Inglés S.A.">
                           </div>
                           <div class="mb-3">
                               <label for="nombreComercial" class="form-label">Nombre comercial:</label>
-                              <input type="text" class="form-control" id="nombreComercial" name="nombreComercial" aria-describedby="nombreComercialHelp">
+                              <input type="text" class="form-control" id="nombreComercial" name="nombreComercial" aria-describedby="nombreComercialHelp" placeholder="Ej: El Corte Inglés">
                           </div>
                           <div class="mb-3">
                               <label for="direccion" class="form-label">Dirección:</label>
-                              <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp">
+                              <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="Ej: Calle de la Princesa Nº56">
                           </div>
                           <div class="mb-3">
                               <div class="row">
                                   <div class="col-md-6">
                                       <div class="d-flex align-items-center">
                                           <div class="col-md-3">
-                                              <label for="ciudaD" class="form-label">Ciudad:</label>
+                                              <label for="ciudad" class="form-label">Ciudad:</label>
                                           </div>
                                           <div class="col-md-9">
-                                              <input type="text" class="form-control" id="ciudad" name="ciudad" aria-describedby="ciudadHelp">
+                                              <input type="text" class="form-control" id="ciudad" name="ciudad" aria-describedby="ciudadHelp" placeholder="Ej: Madrid">
                                           </div>
                                       </div>
                                   </div>
                                   <div class="col-md-6">
                                       <div class="d-flex align-items-center">
                                           <div class="col-md-4">
-                                              <label for="provincia" class="form-label">Provincia:</label>
+                                              <label for="provincia" class="form-label">Provincia: </label>
                                           </div>
                                           <div class="col-md-8">
-                                              <input type="text" class="form-control" id="provincia" name="provincia" aria-describedby="provinciaHelp">
+                                              <input type="text" class="form-control" id="provincia" name="provincia" aria-describedby="provinciaHelp" placeholder="Ej: Madrid">
                                           </div>
                                       </div>
                                   </div>
@@ -121,7 +123,7 @@
                                               </div>
                                           </div>
                                           <div class="col-md-9">
-                                              <input type="text" class="form-control" id="cp" name="cp" aria-describedby="cpHelp">
+                                              <input type="text" class="form-control" id="cp" name="cp" aria-describedby="cpHelp" placeholder="Ej: 28008">
                                           </div>
                                       </div>
                                   </div>
@@ -131,7 +133,7 @@
                                               <label for="cp" class="form-label">Teléfono:</label>
                                           </div>
                                           <div class="col-md-8">
-                                              <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp">
+                                              <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                                           </div>
                                       </div>
                                   </div>
@@ -139,15 +141,17 @@
                           </div>
                           <div class="mb-3">
                               <label for="persona" class="form-label">Persona de contacto:</label>
-                              <input type="text" class="form-control" id="persona" name="persona" aria-describedby="personaHelp">
+                              <input type="text" class="form-control" id="persona" name="persona" aria-describedby="personaHelp" placeholder="Ej: Juan Antonio Domínguez">
                           </div>
                           <div class="mb-3">
                               <label for="email" class="form-label">Correo electrónico:</label>
-                              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+                              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ej: example@gmail.com">
                           </div>
                           <div class="mb-3">
                               <label for="contra" class="form-label">Contraseña:</label>
-                              <input type="password" class="form-control" id="contra" name="contra" aria-describedby="contraHelp">
+                              <input type="password" class="form-control" id="contra" name="contra" aria-describedby="contraHelp" placeholder="Introduzca al menos ocho caracteres">
+                              <p><small>Para mejorar la fotaleza de la contraseña debe introducir algun numero, mayúscula y caracter especial</small></p>
+                              <div id="fuerzaContra" style="height: 5px; width: 0%; background-color: red;" class="rounded mt-1"></div>
                           </div>
                           <div class="mb-3 form-check">
                               <input type="checkbox" class="form-check-input" id="privacidad" name="privacidad">
@@ -155,7 +159,7 @@
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
-                                  <button type="submit" class="btn btn-primary" id="signin">Registrarse</button>
+                                  <button type="submit" class="btn btn-primary" id="botonRegistro" disabled>Registrarse</button>
                               </div>
                           </div>
                       </form>

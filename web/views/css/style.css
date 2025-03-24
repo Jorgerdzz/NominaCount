@@ -2,3 +2,56 @@
     margin: 0;
     padding: 0;
 }
+
+:root {
+    --custom-color: white !important;
+}
+
+@font-face {
+    font-family: "Noto Serif";
+    src: url(../fonts/NotoSerif-VariableFont_wdth\,wght.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url(../fonts/NotoSans-VariableFont_wdth\,wght.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Noto Sans";
+    src: url(../fonts/NotoSans-Italic-VariableFont_wdth\,wght.ttf) format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+body {
+    font-family: "Noto Serif", sans-serif !important;
+    background-color: #825abd;
+    color: white;
+}
+
+main {
+    min-height: 70vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Noto Serif";
+  color: white;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-outline-primary:hover {
+  background-color: var(--custom-color) !important;
+  border-color: var(--custom-color) !important;
+  color: black !important;
+}
+
