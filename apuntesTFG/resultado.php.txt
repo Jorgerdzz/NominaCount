@@ -1,0 +1,7 @@
+<?php
+
+require 'bd.php';
+
+$bd = new BBDD();
+$trabajadores = $bd->getTrabajadores();
+echo json_encode($trabajadores);
