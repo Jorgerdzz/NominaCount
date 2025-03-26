@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"> <!--link css dataTables -->
 </head>
 <body>
 
@@ -16,10 +17,39 @@
 
         </canvas>
 
+        <!-- Tabla trabajadores -->
+        <table id="myTable" class="display" data-order='[[ 1, "asc" ]]' data-page-length='25' >
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Salario</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+
+                    require 'bd.php';
+
+                    $bd = new BBDD();
+                    $trabajadores = $bd->getTrabajadores();
+
+                    foreach($trabajadores as $trabajador){
+                        $nombre = $trabajador['nombre'];
+                        $salario = $trabajador['salario'];
+                        echo "<tr>
+                                <td>$nombre</td>
+                                <td>$salario</td>
+                            </tr>";
+                    }
+                ?>
+            </tbody>
+        </table>
+
     </div>
       
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- script jQuery -->
+      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script> <!--script dataTables -->
       <script type="module" src="/js/script.js"></script>
 </body>
 </html>
