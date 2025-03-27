@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="//cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css"> <!--link css dataTables -->
+    <link rel='stylesheet' href='https://unpkg.com/@fullcalendar/core/main.css'> <!-- link css FullCalendar -->
+    <link rel='stylesheet' href='https://unpkg.com/@fullcalendar/daygrid/main.css'> <!-- link css FullCalendar -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
     <div>
+
+        <!-- Graficos -->
         <canvas id="myChart" width="400" height="100" aria-label="Hello ARIA World" role="img">
 
         </canvas>
@@ -45,11 +50,16 @@
             </tbody>
         </table>
 
+        <!-- Calendarios -->
+        <div id="calendar"></div>
+
     </div>
       
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
-      <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- script jQuery -->
-      <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script> <!--script dataTables -->
-      <script type="module" src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- script jQuery -->
+    <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script> <!-- script dataTables -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script> <!-- script FullCalendar -->
+    <script type="module" src="/js/script.js"></script>
+
 </body>
 </html>

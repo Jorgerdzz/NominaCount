@@ -1,0 +1,7 @@
+export async function crearTabla() {
+    new DataTable('#myTable', {
+        paging: false,
+        select: true,
+        scrollY: 400
+    })
+}
