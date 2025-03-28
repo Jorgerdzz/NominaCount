@@ -1,19 +1,19 @@
-import { validarCIF, validarContra } from "./validaciones.js";
+import { validarEmail, validarContra } from "./validaciones.js";
 
 export function validarInicioSesion(){
-    const cifInput = document.getElementById("cifInicioSesion");
+    const emailInput = document.getElementById("emailInicioSesion");
     const contraInput = document.getElementById("contraInicioSesion");
     const botonIncioSesion = document.getElementById("botonInicioSesion");
 
-    let cifValido = false;
+    let emailValido = false;
     let contraValida = false;
 
-    cifInput.addEventListener("input", ()=>{
-        if(validarCIF(cifInput.value)){
-            cifValido = true;
-            cifInput.style.border = "solid green";
+    emailInput.addEventListener("input", ()=>{
+        if(validarEmail(emailInput.value)){
+            emailValido = true;
+            emailInput.style.border = "solid green";
         } else{
-            cifInput.style.border = "solid red";
+            emailInput.style.border = "solid red";
         }
         validarInicioSesion();
     })
@@ -29,7 +29,7 @@ export function validarInicioSesion(){
     })
 
     function validarInicioSesion(){
-        if(cifValido && contraValida){
+        if(emailValido && contraValida){
             botonIncioSesion.disabled = false;
         } else{
             botonIncioSesion.disabled = true;

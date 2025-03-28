@@ -40,8 +40,8 @@
                   <div class="modal-body">
                       <form method="POST">
                           <div class="mb-3">
-                              <label for="cifInicioSesion" class="form-label">C.I.F:</label>
-                              <input type="text" class="form-control" id="cifInicioSesion" name="cifInicioSesion" aria-describedby="cifHelp">
+                              <label for="emailInicioSesion" class="form-label">Correo electrónico:</label>
+                              <input type="text" class="form-control" id="emailInicioSesion" name="emailInicioSesion" aria-describedby="emailHelp">
                           </div>
                           <div class="mb-3">
                               <label for="contraInicioSesion" class="form-label">Contraseña:</label>
@@ -87,57 +87,11 @@
                           </div>
                           <div class="mb-3">
                               <label for="direccion" class="form-label">Dirección:</label>
-                              <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="Ej: Calle de la Princesa Nº56">
+                              <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="Ej: Calle Princesa Nº56, Madrid, España">
                           </div>
                           <div class="mb-3">
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <div class="d-flex align-items-center">
-                                          <div class="col-md-3">
-                                              <label for="ciudad" class="form-label">Ciudad:</label>
-                                          </div>
-                                          <div class="col-md-9">
-                                              <input type="text" class="form-control" id="ciudad" name="ciudad" aria-describedby="ciudadHelp" placeholder="Ej: Madrid">
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="d-flex align-items-center">
-                                          <div class="col-md-4">
-                                              <label for="provincia" class="form-label">Provincia: </label>
-                                          </div>
-                                          <div class="col-md-8">
-                                              <input type="text" class="form-control" id="provincia" name="provincia" aria-describedby="provinciaHelp" placeholder="Ej: Madrid">
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="mb-3">
-                              <div class="row">
-                                  <div class="col-md-6">
-                                      <div class="d-flex align-items-center">
-                                          <div class="col-md-3">
-                                              <div class="d-flex justify-content-center">
-                                                  <label for="cp" class="form-label">C.P:</label>
-                                              </div>
-                                          </div>
-                                          <div class="col-md-9">
-                                              <input type="text" class="form-control" id="cp" name="cp" aria-describedby="cpHelp" placeholder="Ej: 28008">
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="col-md-6">
-                                      <div class="d-flex align-items-center">
-                                          <div class="col-md-4">
-                                              <label for="cp" class="form-label">Teléfono:</label>
-                                          </div>
-                                          <div class="col-md-8">
-                                              <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
+                              <label for="cp" class="form-label">Teléfono:</label>
+                              <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                           </div>
                           <div class="mb-3">
                               <label for="persona" class="form-label">Persona de contacto:</label>
@@ -145,7 +99,7 @@
                           </div>
                           <div class="mb-3">
                               <label for="email" class="form-label">Correo electrónico:</label>
-                              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ej: example@gmail.com">
+                              <input type="text" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="Ej: example@empresa.com">
                           </div>
                           <div class="mb-3">
                               <label for="contra" class="form-label">Contraseña:</label>

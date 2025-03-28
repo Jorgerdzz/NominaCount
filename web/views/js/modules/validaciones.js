@@ -16,32 +16,19 @@ export function validarDenominacionSocial(denominacionSocial) {
 export function validarNombreComercial(nombreComercial) {
   return nombreComercial.length > 1;
 }
-
 export function validarDireccion(direccion) {
   return direccion.length > 1;
 }
-export function validarCiudad(ciudad) {
-  return ciudad.length > 1;
-}
-export function validarProvincia(provincia) {
-  return provincia.length > 1;
-}
-export function validarCP(cp) {
-  return cp.length === 5;
-}
-
 export function validarTelefono(telefono) {
   return telefono.length === 9;
 }
 export function validarPersona(persona) {
   return persona.length > 1;
 }
-
 export function validarEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return regex.test(email);
 }
-
 export function validarContra(contra) {
     return contra.length >= 8;
 }

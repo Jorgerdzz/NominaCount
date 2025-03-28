@@ -3,9 +3,6 @@ import {
   validarDenominacionSocial,
   validarNombreComercial,
   validarDireccion,
-  validarCiudad,
-  validarProvincia,
-  validarCP,
   validarTelefono,
   validarPersona,
   validarEmail,
@@ -17,9 +14,6 @@ export function validarRegistro() {
   const denominacionSocialInput = document.getElementById("denominacionSocial");
   const nombreComercialInput = document.getElementById("nombreComercial");
   const direccionInput = document.getElementById("direccion");
-  const ciudadInput = document.getElementById("ciudad");
-  const provinciaInput = document.getElementById("provincia");
-  const cpInput = document.getElementById("cp");
   const telefonoInput = document.getElementById("telefono");
   const personaInput = document.getElementById("persona");
   const emailInput = document.getElementById("email");
@@ -32,9 +26,6 @@ export function validarRegistro() {
   let denominacionSocialValido = false;
   let nombreComercialValido = false;
   let direccionValida = false;
-  let ciudadValida = false;
-  let provinciaValida = false;
-  let cpValido = false;
   let telefonoValido = false;
   let personaValido = false;
   let emailValido = false;
@@ -77,36 +68,6 @@ export function validarRegistro() {
       direccionInput.style.border = "solid green";
     } else {
       direccionInput.style.border = "solid red";
-    }
-    registroValido();
-  });
-
-  ciudadInput.addEventListener("input", () => {
-    if (validarCiudad(ciudadInput.value)) {
-      ciudadValida = true;
-      ciudadInput.style.border = "solid green";
-    } else {
-      ciudadInput.style.border = "solid red";
-    }
-    registroValido();
-  });
-
-  provinciaInput.addEventListener("input", () => {
-    if (validarProvincia(provinciaInput.value)) {
-      provinciaValida = true;
-      provinciaInput.style.border = "solid green";
-    } else {
-      provinciaInput.style.border = "solid red";
-    }
-    registroValido();
-  });
-
-  cpInput.addEventListener("input", () => {
-    if (validarCP(cpInput.value)) {
-      cpValido = true;
-      cpInput.style.border = "solid green";
-    } else {
-      cpInput.style.border = "solid red";
     }
     registroValido();
   });
@@ -172,15 +133,11 @@ export function validarRegistro() {
   });
 
   function registroValido() {
-    let registro = false;
     if (
       cifValido &&
       denominacionSocialValido &&
       nombreComercialValido &&
       direccionValida &&
-      ciudadValida &&
-      provinciaValida &&
-      cpValido &&
       telefonoValido &&
       personaValido &&
       emailValido &&
@@ -188,7 +145,6 @@ export function validarRegistro() {
       privacidadValida
     ) {
       botonRegistro.disabled = false;
-      registro = true;
     } else {
       botonRegistro.disabled = true;
     }
