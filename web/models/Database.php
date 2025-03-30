@@ -37,12 +37,19 @@ class Database
         $instance->query($query, $params);
     }
 
-    public static function crearUsuario($nombre_usuario, $rol, $email, $contra)
+    public static function crearDatabase($db_nombre){
+        $instance = new self();
+        $query = "CREATE DATABASE $db_nombre;";
+        $instance->query($query);
+    }
+
+    public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $email, $contra)
     {
         $instance = new self();
-        $query = "INSERT INTO usuarios(nombre_usuario, rol, email, contrasena) 
-        VALUES (:nombre_usuario, :rol, :email, :contra);";
+        $query = "INSERT INTO usuarios(id_empresa, nombre_usuario, rol, email, contrasena) 
+        VALUES (:id_empresa, :nombre_usuario, :rol, :email, :contra);";
         $params = [
+            'id_empresa' => $id_empresa,
             'nombre_usuario' => $nombre_usuario,
             'rol' => $rol,
             'email' => $email,
@@ -51,19 +58,25 @@ class Database
         $instance->query($query, $params);
     }
 
-    public static function crearDatabase($db_nombre){
+    public static function getEmpresas(){
         $instance = new self();
-        $query = "CREATE DATABASE :db_nombre";
-        $params = [
-            'db_nombre' => $db_nombre,
-        ];
-        $instance->query($query, $params);
+        $query = "SELECT * FROM empresas;";
+        return $instance->query($query);
     }
 
-    public static function empresas(){
+    public static function getUsuarios(){
         $instance = new self();
-        $query = "SELECT * FROM empresas";
-        $instance->query($query);
+        $query = "SELECT * FROM usuarios;";
+        return $instance->query($query);
+    }
+
+    public static function getEmpresaPorEmail($email){
+        $instance = new self();
+        $query = "SELECT * FROM empresas WHERE email = :email;";
+        $params = [
+            'email' => $email
+        ];
+        return $instance->query($query, $params);
     }
 
 }

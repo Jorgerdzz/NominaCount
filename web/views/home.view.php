@@ -62,21 +62,21 @@
       <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content" style="background-color: 825abd;">
-                  <div class="modal-header">
-                      <div class="row align-items-center">
-                          <div class="col-md-11">
-                              <div class="d-flex align-items-center">
-                                  <h1 class="modal-title fs-5" id="titulo">Registro de Empresa</h1>
+                  <form method="POST">
+                      <div class="modal-header">
+                          <div class="row align-items-center">
+                              <div class="col-md-11">
+                                  <div class="d-flex align-items-center">
+                                      <h1 class="modal-title fs-5" id="titulo">Registro de Empresa</h1>
+                                      <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
+                                  </div>
+                              </div>
+                              <div class="col-md-1" data-bs-theme="dark">
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                           </div>
-                          <div class="col-md-1" data-bs-theme="dark">
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
                       </div>
-                  </div>
-                  <div class="modal-body">
-                      <form method="POST">
-                          <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
+                      <div class="modal-body">
                           <div class="mb-3">
                               <label for="denominacion_social" class="form-label">Denominación social:</label>
                               <input type="text" class="form-control" id="denominacion_social" name="denominacion_social" aria-describedby="denominacionSocialHelp" placeholder="Ej: El Corte Inglés S.A.">
@@ -116,8 +116,8 @@
                                   <button type="submit" class="btn btn-primary" id="botonRegistro" disabled>Registrarse</button>
                               </div>
                           </div>
-                      </form>
-                  </div>
+                      </div>
+                  </form>
               </div>
           </div>
       </div>
