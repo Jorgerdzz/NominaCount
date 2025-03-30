@@ -5,8 +5,8 @@ require 'Core/funciones.php';
 
 define('db_maestra', 'sistema_empresas_');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+if ($_SERVER['REQUEST_METHOD'] === 'POST') 
+{
     if (isset($_POST['emailInicioSesion']) && isset($_POST['contraInicioSesion'])) {
         $emailInicioSesion = $_POST['emailInicioSesion'];
         $contraInicioSesion = $_POST['contraInicioSesion'];
@@ -26,7 +26,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 function iniciarSesion($email, $contra)
 {
-
     $usuarios = Database::getUsuarios();
     foreach ($usuarios as $usuario) {
         if ($email === $usuario['email'] && password_verify($contra, $usuario['contrasena'])) {
@@ -45,7 +44,6 @@ function iniciarSesion($email, $contra)
 
 function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
 {
-
     if (validarCredenciales(
         $cif,
         $denominacion_social,
@@ -68,14 +66,8 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
         );
 
         $empresa = Database::getEmpresaPorEmail($email);
-        var_dump($empresa);
-        foreach ($empresa as $empresa) {
-            if ($email === $empresa['email'] && $db_nombre !== $empresa['db_nombre']) {
-                var_dump($empresa['email']);
-                Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
-                Database::crearDatabase($db_nombre);
-            }
-        }
+        Database::crearDatabase($db_nombre);
+        Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
     }
 }
 

@@ -61,13 +61,13 @@ class Database
     public static function getEmpresas(){
         $instance = new self();
         $query = "SELECT * FROM empresas;";
-        return $instance->query($query);
+        return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getUsuarios(){
         $instance = new self();
         $query = "SELECT * FROM usuarios;";
-        return $instance->query($query);
+        return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getEmpresaPorEmail($email){
@@ -76,7 +76,7 @@ class Database
         $params = [
             'email' => $email
         ];
-        return $instance->query($query, $params);
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
 }
