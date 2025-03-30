@@ -67,7 +67,6 @@
                           <div class="col-md-11">
                               <div class="d-flex align-items-center">
                                   <h1 class="modal-title fs-5" id="titulo">Registro de Empresa</h1>
-                                  <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
                               </div>
                           </div>
                           <div class="col-md-1" data-bs-theme="dark">
@@ -77,13 +76,14 @@
                   </div>
                   <div class="modal-body">
                       <form method="POST">
+                          <input type="text" class="form-control w-50 m-2" id="cif" name="cif" aria-describedby="cifHelp" placeholder="C.I.F">
                           <div class="mb-3">
-                              <label for="denominacionSocial" class="form-label">Denominación social:</label>
-                              <input type="text" class="form-control" id="denominacionSocial" name="denominacionSocial" aria-describedby="denominacionSocialHelp" placeholder="Ej: El Corte Inglés S.A.">
+                              <label for="denominacion_social" class="form-label">Denominación social:</label>
+                              <input type="text" class="form-control" id="denominacion_social" name="denominacion_social" aria-describedby="denominacionSocialHelp" placeholder="Ej: El Corte Inglés S.A.">
                           </div>
                           <div class="mb-3">
-                              <label for="nombreComercial" class="form-label">Nombre comercial:</label>
-                              <input type="text" class="form-control" id="nombreComercial" name="nombreComercial" aria-describedby="nombreComercialHelp" placeholder="Ej: El Corte Inglés">
+                              <label for="nombre_comercial" class="form-label">Nombre comercial:</label>
+                              <input type="text" class="form-control" id="nombre_comercial" name="nombre_comercial" aria-describedby="nombreComercialHelp" placeholder="Ej: El Corte Inglés">
                           </div>
                           <div class="mb-3">
                               <label for="direccion" class="form-label">Dirección:</label>

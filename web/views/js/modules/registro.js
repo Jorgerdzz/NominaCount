@@ -11,8 +11,8 @@ import {
 
 export function validarRegistro() {
   const cifInput = document.getElementById("cif");
-  const denominacionSocialInput = document.getElementById("denominacionSocial");
-  const nombreComercialInput = document.getElementById("nombreComercial");
+  const denominacionSocialInput = document.getElementById("denominacion_social");
+  const nombreComercialInput = document.getElementById("nombre_comercial");
   const direccionInput = document.getElementById("direccion");
   const telefonoInput = document.getElementById("telefono");
   const personaInput = document.getElementById("persona");
