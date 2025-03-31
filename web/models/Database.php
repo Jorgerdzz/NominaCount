@@ -5,9 +5,9 @@ class Database
 
     private $connection;
 
-    public function __construct()
+    public function __construct($db_name = null)
     {
-        $dsn = "mysql:host=localhost;dbname=sistema_empresas;charset=utf8mb4";
+        $dsn = "mysql:host=localhost;dbname=". ($db_name ? $db_name : 'sistema_empresas') .";charset=utf8mb4";
         $user = "root";
         $password = "";
         $this->connection = new PDO($dsn, $user, $password);
@@ -18,6 +18,13 @@ class Database
         $statement = $this->connection->prepare($query);
         $statement->execute($params);
         return $statement;
+    }
+
+    public static function setDatabase($db_name)
+    {
+        $instance = new self();
+        $instance->connection = null; 
+        $instance->__construct($db_name); 
     }
 
     public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email, $db_nombre)
@@ -77,6 +84,15 @@ class Database
             'email' => $email
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function getNombreComercialPorIdEmpresa($id_empresa){
+        $instance = new self();
+        $query = "SELECT nombre_comercial FROM empresas WHERE id_empresa = :id_empresa;";
+        $params = [
+            'id_empresa' => $id_empresa
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC)['nombre_comercial'];
     }
 
 }

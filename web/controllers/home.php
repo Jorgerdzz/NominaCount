@@ -37,7 +37,10 @@ function iniciarSesion($email, $contra)
                 'email' => $usuario['email'],
                 'contrasena' => $usuario['contrasena']
             ];
-            echo 'inicio sesion realizado';
+            $nombre_comercial = Database::getNombreComercialPorIdEmpresa($_SESSION['usuarioActivo']['id_empresa']);
+            $db_nombre = db_nombre(db_maestra, $nombre_comercial);
+            Database::setDatabase($db_nombre);
+            header('Location: /empresa');
         }
     }
 }
