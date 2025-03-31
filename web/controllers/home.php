@@ -5,8 +5,7 @@ require 'Core/funciones.php';
 
 define('db_maestra', 'sistema_empresas_');
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') 
-{
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['emailInicioSesion']) && isset($_POST['contraInicioSesion'])) {
         $emailInicioSesion = $_POST['emailInicioSesion'];
         $contraInicioSesion = $_POST['contraInicioSesion'];
@@ -47,6 +46,7 @@ function iniciarSesion($email, $contra)
 
 function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
 {
+
     if (validarCredenciales(
         $cif,
         $denominacion_social,
@@ -58,19 +58,23 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
         $contra
     )) {
         $db_nombre = db_nombre(db_maestra, $nombre_comercial);
-        Database::crearEmpresa(
-            $cif,
-            $denominacion_social,
-            $nombre_comercial,
-            $direccion,
-            $telefono,
-            $email,
-            $db_nombre
-        );
-
-        $empresa = Database::getEmpresaPorEmail($email);
-        Database::crearDatabase($db_nombre);
-        Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
+        $existeEmpresa = existeEmpresa($email);
+        if (!$existeEmpresa) {
+            Database::crearEmpresa(
+                $cif,
+                $denominacion_social,
+                $nombre_comercial,
+                $direccion,
+                $telefono,
+                $email,
+                $db_nombre
+            );
+            $empresa = Database::getEmpresaPorEmail($email);
+            Database::crearDatabase($db_nombre);
+            Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
+        } else {
+            echo 'La empresa ya existe';
+        }
     }
 }
 

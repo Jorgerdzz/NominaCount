@@ -62,7 +62,7 @@
       <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true">
           <div class="modal-dialog">
               <div class="modal-content" style="background-color: 825abd;">
-                  <form method="POST">
+                  <form id="formularioRegistro" method="POST">
                       <div class="modal-header">
                           <div class="row align-items-center">
                               <div class="col-md-11">

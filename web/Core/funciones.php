@@ -2,7 +2,7 @@
 
 function validarCIF($cif)
 {
-    return strlen($cif) == 9 ;
+    return strlen($cif) == 9;
 }
 
 function validarEmail($email)
@@ -27,7 +27,18 @@ function validarCredenciales($cif, $denominacion_social, $nombre_comercial, $dir
         && validarCadena($contra);
 }
 
-function db_nombre($db_maestra, $nombre_comercial){
+function db_nombre($db_maestra, $nombre_comercial)
+{
     $empresa = str_replace(' ', '', $nombre_comercial);
     return $db_maestra . $empresa;
+}
+
+function existeEmpresa($email){
+    $empresas = Database::getEmpresas();
+    foreach ($empresas as $empresa) {
+        if ($empresa['email'] === $email) {
+            return true;
+        }
+    }
+    return false;
 }

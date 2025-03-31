@@ -11,7 +11,9 @@ import {
 
 export function validarRegistro() {
   const cifInput = document.getElementById("cif");
-  const denominacionSocialInput = document.getElementById("denominacion_social");
+  const denominacionSocialInput = document.getElementById(
+    "denominacion_social"
+  );
   const nombreComercialInput = document.getElementById("nombre_comercial");
   const direccionInput = document.getElementById("direccion");
   const telefonoInput = document.getElementById("telefono");
@@ -150,5 +152,27 @@ export function validarRegistro() {
     }
   }
 
-  
+  botonRegistro.addEventListener("click", (event) => {
+    event.preventDefault();
+    Swal.fire({
+      title: "Registro Exitoso",
+      text: "La empresa se ha creado correctamente",
+      icon: "success",
+      background: "#825abd",
+      color: "#FFFFFF",
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      customClass: {
+        title: 'h3',
+        confirmButton: "btn-primary", // Clase personalizada para el botón
+      },
+      position: "center",
+      timer: 3000,
+      timerProgressBar: true,
+    }).then((result) => {
+      if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+        document.getElementById("formularioRegistro").submit();
+      }
+    });
+  });
 }
