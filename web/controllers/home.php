@@ -46,7 +46,7 @@ function iniciarSesion($email, $contra)
 
 function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
 {
-
+    $registro = false:
     if (validarCredenciales(
         $cif,
         $denominacion_social,
@@ -72,6 +72,7 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
             $empresa = Database::getEmpresaPorEmail($email);
             Database::crearDatabase($db_nombre);
             Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
+            $registro = true;
         } else {
             echo 'La empresa ya existe';
         }
