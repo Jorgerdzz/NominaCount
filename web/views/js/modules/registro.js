@@ -126,7 +126,7 @@ export function validarRegistro() {
     fuerzaContra.style.width = `${fuerza * 25}%`;
 
     if (fuerza === 0) fuerzaContra.style.width = "10%";
-    if (passwordInput.value.length === 0) fuerzaContra.style.width = "0%";
+    if (contraInput.value.length === 0) fuerzaContra.style.width = "0%";
   });
 
   privacidad.addEventListener("change", () => {
@@ -154,8 +154,8 @@ export function validarRegistro() {
 
   botonRegistro.addEventListener("click", (event) => {
     event.preventDefault();
-    if(botonRegistro.value==true)
-    {
+    console.log(botonRegistro.value);
+    if (botonRegistro.value === "true") {
       Swal.fire({
         title: "Registro Exitoso",
         text: "La empresa se ha creado correctamente",
@@ -165,8 +165,8 @@ export function validarRegistro() {
         showConfirmButton: true,
         confirmButtonText: "OK",
         customClass: {
-          title: 'h3',
-          confirmButton: "btn-primary", 
+          title: "h3",
+          confirmButton: "btn-primary",
         },
         position: "center",
         timer: 3000,
@@ -176,7 +176,7 @@ export function validarRegistro() {
           document.getElementById("formularioRegistro").submit();
         }
       });
-    }else{
+    } else {
       Swal.fire({
         title: "Registro Erroneo",
         text: "La empresa ya existe",
@@ -186,13 +186,17 @@ export function validarRegistro() {
         showConfirmButton: true,
         confirmButtonText: "OK",
         customClass: {
-          title: 'h3',
+          title: "h3",
           confirmButton: "btn-primary",
         },
         position: "center",
         timer: 3000,
         timerProgressBar: true,
-      }); 
+      }).then((result) => {
+        if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+          document.getElementById("formularioRegistro").submit();
+        }
+      });
     }
   });
 }

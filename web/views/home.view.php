@@ -90,7 +90,7 @@
                               <input type="text" class="form-control" id="direccion" name="direccion" aria-describedby="direccionHelp" placeholder="Ej: Calle Princesa Nº56, Madrid, España">
                           </div>
                           <div class="mb-3">
-                              <label for="cp" class="form-label">Teléfono:</label>
+                              <label for="telefono" class="form-label">Teléfono:</label>
                               <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                           </div>
                           <div class="mb-3">
@@ -113,7 +113,8 @@
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
-                                  <button type="submit" class="btn btn-primary" id="botonRegistro" value="<?= $registro ? 'true' : 'false'; ?>" disabled>Registrarse</button>
+                                  <button type="submit" class="btn btn-primary" id="botonRegistro" value="<?= isset($_SESSION['registro_exitoso']) &&
+                                   $_SESSION['registro_exitoso'] ? 'true' : 'false'; ?>"disabled>Registrarse</button>
                               </div>
                           </div>
                       </div>

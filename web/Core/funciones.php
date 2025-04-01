@@ -33,8 +33,9 @@ function db_nombre($db_maestra, $nombre_comercial)
     return $db_maestra . $empresa;
 }
 
-function existeEmpresa($email){
-    $empresas = Database::getEmpresas();
+function existeEmpresa($email)
+{
+    $empresas = Empresa::getEmpresas();
     foreach ($empresas as $empresa) {
         if ($empresa['email'] === $email) {
             return true;

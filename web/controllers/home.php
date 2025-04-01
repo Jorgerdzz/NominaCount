@@ -1,9 +1,13 @@
 <?php
 
 require 'models/Database.php';
+require 'models/Empresa.php';
+require 'models/Usuario.php';
 require 'Core/funciones.php';
 
 define('db_maestra', 'sistema_empresas_');
+
+$registro = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['emailInicioSesion']) && isset($_POST['contraInicioSesion'])) {
@@ -19,13 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $persona = $_POST['persona'];
         $email = $_POST['email'];
         $contra = $_POST['contra'];
-        registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
+        $registro = registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
+        $_SESSION['registro_exitoso'] = $registro;
+        header('Location: /'); 
     }
 }
 
 function iniciarSesion($email, $contra)
 {
-    $usuarios = Database::getUsuarios();
+    $usuarios = Usuario::getUsuarios();
     foreach ($usuarios as $usuario) {
         if ($email === $usuario['email'] && password_verify($contra, $usuario['contrasena'])) {
             $_SESSION['usuarioActivo'] = [
@@ -36,13 +42,15 @@ function iniciarSesion($email, $contra)
                 'email' => $usuario['email'],
                 'contrasena' => $usuario['contrasena']
             ];
-            $nombre_comercial = Database::getNombreComercialPorIdEmpresa($_SESSION['usuarioActivo']['id_empresa']);
+            $nombre_comercial = Empresa::getNombreComercialPorIdEmpresa($_SESSION['usuarioActivo']['id_empresa']);
             $db_nombre = db_nombre(db_maestra, $nombre_comercial);
             Database::setDatabase($db_nombre);
             header('Location: /empresa');
         }
     }
 }
+
+
 
 function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
 {
@@ -60,7 +68,7 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
         $db_nombre = db_nombre(db_maestra, $nombre_comercial);
         $existeEmpresa = existeEmpresa($email);
         if (!$existeEmpresa) {
-            Database::crearEmpresa(
+            Empresa::crearEmpresa(
                 $cif,
                 $denominacion_social,
                 $nombre_comercial,
@@ -69,14 +77,13 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
                 $email,
                 $db_nombre
             );
-            $empresa = Database::getEmpresaPorEmail($email);
+            $empresa = Empresa::getEmpresaPorEmail($email);
             Database::crearDatabase($db_nombre);
-            Database::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
+            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
             $registro = true;
-        } else {
-            echo 'La empresa ya existe';
         }
     }
+    return $registro;
 }
 
 require 'views/home.view.php';
