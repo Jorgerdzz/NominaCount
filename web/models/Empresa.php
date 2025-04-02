@@ -2,6 +2,13 @@
 
 class Empresa extends Database
 {
+    private $cif;
+    private $denominacion_social;
+    private $nombre_comercial;
+    private $direccion;
+    private $telefono;
+    private $email;
+    private $db_nombre;
 
     public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email, $db_nombre)
     {

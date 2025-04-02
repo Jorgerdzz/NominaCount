@@ -152,51 +152,54 @@ export function validarRegistro() {
     }
   }
 
-  botonRegistro.addEventListener("click", (event) => {
-    event.preventDefault();
-    console.log(botonRegistro.value);
-    if (botonRegistro.value === "true") {
-      Swal.fire({
-        title: "Registro Exitoso",
-        text: "La empresa se ha creado correctamente",
-        icon: "success",
-        background: "#825abd",
-        color: "#FFFFFF",
-        showConfirmButton: true,
-        confirmButtonText: "OK",
-        customClass: {
-          title: "h3",
-          confirmButton: "btn-primary",
-        },
-        position: "center",
-        timer: 3000,
-        timerProgressBar: true,
-      }).then((result) => {
-        if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
-          document.getElementById("formularioRegistro").submit();
-        }
-      });
-    } else {
-      Swal.fire({
-        title: "Registro Erroneo",
-        text: "La empresa ya existe",
-        icon: "error",
-        background: "#825abd",
-        color: "#FFFFFF",
-        showConfirmButton: true,
-        confirmButtonText: "OK",
-        customClass: {
-          title: "h3",
-          confirmButton: "btn-primary",
-        },
-        position: "center",
-        timer: 3000,
-        timerProgressBar: true,
-      }).then((result) => {
-        if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
-          document.getElementById("formularioRegistro").submit();
-        }
-      });
-    }
-  });
+  // botonRegistro.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  //   console.log(botonRegistro.value);
+  //   if (botonRegistro.value === "true") {
+  //     Swal.fire({
+  //       title: "Registro Exitoso",
+  //       text: "La empresa se ha creado correctamente",
+  //       icon: "success",
+  //       background: "#825abd",
+  //       color: "#FFFFFF",
+  //       showConfirmButton: true,
+  //       confirmButtonText: "OK",
+  //       customClass: {
+  //         title: "h3",
+  //         confirmButton: "btn-primary",
+  //       },
+  //       position: "center",
+  //       timer: 3000,
+  //       timerProgressBar: true,
+  //     }).then((result) => {
+  //       if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+  //         document.getElementById("formularioRegistro").submit();
+  //       }
+  //     });
+  //   } else {
+  //     Swal.fire({
+  //       title: "Registro Erroneo",
+  //       text: "La empresa ya existe",
+  //       icon: "error",
+  //       background: "#825abd",
+  //       color: "#FFFFFF",
+  //       showConfirmButton: true,
+  //       confirmButtonText: "OK",  
+  //       customClass: {
+  //         title: "h3",
+  //         confirmButton: "btn-primary",
+  //       },
+  //       position: "center",
+  //       timer: 3000,
+  //       timerProgressBar: true,
+  //     }).then((result) => {
+  //       if (result.isConfirmed || result.dismiss === Swal.DismissReason.timer) {
+  //         document.getElementById("formularioRegistro").submit();
+  //       }
+  //     });
+  //   }
+  // });
 }
+
+
+

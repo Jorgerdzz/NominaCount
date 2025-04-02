@@ -2,5 +2,5 @@
 
     return [
         '/' => 'controllers/home.php',
-        '/empresa' => 'controllers/Empresa/empresa.php',
+        '/empresa' => 'controllers/empresa.php',
     ];

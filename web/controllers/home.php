@@ -7,14 +7,13 @@ require 'Core/funciones.php';
 
 define('db_maestra', 'sistema_empresas_');
 
-$registro = false;
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['emailInicioSesion']) && isset($_POST['contraInicioSesion'])) {
         $emailInicioSesion = $_POST['emailInicioSesion'];
         $contraInicioSesion = $_POST['contraInicioSesion'];
         iniciarSesion($emailInicioSesion, $contraInicioSesion);
     } else {
+        var_dump($_POST);
         $cif = $_POST['cif'];
         $denominacion_social = $_POST['denominacion_social'];
         $nombre_comercial = $_POST['nombre_comercial'];
@@ -23,9 +22,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $persona = $_POST['persona'];
         $email = $_POST['email'];
         $contra = $_POST['contra'];
-        $registro = registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
-        $_SESSION['registro_exitoso'] = $registro;
-        header('Location: /'); 
+        $resultado = registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
+
+
+        header('Content-Type: application/json');
+
+        if($resultado){
+            json_encode($resultado);
+        }else{
+            json_encode($resultado);
+        }        
+        
     }
 }
 
@@ -54,7 +61,6 @@ function iniciarSesion($email, $contra)
 
 function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
 {
-    $registro = false;
     if (validarCredenciales(
         $cif,
         $denominacion_social,
@@ -80,10 +86,11 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
             $empresa = Empresa::getEmpresaPorEmail($email);
             Database::crearDatabase($db_nombre);
             Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
-            $registro = true;
+            return true;
         }
     }
-    return $registro;
+    return false;
 }
+
 
 require 'views/home.view.php';

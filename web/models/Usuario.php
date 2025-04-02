@@ -3,6 +3,11 @@
 class Usuario extends Database
 {
 
+    private $nombre_usuario;
+    private $rol;
+    private $email;
+    private $contra;
+
     public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $email, $contra)
     {
         $instance = new self();

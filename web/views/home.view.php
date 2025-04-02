@@ -112,9 +112,9 @@
                               <label class="form-check-label" for="privacidad">Acepto la política de privacidad</label>
                           </div>
                           <div class="modal-footer">
+                          <div id="mensaje"></div>
                               <div class="d-grid w-100">
-                                  <button type="submit" class="btn btn-primary" id="botonRegistro" value="<?= isset($_SESSION['registro_exitoso']) &&
-                                   $_SESSION['registro_exitoso'] ? 'true' : 'false'; ?>"disabled>Registrarse</button>
+                                    <button type="submit" class="btn btn-primary" id="botonRegistro" disabled>Registrarse</button>
                               </div>
                           </div>
                       </div>
