@@ -4,7 +4,7 @@
 }
 
 :root {
-    --custom-color: white !important;
+    --custom-color: #FFFBFC !important;
 }
 
 @font-face {
@@ -47,11 +47,26 @@ h5 {
   color: white;
 }
 
+
+.navbar{
+    background-color: white !important;
+    a{
+        color: #160F29;
+    }
+}
+
 .btn-primary,
 .btn-primary:hover,
 .btn-outline-primary:hover {
   background-color: var(--custom-color) !important;
   border-color: var(--custom-color) !important;
-  color: black !important;
+  color: #160F29 !important;
 }
+
+.nav-item{
+    button, button:hover{
+        color: white;
+    }
+}
+
 

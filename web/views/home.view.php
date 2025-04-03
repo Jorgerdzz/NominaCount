@@ -32,7 +32,7 @@
       <!-- Modal Inicio Sesion -->
       <div class="modal fade" id="inicio-sesion" tabindex="-1" aria-labelledby="inicio-sesionLabel" aria-hidden="true">
           <div class="modal-dialog">
-              <div class="modal-content" style="background-color: 825abd;">
+              <div class="modal-content" style="background-color: #825abd;">
                   <div class="modal-header" data-bs-theme="dark">
                       <h1 class="modal-title fs-5" id="titulo">Iniciar Sesion</h1>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -61,7 +61,7 @@
       <!-- Modal Registro -->
       <div class="modal fade" id="registrarse" tabindex="-1" aria-labelledby="registrarseLabel" aria-hidden="true">
           <div class="modal-dialog">
-              <div class="modal-content" style="background-color: 825abd;">
+              <div class="modal-content" style="background-color: #825abd;">
                   <form id="formularioRegistro" method="POST">
                       <div class="modal-header">
                           <div class="row align-items-center">

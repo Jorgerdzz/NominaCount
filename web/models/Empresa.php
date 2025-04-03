@@ -54,5 +54,11 @@ class Empresa extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC)['nombre_comercial'];
     }
 
+    public static function getDepartamentos()
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM departamentos;";
+        return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

@@ -3,6 +3,7 @@
 class Database
 {
 
+    private static $instance = null;
     private $connection;
 
     public function __construct($db_name = null)
@@ -11,6 +12,19 @@ class Database
         $user = "root";
         $password = "";
         $this->connection = new PDO($dsn, $user, $password);
+    }
+
+    public static function getInstance($db_name = null)
+    {
+        if (self::$instance === null) {
+            self::$instance = new self($db_name);
+        } else {
+            if ($db_name) {
+                self::$instance->connection = null; 
+                self::$instance->__construct($db_name);
+            }
+        }
+        return self::$instance;
     }
 
     protected function query($query, $params = [])
@@ -24,13 +38,6 @@ class Database
         $instance = new self();
         $query = "CREATE DATABASE $db_nombre;";
         $instance->query($query);
-    }
-
-    public static function setDatabase($db_name)
-    {
-        $instance = new self();
-        $instance->connection = null; 
-        $instance->__construct($db_name); 
     }
 
 }

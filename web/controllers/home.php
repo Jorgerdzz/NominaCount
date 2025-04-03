@@ -22,17 +22,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $persona = $_POST['persona'];
         $email = $_POST['email'];
         $contra = $_POST['contra'];
-        $resultado = registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
-
-
-        header('Content-Type: application/json');
-
-        if($resultado){
-            json_encode($resultado);
-        }else{
-            json_encode($resultado);
-        }        
-        
+        registro($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra);
+        header('Location: /');
     }
 }
 
@@ -50,8 +41,8 @@ function iniciarSesion($email, $contra)
                 'contrasena' => $usuario['contrasena']
             ];
             $nombre_comercial = Empresa::getNombreComercialPorIdEmpresa($_SESSION['usuarioActivo']['id_empresa']);
-            $db_nombre = db_nombre(db_maestra, $nombre_comercial);
-            Database::setDatabase($db_nombre);
+            $_SESSION['db_nombre'] = db_nombre(db_maestra, $nombre_comercial);
+            Database::getInstance($_SESSION['db_nombre']);
             header('Location: /empresa');
         }
     }
@@ -86,10 +77,8 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
             $empresa = Empresa::getEmpresaPorEmail($email);
             Database::crearDatabase($db_nombre);
             Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
-            return true;
         }
     }
-    return false;
 }
 
 
