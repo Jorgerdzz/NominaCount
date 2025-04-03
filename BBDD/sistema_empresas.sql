@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-04-2025 a las 21:35:33
+-- Tiempo de generación: 03-04-2025 a las 17:46:07
 -- Versión del servidor: 10.4.32-MariaDB
--- Versión de PHP: 8.1.25
+-- Versión de PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -38,6 +38,14 @@ CREATE TABLE `empresas` (
   `db_nombre` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `empresas`
+--
+
+INSERT INTO `empresas` (`id_empresa`, `cif`, `denominacion_social`, `nombre_comercial`, `direccion`, `telefono`, `email`, `db_nombre`) VALUES
+(156, 'A34321434', 'Nike S.A.', 'Nike', 'Avenida del mundo Nº20, Madrid, España', '976453621', 'martinez@nike.com', 'sistema_empresas_Nike'),
+(157, 'A77456327', 'Adidas S.A.', 'Adidas', 'Avenida América, Pozuelo, Madrid, España', '976453673', 'gutierrez@adidas.com', 'sistema_empresas_Adidas');
+
 -- --------------------------------------------------------
 
 --
@@ -52,6 +60,14 @@ CREATE TABLE `usuarios` (
   `email` varchar(255) NOT NULL,
   `contrasena` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `id_empresa`, `nombre_usuario`, `rol`, `email`, `contrasena`) VALUES
+(83, 156, 'Roberto Martínez', 'Empresario', 'martinez@nike.com', '$2y$10$c0v7exOiOReJM6VG4jAH0.T6MwqCoG9GHNmBD5PtrB4wJWkVt5u0m'),
+(84, 157, 'Alberto Gutierrez', 'Empresario', 'gutierrez@adidas.com', '$2y$10$IpfKeyqabmJXemS5rrTazOC0CfX6lgoXZRgFnHuBani13zVnOhwUy');
 
 --
 -- Índices para tablas volcadas
@@ -78,13 +94,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=117;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=85;
 
 --
 -- Restricciones para tablas volcadas
