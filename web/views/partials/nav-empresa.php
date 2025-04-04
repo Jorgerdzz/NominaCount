@@ -20,15 +20,14 @@
 
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Departamentos
-                    </a>
-                    <ul class="dropdown-menu">
+                    <a class="nav-link dropdown-toggle" id="departamentoSeleccionado" role="button" 
+                    data-bs-toggle="dropdown" aria-expanded="false"> Departamentos </a>
+                    <ul class="dropdown-menu" id="menuDepartamento">
                         <?php
                             require_once 'models/Database.php';
-                            require_once 'models/Empresa.php';                
+                            require_once 'models/Departamento.php';                
                             Database::getInstance($_SESSION['db_nombre']);
-                            $departamentos = Empresa::getDepartamentos();
+                            $departamentos = Departamento::getDepartamentos();
                             foreach($departamentos as $departamento){
                                 $nombre_departamento = $departamento['nombre_departamento'];
                                 echo "<li><a class='dropdown-item'>$nombre_departamento</a></li>";

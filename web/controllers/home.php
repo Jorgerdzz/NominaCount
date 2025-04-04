@@ -81,5 +81,6 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
     }
 }
 
+$page = 'home';
 
 require 'views/home.view.php';

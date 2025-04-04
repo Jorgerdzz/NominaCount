@@ -11,4 +11,4 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> <!-- Para poder usar la libreria sweetalert2 -->
 </head>
 
-<body>
+<body data-page="<?= $page ?>">

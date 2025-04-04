@@ -18,5 +18,6 @@
     $contrasena = $_SESSION['usuarioActivo']['contrasena'];
 
 
+    $page = 'mi-cuenta';
     require 'views/Session/mi-cuenta.view.php';
 
