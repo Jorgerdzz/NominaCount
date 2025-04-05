@@ -12,13 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
             validarRegistro(); 
             validarInicioSesion();
           break;
-        case "empresa":
-            setupDepartamentoHandlers();
-          break;
+            
         default:
           break;
       }
 
-     
+      setupDepartamentoHandlers();
     
 });

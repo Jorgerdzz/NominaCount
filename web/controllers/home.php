@@ -30,22 +30,51 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 function iniciarSesion($email, $contra)
 {
     $usuarios = Usuario::getUsuarios();
+
     foreach ($usuarios as $usuario) {
         if ($email === $usuario['email'] && password_verify($contra, $usuario['contrasena'])) {
+
+            // Guardar datos del usuario en sesión
             $_SESSION['usuarioActivo'] = [
-                'id_usuario' => $usuario['id_usuario'],
-                'id_empresa' => $usuario['id_empresa'],
-                'nombre_usuario' => $usuario['nombre_usuario'],
-                'rol' => $usuario['rol'],
-                'email' => $usuario['email'],
-                'contrasena' => $usuario['contrasena']
+                'id_usuario'      => $usuario['id_usuario'],
+                'id_empresa'      => $usuario['id_empresa'],
+                'nombre_usuario'  => $usuario['nombre_usuario'],
+                'rol'             => $usuario['rol'],
+                'email'           => $usuario['email'],
+                'contrasena'      => $usuario['contrasena'],
             ];
-            $nombre_comercial = Empresa::getNombreComercialPorIdEmpresa($_SESSION['usuarioActivo']['id_empresa']);
-            $_SESSION['db_nombre'] = db_nombre(db_maestra, $nombre_comercial);
-            Database::getInstance($_SESSION['db_nombre']);
-            header('Location: /empresa');
+
+            // Obtener y guardar datos de la empresa asociada
+            $empresa = Empresa::getEmpresaPorId($usuario['id_empresa']);
+
+            if ($empresa) {
+                $_SESSION['empresaActiva'] = [
+                    'id_empresa'         => $empresa['id_empresa'],
+                    'cif'                => $empresa['cif'],
+                    'denominacion'       => $empresa['denominacion_social'],
+                    'nombre_comercial'   => $empresa['nombre_comercial'],
+                    'direccion'          => $empresa['direccion'],
+                    'telefono'           => $empresa['telefono'],
+                    'email'              => $empresa['email'],
+                    'db_nombre'          => $empresa['db_nombre']
+                ];
+
+                // Generar nombre de base de datos y conectar
+                $_SESSION['db_nombre'] = db_nombre(db_maestra, $empresa['nombre_comercial']);
+                Database::getInstance($_SESSION['db_nombre']);
+
+                // Redirigir a la vista de empresa
+                header('Location: /empresa');
+                exit();
+            } else {
+                // Empresa no encontrada (opcional: redirigir o mostrar error)
+                die('Error: No se encontraron datos de la empresa.');
+            }
         }
     }
+
+    // Si ningún usuario coincide, podrías redirigir con un mensaje de error
+    // header('Location: /login?error=1');
 }
 
 

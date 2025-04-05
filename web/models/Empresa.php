@@ -2,13 +2,6 @@
 
 class Empresa extends Database
 {
-    private $cif;
-    private $denominacion_social;
-    private $nombre_comercial;
-    private $direccion;
-    private $telefono;
-    private $email;
-    private $db_nombre;
 
     public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email, $db_nombre)
     {
@@ -32,6 +25,16 @@ class Empresa extends Database
         $instance = new self();
         $query = "SELECT * FROM empresas;";
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public static function getEmpresaPorId($id_empresa)
+    {
+        $instance = new self();
+        $query = "SELECT * FROM empresas WHERE id_empresa = :id_empresa;";
+        $params = [
+            'id_empresa' => $id_empresa
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
     public static function getEmpresaPorEmail($email)
