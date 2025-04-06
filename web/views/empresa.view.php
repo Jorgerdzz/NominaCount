@@ -1,5 +1,14 @@
-<?php require 'views/partials/head.php'; ?>
-<?php require 'views/partials/nav-empresa.php'; ?>
+<?php require_once 'views/partials/head.php'; ?>
+<?php require_once 'views/partials/nav-empresa.php'; ?>
+
+
+    <div id="main-content">
+        <?php
+        if ($page === 'departamento') {
+            require 'departamento.view.php';
+        }
+        ?>
+    </div>
 
 
 
@@ -12,10 +21,4 @@
 
 
 
-
-
-
-
-
-
-<?php require 'views/partials/footer.php'; ?>
+<?php require_once 'views/partials/footer.php'; ?>

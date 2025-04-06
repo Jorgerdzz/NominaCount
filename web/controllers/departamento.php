@@ -1,20 +1,17 @@
 <?php
 
-    require_once 'models/Database.php';
-    require_once 'models/Departamento.php';
+if (isset($_GET['departamento'])) {
+    $nombreDepartamento = $_GET['departamento'];
+    // Lógica backend
+    Database::getInstance($_SESSION['db_nombre']);
+    $departamentoActual = Departamento::getDepartamentoPorNombre($nombreDepartamento);
+    // $empleados = Empleado::listarPorDepartamento($departamento['id']); // Ejemplo
+    
 
-    if (isset($_GET['departamento'])) {
-        var_dump($_GET['departamento']);
-        $nombre_departamento = $_GET['departamento'];
-        var_dump($nombre_departamento);
-        
-        Database::getInstance($_SESSION['db_nombre']);
-        $departamento = Departamento::getDepartamentoPorNombre($nombre_departamento);
-
-        require 'views/departamento.view.php';
-
-    }
-
-$page = 'departamento';
+    $page = 'departamento';
+    require 'views/departamento.view.php';
+} else {
+    header("Location: /empresa"); // Redirige si no hay parámetro
+}
 
     

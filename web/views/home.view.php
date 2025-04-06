@@ -124,7 +124,7 @@
       </div>
   </main>
 
-  <?php require 'views/partials/footer.php'; ?>
+  <?php require_once 'views/partials/footer.php'; ?>
 
   <script src="/views/js/particles.min.js"></script>
   <script>

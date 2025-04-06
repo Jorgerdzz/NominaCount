@@ -8,7 +8,7 @@ class Database
 
     public function __construct($db_name = null)
     {
-        $dsn = "mysql:host=localhost;dbname=". ($db_name ? $db_name : 'sistema_empresas') .";charset=utf8mb4";
+        $dsn = "mysql:host=localhost;dbname=" . ($db_name ? $db_name : 'sistema_empresas') . ";charset=utf8mb4";
         $user = "root";
         $password = "";
         $this->connection = new PDO($dsn, $user, $password);
@@ -20,7 +20,7 @@ class Database
             self::$instance = new self($db_name);
         } else {
             if ($db_name) {
-                self::$instance->connection = null; 
+                self::$instance->connection = null;
                 self::$instance->__construct($db_name);
             }
         }
@@ -34,10 +34,16 @@ class Database
         return $statement;
     }
 
-    public static function crearDatabase($db_nombre){
+    public static function crearDatabase($db_nombre)
+    {
         $instance = new self();
         $query = "CREATE DATABASE $db_nombre;";
         $instance->query($query);
     }
 
+    public static function ejecutarScriptSQL($rutaScript) {
+        $instance = self::getInstance();
+        $sql = file_get_contents($rutaScript);
+        $instance->query($sql);
+    }
 }

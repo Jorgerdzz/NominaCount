@@ -4,4 +4,4 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-require 'router.php';
+require_once 'autoload.php';

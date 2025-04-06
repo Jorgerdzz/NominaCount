@@ -1,6 +1,8 @@
 export function cambiarDepartamento(nombre) {
   console.log(`Departamento seleccionado: ${nombre}`);
 
+  window.location.href = `/departamento?departamento=${encodeURIComponent(nombre)}`;
+
   // Actualiza el texto del botón dropdown
   const dropdownToggle = document.querySelector(".dropdown-toggle");
   dropdownToggle.textContent = nombre;
@@ -23,6 +25,15 @@ export function cambiarDepartamento(nombre) {
     .catch((error) => {
       console.error("Error:", error);
     });
+
+    window.addEventListener('popstate', () => {
+      if (window.location.pathname.includes('/departamento')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const nombre = urlParams.get('departamento');
+        cambiarDepartamento(nombre);
+      }
+    });
+
 }
 
 // Configura los event listeners

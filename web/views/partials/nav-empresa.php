@@ -8,8 +8,6 @@
 
             <div class="navbar-nav">
                 <?php
-                require_once 'models/Database.php';
-                require_once 'models/Empresa.php';
                 if (isset($_SESSION['empresaActiva'])) {
                     echo '<a class="nav-link order-md-4" href="' . BASE_PATH . '/empresa">' .
                         '<i class="bi bi-building"></i> ' .
@@ -22,32 +20,34 @@
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="departamentoSeleccionado" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false"> Departamentos </a>
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <?php
+                        if (isset($_GET['departamento'])) {
+                            echo htmlspecialchars($_GET['departamento']);
+                        } else {
+                            echo 'Departamentos';
+                        }
+                        ?>
+                    </a>
                     <ul class="dropdown-menu" id="menuDepartamento">
                         <?php
-                        require_once 'models/Database.php';
-                        require_once 'models/Departamento.php';
                         if (isset($_SESSION['db_nombre'])) {
                             Database::getInstance($_SESSION['db_nombre']);
                             $departamentos = Departamento::getDepartamentos();
-            
-                            // Si existen departamentos, los mostramos
+
                             if (!empty($departamentos)) {
                                 foreach ($departamentos as $departamento) {
                                     echo "<li><a class='dropdown-item' href='#'>{$departamento['nombre_departamento']}</a></li>";
                                 }
+                                echo "<li><hr class='dropdown-divider'></li>";
+                                echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal'
+                                data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
                             } else {
-                                // Si no hay departamentos, solo mostrar "Añadir departamento"
                                 echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal' 
                                     data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
                             }
                         }
                         ?>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item no-cambiar-departamento" data-bs-toggle="modal"
-                                data-bs-target="#nuevo_departamento">Añadir departamento</a></li>
                     </ul>
                 </li>
             </ul>
@@ -63,7 +63,6 @@
                             htmlspecialchars($_SESSION['usuarioActivo']['nombre_usuario'], ENT_QUOTES) .
                             '</a>';
                     }
-
                     ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
@@ -96,7 +95,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="jefe_departamento" class="form-label">Jefe:</label>
-                        <input type="password" class="form-control" id="jefe_departamento" name="jefe_departamento" aria-describedby="nombre_departamentoHelp">
+                        <input type="text" class="form-control" id="jefe_departamento" name="jefe_departamento" aria-describedby="jefe_departamentoHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">

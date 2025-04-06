@@ -5,6 +5,12 @@ class Empresa extends Database
 
     public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email, $db_nombre)
     {
+        Database::crearDatabase($db_nombre);
+
+        Database::getInstance($db_nombre);
+
+        Database::ejecutarScriptSQL(__DIR__ . '/../sql/estructura_base.sql');
+
         $instance = new self();
         $query = "INSERT INTO empresas(cif, denominacion_social, nombre_comercial, direccion, telefono, email, db_nombre) 
         VALUES (:cif, :denominacion_social, :nombre_comercial, :direccion, :telefono, :email, :db_nombre);";

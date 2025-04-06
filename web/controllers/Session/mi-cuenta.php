@@ -1,8 +1,4 @@
 <?php
-
-    require_once 'models/Database.php';
-    require_once 'models/Empresa.php';
-
     
     $empresa = Empresa::getEmpresaPorEmail($_SESSION['usuarioActivo']['email']);
 
