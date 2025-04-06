@@ -29,10 +29,6 @@ function iniciarSesion($email, $contra)
     foreach ($usuarios as $usuario) {
         if ($email === $usuario['email'] && password_verify($contra, $usuario['contrasena'])) {
 
-            session_start();
-            session_regenerate_id(true);
-
-            // Guardar datos del usuario en sesión
             $_SESSION['usuarioActivo'] = [
                 'id_usuario'      => $usuario['id_usuario'],
                 'id_empresa'      => $usuario['id_empresa'],
@@ -42,7 +38,6 @@ function iniciarSesion($email, $contra)
                 'contrasena'      => $usuario['contrasena'],
             ];
 
-            // Obtener y guardar datos de la empresa asociada
             $empresa = Empresa::getEmpresaPorId($usuario['id_empresa']);
 
             if ($empresa) {
@@ -57,22 +52,14 @@ function iniciarSesion($email, $contra)
                     'db_nombre'          => $empresa['db_nombre']
                 ];
 
-                // Generar nombre de base de datos y conectar
                 $_SESSION['db_nombre'] = db_nombre(db_maestra, $empresa['nombre_comercial']);
                 Database::getInstance($_SESSION['db_nombre']);
 
-                // Redirigir a la vista de empresa
                 header('Location: /empresa');
                 exit();
-            } else {
-                // Empresa no encontrada (opcional: redirigir o mostrar error)
-                die('Error: No se encontraron datos de la empresa.');
             }
         }
     }
-
-    // Si ningún usuario coincide, podrías redirigir con un mensaje de error
-    // header('Location: /login?error=1');
 }
 
 

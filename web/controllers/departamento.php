@@ -9,7 +9,7 @@ if (isset($_GET['departamento'])) {
     
 
     $page = 'departamento';
-    require 'views/departamento.view.php';
+    require_once 'views/departamento.view.php';
 } else {
     header("Location: /empresa"); // Redirige si no hay parámetro
 }

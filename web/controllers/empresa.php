@@ -1,10 +1,5 @@
 <?php
 
-    if (!isset($_SESSION['usuarioActivo']) || !isset($_SESSION['empresaActiva'])) {
-        header('Location: /'); 
-        exit();
-    }
-
     Database::getInstance($_SESSION['db_nombre']);
 
     if($_SERVER['REQUEST_METHOD'] === 'POST') {
