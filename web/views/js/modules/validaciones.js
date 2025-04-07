@@ -1,3 +1,5 @@
+
+// EMPRESA
 /**
  * Primera letra: Indica el tipo de entidad (A para sociedades anónimas, B para sociedades de responsabilidad limitada, etc.).
     7 dígitos: Números que identifican a la empresa.
@@ -31,4 +33,49 @@ export function validarEmail(email) {
 }
 export function validarContra(contra) {
     return contra.length >= 8;
+}
+
+
+//EMPLEADO
+export function validarNombre(nombre_empleado){
+  return nombre_empleado.length > 1 && !/[0-9]/.test(nombre_empleado);
+}
+
+export function validarApellidos(apellidos_empleado){
+  return apellidos_empleado.length > 1 && !/[0-9]/.test(apellidos_empleado);
+}
+
+export function validarDNI(dni){
+  const cadena = 'TRWAGMYFPDXBNJZSQVHLCKE';
+  dni = dni.trim();
+  let letraCorresp='';
+  let letra = String(dni.slice(8)).toUpperCase();
+  let numero = Number(dni.slice(0,8));
+  let resto = numero % 23;
+  for(i=0; i<cadena.length; i++){
+    if(resto==i){
+      letraCorresp = cadena[i];
+    }
+  }
+  if(letra==letraCorresp){
+      return true;
+  }else{
+      return false;
+  }
+}
+
+export function fechaNacimiento(){
+  const regex = /^\d{4}-\d{2}-\d{2}$/;
+
+  if (!regex.test(fecha)) {
+      return false;
+  }
+
+  const [anio, mes, dia] = fecha.split('-').map(Number);
+
+  const fechaObj = new Date(anio, mes - 1, dia);
+
+  return fechaObj.getFullYear() === anio && 
+          fechaObj.getMonth() === mes - 1 && 
+          fechaObj.getDate() === dia;
 }

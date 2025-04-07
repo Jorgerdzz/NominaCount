@@ -69,87 +69,9 @@ h5 {
     }
 }
 
-
-
 /* ==============================================
    Tabla empleados
    ============================================== */
-#tabla-empleados {
-    width: 100%;
-    border-collapse: collapse;
-    background-color: #fff !important;
+#tabla-empleados{
+    font-family: "Noto Serif", sans-serif !important;
 }
-
-#tabla-empleados th,
-#tabla-empleados td {
-    text-align: center;
-    padding: 10px;
-    border: 1px solid #ddd !important;
-}
-
-#tabla-empleados th {
-    background-color: #007bff !important;
-    color: #fff !important;
-}
-
-#tabla-empleados tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
-
-#tabla-empleados tr:hover {
-    background-color: #f1f1f1;
-}
-
-
-/* ==============================================
-   Barra superior de tabla
-   ============================================== */
-.top-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-.top-left {
-    flex: 1;
-    text-align: left;
-}
-
-.top-center {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
-    color: #333;
-}
-
-.top-right {
-    flex: 1;
-    text-align: right;
-}
-
-/* ==============================================
-   Barra inferior de tabla
-   ============================================== */
-.bottom-toolbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.bottom-left {
-    flex: 1;
-    text-align: left;
-    display: flex;
-}
-
-.bottom-right {
-    flex: 1;
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
-}
-
