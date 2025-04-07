@@ -4,8 +4,7 @@
 
 <!-- Tabla empleados -->
 <section class="container mt-4">
-    <h1 class="text-danger"><?= $departamentoActual['nombre_departamento'] ?></h1>
-
+    
     <div class="section-header">
         <h2>Empleados</h2>
     </div>
@@ -62,31 +61,31 @@
                 <form method="POST">
                     <div class="mb-3">
                         <label for="nombre_empleado" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado" aria-describedby="nombre_empleadoHelp">
+                        <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado" placeholder="Ej: Javier" aria-describedby="nombre_empleadoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="apellidos_empleado" class="form-label">Apellidos:</label>
-                        <input type="text" class="form-control" id="apellidos_empleado" name="apellidos_empleado" aria-describedby="apellidos_empleadoHelp">
+                        <input type="text" class="form-control" id="apellidos_empleado" name="apellidos_empleado" placeholder="Ej: Gutierrez Martín" aria-describedby="apellidos_empleadoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="dni_empleado" class="form-label">DNI:</label>
-                        <input type="text" class="form-control" id="dni_empleado" name="dni_empleado" aria-describedby="dni_empleadoHelp">
+                        <input type="text" class="form-control" id="dni_empleado" name="dni_empleado" placeholder="Ej: 60954324T" aria-describedby="dni_empleadoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="email_empleado" class="form-label">Correo electrónico:</label>
-                        <input type="text" class="form-control" id="email_empleado" name="email_empleado" aria-describedby="email_empleadoHelp">
+                        <input type="text" class="form-control" id="email_empleado" name="email_empleado" placeholder="example@empresa.com" aria-describedby="email_empleadoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="telefono_empleado" class="form-label">Telefono:</label>
-                        <input type="text" class="form-control" id="telefono_empleado" name="telefono_empleado" aria-describedby="telefono_empleadoHelp">
+                        <input type="text" class="form-control" id="telefono_empleado" name="telefono_empleado" placeholder="Ej: 678 324 677" aria-describedby="telefono_empleadoHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="antiguedad_empresa" class="form-label">Antigüedad en la empresa:</label>
-                        <input type="text" class="form-control" id="antiguedad_empresa" name="antiguedad_empresa" aria-describedby="antiguedad_empresaHelp">
+                        <label for="antiguedad_empresa" class="form-label">Fecha de incorporación:</label>
+                        <input type="text" class="form-control" id="antiguedad_empresa" name="antiguedad_empresa" placeholder="Ej: 2023-05-22" aria-describedby="antiguedad_empresaHelp">
                     </div>
                     <div class="mb-3">
                         <label for="num_hijos" class="form-label">Número de hijos:</label>
-                        <input type="text" class="form-control" id="num_hijos" name="num_hijos" aria-describedby="num_hijosHelp">
+                        <input type="text" class="form-control" id="num_hijos" name="num_hijos" placeholder="Ej: 1" aria-describedby="num_hijosHelp">
                     </div>
                     <div class="mb-3">
                         <label for="estado_civil" class="form-label">Estado civil:</label>
@@ -99,11 +98,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
-                        <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" aria-describedby="fecha_nacimientoHelp">
+                        <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Ej: 2000-07-16" aria-describedby="fecha_nacimientoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="salario_base" class="form-label">Salario base:</label>
-                        <input type="text" class="form-control" id="salario_base" name="salario_base" aria-describedby="salario_baseHelp">
+                        <input type="text" class="form-control" id="salario_base" name="salario_base" placeholder="Ej: 3500 €" aria-describedby="salario_baseHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">

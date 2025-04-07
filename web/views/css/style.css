@@ -89,3 +89,30 @@ a{
     color: #160F29;
     background-color: #FFFFFF;
 }
+
+/* ==============================================
+   Perfiles
+   ============================================== */
+.card {
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.profile-img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #825abd;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.btn-purple {
+    background-color: #825abd;
+    color: white;
+}
+
+.btn-purple:hover {
+    background-color: #6d47a8;
+    color: white;
+}

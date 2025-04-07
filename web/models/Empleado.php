@@ -20,6 +20,17 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getEmpleadoPorId($id_empleado)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM empleados WHERE id_empleado = :id_empleado;";
+        $params = [
+            'id_empleado' => $id_empleado
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+    
+
     public static function añadirEmpleado($id_departamento, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
     {
         $instance = self::getInstance();

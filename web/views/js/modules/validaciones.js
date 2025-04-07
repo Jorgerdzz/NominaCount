@@ -79,3 +79,4 @@ export function fechaNacimiento(){
           fechaObj.getMonth() === mes - 1 && 
           fechaObj.getDate() === dia;
 }
+
