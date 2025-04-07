@@ -47,12 +47,16 @@ h5 {
   color: white;
 }
 
+a{
+    text-decoration: none;
+    color: #160F29;
+}
 
 .navbar{
     background-color: white !important;
     a{
         color: #160F29;
-    }
+    }    
 }
 
 .btn-primary,
@@ -74,4 +78,14 @@ h5 {
    ============================================== */
 #tabla-empleados{
     font-family: "Noto Serif", sans-serif !important;
+}
+
+.dt-input option {
+    color: #160F29;
+    background-color: #FFFFFF;
+}
+
+#dt-search-0{
+    color: #160F29;
+    background-color: #FFFFFF;
 }

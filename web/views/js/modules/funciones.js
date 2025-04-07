@@ -1,10 +1,5 @@
 export function cambiarDepartamento(nombre) {
-  console.log(`Departamento seleccionado: ${nombre}`);
-
   window.location.href = `/departamento?departamento=${encodeURIComponent(nombre)}`;
-
-
-
 }
 
 // Configura los event listeners

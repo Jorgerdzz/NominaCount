@@ -17,6 +17,7 @@
     <table id="tabla-empleados">
         <thead>
             <tr>
+                <th>Ver perfil</th>
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
@@ -26,14 +27,15 @@
         </thead>
         <tbody>
             <?php
-                foreach($empleados as $empleado){
-                    echo "<tr>
-                            <td>" . $empleado['nombre'] . "</td>
-                            <td>" . $empleado['apellidos'] . "</td>
-                            <td>" . $empleado['dni'] . "</td>
-                            <td>" . $empleado['email']. "</td>
-                            <td>" . $empleado['salario_base']. " €</td>
-                        </tr>";
+                foreach($empleados as $empleado) {
+                    echo '<tr data-id="' . $empleado['id_empleado'] . '">
+                            <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle"></i></a> 
+                            <td>' . $empleado['nombre'] . '</a></td>
+                            <td>' . $empleado['apellidos'] . '</td>
+                            <td>' . $empleado['dni'] . '</td>
+                            <td>' . $empleado['email'] . '</td>
+                            <td>' . $empleado['salario_base'] . ' €</td>
+                        </tr>';
                 }
             ?>
         </tbody>

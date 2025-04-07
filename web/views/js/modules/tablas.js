@@ -2,7 +2,6 @@ export function crearTabla() {
     new DataTable('#tabla-empleados', {
         paging: true,
         select: true,
-        scrollY: 400,
         language: {
             "emptyTable": "No hay datos disponibles",
             "info": "Mostrando _START_ a _END_ de _TOTAL_ registros",
