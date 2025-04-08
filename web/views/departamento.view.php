@@ -28,7 +28,7 @@
             <?php
                 foreach($empleados as $empleado) {
                     echo '<tr data-id="' . $empleado['id_empleado'] . '">
-                            <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle"></i></a> 
+                            <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle text-dark"></i></a> 
                             <td>' . $empleado['nombre'] . '</a></td>
                             <td>' . $empleado['apellidos'] . '</td>
                             <td>' . $empleado['dni'] . '</td>
@@ -40,12 +40,19 @@
         </tbody>
     </table>
 
-    <div class="container my-2">
+    <div class="container my-3">
         <div class="row">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Añadir empleado</button>
+            <div class="col-md-6 d-flex justify-content-start">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
+            </div>
+            <div class="col-md-6 d-flex justify-content-end">
+                <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
+                <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
+                    Eliminar Departamento
+                </button>
+            </div>
         </div>
     </div>
-
 </section>
 
 
@@ -54,7 +61,7 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #825abd;">
             <div class="modal-header" data-bs-theme="dark">
-                <h1 class="modal-title fs-5" id="titulo">Añadir empleado</h1>
+                <h1 class="modal-title fs-5" id="titulo">Dar de alta empleado</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -81,7 +88,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="antiguedad_empresa" class="form-label">Fecha de incorporación:</label>
-                        <input type="text" class="form-control" id="antiguedad_empresa" name="antiguedad_empresa" placeholder="Ej: 2023-05-22" aria-describedby="antiguedad_empresaHelp">
+                        <input type="date" class="form-control" id="antiguedad_empresa" name="antiguedad_empresa" aria-describedby="antiguedad_empresaHelp">
                     </div>
                     <div class="mb-3">
                         <label for="num_hijos" class="form-label">Número de hijos:</label>
@@ -98,7 +105,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento:</label>
-                        <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" placeholder="Ej: 2000-07-16" aria-describedby="fecha_nacimientoHelp">
+                        <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" aria-describedby="fecha_nacimientoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="salario_base" class="form-label">Salario base:</label>

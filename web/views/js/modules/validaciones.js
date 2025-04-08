@@ -76,8 +76,8 @@ export function validarFechaNacimiento(fecha){
   const fechaObj = new Date(anio, mes - 1, dia);
 
   return fechaObj.getFullYear() === anio && 
-          fechaObj.getMonth() === mes - 1 && 
-          fechaObj.getDate() === dia;
+         fechaObj.getMonth() === mes - 1 && 
+         fechaObj.getDate() === dia;
 }
 
 export function validarNumHijos(num_hijos){

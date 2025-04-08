@@ -38,4 +38,14 @@ class Departamento extends Database
         $instance->query($query, $params);
     }
 
+    public static function eliminarDepartamento($id_departamento)
+    {
+        $instance = self::getInstance();
+        $query = "DELETE FROM departamentos WHERE id_departamento = :id_departamento;";
+        $params = [
+            'id_departamento' => $id_departamento
+        ];
+        $instance->query($query, $params);
+    }
+
 }

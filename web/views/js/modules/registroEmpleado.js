@@ -21,7 +21,7 @@ export function registroEmpleado(){
     const telefono_empleado = document.getElementById('telefono_empleado');
     const antiguedad_empresa = document.getElementById('antiguedad_empresa');
     const num_hijos = document.getElementById('num_hijos');
-    const estado_civil = document.getElementById('nombre_empleado');
+    const estado_civil = document.getElementById('estado_civil');
     const fecha_nacimiento = document.getElementById('fecha_nacimiento');
     const salario_base = document.getElementById('salario_base');
 
@@ -110,7 +110,7 @@ export function registroEmpleado(){
         registroValido();
     });
 
-    estado_civil.addEventListener("input", ()=>{
+    estado_civil.addEventListener("change", ()=>{
         if (validarEstadoCivil(estado_civil.value)) {
             estado_civilValido = true;
             estado_civil.style.border = "solid green";

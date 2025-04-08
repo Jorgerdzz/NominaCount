@@ -49,7 +49,7 @@ h5 {
 
 a{
     text-decoration: none;
-    color: #160F29;
+    color: #FFFFFF;
 }
 
 .navbar{
@@ -59,12 +59,14 @@ a{
     }    
 }
 
-.btn-primary,
-.btn-primary:hover,
-.btn-outline-primary:hover {
+.btn-primary{
   background-color: var(--custom-color) !important;
   border-color: var(--custom-color) !important;
   color: #160F29 !important;
+}
+
+.btn-primary:hover {
+    background-color: #eee9eb !important;
 }
 
 .nav-item{

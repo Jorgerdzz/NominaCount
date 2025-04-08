@@ -31,7 +31,7 @@ class Empleado extends Database
     }
     
 
-    public static function añadirEmpleado($id_departamento, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
+    public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
     {
         $instance = self::getInstance();
         $query = "INSERT INTO empleados (id_departamento, nombre, apellidos, dni, email, 
@@ -52,6 +52,11 @@ class Empleado extends Database
             "salario_base"       => $salario_base,
         ];
         $instance->query($query, $params);
+    }
+
+    public static function darBajaEmpleado()
+    {
+
     }
 
 

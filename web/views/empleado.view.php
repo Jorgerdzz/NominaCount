@@ -65,21 +65,27 @@
             </div>
         </div>
 
-        <div class="text-center mt-4 d-flex flex-wrap justify-content-center gap-3">
-            <form method="post" action="editar_empleado.php">
-                <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
-                <button type="submit" class="btn btn-purple px-4">Volver</button>
-            </form>
-
-            <form method="post" action="modificar_datos.php">
+        <div class="text-center mt-4 d-flex justify-content-center gap-3">
+            <div class="col-md-3">
+                <input type="hidden" name="dni" value="<?= $departamento['nombre_departamento']; ?>">
+                <button type="submit" class="btn btn-purple px-4">
+                    <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
+                </button>
+            </div>
+            <div class="col-md-3">
                 <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
                 <button type="submit" class="btn btn-purple px-4">Editar Perfil</button>
-            </form>
-
-            <form method="post" action="eliminar_empleado.php" onsubmit="return confirm('¿Estás seguro de eliminar este empleado?');">
+            </div>
+            <div class="col-md-3">
                 <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
-                <button type="submit" class="btn btn-danger px-4">Eliminar Empleado</button>
-            </form>
+                <button type="submit" class="btn btn-purple px-4">
+                    <a href="<?= BASE_PATH . '/calcular-nomina';?>">Calcular Nómina</a>
+                </button>
+            </div>
+            <div class="col-md-3">
+                <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
+                <button type="submit" class="btn btn-danger px-4">Dar de baja empleado</button>
+            </div>
         </div>
     </div>
 </div>
