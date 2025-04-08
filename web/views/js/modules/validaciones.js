@@ -52,7 +52,7 @@ export function validarDNI(dni){
   let letra = String(dni.slice(8)).toUpperCase();
   let numero = Number(dni.slice(0,8));
   let resto = numero % 23;
-  for(i=0; i<cadena.length; i++){
+  for(let i=0; i<cadena.length; i++){
     if(resto==i){
       letraCorresp = cadena[i];
     }
@@ -64,7 +64,7 @@ export function validarDNI(dni){
   }
 }
 
-export function fechaNacimiento(){
+export function validarFechaNacimiento(fecha){
   const regex = /^\d{4}-\d{2}-\d{2}$/;
 
   if (!regex.test(fecha)) {
@@ -78,5 +78,21 @@ export function fechaNacimiento(){
   return fechaObj.getFullYear() === anio && 
           fechaObj.getMonth() === mes - 1 && 
           fechaObj.getDate() === dia;
+}
+
+export function validarNumHijos(num_hijos){
+  const isNumber = /^\d+$/.test(num_hijos);
+  return isNumber && num_hijos.length > 0;
+}
+
+export function validarEstadoCivil(estado_civil){
+  return estado_civil !== "";
+}
+
+export function validarSalarioBase(salario){
+    const salario_minimo = 1184;
+    const isNumber = /^\d+(\.\d{1,2})?$/.test(salario); 
+    const salarioValue = parseFloat(salario); 
+    return isNumber && salarioValue >= salario_minimo;
 }
 

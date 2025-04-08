@@ -102,11 +102,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="salario_base" class="form-label">Salario base:</label>
-                        <input type="text" class="form-control" id="salario_base" name="salario_base" placeholder="Ej: 3500 €" aria-describedby="salario_baseHelp">
+                        <input type="text" class="form-control" id="salario_base" name="salario_base" placeholder="Ej: 3500" aria-describedby="salario_baseHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary" id="botonInicioSesion" disabled>Confirmar</button>
+                            <button type="submit" class="btn btn-primary" id="registroEmpleado" disabled>Confirmar</button>
                         </div>
                     </div>
                 </form>

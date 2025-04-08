@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-6">
                 <div class="bg-light p-3 rounded">
-                    <strong>Antigüedad:</strong> <?= $empleado['antiguedad_empresa']; ?>
+                    <strong>Fecha de incorporación:</strong> <?= $empleado['antiguedad_empresa']; ?>
                 </div>
             </div>
             <div class="col-md-6">
