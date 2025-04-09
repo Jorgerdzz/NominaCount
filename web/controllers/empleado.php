@@ -16,6 +16,25 @@
         $estado_civil = $empleado['estado_civil'];
         $fecha_nacimiento = $empleado['fecha_nacimiento'];
         $salario_base = $empleado['salario_base'];
+
+        if(isset($_POST['editar-nombre-empleado']) && 
+            isset($_POST['editar-apellidos-empleado']) && 
+            isset($_POST['editar-dni-empleado']) && 
+            isset($_POST['editar-email-empleado']) && 
+            isset($_POST['editar-telefono-empleado']) && 
+            isset($_POST['editar-antiguedad-empleado']) && 
+            isset($_POST['editar-hijos-empleado']) && 
+            isset($_POST['editar-estado-empleado']) && 
+            isset($_POST['editar-nacimiento-empleado']) && 
+            isset($_POST['editar-salario-empleado']))
+        {
+            Empleado::modificarDatosEmpleado($id_empleado, $_POST['editar-nombre-empleado'], $_POST['editar-apellidos-empleado'], 
+            $_POST['editar-dni-empleado'], $_POST['editar-email-empleado'], $_POST['editar-telefono-empleado'], $_POST['editar-antiguedad-empleado'], 
+            $_POST['editar-nacimiento-empleado'], $_POST['editar-hijos-empleado'], $_POST['editar-estado-empleado'],$_POST['editar-salario-empleado']);
+
+            header("Location: /empleado?id=$id_empleado");
+
+        }
     }
 
     $page = "empleado";

@@ -29,4 +29,40 @@ class Usuario extends Database
         $query = "SELECT * FROM usuarios;";
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public static function modificarUsuario()
+    {
+        $instance = self::getInstance();
+
+        try{
+            $instance->beginTransaction();
+
+            $queryUsuario = "UPDATE usuarios SET nombre_usuario = :nombre, email = :email WHERE id_usuario = :id_usuario;";
+            $params = [
+                'nombre_usuario' => $nombre_usuario,
+                'email'          => $email
+            ];
+            $instace->query($queryUsuario, $params);
+
+            $queryEmpresa = "UPDATE empresas SET cif = :cif, denominacion_social = :denominacion_social, 
+            nombre_comercial = :nombre_comercial, direccion = :direccion, telefono = :telefono, email = :email  
+            WHERE id_empresa = :id_empresa;";
+            $params1 = [
+                'cif'                 => $cif,
+                'denominacion_social' => $denominacion_social,
+                'nombre_comercial'    => $nombre_comercial,
+                'direccion'           => $direccion,
+                'telefono'            => $telefono,
+                'email'               => $email,
+            ];
+            $instance->query($queryEmpresa, $params1);
+            $instance->commit();
+
+        }catch (Exception $e){
+            $instance->rollback();
+            throw $e;
+        }
+        
+
+    }
 }

@@ -65,25 +65,35 @@
             </div>
         </div>
 
-        <div class="text-center mt-4 d-flex justify-content-center gap-3">
-            <div class="col-md-3">
-                <input type="hidden" name="dni" value="<?= $departamento['nombre_departamento']; ?>">
-                <button type="submit" class="btn btn-purple px-4">
-                    <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
-                </button>
-            </div>
-            <div class="col-md-3">
-                <button type="submit" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar Perfil</button>
-            </div>
-            <div class="col-md-3">
-                <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
-                <button type="submit" class="btn btn-purple px-4">
-                    <a href="<?= BASE_PATH . '/calcular-nomina';?>">Calcular Nómina</a>
-                </button>
-            </div>
-            <div class="col-md-3">
-                <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
-                <button type="submit" class="btn btn-danger px-4">Dar de baja empleado</button>
+        <div class="container gap-3 mt-4">
+            <div class="row align-items-center">
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <input type="hidden" name="dni" value="<?= $departamento['nombre_departamento']; ?>">
+                        <button type="submit" class="btn btn-purple px-4">
+                            <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <button type="submit" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
+                        <button type="submit" class="btn btn-purple px-4">
+                            <a href="<?= BASE_PATH . '/calcular-nomina';?>">Calcular nómina</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
+                        <button type="submit" class="btn btn-danger px-4">Dar de baja empleado</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -94,7 +104,7 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #825abd;">
             <div class="modal-header" data-bs-theme="dark">
-                <h1 class="modal-title fs-5" id="titulo">Editar Perfil</h1>
+                <h1 class="modal-title fs-5" id="titulo">Editar perfil</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

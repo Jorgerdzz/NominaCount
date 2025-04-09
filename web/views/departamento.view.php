@@ -48,7 +48,7 @@
             <div class="col-md-6 d-flex justify-content-end">
                 <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
                 <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
-                    Eliminar Departamento
+                    Eliminar departamento
                 </button>
             </div>
         </div>

@@ -37,7 +37,7 @@
 
                             if (!empty($departamentos)) {
                                 foreach ($departamentos as $departamento) {
-                                    echo "<li><a class='dropdown-item' href='#'>{$departamento['nombre_departamento']}</a></li>";
+                                    echo "<li><a class='dropdown-item'>{$departamento['nombre_departamento']}</a></li>";
                                 }
                                 echo "<li><hr class='dropdown-divider'></li>";
                                 echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal'
