@@ -1,5 +1,9 @@
 
 import {
+    validarCIF,
+    validarDenominacionSocial,
+    validarNombreComercial,
+    validarDireccion,
     validarNombre,
     validarApellidos,
     validarDNI,
@@ -8,7 +12,7 @@ import {
     validarFechaNacimiento,
     validarNumHijos,
     validarEstadoCivil,
-    validarSalarioBase
+    validarSalarioBase,
 }from "./validaciones.js";
 
 export function modificarDatosEmpleado(){
@@ -157,4 +161,109 @@ export function modificarDatosEmpleado(){
             }
         }
     })
+}
+
+export function modificarDatosUsuario(){
+    const cif = document.getElementById('editar-cif');
+    const denominacion_social = document.getElementById('editar-denominacion-social');
+    const nombre_comercial = document.getElementById('editar-nombre-comercial');
+    const telefono = document.getElementById('editar-telefono');
+    const direccion = document.getElementById('editar-direccion');
+    const nombre_usuario = document.getElementById('editar-nombre-usuario');
+    const email_usuario = document.getElementById('editar-email-usuario');
+
+    const botonModificar = document.getElementById('boton-editar-perfil-usuario');
+    const botonConfirmar = document.getElementById('editarUsuario');
+
+    let cifValido = true;
+    let denominacion_socialValido = true;
+    let nombre_comercialValido = true;
+    let telefonoValido = true;
+    let direccionValido = true;
+    let nombre_usuarioValido = true;
+    let email_usuarioValido = true;
+
+
+    botonModificar.addEventListener('click', ()=>{
+        cif.addEventListener("input", ()=>{
+            if (validarCIF(cif.value)) {
+                cif.style.border = "solid green";
+            } else {
+                cif.style.border = "solid red";
+            }
+            registroValido();
+        });
+        
+        denominacion_social.addEventListener("input", ()=>{
+            if (validarDenominacionSocial(denominacion_social.value)) {
+                denominacion_social.style.border = "solid green";
+            } else {
+                denominacion_social.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+        nombre_comercial.addEventListener("input", ()=>{
+            if (validarNombreComercial(nombre_comercial.value)) {
+                nombre_comercial.style.border = "solid green";
+            } else {
+                nombre_comercial.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+        telefono.addEventListener("input", ()=>{
+            if (validarTelefono(telefono.value)) {
+                telefono.style.border = "solid green";
+            } else {
+                telefono.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+        direccion.addEventListener("input", ()=>{
+            if (validarDireccion(direccion.value)) {
+                direccion.style.border = "solid green";
+            } else {
+                direccion.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+        nombre_usuario.addEventListener("input", ()=>{
+            if (validarNombre(nombre_usuario.value)) {
+                nombre_usuario.style.border = "solid green";
+            } else {
+                nombre_usuario.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+        email_usuario.addEventListener("input", ()=>{
+            if (validarEmail(email_usuario.value)) {
+                email_usuario.style.border = "solid green";
+            } else {
+                email_usuario.style.border = "solid red";
+            }
+            registroValido();
+        });
+    
+    
+        function registroValido() {
+            if (
+                cifValido &&
+                denominacion_socialValido &&
+                nombre_comercialValido &&
+                telefonoValido &&
+                direccionValido &&
+                nombre_usuarioValido &&
+                email_usuarioValido
+            ) {
+                botonConfirmar.disabled = false;
+            } else {
+                botonConfirmar.disabled = true;
+            }
+        }
+    })
+
 }

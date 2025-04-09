@@ -30,24 +30,26 @@ class Usuario extends Database
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function modificarUsuario()
+    public static function modificarUsuario($id_empresa, $id_usuario, $nombre_usuario, $email, $cif, $denominacion_social, $nombre_comercial, $direccion, $telefono)
     {
         $instance = self::getInstance();
 
         try{
             $instance->beginTransaction();
 
-            $queryUsuario = "UPDATE usuarios SET nombre_usuario = :nombre, email = :email WHERE id_usuario = :id_usuario;";
-            $params = [
+            $queryUsuario = "UPDATE usuarios SET nombre_usuario = :nombre_usuario, email = :email WHERE id_usuario = :id_usuario;";
+            $paramsUsuario = [
+                'id_usuario'     => $id_usuario,
                 'nombre_usuario' => $nombre_usuario,
                 'email'          => $email
             ];
-            $instace->query($queryUsuario, $params);
+            $instance->query($queryUsuario, $paramsUsuario);
 
             $queryEmpresa = "UPDATE empresas SET cif = :cif, denominacion_social = :denominacion_social, 
             nombre_comercial = :nombre_comercial, direccion = :direccion, telefono = :telefono, email = :email  
             WHERE id_empresa = :id_empresa;";
-            $params1 = [
+            $paramsEmpresa = [
+                'id_empresa'          => $id_empresa,
                 'cif'                 => $cif,
                 'denominacion_social' => $denominacion_social,
                 'nombre_comercial'    => $nombre_comercial,
@@ -55,14 +57,13 @@ class Usuario extends Database
                 'telefono'            => $telefono,
                 'email'               => $email,
             ];
-            $instance->query($queryEmpresa, $params1);
+            $instance->query($queryEmpresa, $paramsEmpresa);
             $instance->commit();
+            return true;
 
         }catch (Exception $e){
             $instance->rollback();
             throw $e;
         }
-        
-
     }
 }

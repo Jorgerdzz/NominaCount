@@ -46,4 +46,21 @@ class Database
         $sql = file_get_contents($rutaScript);
         $instance->query($sql);
     }
+
+    public function beginTransaction()
+    {
+        return $this->connection->beginTransaction();
+    }
+
+    public function commit()
+    {
+        return $this->connection->commit();
+    }
+
+    public function rollback()
+    {
+        return $this->connection->rollback();
+    }
+
+
 }

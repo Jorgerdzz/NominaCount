@@ -42,14 +42,14 @@ function iniciarSesion($email, $contra)
 
             if ($empresa) {
                 $_SESSION['empresaActiva'] = [
-                    'id_empresa'         => $empresa['id_empresa'],
-                    'cif'                => $empresa['cif'],
-                    'denominacion'       => $empresa['denominacion_social'],
-                    'nombre_comercial'   => $empresa['nombre_comercial'],
-                    'direccion'          => $empresa['direccion'],
-                    'telefono'           => $empresa['telefono'],
-                    'email'              => $empresa['email'],
-                    'db_nombre'          => $empresa['db_nombre']
+                    'id_empresa'           => $empresa['id_empresa'],
+                    'cif'                  => $empresa['cif'],
+                    'denominacion_social'  => $empresa['denominacion_social'],
+                    'nombre_comercial'     => $empresa['nombre_comercial'],
+                    'direccion'            => $empresa['direccion'],
+                    'telefono'             => $empresa['telefono'],
+                    'email'                => $empresa['email'],
+                    'db_nombre'            => $empresa['db_nombre']
                 ];
 
                 $_SESSION['db_nombre'] = db_nombre(db_maestra, $empresa['nombre_comercial']);

@@ -47,7 +47,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="d-grid m-3">
-                        <button type="submit" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
+                        <button type="submit" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -77,31 +77,31 @@
                 <form method="POST">
                 <div class="mb-3">
                         <label for="editar-cif" class="form-label">C.I.F:</label>
-                        <input type="text" class="form-control" id="editar-cif" name="editar-cif" aria-describedby="editar-cifHelp">
+                        <input type="text" class="form-control" id="editar-cif" name="editar-cif" value="<?= $cif;?>" aria-describedby="editar-cifHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="editar-denominacion" class="form-label">Denominación social:</label>
-                        <input type="text" class="form-control" id="editar-denominacion" name="editar-denominacion" aria-describedby="editar-denominacionHelp">
+                        <label for="editar-denominacion-social" class="form-label">Denominación social:</label>
+                        <input type="text" class="form-control" id="editar-denominacion-social" name="editar-denominacion-social" value="<?= $denominacion_social;?>" aria-describedby="editar-denominacionHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-nombre-comercial" class="form-label">Nombre comercial:</label>
-                        <input type="text" class="form-control" id="editar-nombre-comercial" name="editar-nombre-comercial" aria-describedby="editar-nombre-comercialHelp">
+                        <input type="text" class="form-control" id="editar-nombre-comercial" name="editar-nombre-comercial" value="<?= $nombre_comercial;?>" aria-describedby="editar-nombre-comercialHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-direccion" class="form-label">Dirrección:</label>
-                        <input type="text" class="form-control" id="editar-direccion" name="editar-direccion" aria-describedby="editar-direccionHelp">
+                        <input type="text" class="form-control" id="editar-direccion" name="editar-direccion" value="<?= $direccion;?>" aria-describedby="editar-direccionHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-telefono" class="form-label">Telefono:</label>
-                        <input type="text" class="form-control" id="editar-telefono" name="editar-telefono" aria-describedby="editar-telefonoHelp">
+                        <input type="text" class="form-control" id="editar-telefono" name="editar-telefono" value="<?= $telefono;?>" aria-describedby="editar-telefonoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-nombre-usuario" class="form-label">Nombre:</label>
-                        <input type="text" class="form-control" id="editar-nombre-usuario" name="editar-nombre-usuario" aria-describedby="editar-nombre-usuarioHelp">
+                        <input type="text" class="form-control" id="editar-nombre-usuario" name="editar-nombre-usuario" value="<?= $nombre;?>" aria-describedby="editar-nombre-usuarioHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-email-usuario" class="form-label">Correo electrónico:</label>
-                        <input type="text" class="form-control" id="editar-email-usuario" name="editar-email-usuario" aria-describedby="editar-email-usuarioHelp">
+                        <input type="text" class="form-control" id="editar-email-usuario" name="editar-email-usuario" value="<?= $email;?>" aria-describedby="editar-email-usuarioHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
