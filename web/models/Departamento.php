@@ -48,4 +48,17 @@ class Departamento extends Database
         $instance->query($query, $params);
     }
 
+    public static function existeDepartamento($nombre_departamento)
+    {
+        $instance = self::getInstance();
+        $instance = self::getInstance();
+        $query = "SELECT COUNT(*) as count FROM departamentos WHERE nombre_departamento = :nombre_departamento";
+        $params = ['nombre_departamento' => $nombre_departamento];
+        $result = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+        if (!empty($result) && isset($result[0]['count'])) {
+            return $result[0]['count'] > 0; 
+        }
+        return false;
+    }
+
 }

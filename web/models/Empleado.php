@@ -59,5 +59,26 @@ class Empleado extends Database
 
     }
 
+    public static function modificarDatosEmpleado($id_empleado, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
+    {
+        $instance = self::getInstance();
+        $query = "UPDATE empleados SET nombre = :nombre, apellidos = :apellidos, dni = :dni, email = :email, telefono = :telefono, antiguedad_empresa = :antiguedad_empresa, 
+        fecha_nacimiento = :fecha_nacimiento, num_hijos = :num_hijos, estado_civil = :estado_civil,  salario_base = :salario_base WHERE id_empleado = :id_empleado";
+        $params = [
+            "id_empleado"        => $id_empleado,
+            "nombre"             => $nombre,
+            "apellidos"          => $apellidos,
+            "dni"                => $dni,
+            "email"              => $email,
+            "telefono"           => $telefono,
+            "antiguedad_empresa" => $antiguedad_empresa,
+            "fecha_nacimiento"   => $fecha_nacimiento,
+            "num_hijos"          => $num_hijos,
+            "estado_civil"       => $estado_civil,
+            "salario_base"       => $salario_base,
+        ];
+        $instance->query($query, $params);
+    }
+
 
 }

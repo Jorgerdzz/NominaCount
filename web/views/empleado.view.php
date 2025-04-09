@@ -73,8 +73,7 @@
                 </button>
             </div>
             <div class="col-md-3">
-                <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
-                <button type="submit" class="btn btn-purple px-4">Editar Perfil</button>
+                <button type="submit" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar Perfil</button>
             </div>
             <div class="col-md-3">
                 <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
@@ -90,7 +89,71 @@
     </div>
 </div>
 
-
+<!-- Modal Editar Perfil Empleado -->
+<div class="modal fade" id="editar-perfil-empleado" tabindex="-1" aria-labelledby="editar-perfil-empleadoLabel">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #825abd;">
+            <div class="modal-header" data-bs-theme="dark">
+                <h1 class="modal-title fs-5" id="titulo">Editar Perfil</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="editar-nombre-empleado" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control" id="editar-nombre-empleado" name="editar-nombre-empleado" value="<?= $empleado['nombre']; ?>" aria-describedby="editar-nombre-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-apellidos-empleado" class="form-label">Apellidos:</label>
+                        <input type="text" class="form-control" id="editar-apellidos-empleado" name="editar-apellidos-empleado" value="<?= $empleado['apellidos']; ?>" aria-describedby="editar-apellidos-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-dni-empleado" class="form-label">DNI:</label>
+                        <input type="text" class="form-control" id="editar-dni-empleado" name="editar-dni-empleado" value="<?= $empleado['dni']; ?>" aria-describedby="editar-dni-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-email-empleado" class="form-label">Correo electrónico:</label>
+                        <input type="text" class="form-control" id="editar-email-empleado" name="editar-email-empleado" value="<?= $empleado['email']; ?>" aria-describedby="editar-email-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-telefono-empleado" class="form-label">Telefono:</label>
+                        <input type="text" class="form-control" id="editar-telefono-empleado" name="editar-telefono-empleado" value="<?= $empleado['telefono']; ?>" aria-describedby="editar-telefono-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-antiguedad-empleado" class="form-label">Fecha de incorporación:</label>
+                        <input type="date" class="form-control" id="editar-antiguedad-empleado" name="editar-antiguedad-empleado" value="<?= $empleado['antiguedad_empresa']; ?>" aria-describedby="editar-antiguedad-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-hijos-empleado" class="form-label">Número de hijos:</label>
+                        <input type="text" class="form-control" id="editar-hijos-empleado" name="editar-hijos-empleado" value="<?= $empleado['num_hijos']; ?>" aria-describedby="editar-hijos-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-estado-empleado" class="form-label">Estado civil:</label>
+                        <select name="editar-estado-empleado" id="editar-estado-empleado" value="<?= $empleado['nombre']; ?>">
+                            <option value="soltero">Soltero</option>
+                            <option value="casado">Casado</option>
+                            <option value="divorciado">Divorciado</option>
+                            <option value="pareja_hecho">Pareja de hecho</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-nacimiento-empleado" class="form-label">Fecha de nacimiento:</label>
+                        <input type="date" class="form-control" id="editar-nacimiento-empleado" name="editar-nacimiento-empleado" value="<?= $empleado['fecha_nacimiento']; ?>" aria-describedby="editar-nacimiento-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-salario-empleado" class="form-label">Salario base:</label>
+                        <input type="text" class="form-control" id="editar-salario-empleado" name="editar-salario-empleado" value="<?= $empleado['salario_base']; ?>" aria-describedby="editar-salario-empleadoHelp">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-grid w-100">
+                            <button type="submit" class="btn btn-primary" id="confirmarModificacion" disabled>Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 

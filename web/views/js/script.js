@@ -3,7 +3,9 @@ import { validarInicioSesion } from "./modules/inicioSesion.js";
 import { setupDepartamentoHandlers } from "./modules/funciones.js";
 import { crearTabla } from "./modules/tablas.js";
 import { registroEmpleado } from "./modules/registroEmpleado.js";
-import { eliminarDepartamento } from "./modules/popup.js";
+import { eliminarDepartamento, anadirDepartamento } from "./modules/popup.js";
+import { modificarDatosEmpleado } from "./modules/modificarDatos.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -19,6 +21,10 @@ document.addEventListener("DOMContentLoaded", () => {
       crearTabla();
       registroEmpleado();
       eliminarDepartamento();
+      anadirDepartamento();
+      break;
+    case "empleado":
+      modificarDatosEmpleado();
       break;
     default:
       break;

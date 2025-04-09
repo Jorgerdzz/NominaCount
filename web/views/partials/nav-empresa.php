@@ -88,13 +88,13 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST">
+                <form id="form-nuevo-departamento" method="POST">
                     <div class="mb-3">
-                        <label for="nombre_departamento" class="form-label">Nombre:</label>
+                        <label for="nombre_departamento" class="form-label">Nombre del departamento:</label>
                         <input type="text" class="form-control" id="nombre_departamento" name="nombre_departamento" aria-describedby="nombre_departamentolHelp">
                     </div>
                     <div class="mb-3">
-                        <label for="jefe_departamento" class="form-label">Jefe:</label>
+                        <label for="jefe_departamento" class="form-label">Jefe del departamento:</label>
                         <input type="text" class="form-control" id="jefe_departamento" name="jefe_departamento" aria-describedby="jefe_departamentoHelp">
                     </div>
                     <div class="modal-footer">

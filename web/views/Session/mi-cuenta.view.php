@@ -39,10 +39,36 @@
         </div>
 
         <div class="text-center mt-4">
-            <form method="post" action="editar_usuario.php">
-                <input type="hidden" name="email" value="<?= $email; ?>">
-                <button type="submit" class="btn btn-purple px-4">Editar Perfil</button>
-            </form>
+            <button type="submit" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar Perfil</button>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Editar Perfil Usuario -->
+<div class="modal fade" id="editar-perfil-usuario" tabindex="-1" aria-labelledby="editar-perfil-usuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #825abd;">
+            <div class="modal-header" data-bs-theme="dark">
+                <h1 class="modal-title fs-5" id="titulo">Editar Perfil</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="POST">
+                    <div class="mb-3">
+                        <label for="emailInicioSesion" class="form-label">Correo electrónico:</label>
+                        <input type="text" class="form-control" id="emailInicioSesion" name="emailInicioSesion" aria-describedby="emailHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="contraInicioSesion" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="contraInicioSesion" name="contraInicioSesion" aria-describedby="contraHelp">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-grid w-100">
+                            <button type="submit" class="btn btn-primary" id="botonInicioSesion" disabled>Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
