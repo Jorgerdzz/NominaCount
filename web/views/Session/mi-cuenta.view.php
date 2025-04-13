@@ -4,7 +4,6 @@
 <div class="container my-5">
     <div class="card p-4 bg-white">
         <h2 class="text-start mb-4" style="color: #825abd;">Perfil de Usuario</h2>
-
         <div class="row g-3">
             <div class="col-md-6">
                 <div class="bg-light p-3 rounded">
@@ -126,19 +125,19 @@
                 <form method="POST">
                     <div class="mb-3">
                         <label for="contra-actual" class="form-label">Contraseña actual:</label>
-                        <input type="text" class="form-control" id="contra-actual" name="contra-actual" aria-describedby="contra-actualHelp">
+                        <input type="password" class="form-control" id="contra-actual" name="contra-actual" aria-describedby="contra-actualHelp">
                     </div>
                     <div class="mb-3">
                         <label for="nueva-contra" class="form-label">Nueva contraseña:</label>
-                        <input type="text" class="form-control" id="nueva-contra" name="nueva-contra" aria-describedby="nueva-contraHelp">
+                        <input type="password" class="form-control" id="nueva-contra" name="nueva-contra" aria-describedby="nueva-contraHelp">
                     </div>
                     <div class="mb-3">
                         <label for="confirmar-contra" class="form-label">Confirmar contraseña:</label>
-                        <input type="text" class="form-control" id="confirmar-contra" name="confirmar-contra" aria-describedby="confirmar-contraHelp">
+                        <input type="password" class="form-control" id="confirmar-contra" name="confirmar-contra" aria-describedby="confirmar-contraHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary" id="cambiar-contra" disabled>Confirmar</button>
+                            <button type="submit" class="btn btn-primary" id="cambiar-contra">Confirmar</button>
                         </div>
                     </div>
                 </form>

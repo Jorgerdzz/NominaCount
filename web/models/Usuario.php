@@ -66,4 +66,15 @@ class Usuario extends Database
             throw $e;
         }
     }
+
+    public static function cambiarContrasena($id_usuario, $contrasena)
+    {
+        $instance = new self();
+        $query = "UPDATE usuarios SET contrasena = :contrasena WHERE id_usuario = :id_usuario;";
+        $params = [
+            'id_usuario' => $id_usuario,
+            'contrasena' => password_hash($contrasena, PASSWORD_DEFAULT)
+        ];
+        $instance->query($query, $params);
+    }
 }

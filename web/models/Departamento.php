@@ -3,11 +3,6 @@
 class Departamento extends Database
 {
 
-    private $nombre_departamento;
-    private $jefe_departamento;
-    private $num_empleados;
-
-
     public static function getDepartamentos()
     {
         $instance = self::getInstance();
