@@ -30,7 +30,17 @@
             </div>
             <div class="col-md-6">
                 <div class="bg-light p-3 rounded">
+                    <strong>Numero seguridad social:</strong> <?= $empleado['num_seguridad_social']; ?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-light p-3 rounded">
                     <strong>Email:</strong> <?= $empleado['email']; ?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-light p-3 rounded">
+                    <strong>Categoría profesional:</strong> <?= $empleado['categoria_profesional']; ?>
                 </div>
             </div>
             <div class="col-md-6">
@@ -50,6 +60,11 @@
             </div>
             <div class="col-md-6">
                 <div class="bg-light p-3 rounded">
+                    <strong>Minusvalía:</strong> <?= $empleado['minusvalia']; ?>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bg-light p-3 rounded">
                     <strong>Estado Civil:</strong> <?= $empleado['estado_civil']; ?>
                 </div>
             </div>
@@ -58,7 +73,7 @@
                     <strong>Fecha de Nacimiento:</strong> <?= $empleado['fecha_nacimiento']; ?>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col">
                 <div class="bg-light p-3 rounded">
                     <strong>Salario Base:</strong> <?= $empleado['salario_base']; ?> €
                 </div>
@@ -70,7 +85,7 @@
                 <div class="col-12 col-md-3">
                     <div class="d-grid m-3">
                         <input type="hidden" name="dni" value="<?= $departamento['nombre_departamento']; ?>">
-                        <button type="submit" class="btn btn-purple px-4">
+                        <button class="btn btn-purple px-4">
                             <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
                         </button>
                     </div>
@@ -84,7 +99,7 @@
                     <div class="d-grid m-3">
                         <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
                         <button type="submit" class="btn btn-purple px-4">
-                            <a href="<?= BASE_PATH . '/calcular-nomina';?>">Calcular nómina</a>
+                            <a href="<?= BASE_PATH . '/calcular-nomina/empleado?id=' . $id_empleado; ?>">Calcular nómina</a>
                         </button>
                     </div>
                 </div>
@@ -122,6 +137,10 @@
                         <input type="text" class="form-control" id="editar-dni-empleado" name="editar-dni-empleado" value="<?= $empleado['dni']; ?>" aria-describedby="editar-dni-empleadoHelp">
                     </div>
                     <div class="mb-3">
+                        <label for="editar-num-seguridad-social" class="form-label">Número seguridad social:</label>
+                        <input type="text" class="form-control" id="editar-num-seguridad-social" name="editar-num-seguridad-social" value="<?= $empleado['num_seguridad_social']; ?>" aria-describedby="editar-num-seguridad-socialHelp">
+                    </div>
+                    <div class="mb-3">
                         <label for="editar-email-empleado" class="form-label">Correo electrónico:</label>
                         <input type="text" class="form-control" id="editar-email-empleado" name="editar-email-empleado" value="<?= $empleado['email']; ?>" aria-describedby="editar-email-empleadoHelp">
                     </div>
@@ -132,6 +151,22 @@
                     <div class="mb-3">
                         <label for="editar-antiguedad-empleado" class="form-label">Fecha de incorporación:</label>
                         <input type="date" class="form-control" id="editar-antiguedad-empleado" name="editar-antiguedad-empleado" value="<?= $empleado['antiguedad_empresa']; ?>" aria-describedby="editar-antiguedad-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-categoria-profesional" class="form-label">Categoría profesional:</label>
+                        <select name="editar-categoria-profesional" id="editar-categoria-profesional" value="<?= $empleado['categoria_profesional']; ?>">
+                            <option value="ingenieros_licenciados">Ingenieros y Licenciados. Personal de alta dirección</option>
+                            <option value="ingenieros_tecnicos">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
+                            <option value="jefes_administrativos">Jefes Administrativos y de Taller</option>
+                            <option value="ayudantes_no_titulados">Ayudantes no titulados</option>
+                            <option value="oficiales_administrativos">Oficiales Administrativos</option>
+                            <option value="subalternos">Subalternos</option>
+                            <option value="auxiliares_administrativos">Auxiliares administrativos</option>
+                            <option value="oficiales_primera_segunda">Oficiales de primera y segunda</option>
+                            <option value="oficiales_tercera_especialistas">Oficiales de tercera y especialistas</option>
+                            <option value="peones">Peones</option>
+                            <option value="menores">Trabajadores menores de dieciocho años</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="editar-hijos-empleado" class="form-label">Número de hijos:</label>
@@ -149,6 +184,14 @@
                     <div class="mb-3">
                         <label for="editar-nacimiento-empleado" class="form-label">Fecha de nacimiento:</label>
                         <input type="date" class="form-control" id="editar-nacimiento-empleado" name="editar-nacimiento-empleado" value="<?= $empleado['fecha_nacimiento']; ?>" aria-describedby="editar-nacimiento-empleadoHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="editar-minusvalia" class="form-label">Minusvalía:</label>
+                        <select name="editar-minusvalia" id="editar-minusvalia" value="<?= $empleado['minusvalia']; ?>">
+                            <option value="Sin_discapacidad">Sin discapacidad</option>
+                            <option value="media">Entre el 33% y el 65%</option>
+                            <option value="alta">Igual o superior al 65%</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="editar-salario-empleado" class="form-label">Salario base:</label>

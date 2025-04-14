@@ -7,9 +7,12 @@ import {
     validarNombre,
     validarApellidos,
     validarDNI,
+    validarNumSS,
     validarEmail,
     validarTelefono,
     validarFechaNacimiento,
+    validarCategoriaProfesional,
+    validarMinusvalia,
     validarNumHijos,
     validarEstadoCivil,
     validarSalarioBase,
@@ -19,9 +22,12 @@ export function modificarDatosEmpleado(){
     const nombre_empleado = document.getElementById('editar-nombre-empleado');
     const apellidos_empleado = document.getElementById('editar-apellidos-empleado');
     const dni_empleado = document.getElementById('editar-dni-empleado');
+    const num_seguridad_social = document.getElementById('editar-num-seguridad-social');
     const email_empleado = document.getElementById('editar-email-empleado');
     const telefono_empleado = document.getElementById('editar-telefono-empleado');
     const antiguedad_empresa = document.getElementById('editar-antiguedad-empleado');
+    const categoria_profesional = document.getElementById('editar-categoria-profesional');
+    const minusvalia = document.getElementById('editar-minusvalia');
     const num_hijos = document.getElementById('editar-hijos-empleado');
     const estado_civil = document.getElementById('editar-estado-empleado');
     const fecha_nacimiento = document.getElementById('editar-nacimiento-empleado');
@@ -33,9 +39,12 @@ export function modificarDatosEmpleado(){
     let nombre_empleadoValido = true;
     let apellidos_empleadoValido = true;
     let dni_empleadoValido = true;
+    let num_seguridad_socialValido = true;
     let email_empleadoValido = true;
     let telefono_empleadoValido = true;
     let antiguedad_empresaValido = true;
+    let categoria_profesionalValido = true;
+    let minusvaliaValido = true;
     let num_hijosValido = true;
     let estado_civilValido = true;
     let fecha_nacimientoValido = true;
@@ -71,6 +80,16 @@ export function modificarDatosEmpleado(){
             }
             registroValido();
         });
+
+        num_seguridad_social.addEventListener("input", ()=>{
+            if (validarNumSS(num_seguridad_social.value)) {
+                num_seguridad_socialValido = true;
+                num_seguridad_social.style.border = "solid green";
+            } else {
+                num_seguridad_social.style.border = "solid red";
+            }
+            registroValido();
+        });
     
         email_empleado.addEventListener("input", ()=>{
             if (validarEmail(email_empleado.value)) {
@@ -98,6 +117,26 @@ export function modificarDatosEmpleado(){
                 antiguedad_empresa.style.border = "solid green";
             } else {
                 antiguedad_empresa.style.border = "solid red";
+            }
+            registroValido();
+        });
+
+        categoria_profesional.addEventListener("input", ()=>{
+            if (validarCategoriaProfesional(categoria_profesional.value)) {
+                categoria_profesionalValido = true;
+                categoria_profesional.style.border = "solid green";
+            } else {
+                categoria_profesional.style.border = "solid red";
+            }
+            registroValido();
+        });
+
+        minusvalia.addEventListener("input", ()=>{
+            if (validarMinusvalia(minusvalia.value)) {
+                minusvaliaValido = true;
+                minusvalia.style.border = "solid green";
+            } else {
+                minusvalia.style.border = "solid red";
             }
             registroValido();
         });
@@ -147,9 +186,12 @@ export function modificarDatosEmpleado(){
                 nombre_empleadoValido &&
                 apellidos_empleadoValido &&
                 dni_empleadoValido &&
+                num_seguridad_socialValido &&
                 email_empleadoValido &&
                 telefono_empleadoValido &&
                 antiguedad_empresaValido &&
+                categoria_profesionalValido &&
+                minusvaliaValido &&
                 num_hijosValido &&
                 estado_civilValido &&
                 fecha_nacimientoValido &&

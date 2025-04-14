@@ -8,5 +8,5 @@
         '/empleado' => 'controllers/empleado.php',
         '/mi-cuenta' => 'controllers/Session/mi-cuenta.php',
         '/cerrar-sesion' => 'controllers/Session/cerrar-sesion.php',
-        '/calcular-nomina' => 'controllers/Nomina/calcular-nomina.php',
+        '/calcular-nomina/empleado' => 'controllers/Nomina/calcular-nomina.php',
     ];

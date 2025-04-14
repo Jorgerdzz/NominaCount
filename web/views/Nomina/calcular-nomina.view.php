@@ -23,7 +23,7 @@
 
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">Salario base</div>
-                <div class="col-md-6"><input type="number" step="0.01" name="salario_base" class="form-control"></div>
+                <div class="col-md-6"><input type="number" value="<?= $salario_base; ?>" step="0.01" name="salario_base" class="form-control"></div>
             </div>
 
             <div class="row mb-2 align-items-center">
@@ -125,6 +125,12 @@
                             <td><input type="number" step="0.01" name="importe_fp" class="form-control"></td>
                         </tr>
                         <tr>
+                            <td class="text-start">M.E.I</td> <!-- Mecanismo de Equidad Integracional -->
+                            <td><input type="number" step="0.01" name="base_fp" class="form-control" readonly></td>
+                            <td><input type="number" step="0.01" name="tipo_fp" class="form-control" readonly></td>
+                            <td><input type="number" step="0.01" name="importe_fp" class="form-control"></td>
+                        </tr>
+                        <tr>
                             <td class="text-start">Horas extra normales</td>
                             <td><input type="number" step="0.01" name="base_hextra" class="form-control" readonly></td>
                             <td><input type="number" step="0.01" name="tipo_hextra" class="form-control" readonly></td>
@@ -154,7 +160,12 @@
 
             <!-- ENVÍO -->
             <div class="row mt-5">
-                <div class="col-12 d-grid">
+                <div class="col-md-6 d-grid">
+                    <button class="btn btn-purple btn-lg">
+                        <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">Volver</a>
+                    </button>
+                </div>
+                <div class="col-md-6 d-grid">
                     <button type="submit" class="btn btn-purple btn-lg">Calcular Nómina</button>
                 </div>
             </div>

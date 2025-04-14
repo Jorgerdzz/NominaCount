@@ -3,9 +3,12 @@ import {
     validarNombre,
     validarApellidos,
     validarDNI,
+    validarNumSS,
     validarEmail,
     validarTelefono,
     validarFechaNacimiento,
+    validarCategoriaProfesional,
+    validarMinusvalia,
     validarNumHijos,
     validarEstadoCivil,
     validarSalarioBase
@@ -17,9 +20,12 @@ export function registroEmpleado(){
     const nombre_empleado = document.getElementById('nombre_empleado');
     const apellidos_empleado = document.getElementById('apellidos_empleado');
     const dni_empleado = document.getElementById('dni_empleado');
+    const num_seguridad_social = document.getElementById('num_seguridad_social');
     const email_empleado = document.getElementById('email_empleado');
     const telefono_empleado = document.getElementById('telefono_empleado');
     const antiguedad_empresa = document.getElementById('antiguedad_empresa');
+    const categoria_profesional = document.getElementById('categoria_profesional');
+    const minusvalia = document.getElementById('minusvalia');
     const num_hijos = document.getElementById('num_hijos');
     const estado_civil = document.getElementById('estado_civil');
     const fecha_nacimiento = document.getElementById('fecha_nacimiento');
@@ -30,9 +36,12 @@ export function registroEmpleado(){
     let nombre_empleadoValido = false;
     let apellidos_empleadoValido = false;
     let dni_empleadoValido = false;
+    let num_seguridad_socialValido = false;
     let email_empleadoValido = false;
     let telefono_empleadoValido = false;
     let antiguedad_empresaValido = false;
+    let categoria_profesionalValido = false;
+    let minusvaliaValido = false;
     let num_hijosValido = false;
     let estado_civilValido = false;
     let fecha_nacimientoValido = false;
@@ -70,6 +79,16 @@ export function registroEmpleado(){
         registroValido();
     });
 
+    num_seguridad_social.addEventListener("input", ()=>{
+        if (validarNumSS(num_seguridad_social.value)) {
+            num_seguridad_socialValido = true;
+            num_seguridad_social.style.border = "solid green";
+        } else {
+            num_seguridad_social.style.border = "solid red";
+        }
+        registroValido();
+    });
+
     email_empleado.addEventListener("input", ()=>{
         if (validarEmail(email_empleado.value)) {
             email_empleadoValido = true;
@@ -96,6 +115,26 @@ export function registroEmpleado(){
             antiguedad_empresa.style.border = "solid green";
         } else {
             antiguedad_empresa.style.border = "solid red";
+        }
+        registroValido();
+    });
+
+    categoria_profesional.addEventListener("input", ()=>{
+        if (validarCategoriaProfesional(categoria_profesional.value)) {
+            categoria_profesionalValido = true;
+            categoria_profesional.style.border = "solid green";
+        } else {
+            categoria_profesional.style.border = "solid red";
+        }
+        registroValido();
+    });
+
+    minusvalia.addEventListener("input", ()=>{
+        if (validarMinusvalia(minusvalia.value)) {
+            minusvaliaValido = true;
+            minusvalia.style.border = "solid green";
+        } else {
+            minusvalia.style.border = "solid red";
         }
         registroValido();
     });
@@ -145,9 +184,12 @@ export function registroEmpleado(){
           nombre_empleadoValido &&
           apellidos_empleadoValido &&
           dni_empleadoValido &&
+          num_seguridad_socialValido &&
           email_empleadoValido &&
           telefono_empleadoValido &&
           antiguedad_empresaValido &&
+          categoria_profesionalValido &&
+          minusvaliaValido &&
           num_hijosValido &&
           estado_civilValido &&
           fecha_nacimientoValido &&

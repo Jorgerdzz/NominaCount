@@ -31,25 +31,28 @@ class Empleado extends Database
     }
     
 
-    public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
+    public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
         $instance = self::getInstance();
         $query = "INSERT INTO empleados (id_departamento, nombre, apellidos, dni, email, 
         telefono, antiguedad_empresa, fecha_nacimiento, num_hijos, estado_civil, salario_base)
-        VALUES (:id_departamento, :nombre, :apellidos, :dni, :email, :telefono,
-        :antiguedad_empresa, :fecha_nacimiento, :num_hijos, :estado_civil, :salario_base);";
+        VALUES (:id_departamento, :nombre, :apellidos, :dni, :num_seguridad_social, :email, :telefono,
+        :antiguedad_empresa, :fecha_nacimiento, :categoria_profesional, :minusvalia, :num_hijos, :estado_civil, :salario_base);";
         $params = [
-            "id_departamento"    => $id_departamento,
-            "nombre"             => $nombre,
-            "apellidos"          => $apellidos,
-            "dni"                => $dni,
-            "email"              => $email,
-            "telefono"           => $telefono,
-            "antiguedad_empresa" => $antiguedad_empresa,
-            "fecha_nacimiento"   => $fecha_nacimiento,
-            "num_hijos"          => $num_hijos,
-            "estado_civil"       => $estado_civil,
-            "salario_base"       => $salario_base,
+            "id_departamento"       => $id_departamento,
+            "nombre"                => $nombre,
+            "apellidos"             => $apellidos,
+            "dni"                   => $dni,
+            "num_seguridad_social"  => $num_seguridad_social,
+            "email"                 => $email,
+            "telefono"              => $telefono,
+            "antiguedad_empresa"    => $antiguedad_empresa,
+            "fecha_nacimiento"      => $fecha_nacimiento,
+            "categoria_profesional" => $categoria_profesional,
+            "minusvalia"            => $minusvalia,
+            "num_hijos"             => $num_hijos,
+            "estado_civil"          => $estado_civil,
+            "salario_base"          => $salario_base,
         ];
         $instance->query($query, $params);
     }
@@ -59,23 +62,28 @@ class Empleado extends Database
 
     }
 
-    public static function modificarDatosEmpleado($id_empleado, $nombre, $apellidos, $dni, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $num_hijos, $estado_civil, $salario_base)
+    public static function modificarDatosEmpleado($id_empleado, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
         $instance = self::getInstance();
-        $query = "UPDATE empleados SET nombre = :nombre, apellidos = :apellidos, dni = :dni, email = :email, telefono = :telefono, antiguedad_empresa = :antiguedad_empresa, 
-        fecha_nacimiento = :fecha_nacimiento, num_hijos = :num_hijos, estado_civil = :estado_civil,  salario_base = :salario_base WHERE id_empleado = :id_empleado";
+        $query = "UPDATE empleados SET nombre = :nombre, apellidos = :apellidos, dni = :dni, num_seguridad_social = :num_seguridad_social, 
+        email = :email, telefono = :telefono, antiguedad_empresa = :antiguedad_empresa, fecha_nacimiento = :fecha_nacimiento, 
+        categoria_profesional = :categoria_profesional, minusvalia = :minusvalia, num_hijos = :num_hijos, estado_civil = :estado_civil,  salario_base = :salario_base WHERE id_empleado = :id_empleado";
         $params = [
-            "id_empleado"        => $id_empleado,
-            "nombre"             => $nombre,
-            "apellidos"          => $apellidos,
-            "dni"                => $dni,
-            "email"              => $email,
-            "telefono"           => $telefono,
-            "antiguedad_empresa" => $antiguedad_empresa,
-            "fecha_nacimiento"   => $fecha_nacimiento,
-            "num_hijos"          => $num_hijos,
-            "estado_civil"       => $estado_civil,
-            "salario_base"       => $salario_base,
+            "id_empleado"           => $id_empleado,
+            "nombre"                => $nombre,
+            "apellidos"             => $apellidos,
+            "dni"                   => $dni,
+            "num_seguridad_social"  => $num_seguridad_social,
+            "email"                 => $email,
+            "telefono"              => $telefono,
+            "antiguedad_empresa"    => $antiguedad_empresa,
+            "fecha_nacimiento"      => $fecha_nacimiento,
+            "categoria_profesional" => $categoria_profesional,
+            "minusvalia"            => $minusvalia,
+            "fecha_nacimiento"      => $fecha_nacimiento,
+            "num_hijos"             => $num_hijos,
+            "estado_civil"          => $estado_civil,
+            "salario_base"          => $salario_base,
         ];
         $instance->query($query, $params);
     }

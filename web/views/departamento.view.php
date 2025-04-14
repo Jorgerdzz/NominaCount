@@ -20,6 +20,7 @@
                 <th>Nombre</th>
                 <th>Apellidos</th>
                 <th>DNI</th>
+                <th>Numero seguridad social</th>
                 <th>Correo electrónico</th>
                 <th>Salario base</th>
             </tr>
@@ -32,6 +33,7 @@
                             <td>' . $empleado['nombre'] . '</a></td>
                             <td>' . $empleado['apellidos'] . '</td>
                             <td>' . $empleado['dni'] . '</td>
+                            <td>' . $empleado['num_seguridad_social'] . '</td>
                             <td>' . $empleado['email'] . '</td>
                             <td>' . $empleado['salario_base'] . ' €</td>
                         </tr>';
@@ -79,6 +81,10 @@
                         <input type="text" class="form-control" id="dni_empleado" name="dni_empleado" placeholder="Ej: 60954324T" aria-describedby="dni_empleadoHelp">
                     </div>
                     <div class="mb-3">
+                        <label for="num_seguridad_social" class="form-label">Numero seguridad social:</label>
+                        <input type="text" class="form-control" id="num_seguridad_social" name="num_seguridad_social" placeholder="Ej: 721660997254" aria-describedby="num_seguridad_socialHelp">
+                    </div>
+                    <div class="mb-3">
                         <label for="email_empleado" class="form-label">Correo electrónico:</label>
                         <input type="text" class="form-control" id="email_empleado" name="email_empleado" placeholder="example@empresa.com" aria-describedby="email_empleadoHelp">
                     </div>
@@ -89,6 +95,22 @@
                     <div class="mb-3">
                         <label for="antiguedad_empresa" class="form-label">Fecha de incorporación:</label>
                         <input type="date" class="form-control" id="antiguedad_empresa" name="antiguedad_empresa" aria-describedby="antiguedad_empresaHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoria_profesional" class="form-label">Categoría profesional:</label>
+                        <select name="categoria_profesional" id="categoria_profesional">
+                            <option value="ingenieros_licenciados">Ingenieros y Licenciados. Personal de alta dirección</option>
+                            <option value="ingenieros_tecnicos">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
+                            <option value="jefes_administrativos">Jefes Administrativos y de Taller</option>
+                            <option value="ayudantes_no_titulados">Ayudantes no titulados</option>
+                            <option value="oficiales_administrativos">Oficiales Administrativos</option>
+                            <option value="subalternos">Subalternos</option>
+                            <option value="auxiliares_administrativos">Auxiliares administrativos</option>
+                            <option value="oficiales_primera_segunda">Oficiales de primera y segunda</option>
+                            <option value="oficiales_tercera_especialistas">Oficiales de tercera y especialistas</option>
+                            <option value="peones">Peones</option>
+                            <option value="menores">Trabajadores menores de dieciocho años</option>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label for="num_hijos" class="form-label">Número de hijos:</label>
@@ -108,12 +130,20 @@
                         <input type="date" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento" aria-describedby="fecha_nacimientoHelp">
                     </div>
                     <div class="mb-3">
+                        <label for="minusvalia" class="form-label">Minusvalía:</label>
+                        <select name="minusvalia" id="minusvalia">
+                            <option value="Sin_discapacidad">Sin discapacidad</option>
+                            <option value="media">Entre el 33% y el 65%</option>
+                            <option value="alta">Igual o superior al 65%</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="salario_base" class="form-label">Salario base:</label>
                         <input type="text" class="form-control" id="salario_base" name="salario_base" placeholder="Ej: 3500" aria-describedby="salario_baseHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary" disabled>Confirmar</button>
+                            <button type="submit" class="btn btn-primary" id="registroEmpleado" disabled>Confirmar</button>
                         </div>
                     </div>
                 </form>

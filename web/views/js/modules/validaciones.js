@@ -64,6 +64,11 @@ export function validarDNI(dni){
   }
 }
 
+export function validarNumSS(nuss){
+      const regex = /^\d{12}$/;
+      return regex.test(nuss);
+}
+
 export function validarFechaNacimiento(fecha){
   const regex = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -87,6 +92,14 @@ export function validarNumHijos(num_hijos){
 
 export function validarEstadoCivil(estado_civil){
   return estado_civil !== "";
+}
+
+export function validarCategoriaProfesional(categoria_profesional){
+  return categoria_profesional !== "";
+}
+
+export function validarMinusvalia(minusvalia){
+  return minusvalia !== "";
 }
 
 export function validarSalarioBase(salario){
