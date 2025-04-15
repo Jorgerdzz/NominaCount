@@ -23,7 +23,7 @@
 
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">Salario base</div>
-                <div class="col-md-6"><input type="number" value="<?= $salario_base; ?>" step="0.01" name="salario_base" class="form-control"></div>
+                <div class="col-md-6"><input value="<?= $datos_empleado['salario_base']; ?>" name="salario_base" class="form-control"></div>
             </div>
 
             <div class="row mb-2 align-items-center">
@@ -150,7 +150,7 @@
                         <tr>
                             <td class="text-start">IRPF</td>
                             <td><input name="base_irpf" class="form-control text-center" readonly></td>
-                            <td><input value="13.40" name="tipo_irpf" class="form-control text-center" readonly></td>
+                            <td><input name="tipo_irpf" class="form-control text-center" readonly></td>
                             <td><input name="importe_irpf" class="form-control text-center" readonly></td>
                         </tr>
                     </tbody>
@@ -177,12 +177,23 @@
                     </button>
                 </div>
                 <div class="col-md-6 d-grid">
-                    <button type="submit" class="btn btn-purple btn-lg">Calcular Nómina</button>
+                    <button type="submit" class="btn btn-purple btn-lg">Generar nómina</button>
                 </div>
             </div>
 
         </form>
     </div>
 </div>
+
+<script>
+window.empleadoData = {
+    id: <?= json_encode($datos_empleado['id_empleado']); ?>,
+    salario_base: <?= json_encode($datos_empleado['salario_base']); ?>,
+    estado_civil: <?= json_encode($datos_empleado['estado_civil']); ?>,
+    num_hijos: <?= json_encode($datos_empleado['num_hijos']); ?>,
+    minusvalia: <?= json_encode($datos_empleado['minusvalia']); ?>,
+    edad: <?= json_encode($datos_empleado['edad'] ?? 0); ?>
+};
+</script>
 
 <?php require_once 'views/partials/footer.php'; ?>
