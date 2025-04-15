@@ -108,40 +108,46 @@
                     <tbody>
                         <tr>
                             <td class="text-start">Contingencias comunes</td>
-                            <td><input type="number" step="0.01" name="base_cc" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="tipo_cc" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="importe_cc" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td class="text-start">Desempleo</td>
-                            <td><input type="number" step="0.01" name="base_desempleo" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="tipo_desempleo" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="importe_desempleo" class="form-control"></td>
-                        </tr>
-                        <tr>
-                            <td class="text-start">Formación profesional</td>
-                            <td><input type="number" step="0.01" name="base_fp" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="tipo_fp" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="importe_fp" class="form-control"></td>
+                            <td><input type="number" step="0.01" id="base_cc" name="base_cc" class="form-control text-center"></td>
+                            <td><input type="number" value="4.70" name="tipo_cc" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_cc" class="form-control text-center" readonly></td>
                         </tr>
                         <tr>
                             <td class="text-start">M.E.I</td> <!-- Mecanismo de Equidad Integracional -->
-                            <td><input type="number" step="0.01" name="base_fp" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="tipo_fp" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="importe_fp" class="form-control"></td>
+                            <td><input type="number" step="0.01" name="base_MEI" class="form-control text-center"></td>
+                            <td><input type="number" value="0.13" name="tipo_MEI" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_MEI" class="form-control text-center" readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Desempleo</td>
+                            <td><input type="number" step="0.01" name="base_desempleo" class="form-control text-center"></td>
+                            <td><input type="number" value="1.55" name="tipo_desempleo" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_desempleo" class="form-control text-center" readonly></td>
+                        </tr>
+                        <tr>
+                            <td class="text-start">Formación profesional</td>
+                            <td><input type="number" step="0.01" name="base_fp" class="form-control text-center"></td>
+                            <td><input type="number" value="0.10" name="tipo_fp" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_fp" class="form-control text-center" readonly></td>
                         </tr>
                         <tr>
                             <td class="text-start">Horas extra normales</td>
-                            <td><input type="number" step="0.01" name="base_hextra" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="tipo_hextra" class="form-control" readonly></td>
-                            <td><input type="number" step="0.01" name="importe_hextra" class="form-control"></td>
+                            <td><input type="number" step="0.01" name="base_hextra" class="form-control text-center"></td>
+                            <td><input type="number" value="4.70" name="tipo_hextra" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_hextra" class="form-control text-center" readonly></td>
                         </tr>
                         <tr>
+                            <td class="text-start">Horas extra de Fuerza Mayor</td>
+                            <td><input type="number" step="0.01" name="base_hextraFuerzaMayor" class="form-control text-center"></td>
+                            <td><input type="number" value="2.00" name="tipo_hextraFuerzaMayor" class="form-control text-center" readonly></td>
+                            <td><input type="number" name="importe_hextraFuerzaMayor" class="form-control text-center" readonly></td>
+                        </tr>
+                        <!-- <tr>
                             <td class="text-start">IRPF</td>
                             <td><input type="number" step="0.01" name="base_irpf" class="form-control" readonly></td>
                             <td><input type="number" step="0.01" name="tipo_irpf" class="form-control" readonly></td>
                             <td><input type="number" step="0.01" name="importe_irpf" class="form-control"></td>
-                        </tr>
+                        </tr> -->
                     </tbody>
                 </table>
             </div>

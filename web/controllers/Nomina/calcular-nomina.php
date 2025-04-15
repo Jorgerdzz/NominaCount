@@ -22,4 +22,5 @@ if (isset($_GET['id'])) {
 
 }
 
+$page = "calcular-nomina";
 require 'views/Nomina/calcular-nomina.view.php';
