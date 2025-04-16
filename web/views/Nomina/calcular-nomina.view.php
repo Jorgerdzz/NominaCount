@@ -5,7 +5,7 @@
     <div class="card p-4 bg-white">
         <h2 class="mb-4" style="color: #825abd;">Cálculo de Nómina</h2>
 
-        <form method="POST" action="procesar_nomina.php">
+        <form method="POST">
             <!-- PERIODO DE LIQUIDACIÓN -->
             <div class="row mb-4 align-items-center">
                 <div class="col-md-6">
@@ -21,10 +21,14 @@
             <!-- DEVENGOS -->
             <h4 class="mt-4 mb-3" style="color: #825abd;">I. Devengos totales</h4>
 
+            <h5 class="mt-4 mb-3" style="color: #825abd;">I.I. Percepciones salariales</h5>
+
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">Salario base</div>
                 <div class="col-md-6"><input value="<?= $datos_empleado['salario_base']; ?>" name="salario_base" class="form-control"></div>
             </div>
+
+            <h5 class="mt-4 mb-3" style="color: #825abd;">I.II. Complementos salariales</h5>
 
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">Incentivos</div>
@@ -79,6 +83,23 @@
             <div class="row mb-2 align-items-center">
                 <div class="col-md-6">Salario en especie</div>
                 <div class="col-md-6"><input type="number" step="0.01" name="salario_especie" class="form-control"></div>
+            </div>
+
+            <h5 class="mt-4 mb-3" style="color: #825abd;">I.III. Percepciones no salariales</h5>
+
+            <div class="row mb-2 align-items-center">
+                <div class="col-md-6">Indemnizaciones o Suplidos</div>
+                <div class="col-md-6"><input type="number" step="0.01" name="indemnizaciones" class="form-control"></div>
+            </div>
+
+            <div class="row mb-2 align-items-center">
+                <div class="col-md-6">Prestaciones e indemnizaciones de la seguridad social</div>
+                <div class="col-md-6"><input type="number" step="0.01" name="indemnizaciones_ss" class="form-control"></div>
+            </div>
+
+            <div class="row mb-2 align-items-center">
+                <div class="col-md-6">Indemnizaciones por traslados, suspensiones o despidos</div>
+                <div class="col-md-6"><input type="number" step="0.01" name="indemnizaciones_despido" class="form-control"></div>
             </div>
 
             <div class="row mb-2 align-items-center">

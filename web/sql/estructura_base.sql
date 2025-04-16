@@ -39,3 +39,54 @@ CREATE TABLE IF NOT EXISTS empleados (
         REFERENCES departamentos(id_departamento)
         ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS nominas (
+    id_nomina INT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+
+    -- Complementos salariales
+    salario_base DECIMAL(10,2),
+    incentivos DECIMAL(10,2),
+    plus_especial_dedicacion DECIMAL(10,2),
+    plus_antiguedad DECIMAL(10,2),
+    plus_actividad DECIMAL(10,2),
+    plus_nocturnidad DECIMAL(10,2),
+    plus_responsabilidad DECIMAL(10,2),
+    plus_convenio DECIMAL(10,2),
+    plus_idiomas DECIMAL(10,2),
+    horas_extra DECIMAL(10,2),
+    horas_complementarias DECIMAL(10,2),
+    salario_especie DECIMAL(10,2),
+
+    -- Percepciones no salariales
+    indemnizaciones DECIMAL(10,2),
+    indemnizaciones_ss DECIMAL(10,2),
+    indemnizaciones_despido DECIMAL(10,2),
+    plus_transporte DECIMAL(10,2),
+    dietas DECIMAL(10,2),
+    
+    prorrateo_pagas_extra DECIMAL(10,2),
+    base_cc DECIMAL(10,2),
+    base_cp DECIMAL(10,2),
+    
+    -- Deducciones
+    importe_cc DECIMAL(10,2),
+    importe_MEI DECIMAL(10,2),
+    importe_desempleo DECIMAL(10,2),
+    importe_fp DECIMAL(10,2),
+    importe_horas_extra DECIMAL(10,2),
+    importe_horas_extra_fuerza_mayor DECIMAL(10,2),
+    cotizacion_ss DECIMAL(10,2),
+    importe_irpf DECIMAL(10,2),
+    total_deducciones DECIMAL(10,2),
+
+    -- Totales
+    total_devengado DECIMAL(10,2),
+    salario_neto DECIMAL(10,2),
+
+    CONSTRAINT fk_empleado_nomina FOREIGN KEY (id_empleado) 
+    REFERENCES empleados(id_empleado)
+    ON DELETE CASCADE
+);

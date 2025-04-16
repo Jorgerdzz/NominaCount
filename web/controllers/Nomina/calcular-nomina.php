@@ -29,6 +29,10 @@ if (isset($_GET['id'])) {
     $edad = $hoy->diff($fecha_nac)->y;
     $datos_empleado['edad'] = $edad;
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        
+    }
+
 }
 
 $page = "calcular-nomina";

@@ -15,6 +15,9 @@ const conceptosNoProrrateables = [
   "horas_extra",
   "horas_complementarias",
   "salario_especie",
+  "indemnizaciones",
+  "indemnizaciones_ss",
+  "indemnizaciones_despido",
   "dietas",
 ];
 
@@ -270,6 +273,9 @@ export function initNominaCalculator() {
     const dietas = getValue("dietas");
     const horasExtra = getValue("horas_extra");
     const horasComplementarias = getValue("horas_complementarias");
+    const indemnizaciones = getValue("indemnizaciones");
+    const indemnizaciones_ss = getValue("indemnizaciones_ss");
+    const indemnizaciones_despido = getValue("indemnizaciones_despido");
 
     const prorrateo =
       (2 * (valoresBrutos.salario_base + valoresBrutos.incentivos)) / 12;
@@ -302,6 +308,9 @@ export function initNominaCalculator() {
       plusTransporte +
       salarioEspecie +
       dietas +
+      indemnizaciones +
+      indemnizaciones_ss +
+      indemnizaciones_despido +
       horasExtra +
       horasComplementarias;
 
