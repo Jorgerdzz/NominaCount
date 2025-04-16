@@ -180,14 +180,18 @@
 
             <!-- TOTAL DEDUCCIONES -->
             <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
-                <div class="col-md-6"><strong>Total a Deducir</strong></div>
-                <div class="col-md-6"><input type="number" step="0.01" name="total_deducir" class="form-control"></div>
+                <div class="col-md-6"><strong>Total Aportaciones a la Seguridad Social</strong></div>
+                <div class="col-md-6"><input name="total_aportaciones" class="form-control"></div>
+            </div>
+            <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
+                <div class="col-md-6"><strong>Total Deducciones</strong></div>
+                <div class="col-md-6"><input name="total_deducir" class="form-control"></div>
             </div>
 
             <!-- LIQUIDO A PERCIBIR -->
             <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                 <div class="col-md-6"><strong>Líquido total a percibir</strong></div>
-                <div class="col-md-6"><input type="number" step="0.01" name="liquido" class="form-control"></div>
+                <div class="col-md-6"><input name="liquido" class="form-control"></div>
             </div>
 
             <!-- ENVÍO -->

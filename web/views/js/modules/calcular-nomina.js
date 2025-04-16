@@ -333,6 +333,14 @@ export function initNominaCalculator() {
       (totalDevengado - salarioEspecie - dietas) * (tipoIRPF / 100);
     setValue('[name="importe_irpf"]', importeIRPF);
 
+    const totalAportaciones =
+      importeCC +
+      importeMEI +
+      importeDesempleo +
+      importeFP +
+      importeHextra +
+      importeHextraFuerzaMayor;
+
     const totalDeducciones =
       importeCC +
       importeMEI +
@@ -362,6 +370,7 @@ export function initNominaCalculator() {
     setValue('[name="importe_MEI"]', importeMEI);
     setValue('[name="importe_hextra"]', importeHextra);
     setValue('[name="importe_hextraFuerzaMayor"]', importeHextraFuerzaMayor);
+    setValue('[name="total_aportaciones"]', totalAportaciones);
     setValue('[name="total_deducir"]', totalDeducciones);
     setValue('[name="liquido"]', liquido);
   }

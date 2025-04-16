@@ -67,7 +67,6 @@ CREATE TABLE IF NOT EXISTS nominas (
     plus_transporte DECIMAL(10,2),
     dietas DECIMAL(10,2),
     
-    prorrateo_pagas_extra DECIMAL(10,2),
     base_cc DECIMAL(10,2),
     base_cp DECIMAL(10,2),
     
