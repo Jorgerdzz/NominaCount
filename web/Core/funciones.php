@@ -33,6 +33,7 @@ function db_nombre($db_maestra, $nombre_comercial)
     return $db_maestra . $empresa;
 }
 
+
 function existeEmpresa($email)
 {
     $empresas = Empresa::getEmpresas();
