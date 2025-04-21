@@ -2,4 +2,3 @@ Royal purple: #825ABD
 Dark purple: #160F29
 Snow: #FFFFFF
 Turquoise: #5DD9C1
-Bright pink: #F45B69
