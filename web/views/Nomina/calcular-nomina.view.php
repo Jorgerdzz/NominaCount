@@ -202,7 +202,9 @@
                     </button>
                 </div>
                 <div class="col-md-6 d-grid">
-                    <button type="submit" class="btn btn-purple btn-lg">Generar nómina</button>
+                    <button type="submit" class="btn btn-purple btn-lg">
+                        <a href="<?= BASE_PATH . '/nomina/empleado?id=' . $id_empleado; ?>">Generar nómina</a>
+                    </button>
                 </div>
             </div>
 
