@@ -29,7 +29,7 @@ class Usuario extends Database
     {
         $instance = self::getInstance();
 
-        try{
+        try {
             $instance->beginTransaction();
 
             $queryUsuario = "UPDATE usuarios SET nombre_usuario = :nombre_usuario, email = :email WHERE id_usuario = :id_usuario;";
@@ -54,8 +54,7 @@ class Usuario extends Database
             ];
             $instance->query($queryEmpresa, $paramsEmpresa);
             $instance->commit();
-
-        }catch (Exception $e){
+        } catch (Exception $e) {
             $instance->rollback();
             throw $e;
         }
@@ -71,4 +70,5 @@ class Usuario extends Database
         ];
         $instance->query($query, $params);
     }
+
 }

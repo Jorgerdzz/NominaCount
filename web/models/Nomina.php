@@ -2,12 +2,41 @@
 
 class Nomina extends Database
 {
-    public static function insertarNomina($id_empleado, $fecha_inicio, $fecha_fin, $salario_base, $incentivos, $plus_especial_dedicacion,
-    $plus_antiguedad, $plus_actividad, $plus_nocturnidad, $plus_responsabilidad, $plus_convenio, $plus_idiomas, $horas_extra, 
-    $horas_complementarias, $salario_especie, $indemnizaciones, $indemnizaciones_ss, $indemnizaciones_despido, $plus_transporte, $dietas, 
-    $base_cc, $base_cp, $importe_cc, $importe_MEI, $importe_desempleo, $importe_fp, $importe_horas_extra,
-    $importe_horas_extra_fuerza_mayor, $cotizacion_ss, $importe_irpf, $total_deducciones, $total_devengado, $salario_neto)
-    {
+    public static function insertarNomina(
+        $id_empleado,
+        $fecha_inicio,
+        $fecha_fin,
+        $salario_base,
+        $incentivos,
+        $plus_especial_dedicacion,
+        $plus_antiguedad,
+        $plus_actividad,
+        $plus_nocturnidad,
+        $plus_responsabilidad,
+        $plus_convenio,
+        $plus_idiomas,
+        $horas_extra,
+        $horas_complementarias,
+        $salario_especie,
+        $indemnizaciones,
+        $indemnizaciones_ss,
+        $indemnizaciones_despido,
+        $plus_transporte,
+        $dietas,
+        $base_cc,
+        $base_cp,
+        $importe_cc,
+        $importe_MEI,
+        $importe_desempleo,
+        $importe_fp,
+        $importe_horas_extra,
+        $importe_horas_extra_fuerza_mayor,
+        $cotizacion_ss,
+        $importe_irpf,
+        $total_deducciones,
+        $total_devengado,
+        $salario_neto
+    ) {
         $instance = self::getInstance();
         $query = "INSERT INTO nominas (id_empleado, fecha_inicio, fecha_fin, salario_base, incentivos, plus_especial_dedicacion, plus_antiguedad,
         plus_actividad, plus_nocturnidad, plus_responsabilidad, plus_convenio, plus_idiomas, horas_extra, horas_complementarias, 
@@ -59,31 +88,11 @@ class Nomina extends Database
         $instance->query($query, $params);
     }
 
-    public static function getNominasEmpleado($id_empleado)
+    public static function getUltimaNominaEmpleado($id_empleado)
     {
         $instance = self::getInstance();
-        $query = "SELECT * FROM nominas WHERE id_empleado = :id_empleado ORDER BY fecha_inicio DESC";
-        $params = [
-            'id_empleado' => $id_empleado
-        ];
-        return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-    }
-
-    public static function getNominaEmpleadoMes($id_empleado, )
-    {
-        $instance = self::getInstance();
-        $query = "SELECT * FROM nominas 
-                 WHERE id_empleado = :id_empleado 
-                 AND MONTH(fecha_inicio) = :mes 
-                 AND YEAR(fecha_inicio) = :anio
-                 LIMIT 1";
-        $params = [
-            "id_empleado" => $id_empleado,
-            "mes" => $mes,
-            "anio" => $anio
-        ];
+        $query = "SELECT * FROM nominas WHERE id_empleado = :id_empleado ORDER BY fecha_fin DESC LIMIT 1";
+        $params = ['id_empleado' => $id_empleado];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
-
-
 }

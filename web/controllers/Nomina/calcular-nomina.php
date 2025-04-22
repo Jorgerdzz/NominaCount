@@ -97,6 +97,8 @@ if (isset($_GET['id'])) {
         $total_deducciones,
         $total_devengado,
         $liquido);
+
+        header("Location: /nomina/empleado?id=$id_empleado");
     }
 
 }
