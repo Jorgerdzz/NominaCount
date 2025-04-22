@@ -115,7 +115,7 @@
             <!-- TOTAL DEVENGADO -->
             <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                 <div class="col-md-6"><strong>Total Devengado</strong></div>
-                <div class="col-md-6"><input type="number" step="0.01" name="total_devengado" class="form-control"></div>
+                <div class="col-md-6"><input name="total_devengado" class="form-control"></div>
             </div>
 
             <!-- II. DEDUCCIONES -->

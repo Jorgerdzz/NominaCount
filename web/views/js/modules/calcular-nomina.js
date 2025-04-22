@@ -77,7 +77,9 @@ function manejarBlur(event) {
 
     editandoManualmente = false;
     input.value = isNaN(valorProrrateado) ? "" : valorProrrateado.toFixed(2);
-
+    
+    valoresBrutos[nombre] = valorProrrateado;
+    
     calcularNomina();
   }
 }
@@ -211,7 +213,114 @@ function calcularPorcentajeIRPF(empleado) {
   return Math.min(40, Math.max(2, porcentajeIRPF));
 }
 
+function calcularNomina() {
+  const salarioBase = getValue("salario_base");
+  const incentivos = getValue("incentivos");
+  const plusDedicacion = getValue("plus_dedicacion");
+  const plusAntiguedad = getValue("plus_antiguedad");
+  const plusActividad = getValue("plus_actividad");
+  const plusNocturnidad = getValue("plus_nocturnidad");
+  const plusResponsabilidad = getValue("plus_responsabilidad");
+  const plusConvenio = getValue("plus_convenio");
+  const plusIdiomas = getValue("plus_idiomas");
+  const plusTransporte = getValue("plus_transporte");
+
+  const salarioEspecie = getValue("salario_especie");
+  const dietas = getValue("dietas");
+  const horasExtra = getValue("horas_extra");
+  const horasComplementarias = getValue("horas_complementarias");
+  const indemnizaciones = getValue("indemnizaciones");
+  const indemnizaciones_ss = getValue("indemnizaciones_ss");
+  const indemnizaciones_despido = getValue("indemnizaciones_despido");
+
+  const prorrateo = (2 * (valoresBrutos.salario_base + valoresBrutos.incentivos)) / 12;
+
+  const baseCC = salarioBase +
+    incentivos +
+    plusDedicacion +
+    plusAntiguedad +
+    plusActividad +
+    plusNocturnidad +
+    plusResponsabilidad +
+    plusConvenio +
+    plusIdiomas +
+    plusTransporte +
+    prorrateo;
+
+  const baseCP = baseCC + horasExtra + horasComplementarias;
+
+  const totalDevengado = salarioBase +
+    incentivos +
+    plusDedicacion +
+    plusAntiguedad +
+    plusActividad +
+    plusNocturnidad +
+    plusResponsabilidad +
+    plusConvenio +
+    plusIdiomas +
+    plusTransporte +
+    salarioEspecie +
+    dietas +
+    indemnizaciones +
+    indemnizaciones_ss +
+    indemnizaciones_despido +
+    horasExtra +
+    horasComplementarias;
+
+  const tipoCC = getValue("tipo_cc");
+  const tipoMEI = getValue("tipo_MEI");
+  const tipoDesempleo = getValue("tipo_desempleo");
+  const tipoFP = getValue("tipo_fp");
+  const tipoHextra = getValue("tipo_hextra");
+  const tipoHextraFuerzaMayor = getValue("tipo_hextraFuerzaMayor");
+
+  const importeCC = baseCC * (tipoCC / 100);
+  const importeMEI = baseCC * (tipoMEI / 100);
+  const importeDesempleo = baseCP * (tipoDesempleo / 100);
+  const importeFP = baseCP * (tipoFP / 100);
+  const importeHextra = horasExtra * (tipoHextra / 100);
+  const importeHextraFuerzaMayor = horasComplementarias * (tipoHextraFuerzaMayor / 100);
+
+  const importeIRPF = (totalDevengado - salarioEspecie - dietas) * (window.tipoIRPF / 100);
+  setValue('[name="importe_irpf"]', importeIRPF);
+
+  const totalAportaciones = importeCC +
+    importeMEI +
+    importeDesempleo +
+    importeFP +
+    importeHextra +
+    importeHextraFuerzaMayor;
+
+  const totalDeducciones = totalAportaciones + importeIRPF;
+
+  const liquido = totalDevengado - totalDeducciones;
+
+  setValue('[name="base_cc"]', baseCC);
+  setValue('[name="base_MEI"]', baseCC);
+  setValue('[name="base_desempleo"]', baseCP);
+  setValue('[name="base_fp"]', baseCP);
+  setValue('[name="base_hextra"]', horasExtra);
+  setValue('[name="base_hextraFuerzaMayor"]', horasComplementarias);
+  setValue('[name="base_irpf"]', totalDevengado - salarioEspecie - dietas);
+  setValue('[name="total_devengado"]', totalDevengado);
+  setValue('[name="importe_cc"]', importeCC);
+  setValue('[name="importe_desempleo"]', importeDesempleo);
+  setValue('[name="importe_fp"]', importeFP);
+  setValue('[name="importe_MEI"]', importeMEI);
+  setValue('[name="importe_hextra"]', importeHextra);
+  setValue('[name="importe_hextraFuerzaMayor"]', importeHextraFuerzaMayor);
+  setValue('[name="total_aportaciones"]', totalAportaciones);
+  setValue('[name="total_deducir"]', totalDeducciones);
+  setValue('[name="liquido"]', liquido);
+}
+
+
 export function initNominaCalculator() {
+
+  const empleado = window.empleadoData;
+  window.tipoIRPF = calcularPorcentajeIRPF(empleado);
+  setValue('[name="tipo_irpf"]', window.tipoIRPF);
+
   conceptosProrrateables.forEach((campo) => {
     const input = document.querySelector(`[name="${campo}"]`);
     if (input) {
@@ -251,129 +360,6 @@ export function initNominaCalculator() {
       input.addEventListener("input", calcularNomina);
     }
   });
-
-  const empleado = window.empleadoData;
-
-  const tipoIRPF = calcularPorcentajeIRPF(empleado);
-  setValue('[name="tipo_irpf"]', tipoIRPF);
-
-  function calcularNomina() {
-    const salarioBase = getValue("salario_base");
-    const incentivos = getValue("incentivos");
-    const plusDedicacion = getValue("plus_dedicacion");
-    const plusAntiguedad = getValue("plus_antiguedad");
-    const plusActividad = getValue("plus_actividad");
-    const plusNocturnidad = getValue("plus_nocturnidad");
-    const plusResponsabilidad = getValue("plus_responsabilidad");
-    const plusConvenio = getValue("plus_convenio");
-    const plusIdiomas = getValue("plus_idiomas");
-    const plusTransporte = getValue("plus_transporte");
-
-    const salarioEspecie = getValue("salario_especie");
-    const dietas = getValue("dietas");
-    const horasExtra = getValue("horas_extra");
-    const horasComplementarias = getValue("horas_complementarias");
-    const indemnizaciones = getValue("indemnizaciones");
-    const indemnizaciones_ss = getValue("indemnizaciones_ss");
-    const indemnizaciones_despido = getValue("indemnizaciones_despido");
-
-    const prorrateo =
-      (2 * (valoresBrutos.salario_base + valoresBrutos.incentivos)) / 12;
-
-    const baseCC =
-      salarioBase +
-      incentivos +
-      plusDedicacion +
-      plusAntiguedad +
-      plusActividad +
-      plusNocturnidad +
-      plusResponsabilidad +
-      plusConvenio +
-      plusIdiomas +
-      plusTransporte +
-      prorrateo;
-
-    const baseCP = baseCC + horasExtra + horasComplementarias;
-
-    const totalDevengado =
-      salarioBase +
-      incentivos +
-      plusDedicacion +
-      plusAntiguedad +
-      plusActividad +
-      plusNocturnidad +
-      plusResponsabilidad +
-      plusConvenio +
-      plusIdiomas +
-      plusTransporte +
-      salarioEspecie +
-      dietas +
-      indemnizaciones +
-      indemnizaciones_ss +
-      indemnizaciones_despido +
-      horasExtra +
-      horasComplementarias;
-
-    const tipoCC = getValue("tipo_cc");
-    const tipoMEI = getValue("tipo_MEI");
-    const tipoDesempleo = getValue("tipo_desempleo");
-    const tipoFP = getValue("tipo_fp");
-    const tipoHextra = getValue("tipo_hextra");
-    const tipoHextraFuerzaMayor = getValue("tipo_hextraFuerzaMayor");
-
-    const importeCC = baseCC * (tipoCC / 100);
-    const importeMEI = baseCC * (tipoMEI / 100);
-    const importeDesempleo = baseCP * (tipoDesempleo / 100);
-    const importeFP = baseCP * (tipoFP / 100);
-    const importeHextra = horasExtra * (tipoHextra / 100);
-    const importeHextraFuerzaMayor =
-      horasComplementarias * (tipoHextraFuerzaMayor / 100);
-
-    const importeIRPF =
-      (totalDevengado - salarioEspecie - dietas) * (tipoIRPF / 100);
-    setValue('[name="importe_irpf"]', importeIRPF);
-
-    const totalAportaciones =
-      importeCC +
-      importeMEI +
-      importeDesempleo +
-      importeFP +
-      importeHextra +
-      importeHextraFuerzaMayor;
-
-    const totalDeducciones =
-      importeCC +
-      importeMEI +
-      importeDesempleo +
-      importeFP +
-      importeHextra +
-      importeHextraFuerzaMayor +
-      importeIRPF;
-
-    const liquido = totalDevengado - totalDeducciones;
-
-    setValue('[name="base_cc"]', baseCC);
-    setValue('[name="base_MEI"]', baseCC);
-
-    setValue('[name="base_desempleo"]', baseCP);
-    setValue('[name="base_fp"]', baseCP);
-
-    setValue('[name="base_hextra"]', horasExtra);
-    setValue('[name="base_hextraFuerzaMayor"]', horasComplementarias);
-
-    setValue('[name="base_irpf"]', totalDevengado - salarioEspecie - dietas);
-
-    setValue('[name="total_devengado"]', totalDevengado);
-    setValue('[name="importe_cc"]', importeCC);
-    setValue('[name="importe_desempleo"]', importeDesempleo);
-    setValue('[name="importe_fp"]', importeFP);
-    setValue('[name="importe_MEI"]', importeMEI);
-    setValue('[name="importe_hextra"]', importeHextra);
-    setValue('[name="importe_hextraFuerzaMayor"]', importeHextraFuerzaMayor);
-    setValue('[name="total_aportaciones"]', totalAportaciones);
-    setValue('[name="total_deducir"]', totalDeducciones);
-    setValue('[name="liquido"]', liquido);
-  }
 
   calcularNomina();
 }
