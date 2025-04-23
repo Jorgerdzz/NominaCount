@@ -106,6 +106,14 @@
                 <div class="col-12 col-md-3">
                     <div class="d-grid m-3">
                         <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
+                        <button type="submit" class="btn btn-purple px-4">
+                            <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">Ver historial nóminas</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="d-grid m-3">
+                        <input type="hidden" name="dni" value="<?= $empleado['dni']; ?>">
                         <button type="submit" class="btn btn-danger px-4">Dar de baja empleado</button>
                     </div>
                 </div>
