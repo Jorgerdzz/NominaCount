@@ -28,6 +28,7 @@
                 'message' => $e->getMessage()
             ]);
         }
+
     }
     
     $page = 'empresa';

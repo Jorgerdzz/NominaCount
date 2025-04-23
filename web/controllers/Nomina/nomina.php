@@ -24,6 +24,8 @@
 
         Empleado::insertarCostesTrabajador($id_empleado, $nomina['fecha_inicio'], $nomina['fecha_fin'], $cotizacion_contingencias_comunes, $cotizacion_accidentes_trabajo, $cotizacion_desempleo_empresa, $cotizacion_formacion_empresa, $cotizacion_fogasa_empresa, $cotizacion_horas_extra, $cotizacion_horas_extra_fuerza_mayor, $coste_total_trabajador);
         
+        Empleado::seleccionarCostesTrabajador($id_empleado);
+
     }
 
 $page = "nomina";

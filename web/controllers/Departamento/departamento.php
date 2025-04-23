@@ -44,6 +44,8 @@ if (isset($_GET['departamento'])) {
 
     
 
+    
+
     $page = 'departamento';
     require_once 'views/departamento.view.php';
 }
