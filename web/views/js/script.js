@@ -9,6 +9,8 @@ import {
   modificarDatosUsuario,
 } from "./modules/modificarDatos.js";
 import { initNominaCalculator } from "./modules/calcular-nomina.js";
+import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
+
 
 
 
@@ -35,6 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "calcular-nomina":
       initNominaCalculator();
+      break;
+    case "nomina":
+      generarNominaPDF();
       break;
     default:
       break;

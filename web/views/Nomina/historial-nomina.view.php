@@ -5,7 +5,7 @@
 <div class="container my-5">
     <h2>Historial de Nóminas - <?= htmlspecialchars($empleado['nombre'] . ' ' . $empleado['apellidos']) ?></h2>
     <h4>Año: <?= $año ?></h4>
-    
+
     <!-- Selector de año -->
     <div class="mb-4">
         <form method="get" class="form-inline">
@@ -18,36 +18,36 @@
             </select>
         </form>
     </div>
-    
+
     <!-- Pestañas de meses -->
     <ul class="nav nav-tabs" id="nominaTabs" role="tablist">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
             <li class="nav-item" role="presentation">
-                <button class="nav-link <?= isset($nominasPorMes[$numMes]) ? '' : 'disabled' ?> <?= $numMes == date('n') ? 'active' : '' ?>" 
-                        id="mes-<?= $numMes ?>-tab" 
-                        data-bs-toggle="tab" 
-                        data-bs-target="#mes-<?= $numMes ?>" 
-                        type="button" 
-                        role="tab" 
-                        aria-controls="mes-<?= $numMes ?>" 
-                        aria-selected="<?= $numMes == date('n') ? 'true' : 'false' ?>">
+                <button class="nav-link <?= isset($nominasPorMes[$numMes]) ? '' : 'disabled' ?> <?= $numMes == date('n') ? 'active' : '' ?>"
+                    id="mes-<?= $numMes ?>-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#mes-<?= $numMes ?>"
+                    type="button"
+                    role="tab"
+                    aria-controls="mes-<?= $numMes ?>"
+                    aria-selected="<?= $numMes == date('n') ? 'true' : 'false' ?>">
                     <?= $nombreMes ?>
                 </button>
             </li>
         <?php endforeach; ?>
     </ul>
-    
+
     <!-- Contenido de las pestañas -->
     <div class="tab-content p-3 border border-top-0 rounded-bottom bg-white">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
-            <div class="tab-pane fade <?= $numMes == date('n') ? 'show active' : '' ?>" 
-                 id="mes-<?= $numMes ?>" 
-                 role="tabpanel" 
-                 aria-labelledby="mes-<?= $numMes ?>-tab">
-                <?php if (isset($nominasPorMes[$numMes]) && isset($costesPorMes[$numMes])): 
+            <div class="tab-pane fade <?= $numMes == date('n') ? 'show active' : '' ?>"
+                id="mes-<?= $numMes ?>"
+                role="tabpanel"
+                aria-labelledby="mes-<?= $numMes ?>-tab">
+                <?php if (isset($nominasPorMes[$numMes]) && isset($costesPorMes[$numMes])):
                     $nomina = $nominasPorMes[$numMes];
-                    $costesEmpleado = $costesPorMes[$numMes]; 
-                    ?>
+                    $costesEmpleado = $costesPorMes[$numMes];
+                ?>
                     <div class="card p-5 bg-white">
 
                         <!-- Encabezado tipo tabla -->
