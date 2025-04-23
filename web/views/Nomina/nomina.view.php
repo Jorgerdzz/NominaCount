@@ -178,7 +178,7 @@
                 <tr>
                     <th>Concepto</th>
                     <th>Base (€)</th>
-                    <th>%</th>
+                    <th>Tipo %</th>
                     <th>Importe (€)</th>
                 </tr>
             </thead>
@@ -187,41 +187,49 @@
                     <td>Contingencias comunes</td>
                     <td><?= $nomina['base_cc'] ?></td>
                     <td>23.60</td>
-                    <td><?= number_format($nomina['base_cc'] * 0.236, 2) ?></td>
+                    <td><?= number_format($cotizacion_contingencias_comunes, 2) ?></td>
                 </tr>
                 <tr>
                     <td>Accidentes trabajo / EP</td>
                     <td><?= $nomina['base_cp'] ?></td>
                     <td>1.50</td>
-                    <td><?= number_format($nomina['base_cp'] * 0.015, 2) ?></td>
+                    <td><?= number_format($cotizacion_accidentes_trabajo, 2) ?></td>
                 </tr>
                 <tr>
                     <td>Desempleo</td>
                     <td><?= $nomina['base_cp'] ?></td>
                     <td>5.50</td>
-                    <td><?= number_format($nomina['base_cp'] * 0.055, 2) ?></td>
+                    <td><?= number_format($cotizacion_desempleo_empresa, 2) ?></td>
                 </tr>
                 <tr>
                     <td>Formación Profesional</td>
                     <td><?= $nomina['base_cp'] ?></td>
                     <td>0.60</td>
-                    <td><?= number_format($nomina['base_cp'] * 0.006, 2) ?></td>
+                    <td><?= number_format($cotizacion_formacion_empresa, 2) ?></td>
                 </tr>
                 <tr>
                     <td>FOGASA</td>
                     <td><?= $nomina['base_cp'] ?></td>
                     <td>0.20</td>
-                    <td><?= number_format($nomina['base_cp'] * 0.002, 2) ?></td>
+                    <td><?= number_format($cotizacion_fogasa_empresa, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Cotización horas extra</td>
+                    <td><?= $nomina['horas_extra'] ?></td>
+                    <td>23.60</td>
+                    <td><?= number_format($cotizacion_horas_extra, 2) ?></td>
+                </tr>
+                <tr>
+                    <td>Cotización horas extra fuerza mayor</td>
+                    <td><?= $nomina['horas_complementarias'] ?></td>
+                    <td>12.00</td>
+                    <td><?= number_format($cotizacion_horas_extra_fuerza_mayor, 2) ?></td>
                 </tr>
                 <tr class="table-light">
                     <td><strong>Total costes empresa</strong></td>
                     <td colspan="3">
                         <strong>
-                            <?= number_format(
-                                $nomina['base_cc'] * 0.236 +
-                                    $nomina['base_cp'] * (0.015 + 0.055 + 0.006 + 0.002),
-                                2
-                            ) ?> €
+                            <?= number_format($coste_total_trabajador, 2) ?> €
                         </strong>
                     </td>
                 </tr>

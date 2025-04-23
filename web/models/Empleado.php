@@ -88,7 +88,29 @@ class Empleado extends Database
         $instance->query($query, $params);
     }
 
-
-
+    public static function insertarCostesTrabajador($id_empleado, $fecha_inicio, $fecha_fin, $cotizacion_contingencias_comunes, $cotizacion_accidentes_trabajo, $cotizacion_desempleo_empresa, $cotizacion_formacion_empresa, $cotizacion_fogasa_empresa, $cotizacion_horas_extra, $cotizacion_horas_extra_fuerza_mayor, $coste_total_trabajador)
+    {
+        $instance = self::getInstance();
+        $query = "INSERT INTO costes_trabajador (id_empleado, fecha_inicio, fecha_fin, cotizacion_contingencias_comunes,
+        cotizacion_accidentes_trabajo, cotizacion_desempleo_empresa, cotizacion_formacion_empresa, cotizacion_fogasa_empresa, 
+        cotizacion_horas_extra, cotizacion_horas_extra_fuerza_mayor, coste_total_trabajador)
+        VALUES (:id_empleado, :fecha_inicio, :fecha_fin, :cotizacion_contingencias_comunes, :cotizacion_accidentes_trabajo,
+        :cotizacion_desempleo_empresa,:cotizacion_formacion_empresa, :cotizacion_fogasa_empresa, 
+        :cotizacion_horas_extra, :cotizacion_horas_extra_fuerza_mayor, :coste_total_trabajador);";
+        $params = [
+            "id_empleado"                           => $id_empleado,
+            "fecha_inicio"                          => $fecha_inicio,
+            "fecha_fin"                             => $fecha_fin,
+            "cotizacion_contingencias_comunes"      => $cotizacion_contingencias_comunes,
+            "cotizacion_accidentes_trabajo"         => $cotizacion_accidentes_trabajo,
+            "cotizacion_desempleo_empresa"          => $cotizacion_desempleo_empresa,
+            "cotizacion_formacion_empresa"          => $cotizacion_formacion_empresa,
+            "cotizacion_fogasa_empresa"             => $cotizacion_fogasa_empresa,
+            "cotizacion_horas_extra"                => $cotizacion_horas_extra,
+            "cotizacion_horas_extra_fuerza_mayor"   => $cotizacion_horas_extra_fuerza_mayor,
+            "coste_total_trabajador"                => $coste_total_trabajador,
+        ];
+        $instance->query($query, $params);
+    }
 
 }

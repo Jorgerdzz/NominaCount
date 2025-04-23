@@ -89,3 +89,22 @@ CREATE TABLE IF NOT EXISTS nominas (
     REFERENCES empleados(id_empleado)
     ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS costes_trabajador(
+    id_costo INT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT NOT NULL,
+    fecha_inicio DATE NOT NULL,
+    fecha_fin DATE NOT NULL,
+    cotizacion_contingencias_comunes DECIMAL(10,2),
+    cotizacion_accidentes_trabajo DECIMAL(10,2),
+    cotizacion_desempleo_empresa DECIMAL(10,2),
+    cotizacion_formacion_empresa DECIMAL(10,2),
+    cotizacion_fogasa_empresa DECIMAL(10,2),
+    cotizacion_horas_extra DECIMAL(10,2),
+    cotizacion_horas_extra_fuerza_mayor DECIMAL(10,2),
+    coste_total_trabajador DECIMAL(10,2),
+
+    CONSTRAINT fk_empleado_coste FOREIGN KEY (id_empleado) 
+    REFERENCES empleados(id_empleado)
+    ON DELETE CASCADE
+);
