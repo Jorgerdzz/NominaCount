@@ -41,6 +41,9 @@ document.addEventListener("DOMContentLoaded", () => {
     case "nomina":
       generarNominaPDF();
       break;
+      case "historial-nomina":
+      generarNominaPDF();
+      break;
     default:
       break;
   }

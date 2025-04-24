@@ -3,7 +3,17 @@
 
 
 <div class="container my-5">
-    <h2>Historial de Nóminas - <?= htmlspecialchars($empleado['nombre'] . ' ' . $empleado['apellidos']) ?></h2>
+    <div class="row">
+        <div class="col-md-11">
+            <h2>Historial de Nóminas - <?= htmlspecialchars($empleado['nombre'] . ' ' . $empleado['apellidos']) ?></h2>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-primary">
+                <a class="text-dark" href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">Volver</a>
+            </button>
+        </div>
+    </div>
+
     <h4>Año: <?= $año ?></h4>
 
     <!-- Selector de año -->
@@ -48,8 +58,8 @@
                     $nomina = $nominasPorMes[$numMes];
                     $costesEmpleado = $costesPorMes[$numMes];
                 ?>
-                    <div class="card p-5 bg-white">
 
+                    <section class="pdf-nomina p-3">
                         <!-- Encabezado tipo tabla -->
                         <table class="table table-bordered mb-4">
                             <thead class="table-light">
@@ -280,6 +290,17 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </section>
+                    <div class="row mx-1">
+                        <div class="col d-grid">
+                            <button class="btn-descargar-pdf btn btn-purple btn-lg"
+                                data-nombre="<?= $empleado['nombre']; ?>"
+                                data-apellidos="<?= $empleado['apellidos']; ?>"
+                                data-inicio="<?= $nomina['fecha_inicio']; ?>"
+                                data-fin="<?= $nomina['fecha_fin']; ?>">
+                                Descargar PDF
+                            </button>
+                        </div>
                     </div>
                 <?php else: ?>
                     <div class="alert alert-info">
