@@ -52,6 +52,21 @@
                 </li>
             </ul>
 
+            <form class="d-flex ms-3" role="search" id="formBuscadorEmpleados">
+                <div class="input-group">
+                    <input class="form-control" type="search" placeholder="Buscar empleado..." 
+                        aria-label="Buscar" id="inputBuscadorEmpleados">
+                    <button class="btn btn-outline-primary" type="submit">
+                        <i class="bi bi-search"></i>
+                    </button>
+                </div>
+            </form>
+            <div class="position-relative">
+                <div class="dropdown-menu w-100 position-absolute" id="resultadosBusqueda">
+                    <!-- Los resultados aparecerán aquí -->
+                </div>
+            </div>
+
 
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown">

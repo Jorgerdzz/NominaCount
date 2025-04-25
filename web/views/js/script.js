@@ -12,8 +12,6 @@ import { initNominaCalculator } from "./modules/calcular-nomina.js";
 import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
 
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
 

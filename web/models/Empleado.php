@@ -156,4 +156,20 @@ class Empleado extends Database
         return $costesPorMes;
     }
 
+    public static function buscarEmpleadosPorNombre($terminoBusqueda) {
+        $instance = self::getInstance();
+        $query = "SELECT id_empleado, nombre, apellidos, dni, id_departamento 
+                  FROM empleados 
+                  WHERE CONCAT(nombre, ' ', apellidos) LIKE :termino 
+                  OR nombre LIKE :termino 
+                  OR apellidos LIKE :termino 
+                  OR dni LIKE :termino
+                  ORDER BY apellidos, nombre
+                  LIMIT 10";
+        $params = [
+            'termino' => '%' . $terminoBusqueda . '%'
+        ];
+        return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
