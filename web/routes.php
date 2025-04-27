@@ -12,4 +12,5 @@
         '/calcular-nomina/empleado' => 'controllers/Nomina/calcular-nomina.php',
         '/historial-nomina/empleado' => 'controllers/Nomina/historial-nomina.php',
         '/nomina/empleado' => 'controllers/Nomina/nomina.php',
+        '/estadisticas' => 'controllers/estadisticas.php',
     ];

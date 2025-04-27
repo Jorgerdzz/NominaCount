@@ -52,20 +52,41 @@
                 </li>
             </ul>
 
-            <form class="d-flex ms-3" role="search" id="formBuscadorEmpleados">
-                <div class="input-group">
-                    <input class="form-control" type="search" placeholder="Buscar empleado..." 
-                        aria-label="Buscar" id="inputBuscadorEmpleados">
-                    <button class="btn btn-outline-primary" type="submit">
-                        <i class="bi bi-search"></i>
-                    </button>
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Estadísticas
+                    </a>
+                    <ul class="dropdown-menu" id="menu-estadisticas">
+                        <?php
+                        if (!empty($departamentos)) {
+                            foreach ($departamentos as $dep) { 
+                                $nombreDepartamento = urlencode($dep['nombre_departamento']);
+                                echo "<li><a class='dropdown-item' href='/estadisticas?departamento={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
+                            }
+                        }
+                        ?>
+                    </ul>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav mx-auto">
+                <form class="d-flex ms-3" role="search" id="formBuscadorEmpleados">
+                    <div class="input-group">
+                        <input class="form-control" type="search" placeholder="Buscar empleado..."
+                            aria-label="Buscar" id="inputBuscadorEmpleados">
+                        <button class="btn btn-outline-primary" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="position-relative">
+                    <div class="dropdown-menu auto position-absolute" id="resultadosBusqueda">
+                        <!-- Los resultados aparecerán aquí -->
+                    </div>
                 </div>
-            </form>
-            <div class="position-relative">
-                <div class="dropdown-menu auto position-absolute" id="resultadosBusqueda">
-                    <!-- Los resultados aparecerán aquí -->
-                </div>
-            </div>
+            </ul>
+
 
 
             <ul class="navbar-nav ms-auto">

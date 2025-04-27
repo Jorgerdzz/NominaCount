@@ -4,7 +4,7 @@
 
 <!-- Tabla empleados -->
 <section class="container mt-4">
-    
+
     <div class="section-header">
         <h2>Empleados</h2>
     </div>
@@ -27,8 +27,8 @@
         </thead>
         <tbody>
             <?php
-                foreach($empleados as $empleado) {
-                    echo '<tr data-id="' . $empleado['id_empleado'] . '">
+            foreach ($empleados as $empleado) {
+                echo '<tr data-id="' . $empleado['id_empleado'] . '">
                             <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle text-dark"></i></a> 
                             <td>' . $empleado['nombre'] . '</a></td>
                             <td>' . $empleado['apellidos'] . '</td>
@@ -37,7 +37,7 @@
                             <td>' . $empleado['email'] . '</td>
                             <td>' . $empleado['salario_base'] . ' €</td>
                         </tr>';
-                }
+            }
             ?>
         </tbody>
     </table>
