@@ -3,6 +3,7 @@
     return [
         '/' => 'controllers/home.php',
         '/empresa' => 'controllers/Empresa/empresa.php',
+        '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',
         '/departamento' => 'controllers/Departamento/departamento.php',
         '/eliminar-departamento' => 'controllers/Departamento/eliminar-departamento.php',
         '/empleado' => 'controllers/Empleado/empleado.php',

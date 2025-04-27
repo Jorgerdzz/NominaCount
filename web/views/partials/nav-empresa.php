@@ -62,7 +62,7 @@
                 </div>
             </form>
             <div class="position-relative">
-                <div class="dropdown-menu w-100 position-absolute" id="resultadosBusqueda">
+                <div class="dropdown-menu auto position-absolute" id="resultadosBusqueda">
                     <!-- Los resultados aparecerán aquí -->
                 </div>
             </div>

@@ -167,7 +167,7 @@
                                 </tr>
                                 <tr class="table-light">
                                     <td><strong>Total Devengado</strong></td>
-                                    <td><strong><?= $nomina['total_devengado'] ?></strong></td>
+                                    <td><strong><?= $nomina['total_devengado'] ?> €</strong></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -212,7 +212,7 @@
                                 </tr>
                                 <tr class="table-light">
                                     <td><strong>Total Deducciones</strong></td>
-                                    <td><strong><?= $nomina['total_deducciones'] ?></strong></td>
+                                    <td><strong><?= $nomina['total_deducciones'] ?> €</strong></td>
                                 </tr>
                             </tbody>
                         </table>

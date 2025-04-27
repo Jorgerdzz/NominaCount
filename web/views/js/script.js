@@ -10,12 +10,15 @@ import {
 } from "./modules/modificarDatos.js";
 import { initNominaCalculator } from "./modules/calcular-nomina.js";
 import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
+import { setupBuscadorEmpleados } from "./modules/buscar-empleados.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
 
   console.log(page);
+
+  setupBuscadorEmpleados();
 
   switch (page) {
     case "home":
