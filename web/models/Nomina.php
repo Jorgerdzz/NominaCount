@@ -106,7 +106,7 @@ class Nomina extends Database
         $query = "SELECT * FROM nominas 
              WHERE id_empleado = :id_empleado 
              AND (YEAR(fecha_inicio) = :anio OR YEAR(fecha_fin) = :anio)
-             ORDER BY fecha_inicio ASC";
+             ORDER BY fecha_inicio ASC";  // Cambiado a ASC para orden cronológico
         $params = [
             'id_empleado' => $id_empleado,
             'anio' => $anio
@@ -117,23 +117,11 @@ class Nomina extends Database
 
     public static function getNominasPorMes($id_empleado, $año = null)
     {
-        if ($año === null) {
-            $año = date('Y');
-        }
-
-        $instance = self::getInstance();
-        $query = "SELECT *, MONTH(fecha_inicio) as mes 
-              FROM nominas 
-              WHERE id_empleado = :id_empleado 
-              AND (YEAR(fecha_inicio) = :anio OR YEAR(fecha_fin) = :anio)
-              ORDER BY fecha_inicio ASC";
-
-        $params = ['id_empleado' => $id_empleado, 'anio' => $año];
-        $nominas = $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
-
+        $nominas = self::getNominasPorAnio($id_empleado, $año);
         $nominasPorMes = [];
+
         foreach ($nominas as $nomina) {
-            $mes = $nomina['mes'];
+            $mes = date('n', strtotime($nomina['fecha_fin']));
             $nominasPorMes[$mes] = $nomina;
         }
 

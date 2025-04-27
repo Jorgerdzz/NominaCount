@@ -33,14 +33,14 @@
     <ul class="nav nav-tabs" id="nominaTabs" role="tablist">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
             <li class="nav-item" role="presentation">
-                <button class="nav-link <?= isset($nominasPorMes[$numMes]) ? '' : 'disabled' ?> <?= $numMes == date('n') ? 'active' : '' ?>"
+                <button class="nav-link <?= isset($nominasPorMes[$numMes]) ? '' : 'disabled' ?> <?= $numMes == $mes_seleccionado ? 'active' : ''  ?>"
                     id="mes-<?= $numMes ?>-tab"
                     data-bs-toggle="tab"
                     data-bs-target="#mes-<?= $numMes ?>"
                     type="button"
                     role="tab"
                     aria-controls="mes-<?= $numMes ?>"
-                    aria-selected="<?= $numMes == date('n') ? 'true' : 'false' ?>">
+                    aria-selected="<?= $numMes == $mes_seleccionado ? 'true' : 'false' ?>">
                     <?= $nombreMes ?>
                 </button>
             </li>
@@ -50,7 +50,7 @@
     <!-- Contenido de las pestañas -->
     <div class="tab-content p-3 border border-top-0 rounded-bottom bg-white">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
-            <div class="tab-pane fade <?= $numMes == date('n') ? 'show active' : '' ?>"
+            <div class="tab-pane fade <?= $numMes == $mes_seleccionado ? 'show active' : '' ?>"
                 id="mes-<?= $numMes ?>"
                 role="tabpanel"
                 aria-labelledby="mes-<?= $numMes ?>-tab">
