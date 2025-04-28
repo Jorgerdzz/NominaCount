@@ -21,15 +21,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="departamentoSeleccionado" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php
-                        if (isset($_GET['departamento'])) {
-                            echo htmlspecialchars($_GET['departamento']);
-                        } else {
-                            echo 'Departamentos';
-                        }
-                        ?>
+                        Departamentos
                     </a>
-                    <ul class="dropdown-menu" id="menuDepartamento">
+                    <ul class="dropdown-menu menu-departamento" id="menuDepartamento" data-dropdown-type="departamento">
                         <?php
                         if (isset($_SESSION['db_nombre'])) {
                             Database::getInstance($_SESSION['db_nombre']);
@@ -37,7 +31,8 @@
 
                             if (!empty($departamentos)) {
                                 foreach ($departamentos as $departamento) {
-                                    echo "<li><a class='dropdown-item'>{$departamento['nombre_departamento']}</a></li>";
+                                    $nombreDepartamento = urlencode($departamento['nombre_departamento']);
+                                    echo "<li><a class='dropdown-item' href='/departamento?departamento={$nombreDepartamento}'>{$departamento['nombre_departamento']}</a></li>";
                                 }
                                 echo "<li><hr class='dropdown-divider'></li>";
                                 echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal'
@@ -57,12 +52,12 @@
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Estadísticas
                     </a>
-                    <ul class="dropdown-menu" id="menu-estadisticas">
+                    <ul class="dropdown-menu menu-estadisticas" id="menu-estadisticas" data-dropdown-type="estadisticas">
                         <?php
                         if (!empty($departamentos)) {
                             foreach ($departamentos as $dep) { 
                                 $nombreDepartamento = urlencode($dep['nombre_departamento']);
-                                echo "<li><a class='dropdown-item' href='/estadisticas?departamento={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
+                                echo "<li><a class='dropdown-item' href='/estadisticas?stats={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
                             }
                         }
                         ?>

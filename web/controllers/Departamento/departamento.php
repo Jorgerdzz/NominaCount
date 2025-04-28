@@ -1,10 +1,10 @@
 <?php
 
 if (isset($_GET['departamento'])) {
-    $nombreDepartamento = $_GET['departamento'];
+    $nombre_departamento = $_GET['departamento'];
 
     Database::getInstance($_SESSION['db_nombre']);
-    $departamentoActual = Departamento::getDepartamentoPorNombre($nombreDepartamento);
+    $departamentoActual = Departamento::getDepartamentoPorNombre($nombre_departamento);
 
     $_SESSION['nombre_departamento'] = $departamentoActual['nombre_departamento'];
     $empleados = Empleado::getEmpleadosPorDepartamento($departamentoActual['id_departamento']);

@@ -6,7 +6,7 @@
 <section class="container mt-4">
 
     <div class="section-header">
-        <h2>Empleados</h2>
+        <h2>Empleados del departamento de <?= $nombre_departamento; ?></h2>
     </div>
 
     <div class="top-toolbar">

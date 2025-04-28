@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_GET['departamento'])) {
-    $nombre_departamento = $_GET['departamento']; 
+if (isset($_GET['stats'])) {
+    $nombre_departamento = $_GET['stats']; 
 } 
 
 $page = 'estadisticas';
