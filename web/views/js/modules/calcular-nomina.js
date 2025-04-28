@@ -21,7 +21,7 @@ const conceptosNoProrrateables = [
   "dietas",
 ];
 
-const diasMes = 30;
+const diasMes = 28;
 
 const valoresBrutos = {};
 
