@@ -13,4 +13,5 @@
         '/historial-nomina/empleado' => 'controllers/Nomina/historial-nomina.php',
         '/nomina/empleado' => 'controllers/Nomina/nomina.php',
         '/estadisticas' => 'controllers/estadisticas.php',
+        '/costes-empleado' => 'controllers/Empleado/costes-empleado.php',
     ];

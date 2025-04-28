@@ -10,6 +10,7 @@ import {
 import { initNominaCalculator } from "./modules/calcular-nomina.js";
 import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
 import { setupBuscadorEmpleados } from "./modules/buscar-empleados.js";
+import { crearGráfico } from "./modules/graficos.js";
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,8 +42,11 @@ document.addEventListener("DOMContentLoaded", () => {
     case "nomina":
       generarNominaPDF();
       break;
-      case "historial-nomina":
+    case "historial-nomina":
       generarNominaPDF();
+      break;
+    case "estadisticas":
+      crearGráfico();
       break;
     default:
       break;

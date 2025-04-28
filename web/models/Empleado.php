@@ -1,6 +1,6 @@
 <?php
 
-class Empleado extends Database 
+class Empleado extends Database
 {
 
     public static function getEmpleados()
@@ -29,7 +29,7 @@ class Empleado extends Database
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
-    
+
 
     public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
@@ -57,10 +57,7 @@ class Empleado extends Database
         $instance->query($query, $params);
     }
 
-    public static function darBajaEmpleado()
-    {
-
-    }
+    public static function darBajaEmpleado() {}
 
     public static function modificarDatosEmpleado($id_empleado, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
@@ -117,24 +114,21 @@ class Empleado extends Database
     public static function getCostesTrabajador($id_empleado)
     {
         $instance = self::getInstance();
-        $query = "SELECT * FROM costes_trabajador WHERE id_empleado = :id_empleado;";
-        $params = [
-            'id_empleado' => $id_empleado
-        ];
+        $query = "SELECT * FROM costes_trabajador WHERE id_empleado = :id_empleado ORDER BY fecha_fin DESC";
+        $params = ['id_empleado' => $id_empleado];
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getCostesPorAnio($id_empleado, $anio = null)
     {
+        $instance = self::getInstance();
         if ($anio === null) {
             $anio = date('Y');
         }
-        
-        $instance = self::getInstance();
         $query = "SELECT * FROM costes_trabajador 
-                 WHERE id_empleado = :id_empleado 
-                 AND YEAR(fecha_fin) = :anio
-                 ORDER BY fecha_fin DESC";
+              WHERE id_empleado = :id_empleado 
+              AND YEAR(fecha_fin) = :anio
+              ORDER BY fecha_fin ASC";
         $params = [
             'id_empleado' => $id_empleado,
             'anio' => $anio
@@ -142,21 +136,22 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-
-    public static function getCostesPorMes($id_empleado, $año = null)
+    public static function getCostesAgrupadosPorMes($id_empleado, $anio = null)
     {
-        $costes = self::getCostesPorAnio($id_empleado, $año);
-        $costesPorMes = [];
+        $costes = self::getCostesPorAnio($id_empleado, $anio);
+        $costesPorMes = array_fill(1, 12, 0); // Inicializamos con 12 meses
 
         foreach ($costes as $coste) {
-            $mes = date('n', strtotime($coste['fecha_fin']));
-            $costesPorMes[$mes] = $coste;
+            $mes = (int)date('n', strtotime($coste['fecha_fin']));
+            $costesPorMes[$mes] += (float)$coste['coste_total_trabajador'];
         }
 
-        return $costesPorMes;
+        return $costesPorMes; 
     }
 
-    public static function buscarEmpleadosPorNombre($terminoBusqueda) {
+
+    public static function buscarEmpleadosPorNombre($terminoBusqueda)
+    {
         $instance = self::getInstance();
         $query = "SELECT id_empleado, nombre, apellidos, dni, id_departamento 
                   FROM empleados 
@@ -171,5 +166,4 @@ class Empleado extends Database
         ];
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
-
 }
