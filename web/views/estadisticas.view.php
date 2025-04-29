@@ -37,7 +37,7 @@
                 echo "
                 <div class='tab-pane fade " . ($i === 1 ? 'show active' : '') . "' 
                     id='mes-$i' role='tabpanel' aria-labelledby='tab-mes-$i'>
-                    <canvas id='grafico-mes-$i' width='400%' height='500px'></canvas>
+                    <canvas id='grafico-mes-$i' width='100%' height='500px'></canvas>
                 </div>
                 ";
             }
