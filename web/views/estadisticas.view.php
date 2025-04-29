@@ -4,7 +4,9 @@
 <div class="container my-5">
     <h1>Estadísticas del departamento: <?= htmlspecialchars($nombre_departamento); ?></h1>
 
-    <canvas id="grafico-costes-anuales" width="400" height="200"></canvas>
+    <div class="chart-container" style="height: 500px; width: 100%">
+        <canvas id="graficoCostes"></canvas>
+    </div>
 
     <div class="mt-5">
         <ul class="nav nav-tabs" id="tabsCostes" role="tablist">

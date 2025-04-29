@@ -119,6 +119,18 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getCosteTotalAcumulado($id_empleado)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT SUM(coste_total_trabajador) as coste_total 
+                FROM costes_trabajador 
+                WHERE id_empleado = :id_empleado";
+        $params = ['id_empleado' => $id_empleado];
+        $result = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+        
+        return $result['coste_total'] ?? 0;
+    }
+
     public static function getCostesPorAnio($id_empleado, $anio = null)
     {
         $instance = self::getInstance();

@@ -121,10 +121,16 @@ class Nomina extends Database
         $nominasPorMes = [];
 
         foreach ($nominas as $nomina) {
+            // Usamos fecha_fin para determinar el mes de la nómina
             $mes = date('n', strtotime($nomina['fecha_fin']));
-            $nominasPorMes[$mes] = $nomina;
+            
+            // Solo asignamos si no existe ya una nómina para ese mes
+            if (!isset($nominasPorMes[$mes])) {
+                $nominasPorMes[$mes] = $nomina;
+            }
         }
 
         return $nominasPorMes;
     }
+    
 }
