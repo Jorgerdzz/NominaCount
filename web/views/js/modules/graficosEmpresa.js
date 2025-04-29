@@ -20,7 +20,7 @@ export function graficoCostesDepartamentoTotales() {
                     datasets: [{
                         label: 'Coste Total por Departamento (€)',
                         data: costes,
-                        backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                        backgroundColor: '#5DD9C1',
                         borderColor: 'rgba(75, 192, 192, 1)',
                         borderWidth: 1
                     }]
