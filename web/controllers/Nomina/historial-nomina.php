@@ -8,9 +8,8 @@ if(isset($_GET['id'])){
     $empleado = Empleado::getEmpleadoPorId($id_empleado);
 
     $año = isset($_GET['anio']) ? (int)$_GET['anio'] : date('Y');
-    $mes_seleccionado = isset($_GET['mes']) ? (int)$_GET['mes'] : 1; // Enero por defecto
+    $mes_seleccionado = isset($_GET['mes']) ? (int)$_GET['mes'] : 1; 
 
-    // Obtener nóminas agrupadas por mes
     $nominasPorMes = Nomina::getNominasPorMes($id_empleado, $año);
     $costesPorMes = Empleado::getCostesPorMes($id_empleado, $año);
 

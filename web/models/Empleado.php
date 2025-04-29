@@ -148,6 +148,21 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getCostesPorMes($id_empleado, $año = null)
+    {
+        $costes = self::getCostesPorAnio($id_empleado, $año);
+        $costesPorMes = [];
+
+        foreach ($costes as $coste) {
+            $mes = date('n', strtotime($coste['fecha_fin']));
+            if (!isset($costesPorMes[$mes])) {
+                $costesPorMes[$mes] = $coste;
+            }
+        }
+
+        return $costesPorMes;
+    }
+
     public static function getCostesAgrupadosPorMes($id_empleado, $anio = null)
     {
         $costes = self::getCostesPorAnio($id_empleado, $anio);
