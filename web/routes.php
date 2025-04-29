@@ -14,5 +14,6 @@
         '/nomina/empleado' => 'controllers/Nomina/nomina.php',
         '/estadisticas' => 'controllers/estadisticas.php',
         '/costes-empleado' => 'controllers/Empleado/costes-empleado.php',
+        '/costes-empleado-mes' => 'controllers/Empleado/costes-empleado-mes.php',
         '/costes-totales-departamento' => 'controllers/Departamento/costes-totales-departamento.php',
     ];

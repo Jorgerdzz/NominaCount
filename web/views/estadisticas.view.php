@@ -31,13 +31,13 @@
             ?>
         </ul>
 
-        <div class="tab-content p-3 border border-top-0 rounded-bottom" id="tabsContent">
+        <div class="tab-content p-3 bg-white border border-top-0 rounded-bottom" id="tabsContent">
             <?php
             for ($i = 1; $i <= 12; $i++) {
                 echo "
                 <div class='tab-pane fade " . ($i === 1 ? 'show active' : '') . "' 
                     id='mes-$i' role='tabpanel' aria-labelledby='tab-mes-$i'>
-                    <canvas id='grafico-mes-$i' width='400' height='200'></canvas>
+                    <canvas id='grafico-mes-$i' width='400%' height='500px'></canvas>
                 </div>
                 ";
             }

@@ -176,6 +176,22 @@ class Empleado extends Database
         return $costesPorMes; 
     }
 
+    public static function getCostesPorMesYAnio($id_empleado, $mes, $anio)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM costes_trabajador 
+                  WHERE id_empleado = :id_empleado 
+                  AND MONTH(fecha_fin) = :mes 
+                  AND YEAR(fecha_fin) = :anio
+                  LIMIT 1";
+        $params = [
+            'id_empleado' => $id_empleado,
+            'mes' => $mes,
+            'anio' => $anio
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public static function buscarEmpleadosPorNombre($terminoBusqueda)
     {
