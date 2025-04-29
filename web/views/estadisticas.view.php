@@ -2,9 +2,9 @@
 <?php require_once 'views/partials/nav-empresa.php'; ?>
 
 <div class="container my-5">
-    <h1>Estadísticas del departamento: <?= htmlspecialchars($nombre_departamento); ?></h1>
+    <h1>Estadísticas del departamento de <?= htmlspecialchars($nombre_departamento); ?></h1>
 
-    <div class="chart-container" style="height: 500px; width: 100%">
+    <div class="chart-container card p-5 bg-white my-3" style="height: 500px; width: 100%">
         <canvas id="graficoCostes"></canvas>
     </div>
 
