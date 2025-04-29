@@ -30,7 +30,7 @@ export function crearGrafico() {
         .then(data => {
             // Eliminar loader
             loader.remove();
-            renderizarGrafico(data);
+            renderizarGrafico(data.empleados);
         })
         .catch(error => {
             loader.remove();
@@ -42,11 +42,11 @@ export function crearGrafico() {
         });
 }
 
-function renderizarGrafico(data) {
+function renderizarGrafico(empleados) {
     const ctx = document.getElementById('graficoCostes').getContext('2d');
     
-    const nombres = data.map(empleado => empleado.nombre);
-    const costes = data.map(empleado => empleado.coste_total);
+    const nombres = empleados.map(empleado => empleado.nombre);
+    const costes = empleados.map(empleado => empleado.coste_total);
     
     // Colores dinámicos
     const backgroundColors = costes.map((_, index) => {

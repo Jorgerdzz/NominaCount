@@ -10,7 +10,9 @@ import {
 import { initNominaCalculator } from "./modules/calcular-nomina.js";
 import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
 import { setupBuscadorEmpleados } from "./modules/buscar-empleados.js";
-import { crearGrafico } from "./modules/graficos.js";
+import { crearGrafico } from "./modules/graficosEstadisticas.js";
+import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -25,6 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
       validarRegistro();
       validarInicioSesion();
       break;
+    case "empresa":
+      graficoCostesDepartamentoTotales();
     case "departamento":
       crearTabla();
       registroEmpleado();

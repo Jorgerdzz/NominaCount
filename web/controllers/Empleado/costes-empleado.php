@@ -17,9 +17,11 @@ if (isset($_GET['stats'])) {
 
     $empleados = Empleado::getEmpleadosPorDepartamento($departamento['id_departamento']);
     $datosGrafico = [];
+    $costeTotalDepartamento = 0;
 
     foreach ($empleados as $empleado) {
         $costeTotal = Empleado::getCosteTotalAcumulado($empleado['id_empleado']);
+        $costeTotalDepartamento += $costeTotal;
         
         $datosGrafico[] = [
             'nombre' => $empleado['nombre'] . ' ' . $empleado['apellidos'],
@@ -27,7 +29,15 @@ if (isset($_GET['stats'])) {
         ];
     }
 
-    echo json_encode($datosGrafico);
+    Departamento::actualizarCosteDepartamento($departamento['id_departamento'], $costeTotalDepartamento);
+
+    echo json_encode([
+        'empleados' => $datosGrafico,
+        'departamento' => [
+            'nombre' => $departamento['nombre_departamento'],
+            'coste_total' => $costeTotalDepartamento
+        ]
+    ]);
 } else {
     http_response_code(400);
     echo json_encode(['error' => 'Parámetro "stats" no proporcionado']);

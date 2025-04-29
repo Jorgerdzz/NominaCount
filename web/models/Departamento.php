@@ -56,4 +56,25 @@ class Departamento extends Database
         return false;
     }
 
+    public static function actualizarCosteDepartamento($id_departamento, $coste_total) {
+        $instance = self::getInstance();
+        $query = "UPDATE departamentos 
+                  SET coste_total_departamento = :coste_total 
+                  WHERE id_departamento = :id_departamento";
+        $params = [
+            'id_departamento' => $id_departamento,
+            'coste_total' => $coste_total
+        ];
+        $instance->query($query, $params);
+    }
+
+    public static function getCostesPorDepartamento() {
+        $instance = self::getInstance();
+        $query = "SELECT nombre_departamento, coste_total_departamento 
+                  FROM departamentos 
+                  WHERE coste_total_departamento IS NOT NULL
+                  ORDER BY coste_total_departamento DESC";
+        return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }
