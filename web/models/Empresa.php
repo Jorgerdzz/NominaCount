@@ -63,5 +63,27 @@ class Empresa extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC)['nombre_comercial'];
     }
 
+    public static function getEstadisticasEmpresa() {
+        $instance = self::getInstance();
+        
+        // Costes totales
+        $queryCostes = "SELECT 
+                        SUM(coste_total_departamento) as coste_total,
+                        AVG(coste_total_departamento) as coste_medio,
+                        COUNT(*) as num_departamentos
+                        FROM departamentos 
+                        WHERE coste_total_departamento IS NOT NULL";
+        
+        // Empleados
+        $queryEmpleados = "SELECT COUNT(*) as num_empleados FROM empleados";
+        
+        $estadisticas = $instance->query($queryCostes)->fetch(PDO::FETCH_ASSOC);
+        $empleados = $instance->query($queryEmpleados)->fetch(PDO::FETCH_ASSOC);
+        
+        return array_merge($estadisticas, $empleados);
+    }
+    
+
+
 
 }

@@ -8,6 +8,8 @@ if (isset($_GET['departamento'])) {
 
     $_SESSION['nombre_departamento'] = $departamentoActual['nombre_departamento'];
     $empleados = Empleado::getEmpleadosPorDepartamento($departamentoActual['id_departamento']);
+    $numEmpleados = Empleado::getNumEmpleadosPorDepartamento($departamentoActual['id_departamento']);
+    Departamento::actualizarNumEmpleados($departamentoActual['id_departamento'], $numEmpleados['COUNT(*)']);
 
 
     if(isset($_POST['nombre_empleado']) &&
@@ -41,10 +43,6 @@ if (isset($_GET['departamento'])) {
             
             header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
     }
-
-    
-
-    
 
     $page = 'departamento';
     require_once 'views/departamento.view.php';

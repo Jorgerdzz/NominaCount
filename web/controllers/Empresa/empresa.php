@@ -28,8 +28,9 @@
                 'message' => $e->getMessage()
             ]);
         }
-
     }
+
+    $estadisticas = Empresa::getEstadisticasEmpresa();
     
     $page = 'empresa';
 

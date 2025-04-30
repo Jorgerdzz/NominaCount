@@ -20,6 +20,16 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getNumEmpleadosPorDepartamento($id_departamento)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT COUNT(*) FROM empleados as numero_empleados WHERE id_departamento = :id_departamento;";
+        $params = [
+            'id_departamento' => $id_departamento
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function getEmpleadoPorId($id_empleado)
     {
         $instance = self::getInstance();

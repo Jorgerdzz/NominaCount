@@ -56,6 +56,18 @@ class Departamento extends Database
         return false;
     }
 
+    public static function actualizarNumEmpleados($id_departamento, $num_empleados) {
+        $instance = self::getInstance();
+        $query = "UPDATE departamentos 
+                  SET num_empleados = :num_empleados 
+                  WHERE id_departamento = :id_departamento";
+        $params = [
+            'id_departamento' => $id_departamento,
+            'num_empleados' => $num_empleados
+        ];
+        $instance->query($query, $params);
+    }
+
     public static function actualizarCosteDepartamento($id_departamento, $coste_total) {
         $instance = self::getInstance();
         $query = "UPDATE departamentos 
