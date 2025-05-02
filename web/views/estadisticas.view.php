@@ -13,7 +13,7 @@
             <?php
             // 12 meses
             for ($i = 1; $i <= 12; $i++) {
-                $mesNombre = date('F', mktime(0, 0, 0, $i, 10));
+                $mesNombre = $meses[$i];
                 echo "
                 <li class='nav-item' role='presentation'>
                     <button class='nav-link " . ($i === 1 ? 'active' : '') . "' 
