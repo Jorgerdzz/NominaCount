@@ -20,6 +20,16 @@ class Departamento extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getDepartamentoPorId($id_departamento)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM departamentos WHERE id_departamento = :id_departamento";
+        $params = [
+            'id_departamento' => $id_departamento,
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function crearDepartamento($nombre_departamento, $jefe_departamento)
     {
         $instance = self::getInstance();

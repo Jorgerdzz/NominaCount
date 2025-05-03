@@ -6,6 +6,11 @@ if (isset($_GET['id'])) {
     Database::getInstance($_SESSION['db_nombre']);
 
     $empleado = Empleado::getEmpleadoPorId($id_empleado);
+
+    $departamento = Departamento::getDepartamentoPorId($empleado['id_departamento']);
+
+    $_SESSION['nombre_departamento'] = $departamento['nombre_departamento'];
+
     $nombre_empleado = $empleado['nombre'];
     $apellidos_empleado = $empleado['apellidos'];
     $dni = $empleado['dni'];

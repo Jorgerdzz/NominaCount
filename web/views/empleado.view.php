@@ -84,7 +84,6 @@
             <div class="row align-items-center">
                 <div class="col-12 col-md-3">
                     <div class="d-grid m-3">
-                        <input type="hidden" name="dni" value="<?= $departamento['nombre_departamento']; ?>">
                         <button class="btn btn-purple px-4">
                             <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
                         </button>
