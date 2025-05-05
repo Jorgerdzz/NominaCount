@@ -1,5 +1,11 @@
 <?php require 'views/partials/head.php'; ?>
-<?php require 'views/partials/nav-empresa.php'; ?>
+<?php
+    if($_SESSION['usuarioActivo']['rol'] === 'Empresario'){
+        require 'views/partials/nav-empresa.php'; 
+    }else{
+        require 'views/partials/nav-empleado.php'; 
+    }
+?>
 
 <div class="container my-5">
     <div class="card p-4 bg-white">

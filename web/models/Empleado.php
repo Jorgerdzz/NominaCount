@@ -40,6 +40,16 @@ class Empleado extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getEmpleadoPorEmail($email)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM empleados WHERE email = :email;";
+        $params = [
+            'email' => $email
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
 
     public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
