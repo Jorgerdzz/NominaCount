@@ -79,7 +79,14 @@ class Empleado extends Database
         $instance->query($query, $params);
     }
 
-    public static function darBajaEmpleado() {}
+    public static function darBajaEmpleado($id_empleado){
+        $instance = self::getInstance();
+        $query = "DELETE FROM empleados WHERE id_empleado = :id_empleado;";
+        $params = [
+            "id_empleado" => $id_empleado,
+        ];
+        $instance->query($query, $params);
+    }
 
     public static function modificarDatosEmpleado($id_empleado, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {

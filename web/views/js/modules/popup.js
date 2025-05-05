@@ -145,3 +145,88 @@ export function existeEmpleado() {
       }
   });
 }
+
+export function eliminarEmpleado() {
+  const botonEliminar = document.getElementById("baja_empleado");
+  
+  if (!botonEliminar) return;
+
+  botonEliminar.addEventListener("click", () => {
+    // Obtener el ID actualizado cada vez que se hace clic
+    const id_empleadoInput = document.getElementById("id_empleado");
+    const id_empleado = id_empleadoInput?.value;
+    
+    if (!id_empleado) {
+      Swal.fire({
+        title: "Error",
+        text: "No se encontró el ID del empleado",
+        icon: "error",
+        background: "#825abd",
+        color: "#FFFFFF"
+      });
+      return;
+    }
+
+    Swal.fire({
+      title: "¿Desea eliminar definitivamente el empleado?",
+      icon: "question",
+      background: "#825abd",
+      color: "#FFFFFF",
+      showConfirmButton: true,
+      confirmButtonText: "OK",
+      showCancelButton: true,
+      cancelButtonText: "Cancelar",
+      customClass: {
+        title: "h3",
+        confirmButton: "btn-primary",
+        cancelButton: "btn-primary",
+      },
+      position: "center",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("/eliminar-empleado", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id_empleado: id_empleado }),
+        })
+          .then(async (response) => {
+            const data = await response.json();
+            
+            if (!response.ok || data.error) {
+              throw new Error(data.error || "Error en la respuesta del servidor");
+            }
+            
+            Swal.fire({
+              title: "Empleado eliminado correctamente",
+              icon: "success",
+              background: "#825abd",
+              color: "#FFFFFF",
+              showConfirmButton: true,
+              confirmButtonText: "OK",
+              customClass: {
+                title: "h3",
+                confirmButton: "btn-primary",
+              },
+              position: "center",
+              timer: 3000,
+              timerProgressBar: true,
+            }).then(() => {
+              window.location.href = '/empresa';
+            });
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            Swal.fire({
+              title: "Error al eliminar empleado",
+              text: error.message,
+              icon: "error",
+              background: "#825abd",
+              color: "#FFFFFF",
+            });
+          });
+      }
+    });
+  });
+}
