@@ -41,6 +41,13 @@ class Database
         $instance->query($query);
     }
 
+    public static function eliminarDatabase($db_nombre)
+    {
+        $instance = new self();
+        $query = "DROP DATABASE $db_nombre;";
+        $instance->query($query);
+    }
+
     public static function ejecutarScriptSQL($rutaScript) {
         $instance = self::getInstance();
         $sql = file_get_contents($rutaScript);

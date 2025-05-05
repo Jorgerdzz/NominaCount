@@ -44,10 +44,12 @@ class Empleado extends Database
     public static function darAltaEmpleado($id_departamento, $nombre, $apellidos, $dni, $num_seguridad_social, $email, $telefono, $antiguedad_empresa, $fecha_nacimiento, $categoria_profesional, $minusvalia, $num_hijos, $estado_civil, $salario_base)
     {
         $instance = self::getInstance();
-        $query = "INSERT INTO empleados (id_departamento, nombre, apellidos, dni, email, 
-        telefono, antiguedad_empresa, fecha_nacimiento, num_hijos, estado_civil, salario_base)
+        $query = "INSERT INTO empleados (id_departamento, nombre, apellidos, dni, num_seguridad_social, email, 
+        telefono, antiguedad_empresa, fecha_nacimiento, categoria_profesional, minusvalia, num_hijos, 
+        estado_civil, salario_base)
         VALUES (:id_departamento, :nombre, :apellidos, :dni, :num_seguridad_social, :email, :telefono,
-        :antiguedad_empresa, :fecha_nacimiento, :categoria_profesional, :minusvalia, :num_hijos, :estado_civil, :salario_base);";
+        :antiguedad_empresa, :fecha_nacimiento, :categoria_profesional, :minusvalia, :num_hijos, 
+        :estado_civil, :salario_base);";
         $params = [
             "id_departamento"       => $id_departamento,
             "nombre"                => $nombre,

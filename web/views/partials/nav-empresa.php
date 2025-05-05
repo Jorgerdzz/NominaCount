@@ -38,10 +38,27 @@
                                 echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal'
                                 data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
                             } else {
+                                echo "<li class='dropdown-item'> No hay departamentos disponibles</li>";
+                                echo "<li><hr class='dropdown-divider'></li>";
                                 echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal' 
                                     data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
                             }
                         }
+                        
+                        if($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+                            $nombre_departamento = $_POST['nombre_departamento'] ?? null;
+                            $jefe_departamento = $_POST['jefe_departamento'] ?? null;
+                            
+                            $existe = Departamento::existeDepartamento($nombre_departamento);
+
+                            if (!$existe) {
+                                Departamento::crearDepartamento($nombre_departamento, $jefe_departamento);
+                                header("Location: /departamento?departamento=$nombre_departamento");
+                            }
+                                
+                        }
+                        
                         ?>
                     </ul>
                 </li>
@@ -59,6 +76,8 @@
                                 $nombreDepartamento = urlencode($dep['nombre_departamento']);
                                 echo "<li><a class='dropdown-item' href='/estadisticas?stats={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
                             }
+                        }else {
+                            echo "<li class='dropdown-item'> No hay departamentos disponibles</li>";
                         }
                         ?>
                     </ul>
@@ -76,9 +95,7 @@
                     </div>
                 </form>
                 <div class="position-relative">
-                    <div class="dropdown-menu auto position-absolute" id="resultadosBusqueda">
-                        <!-- Los resultados aparecerán aquí -->
-                    </div>
+                    <div class="dropdown-menu auto position-absolute" id="resultadosBusqueda"></div>
                 </div>
             </ul>
 

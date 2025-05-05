@@ -1,5 +1,7 @@
 <?php
 
+define('contrasena', 'P@ssw0rd'); //contraseña por defecto
+
 if (isset($_GET['departamento'])) {
     $nombre_departamento = $_GET['departamento'];
 
@@ -40,6 +42,11 @@ if (isset($_GET['departamento'])) {
             $_POST['num_hijos'],
             $_POST['estado_civil'],
             $_POST['salario_base']);
+
+            $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
+            $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
+
+            Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', $_POST['email_empleado'], contrasena);
             
             header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
     }

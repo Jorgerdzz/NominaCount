@@ -55,7 +55,13 @@ function iniciarSesion($email, $contra)
                 $_SESSION['db_nombre'] = db_nombre(db_maestra, $empresa['nombre_comercial']);
                 Database::getInstance($_SESSION['db_nombre']);
 
-                header('Location: /empresa');
+                if($_SESSION['usuarioActivo']['rol'] === 'Empresario'){
+                    header('Location: /empresa');
+                }else {
+                    header('Location: /usuario-empleado');
+                }
+
+                
                 exit();
             }
         }
