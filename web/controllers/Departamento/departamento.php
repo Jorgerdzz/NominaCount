@@ -14,7 +14,8 @@ if (isset($_GET['departamento'])) {
     Departamento::actualizarNumEmpleados($departamentoActual['id_departamento'], $numEmpleados['COUNT(*)']);
 
 
-    if(isset($_POST['nombre_empleado']) &&
+    if (
+        isset($_POST['nombre_empleado']) &&
         isset($_POST['apellidos_empleado']) &&
         isset($_POST['dni_empleado']) &&
         isset($_POST['num_seguridad_social']) &&
@@ -26,57 +27,35 @@ if (isset($_GET['departamento'])) {
         isset($_POST['fecha_nacimiento']) &&
         isset($_POST['categoria_profesional']) &&
         isset($_POST['minusvalia']) &&
-        isset($_POST['salario_base'])){
+        isset($_POST['salario_base'])
+    ) {
 
-            $array_empleados = Empleado::getEmpleados();
-            $empleado_existente = false;
+        Empleado::darAltaEmpleado(
+            $departamentoActual['id_departamento'],
+            $_POST['nombre_empleado'],
+            $_POST['apellidos_empleado'],
+            $_POST['dni_empleado'],
+            $_POST['num_seguridad_social'],
+            $_POST['email_empleado'],
+            $_POST['telefono_empleado'],
+            $_POST['antiguedad_empresa'],
+            $_POST['fecha_nacimiento'],
+            $_POST['categoria_profesional'],
+            $_POST['minusvalia'],
+            $_POST['num_hijos'],
+            $_POST['estado_civil'],
+            $_POST['salario_base']
+        );
 
-            foreach($array_empleados as $empleado){
+        $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
+        $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
 
-                if($_POST['dni_empleado'] == $empleado['dni'] && $_POST['num_seguridad_social'] == $empleado['num_seguridad_social'] &&
-                    $_POST['email_empleado'] == $empleado['email']){
+        Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', $_POST['email_empleado'], contrasena);
 
-                    $empleado_existente = true;
-
-                    if($empleado_existente) {
-                        // No hacemos nada aquí, el JS manejará el error
-                        exit;
-                    }
-                    
-
-                }else {
-                    
-                    Empleado::darAltaEmpleado($departamentoActual['id_departamento'], 
-                    $_POST['nombre_empleado'],
-                    $_POST['apellidos_empleado'],
-                    $_POST['dni_empleado'],
-                    $_POST['num_seguridad_social'],
-                    $_POST['email_empleado'],
-                    $_POST['telefono_empleado'],
-                    $_POST['antiguedad_empresa'],
-                    $_POST['fecha_nacimiento'],
-                    $_POST['categoria_profesional'],
-                    $_POST['minusvalia'],
-                    $_POST['num_hijos'],
-                    $_POST['estado_civil'],
-                    $_POST['salario_base']);
-        
-                    $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
-                    $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
-        
-                    Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', $_POST['email_empleado'], contrasena);
-                    
-                    header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
-                }
-            }
-
-            header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
-            
-            
+        header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
+        exit;
     }
 
     $page = 'departamento';
     require_once 'views/departamento.view.php';
 }
-
-    

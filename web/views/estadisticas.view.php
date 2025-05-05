@@ -9,9 +9,9 @@
     </div>
 
     <div class="mt-5">
-        <ul class="nav nav-tabs" id="tabsCostes" role="tablist">
+        <h1>Estadísticas mensuales</h1>
+        <ul class="nav nav-tabs mt-4" id="tabsCostes" role="tablist">
             <?php
-            // 12 meses
             for ($i = 1; $i <= 12; $i++) {
                 $mesNombre = $meses[$i];
                 echo "
