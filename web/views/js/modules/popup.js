@@ -68,4 +68,74 @@ export function eliminarDepartamento() {
   });
 }
 
-
+export function existeEmpleado() {
+  const form = document.querySelector('#anadir-empleado form');
+  const btnRegistro = document.getElementById('registroEmpleado');
+  
+  if (!form || !btnRegistro) return;
+  
+  form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      const dni = document.getElementById('dni_empleado').value;
+      const numSeguridadSocial = document.getElementById('num_seguridad_social').value;
+      const email = document.getElementById('email_empleado').value;
+      
+      try {
+          const response = await fetch('/existe-empleado', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                  dni: dni,
+                  num_seguridad_social: numSeguridadSocial,
+                  email: email
+              })
+          });
+          
+          const data = await response.json();
+          
+          if (data.existe) {
+              Swal.fire({
+                  title: 'Error al registrar empleado',
+                  text: 'El empleado ya existe',
+                  icon: 'error',
+                  background: '#825abd',
+                  color: '#FFFFFF',
+                  confirmButtonText: 'OK',
+                  customClass: {
+                      confirmButton: 'btn-primary'
+                  }
+              });
+          } else {
+            Swal.fire({
+              title: "El empleado se ha registrado correctamente",
+              icon: "success",
+              background: "#825abd",
+              color: "#FFFFFF",
+              showConfirmButton: true,
+              confirmButtonText: "OK",
+              customClass: {
+                title: "h3",
+                confirmButton: "btn-primary",
+              },
+              position: "center",
+              timer: 3000,
+              timerProgressBar: true,
+            }).then(() => {
+              form.submit();
+            })
+          }
+      } catch (error) {
+          console.error('Error:', error);
+          Swal.fire({
+              title: 'Error',
+              text: 'Ocurrió un error al verificar el empleado',
+              icon: 'error',
+              background: '#825abd',
+              color: '#FFFFFF'
+          });
+      }
+  });
+}

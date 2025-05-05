@@ -90,8 +90,9 @@ export function validarNumHijos(num_hijos){
   return isNumber && num_hijos.length > 0;
 }
 
-export function validarEstadoCivil(estado_civil){
-  return estado_civil !== "";
+export function validarEstadoCivil(estadoCivil) {
+  const estadosCivilesValidos = ["soltero", "casado", "divorciado", "pareja_hecho"];
+  return estadosCivilesValidos.includes(estadoCivil);
 }
 
 export function validarCategoriaProfesional(categoria_profesional){

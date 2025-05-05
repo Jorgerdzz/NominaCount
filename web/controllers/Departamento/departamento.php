@@ -27,28 +27,52 @@ if (isset($_GET['departamento'])) {
         isset($_POST['categoria_profesional']) &&
         isset($_POST['minusvalia']) &&
         isset($_POST['salario_base'])){
-            
-            Empleado::darAltaEmpleado($departamentoActual['id_departamento'], 
-            $_POST['nombre_empleado'],
-            $_POST['apellidos_empleado'],
-            $_POST['dni_empleado'],
-            $_POST['num_seguridad_social'],
-            $_POST['email_empleado'],
-            $_POST['telefono_empleado'],
-            $_POST['antiguedad_empresa'],
-            $_POST['fecha_nacimiento'],
-            $_POST['categoria_profesional'],
-            $_POST['minusvalia'],
-            $_POST['num_hijos'],
-            $_POST['estado_civil'],
-            $_POST['salario_base']);
 
-            $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
-            $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
+            $array_empleados = Empleado::getEmpleados();
+            $empleado_existente = false;
 
-            Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', $_POST['email_empleado'], contrasena);
-            
+            foreach($array_empleados as $empleado){
+
+                if($_POST['dni_empleado'] == $empleado['dni'] && $_POST['num_seguridad_social'] == $empleado['num_seguridad_social'] &&
+                    $_POST['email_empleado'] == $empleado['email']){
+
+                    $empleado_existente = true;
+
+                    if($empleado_existente) {
+                        // No hacemos nada aquí, el JS manejará el error
+                        exit;
+                    }
+                    
+
+                }else {
+                    
+                    Empleado::darAltaEmpleado($departamentoActual['id_departamento'], 
+                    $_POST['nombre_empleado'],
+                    $_POST['apellidos_empleado'],
+                    $_POST['dni_empleado'],
+                    $_POST['num_seguridad_social'],
+                    $_POST['email_empleado'],
+                    $_POST['telefono_empleado'],
+                    $_POST['antiguedad_empresa'],
+                    $_POST['fecha_nacimiento'],
+                    $_POST['categoria_profesional'],
+                    $_POST['minusvalia'],
+                    $_POST['num_hijos'],
+                    $_POST['estado_civil'],
+                    $_POST['salario_base']);
+        
+                    $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
+                    $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
+        
+                    Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', $_POST['email_empleado'], contrasena);
+                    
+                    header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
+                }
+            }
+
             header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
+            
+            
     }
 
     $page = 'departamento';

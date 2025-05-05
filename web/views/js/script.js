@@ -2,7 +2,7 @@ import { validarRegistro } from "./modules/registro.js";
 import { validarInicioSesion } from "./modules/inicioSesion.js";
 import { crearTabla } from "./modules/tablas.js";
 import { registroEmpleado } from "./modules/registroEmpleado.js";
-import { eliminarDepartamento } from "./modules/popup.js";
+import { eliminarDepartamento, existeEmpleado } from "./modules/popup.js";
 import {
   modificarDatosEmpleado,
   modificarDatosUsuario,
@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
     case "departamento":
       crearTabla();
       registroEmpleado();
+      existeEmpleado();
       eliminarDepartamento();
       break;
     case "empleado":

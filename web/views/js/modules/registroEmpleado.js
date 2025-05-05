@@ -119,7 +119,7 @@ export function registroEmpleado(){
         registroValido();
     });
 
-    categoria_profesional.addEventListener("input", ()=>{
+    categoria_profesional.addEventListener("change", ()=>{
         if (validarCategoriaProfesional(categoria_profesional.value)) {
             categoria_profesionalValido = true;
             categoria_profesional.style.border = "solid green";
@@ -129,7 +129,7 @@ export function registroEmpleado(){
         registroValido();
     });
 
-    minusvalia.addEventListener("input", ()=>{
+    minusvalia.addEventListener("change", ()=>{
         if (validarMinusvalia(minusvalia.value)) {
             minusvaliaValido = true;
             minusvalia.style.border = "solid green";
