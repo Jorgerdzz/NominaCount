@@ -106,8 +106,14 @@ export function existeEmpleado() {
                   confirmButtonText: 'OK',
                   customClass: {
                       confirmButton: 'btn-primary'
-                  }
-              });
+                  },
+                  timer: 3000,
+                  timerProgressBar: true,
+              }).then(() => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const departamento = urlParams.get('departamento');
+                window.location.href = `/departamento?departamento=${encodeURIComponent(departamento)}`;
+              })
           } else {
             Swal.fire({
               title: "El empleado se ha registrado correctamente",
