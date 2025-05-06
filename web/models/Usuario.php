@@ -25,6 +25,16 @@ class Usuario extends Database
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getUsuarioPorEmail($email)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT * FROM usuarios WHERE email = :email;";
+        $params = [
+            'email' => $email,
+        ];
+        return $instance->query($query,$params)->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function modificarUsuario($id_empresa, $id_usuario, $nombre_usuario, $email, $cif, $denominacion_social, $nombre_comercial, $direccion, $telefono)
     {
         $instance = self::getInstance();
@@ -67,6 +77,16 @@ class Usuario extends Database
         $params = [
             'id_usuario' => $id_usuario,
             'contrasena' => password_hash($contrasena, PASSWORD_DEFAULT)
+        ];
+        $instance->query($query, $params);
+    }
+
+    public static function eliminarUsuario($id_usuario)
+    {
+        $instance = new self();
+        $query = "DELETE FROM usuarios WHERE id_usuario = :id_usuario;";
+        $params = [
+            'id_usuario' => $id_usuario,
         ];
         $instance->query($query, $params);
     }

@@ -154,9 +154,12 @@ export function eliminarEmpleado() {
   botonEliminar.addEventListener("click", () => {
     // Obtener el ID actualizado cada vez que se hace clic
     const id_empleadoInput = document.getElementById("id_empleado");
+    const email_empleadoInput = document.getElementById("email_empleado");
+
     const id_empleado = id_empleadoInput?.value;
+    const email_empleado = email_empleadoInput?.value;
     
-    if (!id_empleado) {
+    if (!id_empleado || !email_empleado) {
       Swal.fire({
         title: "Error",
         text: "No se encontró el ID del empleado",
@@ -189,7 +192,7 @@ export function eliminarEmpleado() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ id_empleado: id_empleado }),
+          body: JSON.stringify({ id_empleado: id_empleado, email: email_empleado }),
         })
           .then(async (response) => {
             const data = await response.json();
