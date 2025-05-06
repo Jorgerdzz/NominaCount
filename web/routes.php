@@ -18,6 +18,7 @@
         '/costes-empleado' => 'controllers/Empleado/costes-empleado.php',
         '/costes-empleado-mes' => 'controllers/Empleado/costes-empleado-mes.php',
         '/costes-totales-departamento' => 'controllers/Departamento/costes-totales-departamento.php',
-        '/calcular-finiquito' => 'controllers/Finiquito/calcular-finiquito.php',
+        '/calcular-finiquito/empleado' => 'controllers/Finiquito/calcular-finiquito.php',
+        '/finiquito/empleado' => 'controllers/Finiquito/finiquito.php',
         '/usuario-empleado' => 'controllers/Empleado/usuario-empleado.php',
     ];

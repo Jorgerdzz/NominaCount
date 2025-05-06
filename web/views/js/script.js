@@ -12,6 +12,7 @@ import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
 import { setupBuscadorEmpleados } from "./modules/buscar-empleados.js";
 import { crearGrafico } from "./modules/graficosEstadisticas.js";
 import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
+import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
 
 
 
@@ -53,6 +54,9 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "estadisticas":
       crearGrafico();
+      break;
+    case "calcular-finiquito":
+      initCalculoFiniquito();
       break;
     default:
       break;

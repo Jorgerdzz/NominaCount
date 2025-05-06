@@ -81,17 +81,12 @@
         </div>
 
         <div class="container gap-3 mt-4">
-            <div class="row align-items-center">
+            <div class="row justify-content-between align-items-center">
                 <div class="col-12 col-md-3">
                     <div class="d-grid m-3">
                         <button class="btn btn-purple px-4">
                             <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
                         </button>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-3">
@@ -104,7 +99,28 @@
                 <div class="col-12 col-md-3">
                     <div class="d-grid m-3">
                         <button type="button" class="btn btn-purple px-4">
+                            <a href="<?= BASE_PATH . '/calcular-finiquito/empleado?id=' . $id_empleado; ?>">Calcular finiquito</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-between align-items-center">
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <button type="button" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <button type="button" class="btn btn-purple px-4">
                             <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">Ver historial nóminas</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-12 col-md-3">
+                    <div class="d-grid m-3">
+                        <button type="button" class="btn btn-purple px-4">
+                            <a href="<?= BASE_PATH . '/finiquito/empleado?id=' . $id_empleado; ?>">Ver finiquito</a>
                         </button>
                     </div>
                 </div>
