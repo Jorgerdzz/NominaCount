@@ -14,7 +14,7 @@
 
             <div class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= BASE_PATH . '/usuario-empleado'; ?>">Historial Nóminas</a>
+                    <a class="nav-link active" aria-current="page" href="<?= BASE_PATH . '/historial-nomina/empleado?id='; ?>">Historial Nóminas</a>
                 </li>
             </div>
 
