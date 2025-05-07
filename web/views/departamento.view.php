@@ -99,17 +99,17 @@
                     <div class="mb-3">
                         <label for="categoria_profesional" class="form-label">Categoría profesional:</label>
                         <select name="categoria_profesional" id="categoria_profesional">
-                            <option value="ingenieros_licenciados">Ingenieros y Licenciados. Personal de alta dirección</option>
-                            <option value="ingenieros_tecnicos">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
-                            <option value="jefes_administrativos">Jefes Administrativos y de Taller</option>
-                            <option value="ayudantes_no_titulados">Ayudantes no titulados</option>
-                            <option value="oficiales_administrativos">Oficiales Administrativos</option>
-                            <option value="subalternos">Subalternos</option>
-                            <option value="auxiliares_administrativos">Auxiliares administrativos</option>
-                            <option value="oficiales_primera_segunda">Oficiales de primera y segunda</option>
-                            <option value="oficiales_tercera_especialistas">Oficiales de tercera y especialistas</option>
-                            <option value="peones">Peones</option>
-                            <option value="menores">Trabajadores menores de dieciocho años</option>
+                            <option value="Ingenieros y Licenciados. Personal de alta dirección">Ingenieros y Licenciados. Personal de alta dirección</option>
+                            <option value="Ingenieros Técnicos, Peritos y Ayudantes Titulados">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
+                            <option value="Jefes Administrativos y de Taller">Jefes Administrativos y de Taller</option>
+                            <option value="Ayudantes no titulados">Ayudantes no titulados</option>
+                            <option value="Oficiales Administrativos">Oficiales Administrativos</option>
+                            <option value="Subalternos">Subalternos</option>
+                            <option value="Auxiliares administrativos">Auxiliares administrativos</option>
+                            <option value="Oficiales de primera y segunda">Oficiales de primera y segunda</option>
+                            <option value="Oficiales de tercera y especialistas">Oficiales de tercera y especialistas</option>
+                            <option value="Peones">Peones</option>
+                            <option value="Trabajadores menores de dieciocho años">Trabajadores menores de dieciocho años</option>
                         </select>
                     </div>
                     <div class="mb-3">
@@ -132,9 +132,9 @@
                     <div class="mb-3">
                         <label for="minusvalia" class="form-label">Minusvalía:</label>
                         <select name="minusvalia" id="minusvalia">
-                            <option value="Sin_discapacidad">Sin discapacidad</option>
-                            <option value="media">Entre el 33% y el 65%</option>
-                            <option value="alta">Igual o superior al 65%</option>
+                            <option value="Sin discapacidad">Sin discapacidad</option>
+                            <option value="Entre el 33% y el 65%">Entre el 33% y el 65%</option>
+                            <option value="Igual o superior al 65%">Igual o superior al 65%</option>
                         </select>
                     </div>
                     <div class="mb-3">
