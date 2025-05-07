@@ -66,7 +66,6 @@ class Empresa extends Database
     public static function getEstadisticasEmpresa() {
         $instance = self::getInstance();
         
-        // Costes totales
         $queryCostes = "SELECT 
                         SUM(coste_total_departamento) as coste_total,
                         AVG(coste_total_departamento) as coste_medio,
@@ -74,7 +73,6 @@ class Empresa extends Database
                         FROM departamentos 
                         WHERE coste_total_departamento IS NOT NULL";
         
-        // Empleados
         $queryEmpleados = "SELECT COUNT(*) as num_empleados FROM empleados";
         
         $estadisticas = $instance->query($queryCostes)->fetch(PDO::FETCH_ASSOC);

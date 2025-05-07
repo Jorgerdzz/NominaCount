@@ -124,7 +124,7 @@ class Departamento extends Database
             'num_empleados' => $departamento['num_empleados'],
             'coste_total_departamento' => $coste_real['coste_real'] ?? 0,
             'coste_medio_empleado' => $coste_medio,
-            'coste_departamento_bd' => $departamento['coste_total_departamento'] // Para comparar con el cálculo real
+            'coste_departamento_bd' => $departamento['coste_total_departamento']
         ];
     }
 

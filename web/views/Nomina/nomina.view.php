@@ -6,7 +6,6 @@
         <h2 class="mx-3" style="color: #825abd;">Nómina calculada</h2>
 
         <section class="pdf-nomina p-3">
-            <!-- Encabezado tipo tabla -->
             <table class="table table-bordered mb-4">
                 <thead class="table-light">
                     <tr>

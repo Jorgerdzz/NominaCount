@@ -119,7 +119,6 @@ function renderizarGraficosMensuales(data) {
         'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
     ];
 
-    // Crear gráficos para cada mes
     for (let mes = 1; mes <= 12; mes++) {
         const canvasId = `grafico-mes-${mes}`;
         const ctx = document.getElementById(canvasId)?.getContext('2d');

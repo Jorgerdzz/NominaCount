@@ -30,33 +30,102 @@
 
       <!-- DEVENGOS -->
       <h4 class="mt-4 mb-3" style="color: #825abd;">I. Devengos</h4>
-      <?php
-      $conceptos = [
-        'salario_base' => 'Salario base',
-        'incentivos' => 'Incentivos',
-        'plus_dedicacion' => 'Plus especial dedicación',
-        'plus_antiguedad' => 'Plus antigüedad',
-        'plus_actividad' => 'Plus actividad',
-        'plus_responsabilidad' => 'Plus responsabilidad',
-        'plus_convenio' => 'Plus convenio',
-        'plus_idiomas' => 'Plus idiomas',
-        'horas_extra' => 'Horas extraordinarias',
-        'horas_complementarias' => 'Horas complementarias',
-        'salario_especie' => 'Salario en especie',
-        'plus_transporte' => 'Plus transporte'
-      ];
-      foreach ($conceptos as $name => $label): ?>
-        <div class="row mb-2 align-items-center">
-          <div class="col-md-6"><?= $label ?></div>
-          <div class="col-md-6">
-            <input type="number" step="0.01" name="<?= $name ?>" id="<?= $name ?>" class="form-control">
-          </div>
-        </div>
-      <?php endforeach; ?>
+      <h4 class="mt-4 mb-3" style="color: #825abd;">I. Devengos totales</h4>
+
+      <h5 class="mt-4 mb-3" style="color: #825abd;">I.I. Percepciones salariales</h5>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Salario base</div>
+        <div class="col-md-6"><input value="<?= $datos_empleado['salario_base']; ?>" name="salario_base" class="form-control"></div>
+      </div>
+
+      <h5 class="mt-4 mb-3" style="color: #825abd;">I.II. Complementos salariales</h5>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Incentivos</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus especial dedicación</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus antigüedad</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus actividad</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus nocturnidad</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus responsabilidad</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus convenio</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus idiomas</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Horas extraordinarias</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Horas complementarias</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Salario en especie</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <h5 class="mt-4 mb-3" style="color: #825abd;">I.III. Percepciones no salariales</h5>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Indemnizaciones o Suplidos</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Prestaciones e indemnizaciones de la seguridad social</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Indemnizaciones por traslados, suspensiones o despidos</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Plus transporte</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
+
+      <div class="row mb-2 align-items-center">
+        <div class="col-md-6">Dietas</div>
+        <div class="col-md-6"><input type="number" step="0.01" class="form-control"></div>
+      </div>
 
       <!-- PRORRATEO PAGAS EXTRA -->
-      <div class="row mb-2 align-items-center">
-        <div class="col-md-6">Prorrateo pagas extra de salario base</div>
+      <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
+        <div class="col-md-6"><strong>Prorrateo pagas extra de salario base</strong></div>
         <div class="col-md-6">
           <input type="number" step="0.01" name="prorrateo_pagas" id="prorrateo_pagas" class="form-control" readonly>
         </div>

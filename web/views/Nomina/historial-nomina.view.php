@@ -16,7 +16,6 @@
 
     <h4>Año: <?= $año ?></h4>
 
-    <!-- Selector de año -->
     <div class="mb-4">
         <form method="get" class="form-inline">
             <input type="hidden" name="id_empleado" value="<?= $id_empleado ?>">
@@ -29,7 +28,6 @@
         </form>
     </div>
 
-    <!-- Pestañas de meses -->
     <ul class="nav nav-tabs" id="nominaTabs" role="tablist">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
             <li class="nav-item" role="presentation">
@@ -47,7 +45,6 @@
         <?php endforeach; ?>
     </ul>
 
-    <!-- Contenido de las pestañas -->
     <div class="tab-content p-3 border border-top-0 rounded-bottom bg-white">
         <?php foreach ($meses as $numMes => $nombreMes): ?>
             <div class="tab-pane fade <?= $numMes == $mes_seleccionado ? 'show active' : '' ?>"
@@ -60,7 +57,6 @@
                 ?>
 
                     <section class="pdf-nomina p-3">
-                        <!-- Encabezado tipo tabla -->
                         <table class="table table-bordered mb-4">
                             <thead class="table-light">
                                 <tr>

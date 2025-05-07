@@ -106,7 +106,7 @@ class Nomina extends Database
         $query = "SELECT * FROM nominas 
              WHERE id_empleado = :id_empleado 
              AND (YEAR(fecha_inicio) = :anio OR YEAR(fecha_fin) = :anio)
-             ORDER BY fecha_inicio ASC";  // Cambiado a ASC para orden cronológico
+             ORDER BY fecha_inicio ASC"; 
         $params = [
             'id_empleado' => $id_empleado,
             'anio' => $anio
@@ -121,10 +121,8 @@ class Nomina extends Database
         $nominasPorMes = [];
 
         foreach ($nominas as $nomina) {
-            // Usamos fecha_fin para determinar el mes de la nómina
             $mes = date('n', strtotime($nomina['fecha_fin']));
             
-            // Solo asignamos si no existe ya una nómina para ese mes
             if (!isset($nominasPorMes[$mes])) {
                 $nominasPorMes[$mes] = $nomina;
             }
