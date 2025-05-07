@@ -95,8 +95,21 @@ export function validarEstadoCivil(estadoCivil) {
   return estadosCivilesValidos.includes(estadoCivil);
 }
 
-export function validarCategoriaProfesional(categoria_profesional){
-  return categoria_profesional !== "";
+export function validarCategoriaProfesional(categoria_profesional) {
+  const categoriasValidas = [
+      'Ingenieros y Licenciados. Personal de alta dirección',
+      'Ingenieros Técnicos, Peritos y Ayudantes Titulados',
+      'Jefes Administrativos y de Taller',
+      'Ayudantes no titulados',
+      'Oficiales Administrativos',
+      'Subalternos',
+      'Auxiliares administrativos',
+      'Oficiales de primera y segunda',
+      'Oficiales de tercera y especialistas',
+      'Peones',
+      'Trabajadores menores de dieciocho años'
+  ];
+  return categoriasValidas.includes(categoria_profesional);
 }
 
 export function validarMinusvalia(minusvalia){

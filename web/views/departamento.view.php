@@ -99,6 +99,7 @@
                     <div class="mb-3">
                         <label for="categoria_profesional" class="form-label">Categoría profesional:</label>
                         <select name="categoria_profesional" id="categoria_profesional">
+                            <option value="" disabled selected>Seleccione una opción</option>
                             <option value="Ingenieros y Licenciados. Personal de alta dirección">Ingenieros y Licenciados. Personal de alta dirección</option>
                             <option value="Ingenieros Técnicos, Peritos y Ayudantes Titulados">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
                             <option value="Jefes Administrativos y de Taller">Jefes Administrativos y de Taller</option>
@@ -119,6 +120,7 @@
                     <div class="mb-3">
                         <label for="estado_civil" class="form-label">Estado civil:</label>
                         <select name="estado_civil" id="estado_civil">
+                            <option value="" disabled selected>Seleccione una opción</option>
                             <option value="soltero">Soltero</option>
                             <option value="casado">Casado</option>
                             <option value="divorciado">Divorciado</option>
@@ -132,6 +134,7 @@
                     <div class="mb-3">
                         <label for="minusvalia" class="form-label">Minusvalía:</label>
                         <select name="minusvalia" id="minusvalia">
+                            <option value="" disabled selected>Seleccione una opción</option>
                             <option value="Sin discapacidad">Sin discapacidad</option>
                             <option value="Entre el 33% y el 65%">Entre el 33% y el 65%</option>
                             <option value="Igual o superior al 65%">Igual o superior al 65%</option>
