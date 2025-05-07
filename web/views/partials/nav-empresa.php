@@ -1,21 +1,10 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">NominaCount</a>
+        <a class="navbar-brand" href="<?= BASE_PATH . '/empresa';?>">NominaCount</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-            <div class="navbar-nav">
-                <?php
-                if (isset($_SESSION['empresaActiva'])) {
-                    echo '<a class="nav-link order-md-4" href="' . BASE_PATH . '/empresa">' .
-                        '<i class="bi bi-building"></i> ' .
-                        htmlspecialchars($_SESSION['empresaActiva']['nombre_comercial'], ENT_QUOTES) .
-                        '</a>';
-                }
-                ?>
-            </div>
 
             <ul class="navbar-nav">
                 <li class="nav-item dropdown">

@@ -7,11 +7,6 @@
         <div class="col-md-11">
             <h2>Historial de Nóminas - <?= htmlspecialchars($empleado['nombre'] . ' ' . $empleado['apellidos']) ?></h2>
         </div>
-        <div class="col-md-1">
-            <button type="button" class="btn btn-primary">
-                <a class="text-dark" href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">Volver</a>
-            </button>
-        </div>
     </div>
 
     <h4>Año: <?= $año ?></h4>
