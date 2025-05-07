@@ -98,4 +98,34 @@ class Departamento extends Database
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getEstadisticasDepartamento($nombre_departamento) {
+        $instance = self::getInstance();
+
+        $query = "SELECT id_departamento, num_empleados, coste_total_departamento 
+                  FROM departamentos 
+                  WHERE nombre_departamento = :nombre_departamento";
+        $params = ['nombre_departamento' => $nombre_departamento];
+        $departamento = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+
+        $query = "SELECT SUM(ct.coste_total_trabajador) as coste_real
+                  FROM empleados e
+                  JOIN costes_trabajador ct ON e.id_empleado = ct.id_empleado
+                  WHERE e.id_departamento = :id_departamento";
+        $params = ['id_departamento' => $departamento['id_departamento']];
+        $coste_real = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+        
+        $coste_medio = ($departamento['num_empleados'] > 0) 
+            ? ($coste_real['coste_real'] / $departamento['num_empleados']) 
+            : 0;
+        
+        return [
+            'nombre_departamento' => $nombre_departamento,
+            'id_departamento' => $departamento['id_departamento'],
+            'num_empleados' => $departamento['num_empleados'],
+            'coste_total_departamento' => $coste_real['coste_real'] ?? 0,
+            'coste_medio_empleado' => $coste_medio,
+            'coste_departamento_bd' => $departamento['coste_total_departamento'] // Para comparar con el cálculo real
+        ];
+    }
+
 }

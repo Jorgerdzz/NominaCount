@@ -4,8 +4,33 @@
 <div class="container my-5">
     <h1>Estadísticas del departamento de <?= htmlspecialchars($nombre_departamento); ?></h1>
 
-    <div class="chart-container card p-5 bg-white my-3" style="height: 500px; width: 100%">
-        <canvas id="graficoCostes"></canvas>
+    <div class="chart-container card p-5 bg-white my-3">
+        <div class="grafico-departamento-container" style="height: 500px; width: 100%">
+            <canvas id="graficoCostes"></canvas>
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Resumen de Costes del Departamento</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Coste Total Departamento:</span>
+                            <strong><?= number_format($estadisticas['coste_total_departamento'] ?? 0, 2, ',', '.') ?> €</strong>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>Coste Medio por Empleado:</span>
+                            <strong><?= number_format($estadisticas['coste_medio_empleado'] ?? 0, 2, ',', '.') ?> €</strong>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span>Número de Empleados:</span>
+                            <strong><?= $estadisticas['num_empleados'] ?? 0 ?></strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="mt-5">
