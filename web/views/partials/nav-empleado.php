@@ -19,7 +19,7 @@
 
             <div class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="<?= BASE_PATH . '/usuario-empleado'; ?>">Calendario</a>
+                    <a class="nav-link active" aria-current="page" href="<?= BASE_PATH . '/calendario-empleado/empleado?id=' . $empleado['id_empleado']; ?>">Calendario</a>
                 </li>
             </div>
 

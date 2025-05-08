@@ -16,7 +16,7 @@ class Vacaciones extends Database
         $params = [
             'id_empleado' => $id_empleado,
         ];
-        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+        return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function getPeriodoVacaciones($id_empleado)
@@ -56,7 +56,7 @@ class Vacaciones extends Database
         $query = "UPDATE vacaciones SET estado = :estado WHERE id_empleado = :id_empleado;";
         $params = [
             'id_empleado' => $id_empleado,
-            'estado'      => $rechazado, 
+            'estado'      => $rechazado,
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
@@ -71,5 +71,15 @@ class Vacaciones extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-
+    public static function solicitarDiasVacaciones($id_empleado, $fecha_inicio, $fecha_fin)
+    {
+        $instance = self::getInstance();
+        $query = "INSERT INTO vacaciones (id_empleado, fecha_inicio, fecha_fin, estado) VALUES (:id_empleado, :fecha_inicio, :fecha_fin, 'pendiente')";
+        $params = [
+            'id_empleado' => $id_empleado,
+            'fecha_inicio' => $fecha_inicio,
+            'fecha_fin' => $fecha_fin
+        ];
+        return $instance->query($query, $params);
+    }
 }

@@ -13,6 +13,7 @@ import { setupBuscadorEmpleados } from "./modules/buscar-empleados.js";
 import { crearGrafico } from "./modules/graficosEstadisticas.js";
 import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
 import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
+import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 
 
 
@@ -57,6 +58,9 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "calcular-finiquito":
       initCalculoFiniquito();
+      break;
+    case "calendario-empleado":
+      crearCalendarioEmpleado();
       break;
     default:
       break;

@@ -24,4 +24,7 @@
 
         '/usuario-empleado' => 'controllers/UsuarioEmpleado/usuario-empleado.php',
         '/usuario-empleado/historial-nomina/empleado' => 'controllers/UsuarioEmpleado/historial-nomina.php',
+        '/calendario-empleado/empleado' => 'controllers/UsuarioEmpleado/calendario-empleado.php',
+        '/solicitar-dias-vacaciones' => 'controllers/UsuarioEmpleado/solicitar-dias-vacaciones.php',
+        '/calendario-empleado-eventos' => 'controllers/UsuarioEmpleado/calendario-empleado-eventos.php',
     ];
