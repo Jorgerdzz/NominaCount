@@ -10,6 +10,7 @@
         '/existe-empleado' => 'controllers/Empleado/existe-empleado.php',
         '/eliminar-empleado' => 'controllers/Empleado/eliminar-empleado.php',
         '/mi-cuenta' => 'controllers/Session/mi-cuenta.php',
+        '/notificaciones' => 'controllers/Session/notificaciones.php',
         '/cerrar-sesion' => 'controllers/Session/cerrar-sesion.php',
         '/calcular-nomina/empleado' => 'controllers/Nomina/calcular-nomina.php',
         '/historial-nomina/empleado' => 'controllers/Nomina/historial-nomina.php',

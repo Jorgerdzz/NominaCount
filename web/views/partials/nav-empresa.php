@@ -103,6 +103,7 @@
                     ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
+                        <li><a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

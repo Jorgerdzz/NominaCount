@@ -108,3 +108,13 @@ CREATE TABLE IF NOT EXISTS costes_trabajador(
     REFERENCES empleados(id_empleado)
     ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS vacaciones (
+    id_vacacion INT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT,
+    fecha_inicio DATE,
+    fecha_fin DATE,
+    estado ENUM('pendiente', 'aprobado', 'rechazado') DEFAULT 'pendiente',
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (id_empleado) REFERENCES empleados(id_empleado)
+);
