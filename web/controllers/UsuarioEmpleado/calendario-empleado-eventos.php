@@ -15,6 +15,7 @@ $vacaciones = Vacaciones::getVacacionesPorIdEmpleado($id_empleado);
 
 $eventos = array_map(function ($v) {
     return [
+        'id' => $v['id_vacacion'],
         'start' => $v['fecha_inicio'],
         'end' => date('Y-m-d', strtotime($v['fecha_fin'] . ' +1 day')),
         'display' => 'background',

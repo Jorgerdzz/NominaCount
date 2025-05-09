@@ -19,43 +19,23 @@ class Vacaciones extends Database
         return $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getPeriodoVacaciones($id_empleado)
+    public static function solicitudAprobada($id_vacacion, $aprobado)
     {
         $instance = self::getInstance();
-        $query = "SELECT fecha_inicio, fecha_fin FROM vacaciones WHERE id_empleado = :id_empleado;";
+        $query = "UPDATE vacaciones SET estado = :estado WHERE id_vacacion = :id_vacacion;";
         $params = [
-            'id_empleado' => $id_empleado,
-        ];
-        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public static function getFechaSolicitud($id_empleado)
-    {
-        $instance = self::getInstance();
-        $query = "SELECT fecha_solicitud FROM vacaciones WHERE id_empleado = :id_empleado;";
-        $params = [
-            'id_empleado' => $id_empleado,
-        ];
-        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
-    }
-
-    public static function solicitudAprobada($id_empleado, $aprobado)
-    {
-        $instance = self::getInstance();
-        $query = "UPDATE vacaciones SET estado = :estado WHERE id_empleado = :id_empleado;";
-        $params = [
-            'id_empleado' => $id_empleado,
+            'id_vacacion' => $id_vacacion,
             'estado'      => $aprobado
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function solicitudRechazada($id_empleado, $rechazado)
+    public static function solicitudRechazada($id_vacacion, $rechazado)
     {
         $instance = self::getInstance();
-        $query = "UPDATE vacaciones SET estado = :estado WHERE id_empleado = :id_empleado;";
+        $query = "UPDATE vacaciones SET estado = :estado WHERE id_vacacion = :id_vacacion;";
         $params = [
-            'id_empleado' => $id_empleado,
+            'id_vacacion' => $id_vacacion,
             'estado'      => $rechazado,
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);

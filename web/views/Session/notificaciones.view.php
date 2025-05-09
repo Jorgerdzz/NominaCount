@@ -23,19 +23,17 @@
                         </strong>
                     </h5>
                     <p class="card-text mb-1">
-                        <?php $periodo_vacaciones = Vacaciones::getPeriodoVacaciones($vacacion['id_empleado']); ?>
-                        <i class="bi bi-calendar-event"></i> Desde: <strong><?= $periodo_vacaciones['fecha_inicio']; ?></strong>
+                        <i class="bi bi-calendar-event"></i> Desde: <strong><?= $vacacion['fecha_inicio']; ?></strong>
                     </p>
                     <p class="card-text mb-2">
-                        <i class="bi bi-calendar-check"></i> Hasta: <strong><?= $periodo_vacaciones['fecha_fin']; ?></strong>
+                        <i class="bi bi-calendar-check"></i> Hasta: <strong><?= $vacacion['fecha_fin']; ?></strong>
                     </p>
                     <p class="card-text text-muted mb-3">
-                        <?php $fecha_solicitud = Vacaciones::getFechaSolicitud($vacacion['id_empleado']); ?>
-                        Enviada el: <?= htmlspecialchars($fecha_solicitud['fecha_solicitud']); ?>
+                        Enviada el: <?= htmlspecialchars($vacacion['fecha_solicitud']); ?>
                     </p>
                     <div class="d-flex gap-2">
                         <form method="POST">
-                            <input type="hidden" name="id_empleado" value="<?= $vacacion['id_empleado']; ?>">
+                            <input type="hidden" name="id_vacacion" value="<?= $vacacion['id_vacacion']; ?>">
                             <button type="submit" name="accion" value="aceptar" class="btn btn-success">
                                 <i class="bi bi-check-circle-fill"></i> Aceptar
                             </button>
