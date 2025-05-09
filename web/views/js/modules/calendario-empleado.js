@@ -6,12 +6,13 @@ export function crearCalendarioEmpleado() {
     selectable: true,
     selectMirror: true,
     selectOverlap: false,
+    locale: "es",
 
     // 1. Selección de rango y solicitud con SweetAlert2
     select: function (info) {
       const fechaInicio = info.startStr;
       const fechaFinObj = new Date(info.end);
-      fechaFinObj.setDate(fechaFinObj.getDate() - 1);
+      fechaFinObj.setDate(fechaFinObj.getDate());
       const fechaFinStr = fechaFinObj.toISOString().split("T")[0];
 
       Swal.fire({
@@ -77,10 +78,9 @@ export function crearCalendarioEmpleado() {
       });
     },
 
-    // 2. Cargar eventos desde la base de datos
-    events: "/calendario-empleado-eventos", // este será el endpoint PHP que debes crear o adaptar
+    events: "/calendario-empleado-eventos", 
 
-    // 3. Pintar el color según el estado
+
     eventDidMount: function (info) {
       const estado = info.event.extendedProps.estado;
       if (estado === "aprobado") {
@@ -91,15 +91,24 @@ export function crearCalendarioEmpleado() {
         info.el.style.backgroundColor = "orange";
       }
     },
+
+    dayCellDidMount: function (info) {
+      info.el.style.backgroundColor = "white"; 
+      const dayNumber = info.el.querySelector(".fc-daygrid-day-number");
+      dayNumber.style.color = "black"; 
+
+      // Resaltar el día de hoy
+      const today = new Date();
+      const cellDate = info.date; 
+      if (
+        cellDate.getFullYear() === today.getFullYear() &&
+        cellDate.getMonth() === today.getMonth() &&
+        cellDate.getDate() === today.getDate()
+      ) {
+        info.el.style.backgroundColor = "#5DD9C1"; 
+      }
+    },
   });
 
   calendar.render();
 }
-
-// dayCellDidMount: function (info) {
-//         //     const day = info.date.getDay();
-//         //     if (day === 6 || day === 0) {
-//         //         info.el.style.backgroundColor = '#e0e0e0'; // gris claro
-//         //         info.el.style.pointerEvents = 'none';
-//         //     }
-//         // }
