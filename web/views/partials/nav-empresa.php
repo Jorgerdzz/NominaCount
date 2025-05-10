@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= BASE_PATH . '/empresa';?>">NominaCount</a>
+        <a class="navbar-brand" href="<?= BASE_PATH . '/empresa'; ?>">NominaCount</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,21 +33,6 @@
                                     data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
                             }
                         }
-                        
-                        if($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-                            $nombre_departamento = $_POST['nombre_departamento'] ?? null;
-                            $jefe_departamento = $_POST['jefe_departamento'] ?? null;
-                            
-                            $existe = Departamento::existeDepartamento($nombre_departamento);
-
-                            if (!$existe) {
-                                Departamento::crearDepartamento($nombre_departamento, $jefe_departamento);
-                                header("Location: /departamento?departamento=$nombre_departamento");
-                            }
-                                
-                        }
-                        
                         ?>
                     </ul>
                 </li>
@@ -61,11 +46,11 @@
                     <ul class="dropdown-menu menu-estadisticas" id="menu-estadisticas" data-dropdown-type="estadisticas">
                         <?php
                         if (!empty($departamentos)) {
-                            foreach ($departamentos as $dep) { 
+                            foreach ($departamentos as $dep) {
                                 $nombreDepartamento = urlencode($dep['nombre_departamento']);
                                 echo "<li><a class='dropdown-item' href='/estadisticas?stats={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
                             }
-                        }else {
+                        } else {
                             echo "<li class='dropdown-item'> No hay departamentos disponibles</li>";
                         }
                         ?>
@@ -103,6 +88,7 @@
                     ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar usuarios</a></li>
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones</a></li>
                         <li>
                             <hr class="dropdown-divider">
@@ -126,7 +112,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-nuevo-departamento" method="POST">
+                <form id="form-nuevo-departamento" method="POST" action="/crear-departamento">
                     <div class="mb-3">
                         <label for="nombre_departamento" class="form-label">Nombre del departamento:</label>
                         <input type="text" class="form-control" id="nombre_departamento" name="nombre_departamento" aria-describedby="nombre_departamentolHelp">
@@ -134,6 +120,36 @@
                     <div class="mb-3">
                         <label for="jefe_departamento" class="form-label">Jefe del departamento:</label>
                         <input type="text" class="form-control" id="jefe_departamento" name="jefe_departamento" aria-describedby="jefe_departamentoHelp">
+                    </div>
+                    <div class="modal-footer">
+                        <div class="d-grid w-100">
+                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal Delegar Usuarios -->
+<div class="modal fade" id="delegar_usuarios" tabindex="-1" aria-labelledby="añadir-departamentoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content" style="background-color: #825abd;">
+            <div class="modal-header" data-bs-theme="dark">
+                <h1 class="modal-title fs-5" id="titulo">Delegación de usuarios</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="form-delegar-usuarios" method="POST" action="/delegar-usuarios">
+                    <input type="hidden" name="accion" value="delegar_usuario">
+                    <div class="mb-3">
+                        <label for="delegar_nombre_usuario" class="form-label">Nombre y apellidos:</label>
+                        <input type="text" class="form-control" id="delegar_nombre_usuario" name="delegar_nombre_usuario" aria-describedby="delegar_nombre_usuarioHelp">
+                    </div>
+                    <div class="mb-3">
+                        <label for="delegar_email" class="form-label">Correo electrónico:</label>
+                        <input type="text" class="form-control" id="delegar_email" name="delegar_email" aria-describedby="delegar_emailHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
