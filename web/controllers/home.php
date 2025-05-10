@@ -34,6 +34,7 @@ function iniciarSesion($email, $contra)
                 'id_empresa'      => $usuario['id_empresa'],
                 'nombre_usuario'  => $usuario['nombre_usuario'],
                 'rol'             => $usuario['rol'],
+                'ceo'             => $usuario['ceo'],
                 'email'           => $usuario['email'],
                 'contrasena'      => $usuario['contrasena'],
             ];
@@ -95,7 +96,7 @@ function registro($cif, $denominacion_social, $nombre_comercial, $direccion, $te
                 $db_nombre
             );
             $empresa = Empresa::getEmpresaPorEmail($email);
-            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', $email, $contra);
+            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', TRUE, $email, $contra);
         }
     }
 }

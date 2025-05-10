@@ -88,7 +88,9 @@
                     ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
-                        <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar usuarios</a></li>
+                        <?php if($_SESSION['usuarioActivo']['ceo']) :?>
+                            <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar usuarios</a></li>
+                        <?php endif;?>
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones</a></li>
                         <li>
                             <hr class="dropdown-divider">

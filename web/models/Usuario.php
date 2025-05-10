@@ -3,15 +3,16 @@
 class Usuario extends Database
 {
 
-    public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $email, $contra)
+    public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $ceo, $email, $contra)
     {
         $instance = new self();
-        $query = "INSERT INTO usuarios(id_empresa, nombre_usuario, rol, email, contrasena) 
-        VALUES (:id_empresa, :nombre_usuario, :rol, :email, :contra);";
+        $query = "INSERT INTO usuarios(id_empresa, nombre_usuario, rol, ceo, email, contrasena) 
+        VALUES (:id_empresa, :nombre_usuario, :rol, :ceo, :email, :contra);";
         $params = [
             'id_empresa' => $id_empresa,
             'nombre_usuario' => $nombre_usuario,
             'rol' => $rol,
+            'ceo' => $ceo,
             'email' => $email,
             'contra' => password_hash($contra, PASSWORD_DEFAULT)
         ];
