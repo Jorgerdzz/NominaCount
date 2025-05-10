@@ -62,4 +62,22 @@ class Vacaciones extends Database
         ];
         return $instance->query($query, $params);
     }
+
+    public static function contarSolicitudesPendientes($pendiente)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT COUNT(*) as num_solicitudes_pendientes FROM vacaciones WHERE estado = :estado;";
+        $params = [
+            'estado' => $pendiente,
+        ];
+
+        $stmt = $instance->query($query, $params);
+
+        if ($stmt && $stmt->rowCount() > 0) {
+            $result = $stmt->fetch(PDO::FETCH_ASSOC); 
+            return $result['num_solicitudes_pendientes']; 
+        }
+
+        return 0; 
+    }
 }

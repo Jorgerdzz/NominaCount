@@ -8,8 +8,10 @@
     
     <?php
     $existeSolicitudPendiente = false;
+    $cont = 0;
     foreach ($vacaciones as $vacacion):
         if ($vacacion['estado'] === 'pendiente') :
+            $cont++;
             $existeSolicitudPendiente = true; ?>
             <div class="card shadow border-start border-4 border-warning mb-3">
                 <div class="card-body">

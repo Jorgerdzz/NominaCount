@@ -47,7 +47,7 @@ export function crearCalendarioEmpleado() {
             .then((data) => {
               Swal.fire({
                 title: "Solicitud enviada",
-                text: data.mensaje,
+                text: "Esperando aprobación",
                 icon: "success",
                 background: "#825abd",
                 color: "#FFFFFF",
