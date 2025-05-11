@@ -2,7 +2,12 @@ import { validarRegistro } from "./modules/registro.js";
 import { validarInicioSesion } from "./modules/inicioSesion.js";
 import { crearTabla } from "./modules/tablas.js";
 import { registroEmpleado } from "./modules/registroEmpleado.js";
-import { crearDepartamento, eliminarDepartamento, eliminarEmpleado, existeEmpleado } from "./modules/popup.js";
+import {
+  crearDepartamento,
+  eliminarDepartamento,
+  eliminarEmpleado,
+  existeEmpleado,
+} from "./modules/popup.js";
 import {
   modificarDatosEmpleado,
   modificarDatosUsuario,
@@ -15,8 +20,6 @@ import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
 import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
 import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 import { importarCSV } from "./modules/importarCSV.js";
-
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -68,5 +71,4 @@ document.addEventListener("DOMContentLoaded", () => {
     default:
       break;
   }
-
 });

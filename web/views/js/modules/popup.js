@@ -1,7 +1,10 @@
 const BASE_PATH = "http://localhost:8000";
 
 export function crearDepartamento() {
+  const botonCrear = document.querySelectorAll(".dropdown-item no-cambiar-departamento");
   const formulario = document.getElementById("form-nuevo-departamento");
+
+  if (!formulario || !botonCrear) return;
 
   formulario.addEventListener("submit", async function (e) {
     e.preventDefault();
