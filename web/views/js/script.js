@@ -7,6 +7,8 @@ import {
   eliminarDepartamento,
   eliminarEmpleado,
   existeEmpleado,
+  existeEmpresa,
+  inicioSesion,
 } from "./modules/popup.js";
 import {
   modificarDatosEmpleado,
@@ -32,7 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
   switch (page) {
     case "home":
       validarRegistro();
+      existeEmpresa();
       validarInicioSesion();
+      inicioSesion();
       break;
     case "empresa":
       graficoCostesDepartamentoTotales();

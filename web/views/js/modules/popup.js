@@ -1,7 +1,149 @@
-const BASE_PATH = "http://localhost:8000";
+export function existeEmpresa() {
+  const form = document.getElementById("formularioRegistro");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const cif = document.getElementById("cif").value;
+    const denominacion_social = document.getElementById(
+      "denominacion_social"
+    ).value;
+    const nombre_comercial = document.getElementById("nombre_comercial").value;
+    const direccion = document.getElementById("direccion").value;
+    const telefono = document.getElementById("telefono").value;
+    const persona = document.getElementById("persona").value;
+    const email = document.getElementById("email").value;
+    const contra = document.getElementById("contra").value;
+
+    try {
+      const response = await fetch("/existe-empresa", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          cif: cif,
+          denominacion_social: denominacion_social,
+          nombre_comercial: nombre_comercial,
+          direccion: direccion,
+          telefono: telefono,
+          persona: persona,
+          email: email,
+          contra: contra,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.existe) {
+        Swal.fire({
+          title: "Registro erróneo",
+          text: "La empresa ya existe",
+          icon: "error",
+          background: "#825abd",
+          color: "#FFFFFF",
+          confirmButtonText: "OK",
+          customClass: {
+            confirmButton: "btn-primary",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          window.location.href = "/";
+        });
+      } else {
+        Swal.fire({
+          title: "Registro exitoso",
+          text: "La empresa se ha registrado correctamente",
+          icon: "success",
+          background: "#825abd",
+          color: "#FFFFFF",
+          showConfirmButton: true,
+          confirmButtonText: "OK",
+          customClass: {
+            title: "h3",
+            confirmButton: "btn-primary",
+          },
+          position: "center",
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          form.submit();
+          window.location.href = "/";
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrió un error al verificar la empresa",
+        icon: "error",
+        background: "#825abd",
+        color: "#FFFFFF",
+      });
+    }
+  });
+}
+
+export function inicioSesion() {
+  const form = document.getElementById("formularioInicioSesion");
+
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const email = document.getElementById("emailInicioSesion").value;
+    const contra = document.getElementById("contraInicioSesion").value;
+
+    try {
+      const response = await fetch("/inicio-sesion", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email: email,
+          contra: contra,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.exito) {
+        window.location.href = data.ruta;
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Usuario y contraseña incorrectos",
+          icon: "error",
+          background: "#825abd",
+          color: "#FFFFFF",
+          confirmButtonText: "OK",
+          customClass: {
+            confirmButton: "btn-primary",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          window.location.href = "/";
+        })
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrió un error al verificar la empresa",
+        icon: "error",
+        background: "#825abd",
+        color: "#FFFFFF",
+      });
+    }
+  });
+}
 
 export function crearDepartamento() {
-  const botonCrear = document.querySelectorAll(".dropdown-item no-cambiar-departamento");
+  const botonCrear = document.querySelectorAll(
+    ".dropdown-item no-cambiar-departamento"
+  );
   const formulario = document.getElementById("form-nuevo-departamento");
 
   if (!formulario || !botonCrear) return;
@@ -61,7 +203,7 @@ export function crearDepartamento() {
           timer: 3000,
           timerProgressBar: true,
         }).then(() => {
-          formulario.reset(); 
+          formulario.reset();
           const modal = bootstrap.Modal.getInstance(
             document.getElementById("nuevo_departamento")
           );
@@ -103,7 +245,7 @@ export function eliminarDepartamento() {
       position: "center",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(BASE_PATH + "/eliminar-departamento", {
+        fetch("/eliminar-departamento", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -129,7 +271,7 @@ export function eliminarDepartamento() {
               timer: 3000,
               timerProgressBar: true,
             }).then(() => {
-              window.location.href = BASE_PATH + "/empresa";
+              window.location.href = "/empresa";
             });
           })
           .catch((error) => {
@@ -235,7 +377,6 @@ export function eliminarEmpleado() {
   if (!botonEliminar) return;
 
   botonEliminar.addEventListener("click", () => {
-    // Obtener el ID actualizado cada vez que se hace clic
     const id_empleadoInput = document.getElementById("id_empleado");
     const email_empleadoInput = document.getElementById("email_empleado");
 

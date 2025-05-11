@@ -82,13 +82,15 @@
                             <i class="bi bi-person-circle"></i>
                             <?= htmlspecialchars($_SESSION['usuarioActivo']['nombre_usuario']) ?>
                         </a>
-                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                            <?php
-                                $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
-                                echo $cont;
-                            ?>
-                            <span class="visually-hidden">notificaciones no leidas</span>
-                        </span>
+                        <?php
+                            $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
+                        ?>
+                        <?php if($cont != 0):?>
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                <?= $cont ;?>
+                                <span class="visually-hidden">notificaciones no leidas</span>
+                            </span>
+                        <?php endif; ?>
                     <?php endif; ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
@@ -97,13 +99,12 @@
                         <?php endif; ?>
                         <li>
                             <a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones
+                                <?php if($cont != 0): ?>
                                 <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
-                                    <?php
-                                    $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
-                                    echo $cont;
-                                    ?>
+                                    <?= $cont; ?>
                                     <span class="visually-hidden">notificaciones no leidas</span>
                                 </span>
+                                <?php endif; ?>
                             </a>
                         </li>
                         <li>

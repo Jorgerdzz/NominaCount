@@ -18,7 +18,7 @@
           <div class="row">
               <div class="col d-flex flex-column align-items-center justify-content-center">
                   <h1>NominaCount</h1>
-                  <h2>¡La mejor aplicacion para gestionar tu empresa!</h2>
+                  <h2>¡La mejor aplicación para gestionar tu empresa!</h2>
               </div>
           </div>
           <div class="row m-3">
@@ -38,7 +38,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form method="POST">
+                      <form id="formularioInicioSesion" method="POST">
                           <div class="mb-3">
                               <label for="emailInicioSesion" class="form-label">Correo electrónico:</label>
                               <input type="text" class="form-control" id="emailInicioSesion" name="emailInicioSesion" aria-describedby="emailHelp">

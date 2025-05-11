@@ -2,7 +2,9 @@
 
     return [
         '/' => 'controllers/home.php',
+        '/inicio-sesion' => 'controllers/Session/inicio-sesion.php',
         '/empresa' => 'controllers/Empresa/empresa.php',
+        '/existe-empresa' => 'controllers/Empresa/existe-empresa.php',
         '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',
         '/departamento' => 'controllers/Departamento/departamento.php',
         '/crear-departamento' => 'controllers/Departamento/crear-departamento.php',

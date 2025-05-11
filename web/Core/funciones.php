@@ -33,11 +33,11 @@ function db_nombre($db_maestra, $nombre_comercial)
     return $db_maestra . $empresa;
 }
 
-function existeEmpresa($email)
+function existeEmpresa($cif, $denominacion_social)
 {
     $empresas = Empresa::getEmpresas();
     foreach ($empresas as $empresa) {
-        if ($empresa['email'] === $email) {
+        if ($empresa['cif'] === $cif || $empresa['denominacion_social'] === $denominacion_social) {
             return true;
         }
     }

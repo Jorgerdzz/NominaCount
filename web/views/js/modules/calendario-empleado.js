@@ -55,6 +55,8 @@ export function crearCalendarioEmpleado() {
                 customClass: {
                   confirmButton: "btn-primary",
                 },
+                timer: 3000,
+                timerProgressBar: true,
               });
 
               // Refrescar eventos para mostrar el nuevo en estado "pendiente"
@@ -80,8 +82,7 @@ export function crearCalendarioEmpleado() {
       });
     },
 
-    events: "/calendario-empleado-eventos", 
-
+    events: "/calendario-empleado-eventos",
 
     eventDidMount: function (info) {
       const estado = info.event.extendedProps.estado;
@@ -95,19 +96,19 @@ export function crearCalendarioEmpleado() {
     },
 
     dayCellDidMount: function (info) {
-      info.el.style.backgroundColor = "white"; 
+      info.el.style.backgroundColor = "white";
       const dayNumber = info.el.querySelector(".fc-daygrid-day-number");
-      dayNumber.style.color = "black"; 
+      dayNumber.style.color = "black";
 
       // Resaltar el día de hoy
       const today = new Date();
-      const cellDate = info.date; 
+      const cellDate = info.date;
       if (
         cellDate.getFullYear() === today.getFullYear() &&
         cellDate.getMonth() === today.getMonth() &&
         cellDate.getDate() === today.getDate()
       ) {
-        info.el.style.backgroundColor = "#5DD9C1"; 
+        info.el.style.backgroundColor = "#5DD9C1";
       }
     },
   });
