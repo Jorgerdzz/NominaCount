@@ -72,6 +72,8 @@ export function crearCalendarioEmpleado() {
                 customClass: {
                   confirmButton: "btn-primary",
                 },
+                timer: 3000,
+                timerProgressBar: true,
               });
             });
         }

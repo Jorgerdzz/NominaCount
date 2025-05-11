@@ -77,19 +77,19 @@
 
             <ul class="navbar-nav ms-start">
                 <li class="nav-item dropdown m-2">
-                    <?php
-                    if (isset($_SESSION['usuarioActivo'])) {
-                        echo '<a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" 
-                        aria-expanded="false">
-                        <i class="bi bi-person-circle"></i>' . " " .
-                            htmlspecialchars($_SESSION['usuarioActivo']['nombre_usuario'], ENT_QUOTES) .
-                            '</a>
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                                99+
-                                <span class="visually-hidden">notificaciones no leidas</span>
-                            </span>';
-                    }
-                    ?>
+                    <?php if (isset($_SESSION['usuarioActivo'])): ?>
+                        <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                            <?= htmlspecialchars($_SESSION['usuarioActivo']['nombre_usuario']) ?>
+                        </a>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            <?php
+                                $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
+                                echo $cont;
+                            ?>
+                            <span class="visually-hidden">notificaciones no leidas</span>
+                        </span>
+                    <?php endif; ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
                         <?php if ($_SESSION['usuarioActivo']['ceo']) : ?>
@@ -99,8 +99,8 @@
                             <a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones
                                 <span class="position-absolute start-100 translate-middle badge rounded-pill bg-danger">
                                     <?php
-                                        $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
-                                        echo $cont;
+                                    $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
+                                    echo $cont;
                                     ?>
                                     <span class="visually-hidden">notificaciones no leidas</span>
                                 </span>

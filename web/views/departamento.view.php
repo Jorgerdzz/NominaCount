@@ -44,14 +44,28 @@
 
     <div class="container my-3">
         <div class="row">
-            <div class="col-md-6 d-flex justify-content-start">
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
+            <div class="col-md-3">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
+                </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-end">
+            <div class="col-md-3">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary">Descargar plantilla csv</button>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="d-grid">
+                    <button type="button" class="btn btn-primary">Importar csv empleados</button>
+                </div>
+            </div>
+            <div class="col-md-3">
                 <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
-                <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
-                    Eliminar departamento
-                </button>
+                <div class="d-grid">
+                    <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
+                        Eliminar departamento
+                    </button>
+                </div>
             </div>
         </div>
     </div>
