@@ -2,7 +2,7 @@ import { validarRegistro } from "./modules/registro.js";
 import { validarInicioSesion } from "./modules/inicioSesion.js";
 import { crearTabla } from "./modules/tablas.js";
 import { registroEmpleado } from "./modules/registroEmpleado.js";
-import { eliminarDepartamento, eliminarEmpleado, existeEmpleado } from "./modules/popup.js";
+import { crearDepartamento, eliminarDepartamento, eliminarEmpleado, existeEmpleado } from "./modules/popup.js";
 import {
   modificarDatosEmpleado,
   modificarDatosUsuario,
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(page);
 
   setupBuscadorEmpleados();
+  crearDepartamento();
 
   switch (page) {
     case "home":

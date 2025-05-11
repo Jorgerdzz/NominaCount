@@ -9,7 +9,7 @@ class Departamento extends Database
         $query = "SELECT * FROM departamentos;";
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
-    
+
     public static function getDepartamentoPorNombre($nombre_departamento)
     {
         $instance = self::getInstance();
@@ -56,16 +56,15 @@ class Departamento extends Database
     public static function existeDepartamento($nombre_departamento)
     {
         $instance = self::getInstance();
-        $query = "SELECT COUNT(*) as count FROM departamentos WHERE nombre_departamento = :nombre_departamento";
+        $query = "SELECT COUNT(*) as count FROM departamentos WHERE LOWER(nombre_departamento) = LOWER(:nombre_departamento)";
         $params = ['nombre_departamento' => $nombre_departamento];
         $result = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
-        if (!empty($result) && isset($result[0]['count'])) {
-            return $result[0]['count'] > 0; 
-        }
-        return false;
+
+        return !empty($result) && $result['count'] > 0;
     }
 
-    public static function actualizarNumEmpleados($id_departamento, $num_empleados) {
+    public static function actualizarNumEmpleados($id_departamento, $num_empleados)
+    {
         $instance = self::getInstance();
         $query = "UPDATE departamentos 
                   SET num_empleados = :num_empleados 
@@ -77,7 +76,8 @@ class Departamento extends Database
         $instance->query($query, $params);
     }
 
-    public static function actualizarCosteDepartamento($id_departamento, $coste_total) {
+    public static function actualizarCosteDepartamento($id_departamento, $coste_total)
+    {
         $instance = self::getInstance();
         $query = "UPDATE departamentos 
                   SET coste_total_departamento = :coste_total 
@@ -89,7 +89,8 @@ class Departamento extends Database
         $instance->query($query, $params);
     }
 
-    public static function getCostesPorDepartamento() {
+    public static function getCostesPorDepartamento()
+    {
         $instance = self::getInstance();
         $query = "SELECT nombre_departamento, coste_total_departamento 
                   FROM departamentos 
@@ -98,7 +99,8 @@ class Departamento extends Database
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function getEstadisticasDepartamento($nombre_departamento) {
+    public static function getEstadisticasDepartamento($nombre_departamento)
+    {
         $instance = self::getInstance();
 
         $query = "SELECT id_departamento, num_empleados, coste_total_departamento 
@@ -113,11 +115,11 @@ class Departamento extends Database
                   WHERE e.id_departamento = :id_departamento";
         $params = ['id_departamento' => $departamento['id_departamento']];
         $coste_real = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
-        
-        $coste_medio = ($departamento['num_empleados'] > 0) 
-            ? ($coste_real['coste_real'] / $departamento['num_empleados']) 
+
+        $coste_medio = ($departamento['num_empleados'] > 0)
+            ? ($coste_real['coste_real'] / $departamento['num_empleados'])
             : 0;
-        
+
         return [
             'nombre_departamento' => $nombre_departamento,
             'id_departamento' => $departamento['id_departamento'],
@@ -127,5 +129,4 @@ class Departamento extends Database
             'coste_departamento_bd' => $departamento['coste_total_departamento']
         ];
     }
-
 }
