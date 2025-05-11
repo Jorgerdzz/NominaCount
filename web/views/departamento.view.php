@@ -51,7 +51,9 @@
             </div>
             <div class="col-md-3">
                 <div class="d-grid">
-                    <button type="button" class="btn btn-primary">Descargar plantilla csv</button>
+                    <button type="button" class="btn btn-primary">
+                        <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">Descargar plantilla csv</a>
+                    </button>
                 </div>
             </div>
             <div class="col-md-3">

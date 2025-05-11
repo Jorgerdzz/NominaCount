@@ -6,6 +6,7 @@
         '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',
         '/departamento' => 'controllers/Departamento/departamento.php',
         '/crear-departamento' => 'controllers/Departamento/crear-departamento.php',
+        '/plantillaCSV' => 'controllers/Departamento/plantillaCSV.php',
         '/eliminar-departamento' => 'controllers/Departamento/eliminar-departamento.php',
         '/empleado' => 'controllers/Empleado/empleado.php',
         '/existe-empleado' => 'controllers/Empleado/existe-empleado.php',
