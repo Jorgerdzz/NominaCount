@@ -56,7 +56,11 @@
             </div>
             <div class="col-md-3">
                 <div class="d-grid">
-                    <button type="button" class="btn btn-primary">Importar csv empleados</button>
+                    <form id="formImportCSV" method="POST" enctype="multipart/form-data" style="display: none;">
+                        <input type="file" name="csv_empleados" id="csv_empleados" accept=".csv" required>
+                        <input type="hidden" name="importar_csv" value="1">
+                    </form>
+                    <button type="button" id="btnImportarCSV" class="btn btn-primary">Importar csv empleados</button>
                 </div>
             </div>
             <div class="col-md-3">

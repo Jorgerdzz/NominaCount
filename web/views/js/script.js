@@ -14,6 +14,7 @@ import { crearGrafico } from "./modules/graficosEstadisticas.js";
 import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
 import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
 import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
+import { importarCSV } from "./modules/importarCSV.js";
 
 
 
@@ -35,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
       crearTabla();
       registroEmpleado();
       existeEmpleado();
+      importarCSV();
       eliminarDepartamento();
       break;
     case "empleado":
