@@ -94,6 +94,11 @@
                               <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                           </div>
                           <div class="mb-3">
+                            <label for="logo" class="form-label">Logo de la empresa:</label>
+                            <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
+                            <small>Formatos aceptados: JPG, PNG, SVG, WebP. Tamaño máximo: 2MB</small>
+                          </div>
+                          <div class="mb-3">
                               <label for="persona" class="form-label">Persona de contacto:</label>
                               <input type="text" class="form-control" id="persona" name="persona" aria-describedby="personaHelp" placeholder="Ej: Juan Antonio Domínguez">
                           </div>

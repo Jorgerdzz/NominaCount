@@ -3,7 +3,7 @@
 class Empresa extends Database
 {
 
-    public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email, $db_nombre)
+    public static function crearEmpresa($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $logo_path, $email, $db_nombre)
     {
         Database::crearDatabase($db_nombre);
 
@@ -12,14 +12,15 @@ class Empresa extends Database
         Database::ejecutarScriptSQL(__DIR__ . '/../sql/estructura_base.sql');
 
         $instance = new self();
-        $query = "INSERT INTO empresas(cif, denominacion_social, nombre_comercial, direccion, telefono, email, db_nombre) 
-        VALUES (:cif, :denominacion_social, :nombre_comercial, :direccion, :telefono, :email, :db_nombre);";
+        $query = "INSERT INTO empresas(cif, denominacion_social, nombre_comercial, direccion, telefono, logo_path, email, db_nombre) 
+        VALUES (:cif, :denominacion_social, :nombre_comercial, :direccion, :telefono, :logo_path, :email, :db_nombre);";
         $params = [
             'cif' => $cif,
             'denominacion_social' => $denominacion_social,
             'nombre_comercial' => $nombre_comercial,
             'direccion' => $direccion,
             'telefono' => $telefono,
+            'logo_path' => $logo_path,
             'email' => $email,
             'db_nombre' => $db_nombre
         ];

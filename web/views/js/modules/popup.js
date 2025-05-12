@@ -4,33 +4,12 @@ export function existeEmpresa() {
   form.addEventListener("submit", async function (e) {
     e.preventDefault();
 
-    const cif = document.getElementById("cif").value;
-    const denominacion_social = document.getElementById(
-      "denominacion_social"
-    ).value;
-    const nombre_comercial = document.getElementById("nombre_comercial").value;
-    const direccion = document.getElementById("direccion").value;
-    const telefono = document.getElementById("telefono").value;
-    const persona = document.getElementById("persona").value;
-    const email = document.getElementById("email").value;
-    const contra = document.getElementById("contra").value;
+    const formData = new FormData(form);
 
     try {
       const response = await fetch("/existe-empresa", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          cif: cif,
-          denominacion_social: denominacion_social,
-          nombre_comercial: nombre_comercial,
-          direccion: direccion,
-          telefono: telefono,
-          persona: persona,
-          email: email,
-          contra: contra,
-        }),
+        body: formData,
       });
 
       const data = await response.json();
