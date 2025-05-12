@@ -32,18 +32,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $db_nombre = db_nombre(db_maestra, $nombre_comercial);
         $existe = existeEmpresa($cif, $denominacion_social);
         if (!$existe) {
-            
+
             if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
                 $uploadDir = $_SERVER['DOCUMENT_ROOT'] . '/views/img/logos/';
                 
-                // Generar nombre único para el archivo
+                $nombre_empresa_sanitizado = preg_replace('/[^a-zA-Z0-9_]/', '_', strtolower($nombre_comercial));
                 $extension = pathinfo($_FILES['logo']['name'], PATHINFO_EXTENSION);
-                $filename = uniqid('logo_') . '.' . $extension;
+                $filename = 'logo_' . $nombre_empresa_sanitizado . '.' . $extension;
                 $uploadPath = $uploadDir . $filename;
                 
-                // Mover el archivo subido
                 if (move_uploaded_file($_FILES['logo']['tmp_name'], $uploadPath)) {
-                    // Guardar la ruta relativa para la base de datos
                     $logo_path = 'views/img/logos/' . $filename;
                 }
             }
