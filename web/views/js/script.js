@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "empresa":
       graficoCostesDepartamentoTotales();
+      break;
     case "departamento":
       crearTabla();
       registroEmpleado();
