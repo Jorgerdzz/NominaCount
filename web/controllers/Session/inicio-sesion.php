@@ -35,6 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     'nombre_comercial'     => $empresa['nombre_comercial'],
                     'direccion'            => $empresa['direccion'],
                     'telefono'             => $empresa['telefono'],
+                    'logo_path'            => $empresa['logo_path'],
                     'email'                => $empresa['email'],
                     'db_nombre'            => $empresa['db_nombre']
                 ];
