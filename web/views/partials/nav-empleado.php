@@ -5,7 +5,13 @@
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <a class="navbar-brand" href="<?= BASE_PATH . '/usuario-empleado'; ?>">NominaCount</a>
+        <?php if($_SESSION['empresaActiva']['logo_path'] !== null): ?>            
+            <a class="navbar-brand" href="<?= BASE_PATH . '/empresa'; ?>">
+                <img src="<?= $_SESSION['empresaActiva']['logo_path'] ?>" alt="Logo de <?= $_SESSION['empresaActiva']['nombre_comercial']; ?>" style="height: 60px;">
+            </a>
+        <?php else: ?>   
+            <a class="navbar-brand" href="<?= BASE_PATH . '/empresa'; ?>">NominaCount</a>
+        <?php endif; ?>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
