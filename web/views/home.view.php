@@ -47,6 +47,11 @@
                               <label for="contraInicioSesion" class="form-label">Contraseña:</label>
                               <input type="password" class="form-control" id="contraInicioSesion" name="contraInicioSesion" aria-describedby="contraHelp">
                           </div>
+                          <div class="mb-3">
+                            <ul class="nav nav-underline">
+                                <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#comprobar-email">He olvidado mi contraseña</a>
+                            </ul>
+                          </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
                                   <button type="submit" class="btn btn-primary" id="botonInicioSesion" disabled>Confirmar</button>
@@ -127,6 +132,57 @@
               </div>
           </div>
       </div>
+
+      <!-- Modal Comprobar Correo Electrónico -->
+      <div class="modal fade" id="comprobar-email" tabindex="-1" aria-labelledby="inicio-sesionLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content" style="background-color: #825abd;">
+                  <div class="modal-header" data-bs-theme="dark">
+                      <h1 class="modal-title fs-5" id="titulo">Comprobación</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="formularioComprobarCorreo" method="POST" action="/nueva-contra">
+                          <div class="mb-3">
+                              <label for="comprobarEmail" class="form-label">Correo electrónico:</label>
+                              <input type="text" class="form-control" id="comprobarEmail" name="comprobarEmail" aria-describedby="comprobarEmailHelp">
+                          </div>
+                          <div class="modal-footer">
+                              <div class="d-grid w-100">
+                                  <button type="submit" class="btn btn-primary" id="botonComprobarCorreo">Confirmar</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Modal Establecer Nueva Contraseña -->
+      <div class="modal fade" id="establecer-contra" tabindex="-1" aria-labelledby="inicio-sesionLabel" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content" style="background-color: #825abd;">
+                  <div class="modal-header" data-bs-theme="dark">
+                      <h1 class="modal-title fs-5" id="titulo">Establecer contraseña</h1>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                      <form id="formularioEstablecerContra" method="POST" action="/nueva-contra">
+                          <div class="mb-3">
+                              <label for="nueva-contra" class="form-label">Nueva contraseña:</label>
+                              <input type="text" class="form-control" id="nueva-contra" name="nueva-contra" aria-describedby="nueva-contraHelp">
+                          </div>
+                          <div class="modal-footer">
+                              <div class="d-grid w-100">
+                                  <button type="submit" class="btn btn-primary" id="botonEstablecerContra">Confirmar</button>
+                              </div>
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
   </main>
 
   <?php require_once 'views/partials/footer.php'; ?>
