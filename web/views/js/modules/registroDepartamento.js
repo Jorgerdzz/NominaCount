@@ -4,16 +4,14 @@ import {
 
 export function registroDepartamento(){
 
-    const botonCrear = document.querySelectorAll(
-    ".dropdown-item no-cambiar-departamento"
-    );
+    const botonCrear = document.querySelectorAll(".dropdown-item.no-cambiar-departamento");
+    if (botonCrear.length === 0) return;
 
     const nombre_departamento = document.getElementById('nombre_departamento');
     const jefe_departamento = document.getElementById('jefe_departamento');
 
     const botonRegistro = document.getElementById('registrar_departamento');
 
-    if (!botonCrear) return;
 
     let nombre_departamentoValido = false;
     let jefe_departamentoValido = false;

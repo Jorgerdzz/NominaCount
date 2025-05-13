@@ -120,9 +120,9 @@ export function inicioSesion() {
 }
 
 export function crearDepartamento() {
-  const botonCrear = document.querySelectorAll(
-    ".dropdown-item no-cambiar-departamento"
-  );
+  const botonCrear = document.querySelectorAll(".dropdown-item.no-cambiar-departamento");
+  if (botonCrear.length === 0) return;
+  
   const formulario = document.getElementById("form-nuevo-departamento");
 
   if (!formulario || !botonCrear) return;
