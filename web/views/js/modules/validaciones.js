@@ -24,6 +24,9 @@ export function validarDireccion(direccion) {
 export function validarTelefono(telefono) {
   return telefono.length === 9;
 }
+export function validarLogo(logo){
+  return logo.files.length > 0 && logo.files.size <= 2 * 1024 * 1024 ;
+}
 export function validarPersona(persona) {
   return persona.length > 1;
 }

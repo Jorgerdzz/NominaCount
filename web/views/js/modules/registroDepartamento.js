@@ -3,13 +3,22 @@ import {
 }from "./validaciones.js";
 
 export function registroDepartamento(){
+
+    const botonCrear = document.querySelectorAll(
+    ".dropdown-item no-cambiar-departamento"
+    );
+
     const nombre_departamento = document.getElementById('nombre_departamento');
     const jefe_departamento = document.getElementById('jefe_departamento');
 
     const botonRegistro = document.getElementById('registrar_departamento');
 
+    if (!botonCrear) return;
+
     let nombre_departamentoValido = false;
     let jefe_departamentoValido = false;
+
+    
 
     nombre_departamento.addEventListener("input", ()=>{
         if (validarNombre(nombre_departamento.value)) {

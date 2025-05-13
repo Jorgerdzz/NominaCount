@@ -94,7 +94,7 @@
                               <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                           </div>
                           <div class="mb-3">
-                            <label for="logo" class="form-label">Logo de la empresa:</label>
+                            <label for="logo" class="form-label">Logo de la empresa: (opcional)</label>
                             <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
                             <small>Formatos aceptados: JPG, PNG, SVG, WebP. Tamaño máximo: 2MB</small>
                           </div>

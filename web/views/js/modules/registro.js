@@ -4,6 +4,7 @@ import {
   validarNombreComercial,
   validarDireccion,
   validarTelefono,
+  validarLogo,
   validarPersona,
   validarEmail,
   validarContra,
@@ -17,6 +18,7 @@ export function validarRegistro() {
   const nombreComercialInput = document.getElementById("nombre_comercial");
   const direccionInput = document.getElementById("direccion");
   const telefonoInput = document.getElementById("telefono");
+  const logoInput = document.getElementById("logo");
   const personaInput = document.getElementById("persona");
   const emailInput = document.getElementById("email");
   const contraInput = document.getElementById("contra");
@@ -29,6 +31,7 @@ export function validarRegistro() {
   let nombreComercialValido = false;
   let direccionValida = false;
   let telefonoValido = false;
+  let logoValido = false;
   let personaValido = false;
   let emailValido = false;
   let contraValida = false;
@@ -82,6 +85,13 @@ export function validarRegistro() {
       telefonoInput.style.border = "solid red";
     }
     registroValido();
+  });
+
+  logoInput.addEventListener("input", () => {
+    if (validarLogo(logoInput.value)) {
+      logoValido = true;
+      logoInput.style.border = "solid green";
+    }
   });
 
   personaInput.addEventListener("input", () => {
