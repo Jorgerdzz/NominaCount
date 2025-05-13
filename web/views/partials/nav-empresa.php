@@ -146,7 +146,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button type="submit" id="registrar_departamento" class="btn btn-primary" disabled >Confirmar</button>
                         </div>
                     </div>
                 </form>

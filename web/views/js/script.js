@@ -22,6 +22,7 @@ import { graficoCostesDepartamentoTotales } from "./modules/graficosEmpresa.js";
 import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
 import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 import { importarCSV } from "./modules/importarCSV.js";
+import { registroDepartamento } from "./modules/registroDepartamento.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   setupBuscadorEmpleados();
   crearDepartamento();
+  registroDepartamento();
 
   switch (page) {
     case "home":
