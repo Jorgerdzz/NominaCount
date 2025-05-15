@@ -24,8 +24,23 @@ export function validarDireccion(direccion) {
 export function validarTelefono(telefono) {
   return telefono.length === 9;
 }
-export function validarLogo(logo){
-  return logo.files.length > 0 && logo.files.size <= 2 * 1024 * 1024 ;
+export function validarLogo(logo) {
+    if (logo.files.length === 0) {
+        return false; 
+    }
+    const file = logo.files[0];
+
+    const tiposPermitidos = ['image/jpeg', 'image/png', 'image/svg+xml', 'image/webp'];
+    if (!tiposPermitidos.includes(file.type)) {
+        return false; 
+    }
+
+    const tamañoMaximo = 2 * 1024 * 1024;
+    if (file.size > tamañoMaximo) {
+        return false;
+    }
+
+    return true;
 }
 export function validarPersona(persona) {
   return persona.length > 1;

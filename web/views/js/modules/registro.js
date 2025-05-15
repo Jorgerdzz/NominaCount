@@ -88,9 +88,11 @@ export function validarRegistro() {
   });
 
   logoInput.addEventListener("input", () => {
-    if (validarLogo(logoInput.value)) {
+    if (validarLogo(logoInput)) {
       logoValido = true;
       logoInput.style.border = "solid green";
+    } else {
+      logoInput.style.border = "solid red";
     }
   });
 
@@ -139,7 +141,6 @@ export function validarRegistro() {
     if (contraInput.value.length === 0) fuerzaContra.style.width = "0%";
   });
 
-
   privacidad.addEventListener("change", () => {
     privacidadValida = privacidad.checked;
     registroValido();
@@ -163,6 +164,3 @@ export function validarRegistro() {
     }
   }
 }
-
-
-
