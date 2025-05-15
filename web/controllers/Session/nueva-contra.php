@@ -5,15 +5,11 @@ header('Content-Type: application/json');
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $data = json_decode(file_get_contents('php://input'), true);
 
-    $email = $_POST['comprobarEmail'];
+    $id_usuario = $data['id_usuario'];
     $nuevaContra = $data['contra'] ?? '';
 
-    $usuario = Usuario::getUsuarioPorEmail($email);
+    Usuario::cambiarContrasena($id_usuario, $nuevaContra);
 
-    Usuario::cambiarContrasena($usuario['id_usuario'], $nuevaContra);
-
-    $existe = false;
-
-    echo json_encode(['existe' => $existe]);
+    echo json_encode(['exito' => TRUE]);
     exit;
 }

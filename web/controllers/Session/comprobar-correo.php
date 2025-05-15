@@ -12,11 +12,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $existe = false;
     foreach ($usuarios as $usuario) {
         if ($usuario['email'] === $email) {
+            $id_usuario = $usuario['id_usuario'];
             $existe = true;
             break;
         }
     }
 
-    echo json_encode(['existe' => $existe]);
+    echo json_encode([
+        'existe' => $existe,
+        'id_usuario' => $id_usuario,
+    ]);
     exit;
 }

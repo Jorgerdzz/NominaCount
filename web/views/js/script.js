@@ -23,7 +23,7 @@ import { initCalculoFiniquito } from "./modules/calcular-finiquito.js";
 import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 import { importarCSV } from "./modules/importarCSV.js";
 import { registroDepartamento } from "./modules/registroDepartamento.js";
-import { existeEmail } from "./modules/olvidar-contra.js";
+import { establecerContra, existeEmail, validarComprobacionEmail, validarNuevaContra } from "./modules/olvidar-contra.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -40,7 +40,10 @@ document.addEventListener("DOMContentLoaded", () => {
       existeEmpresa();
       validarInicioSesion();
       inicioSesion();
+      validarComprobacionEmail();
       existeEmail();
+      validarNuevaContra();
+      establecerContra();
       break;
     case "empresa":
       graficoCostesDepartamentoTotales();

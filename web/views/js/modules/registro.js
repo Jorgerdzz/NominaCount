@@ -139,6 +139,7 @@ export function validarRegistro() {
     if (contraInput.value.length === 0) fuerzaContra.style.width = "0%";
   });
 
+
   privacidad.addEventListener("change", () => {
     privacidadValida = privacidad.checked;
     registroValido();

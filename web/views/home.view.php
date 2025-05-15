@@ -48,9 +48,9 @@
                               <input type="password" class="form-control" id="contraInicioSesion" name="contraInicioSesion" aria-describedby="contraHelp">
                           </div>
                           <div class="mb-3">
-                            <ul class="nav nav-underline">
-                                <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#comprobar-email">He olvidado mi contraseña</a>
-                            </ul>
+                              <ul class="nav nav-underline">
+                                  <a class="nav-link text-white" data-bs-toggle="modal" data-bs-target="#comprobar-email">He olvidado mi contraseña</a>
+                              </ul>
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
@@ -99,9 +99,9 @@
                               <input type="text" class="form-control" id="telefono" name="telefono" aria-describedby="telefonoHelp" placeholder="Ej: 913 567 324">
                           </div>
                           <div class="mb-3">
-                            <label for="logo" class="form-label">Logo de la empresa: (opcional)</label>
-                            <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
-                            <small>Formatos aceptados: JPG, PNG, SVG, WebP. Tamaño máximo: 2MB</small>
+                              <label for="logo" class="form-label">Logo de la empresa: (opcional)</label>
+                              <input type="file" class="form-control" id="logo" name="logo" accept="image/*">
+                              <small>Formatos aceptados: JPG, PNG, SVG, WebP. Tamaño máximo: 2MB</small>
                           </div>
                           <div class="mb-3">
                               <label for="persona" class="form-label">Persona de contacto:</label>
@@ -114,7 +114,7 @@
                           <div class="mb-3">
                               <label for="contra" class="form-label">Contraseña:</label>
                               <input type="password" class="form-control" id="contra" name="contra" aria-describedby="contraHelp" placeholder="Introduzca al menos ocho caracteres">
-                              <p><small>Para mejorar la fotaleza de la contraseña debe introducir algun numero, mayúscula y caracter especial</small></p>
+                              <p><small>Para incrementar la fotaleza de la contraseña debe introducir algún número, mayúscula o caracter especial</small></p>
                               <div id="fuerzaContra" style="height: 5px; width: 0%; background-color: red;" class="rounded mt-1"></div>
                           </div>
                           <div class="mb-3 form-check">
@@ -122,9 +122,9 @@
                               <label class="form-check-label" for="privacidad">Acepto la política de privacidad</label>
                           </div>
                           <div class="modal-footer">
-                          <div id="mensaje"></div>
+                              <div id="mensaje"></div>
                               <div class="d-grid w-100">
-                                    <button type="submit" class="btn btn-primary" id="botonRegistro" disabled>Registrarse</button>
+                                  <button type="submit" class="btn btn-primary" id="botonRegistro" disabled>Registrarse</button>
                               </div>
                           </div>
                       </div>
@@ -142,14 +142,14 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form id="formularioComprobarCorreo" method="POST" action="/nueva-contra">
+                      <form id="formularioComprobarCorreo" method="POST">
                           <div class="mb-3">
                               <label for="comprobarEmail" class="form-label">Correo electrónico:</label>
                               <input type="text" class="form-control" id="comprobarEmail" name="comprobarEmail" aria-describedby="comprobarEmailHelp">
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
-                                  <button type="submit" class="btn btn-primary" id="botonComprobarCorreo">Confirmar</button>
+                                  <button type="submit" class="btn btn-primary" id="botonComprobarCorreo" disabled>Confirmar</button>
                               </div>
                           </div>
                       </form>
@@ -167,14 +167,16 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                      <form id="formularioEstablecerContra" method="POST" action="/nueva-contra">
+                      <form id="formularioEstablecerContra" method="POST">
                           <div class="mb-3">
                               <label for="nueva-contra" class="form-label">Nueva contraseña:</label>
-                              <input type="text" class="form-control" id="nueva-contra" name="nueva-contra" aria-describedby="nueva-contraHelp">
+                              <input type="password" class="form-control" id="nueva-contra" name="nueva-contra" placeholder="Introduzca al menos ocho caracteres" aria-describedby="nueva-contraHelp">
+                              <p><small>Para incrementar la fotaleza de la contraseña debe introducir algún número, mayúscula o caracter especial</small></p>
+                              <div id="fuerzaNuevaContra" style="height: 5px; width: 0%; background-color: red;" class="rounded mt-1"></div>
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">
-                                  <button type="submit" class="btn btn-primary" id="botonEstablecerContra">Confirmar</button>
+                                  <button type="submit" class="btn btn-primary" id="botonEstablecerContra" disabled>Confirmar</button>
                               </div>
                           </div>
                       </form>
