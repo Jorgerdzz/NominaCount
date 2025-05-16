@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <?php if($_SESSION['empresaActiva']['logo_path'] !== null): ?>            
             <a class="navbar-brand" href="<?= BASE_PATH . '/empresa'; ?>">
-                <img src="<?= $_SESSION['empresaActiva']['logo_path'] ?>" alt="Logo de <?= $_SESSION['empresaActiva']['nombre_comercial']; ?>" style="height: 60px;">
+                <img src="<?= BASE_PATH . '/' . $_SESSION['empresaActiva']['logo_path'] ?>" alt="Logo de <?= $_SESSION['empresaActiva']['nombre_comercial']; ?>" style="height: 60px;">
             </a>
         <?php else: ?>   
             <a class="navbar-brand" href="<?= BASE_PATH . '/empresa'; ?>">NominaCount</a>
