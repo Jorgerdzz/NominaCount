@@ -16,6 +16,7 @@ import {
     validarNumHijos,
     validarEstadoCivil,
     validarSalarioBase,
+    validarContra
 }from "./validaciones.js";
 
 export function modificarDatosEmpleado() {
@@ -224,4 +225,125 @@ export function modificarDatosUsuario() {
         configurarValidacionCampo('nombre_usuario', nombre_usuario, validarNombre);
         configurarValidacionCampo('email_usuario', email_usuario, validarEmail);
     });
+}
+
+export function modificarContra(){
+    const form = document.getElementById("formularioCambiarContra");
+
+    form.addEventListener("submit", async function (e) {
+    e.preventDefault();
+
+    const contra_actual = document.getElementById("contra-actual").value;
+    const nueva_contra = document.getElementById("nueva-contra").value;
+    const confirmar_contra = document.getElementById("confirmar-contra").value;
+
+    try {
+      const response = await fetch("/cambiar-contrasena", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          contra_actual: contra_actual,
+          nueva_contra: nueva_contra,
+          confirmar_contra: confirmar_contra,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.exito) {
+        Swal.fire({
+          title: "Exito",
+          text: "La contraseña se ha cambiado correctamente",
+          icon: "success",
+          background: "#825abd",
+          color: "#FFFFFF",
+          confirmButtonText: "OK",
+          customClass: {
+            confirmButton: "btn-primary",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          window.location.href = "/mi-cuenta";
+        });
+      } else {
+        Swal.fire({
+          title: "Error",
+          text: "Las contraseñas no coinciden",
+          icon: "error",
+          background: "#825abd",
+          color: "#FFFFFF",
+          confirmButtonText: "OK",
+          customClass: {
+            confirmButton: "btn-primary",
+          },
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+          window.location.href = "/mi-cuenta";
+        });
+      }
+    } catch (error) {
+      console.error("Error:", error);
+      Swal.fire({
+        title: "Error",
+        text: "Ocurrió un error al verificar las contraseñas",
+        icon: "error",
+        background: "#825abd",
+        color: "#FFFFFF",
+      });
+    }
+  });
+}
+
+export function validarCambiarContra(){
+    const contra_actual = document.getElementById("contra-actual");
+    const nueva_contra = document.getElementById("nueva-contra");
+    const confirmar_contra = document.getElementById("confirmar-contra");
+
+    const boton = document.getElementById("cambiar-contra");
+
+    let contra_actualValido = false;
+    let nueva_contraValido = false;
+    let confirmar_contraValido = false;
+
+    contra_actual.addEventListener("input", ()=>{
+        if(validarContra(contra_actual.value)){
+            contra_actualValido = true;
+            contra_actual.style.border = "solid green";
+        } else{
+            contra_actual.style.border = "solid red";
+        }
+        contraValida();
+    })
+
+    nueva_contra.addEventListener("input", ()=>{
+        if(validarContra(nueva_contra.value)){
+            nueva_contraValido = true;
+            nueva_contra.style.border = "solid green";
+        } else{
+            nueva_contra.style.border = "solid red";
+        }
+        contraValida();
+    })
+
+    confirmar_contra.addEventListener("input", ()=>{
+        if(validarContra(confirmar_contra.value)){
+            confirmar_contraValido = true;
+            confirmar_contra.style.border = "solid green";
+        } else{
+            confirmar_contra.style.border = "solid red";
+        }
+        contraValida();
+    })
+
+    function contraValida(){
+        if(contra_actualValido && nueva_contraValido && confirmar_contraValido){
+            boton.disabled = false;
+        } else{
+            boton.disabled = true;
+        }
+    }
 }

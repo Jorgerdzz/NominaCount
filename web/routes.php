@@ -14,6 +14,7 @@
         '/existe-empleado' => 'controllers/Empleado/existe-empleado.php',
         '/eliminar-empleado' => 'controllers/Empleado/eliminar-empleado.php',
         '/mi-cuenta' => 'controllers/Session/mi-cuenta.php',
+        '/cambiar-contrasena' => 'controllers/Session/cambiar-contrasena.php',
         '/comprobar-correo' => 'controllers/Session/comprobar-correo.php',
         '/nueva-contra' => 'controllers/Session/nueva-contra.php',
         '/delegar-usuarios' => 'controllers/Session/delegar-usuarios.php',

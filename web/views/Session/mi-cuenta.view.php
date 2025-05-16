@@ -57,7 +57,7 @@
                 </div>
                 <div class="col-md-4">
                     <div class="d-grid m-3">
-                        <button type="submit" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contraseña">Cambiar contraseña</button>
+                        <button type="submit" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
                     </div>
                 </div>
                 <div class="col-md-4">
@@ -120,7 +120,7 @@
 </div>
 
 <!-- Modal Cambiar Contraseña -->
-<div class="modal fade" id="cambiar-contraseña" tabindex="-1" aria-labelledby="editar-perfil-usuarioLabel" aria-hidden="true">
+<div class="modal fade" id="cambiar-contrasena" tabindex="-1" aria-labelledby="editar-perfil-usuarioLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #825abd;">
             <div class="modal-header" data-bs-theme="dark">
@@ -128,22 +128,22 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form method="POST">
+                <form id="formularioCambiarContra" method="POST">
                     <div class="mb-3">
                         <label for="contra-actual" class="form-label">Contraseña actual:</label>
-                        <input type="password" class="form-control" id="contra-actual" name="contra-actual" aria-describedby="contra-actualHelp">
+                        <input type="password" class="form-control" id="contra-actual" name="contra-actual" placeholder="Introduzca su contraseña actual" aria-describedby="contra-actualHelp">
                     </div>
                     <div class="mb-3">
                         <label for="nueva-contra" class="form-label">Nueva contraseña:</label>
-                        <input type="password" class="form-control" id="nueva-contra" name="nueva-contra" aria-describedby="nueva-contraHelp">
+                        <input type="password" class="form-control" id="nueva-contra" name="nueva-contra" placeholder="Introduzca al menos ocho caracteres" aria-describedby="nueva-contraHelp">
                     </div>
                     <div class="mb-3">
                         <label for="confirmar-contra" class="form-label">Confirmar contraseña:</label>
-                        <input type="password" class="form-control" id="confirmar-contra" name="confirmar-contra" aria-describedby="confirmar-contraHelp">
+                        <input type="password" class="form-control" id="confirmar-contra" name="confirmar-contra" placeholder="Introduzca la nueva contraseña" aria-describedby="confirmar-contraHelp">
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary" id="cambiar-contra">Confirmar</button>
+                            <button type="submit" class="btn btn-primary" id="cambiar-contra" disabled>Confirmar</button>
                         </div>
                     </div>
                 </form>

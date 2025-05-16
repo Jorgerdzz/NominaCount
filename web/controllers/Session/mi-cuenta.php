@@ -48,17 +48,6 @@ if (
     header("Location: /mi-cuenta");
 }
 
-if (
-    isset($_POST['contra-actual']) &&
-    isset($_POST['nueva-contra']) &&
-    isset($_POST['confirmar-contra'])
-) {
-    if(password_verify($_POST['contra-actual'], $contrasena) && $_POST['nueva-contra'] == $_POST['confirmar-contra']){
-        Usuario::cambiarContrasena($id_usuario, $_POST['nueva-contra']);
-    }else{
-        echo 'no coinciden';
-    }
-}
 
 
 $page = 'mi-cuenta';

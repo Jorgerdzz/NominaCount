@@ -11,8 +11,10 @@ import {
   inicioSesion,
 } from "./modules/popup.js";
 import {
+  modificarContra,
   modificarDatosEmpleado,
   modificarDatosUsuario,
+  validarCambiarContra,
 } from "./modules/modificarDatos.js";
 import { initNominaCalculator } from "./modules/calcular-nomina.js";
 import { generarNominaPDF } from "./modules/generar-nominaPDF.js";
@@ -61,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "mi-cuenta":
       modificarDatosUsuario();
+      validarCambiarContra();
+      modificarContra();
       break;
     case "calcular-nomina":
       initNominaCalculator();
