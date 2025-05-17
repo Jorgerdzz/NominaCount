@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $db_nombre
             );
             $empresa = Empresa::getEmpresaPorEmail($email);
-            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', TRUE, $email, $contra);
+            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', TRUE, TRUE, $email, $contra);
         }
     }
 
