@@ -41,6 +41,13 @@ $empleado = Empleado::getEmpleadoPorEmail($_SESSION['usuarioActivo']['email']);
                     ?>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
+                        <?php if($_SESSION['usuarioActivo']['delegado']) : 
+                                if($_SESSION['usuarioActivo']['rol'] == 'Empresario') : ?>
+                                    <li><a class="dropdown-item" href="<?= BASE_PATH . '/cambiar-rol'; ?>">Rol empleado</a></li>
+                                <?php else: ?>
+                                    <li><a class="dropdown-item" href="<?= BASE_PATH . '/cambiar-rol'; ?>">Rol empresario</a></li>
+                                <?php endif; ?>
+                        <?php endif; ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

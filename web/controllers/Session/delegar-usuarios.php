@@ -9,7 +9,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         Database::getInstance('sistema_empresas');
 
-        Usuario::crearUsuario($_SESSION['empresaActiva']['id_empresa'], $nombre_usuario, 'Empresario', FALSE, $email_usuario, contrasena);
+        $existe = existeUsuario($email_usuario);
+
+        if($existe){
+            Usuario::delegarUsuario($email_usuario, TRUE);
+        }else{
+            Usuario::crearUsuario($_SESSION['empresaActiva']['id_empresa'], $nombre_usuario, 'Empresario', FALSE, TRUE, $email_usuario, contrasena);
+        }
 
         Database::getInstance($_SESSION['db_nombre']);
 

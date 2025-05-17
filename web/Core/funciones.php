@@ -43,3 +43,14 @@ function existeEmpresa($cif, $denominacion_social)
     }
     return false;
 }
+
+function existeUsuario($email)
+{
+    $usuarios = Usuario::getUsuarios();
+    foreach ($usuarios as $usuario) {
+        if ($usuario['email'] == $email) {
+            return true;
+        }
+    }
+    return false;
+}

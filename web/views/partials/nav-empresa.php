@@ -103,6 +103,13 @@
                         <?php if ($_SESSION['usuarioActivo']['ceo']) : ?>
                             <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar usuarios</a></li>
                         <?php endif; ?>
+                        <?php if($_SESSION['usuarioActivo']['delegado']) : 
+                                if($_SESSION['usuarioActivo']['rol'] == 'Empresario') : ?>
+                                    <li><a class="dropdown-item" href="<?= BASE_PATH . '/cambiar-rol'; ?>">Rol empleado</a></li>
+                                <?php else: ?>
+                                    <li><a class="dropdown-item" href="<?= BASE_PATH . '/cambiar-rol'; ?>">Rol empresario</a></li>
+                                <?php endif; ?>
+                        <?php endif; ?>
                         <li>
                             <a class="dropdown-item" href="<?= BASE_PATH . '/notificaciones'; ?>">Notificaciones
                                 <?php if($cont != 0): ?>

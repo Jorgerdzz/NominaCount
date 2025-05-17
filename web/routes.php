@@ -18,6 +18,7 @@
         '/comprobar-correo' => 'controllers/Session/comprobar-correo.php',
         '/nueva-contra' => 'controllers/Session/nueva-contra.php',
         '/delegar-usuarios' => 'controllers/Session/delegar-usuarios.php',
+        '/cambiar-rol' => 'controllers/Session/cambiar-rol.php',
         '/notificaciones' => 'controllers/Session/notificaciones.php',
         '/cerrar-sesion' => 'controllers/Session/cerrar-sesion.php',
         '/calcular-nomina/empleado' => 'controllers/Nomina/calcular-nomina.php',

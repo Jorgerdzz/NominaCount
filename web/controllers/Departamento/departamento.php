@@ -50,7 +50,7 @@ if (isset($_GET['departamento'])) {
         $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
         $nombre_usuario = $_POST['nombre_empleado'] . " " .  $_POST['apellidos_empleado'];
 
-        Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', FALSE, $_POST['email_empleado'], contrasena);
+        Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', FALSE, FALSE, $_POST['email_empleado'], contrasena);
 
         header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
         exit;
@@ -90,6 +90,7 @@ if (isset($_GET['departamento'])) {
                     $_SESSION['empresaActiva']['id_empresa'],
                     "$nombre $apellidos",
                     'Empleado',
+                    false,
                     false,
                     $email,
                     contrasena

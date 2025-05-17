@@ -3,16 +3,17 @@
 class Usuario extends Database
 {
 
-    public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $ceo, $email, $contra)
+    public static function crearUsuario($id_empresa, $nombre_usuario, $rol, $ceo, $delegado, $email, $contra)
     {
         $instance = new self();
-        $query = "INSERT INTO usuarios(id_empresa, nombre_usuario, rol, ceo, email, contrasena) 
-        VALUES (:id_empresa, :nombre_usuario, :rol, :ceo, :email, :contra);";
+        $query = "INSERT INTO usuarios(id_empresa, nombre_usuario, rol, ceo, delegado, email, contrasena) 
+        VALUES (:id_empresa, :nombre_usuario, :rol, :ceo, :delegado, :email, :contra);";
         $params = [
             'id_empresa' => $id_empresa,
             'nombre_usuario' => $nombre_usuario,
             'rol' => $rol,
             'ceo' => $ceo,
+            'delegado' => $delegado,
             'email' => $email,
             'contra' => password_hash($contra, PASSWORD_DEFAULT)
         ];
@@ -88,6 +89,28 @@ class Usuario extends Database
         $query = "DELETE FROM usuarios WHERE id_usuario = :id_usuario;";
         $params = [
             'id_usuario' => $id_usuario,
+        ];
+        $instance->query($query, $params);
+    }
+
+    public static function cambiarRolUsuario($email_usuario, $rol)
+    {
+        $instance = new self();
+        $query = "UPDATE usuarios SET rol = :rol WHERE email = :email;";
+        $params = [
+            'rol'   => $rol,
+            'email' => $email_usuario,
+        ];
+        $instance->query($query, $params);
+    }
+
+    public static function delegarUsuario($email_usuario, $delegado)
+    {
+        $instance = new self();
+        $query = "UPDATE usuarios SET delegado = :delegado WHERE email = :email;";
+        $params = [
+            'delegado' => $delegado,
+            'email' => $email_usuario,
         ];
         $instance->query($query, $params);
     }
