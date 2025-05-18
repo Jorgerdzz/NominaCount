@@ -41,7 +41,6 @@ export function registroCEO() {
     const minusvalia = document.getElementById("minusvalia").value;
     const salario_base = document.getElementById("salario_base").value;
     const cif = form.dataset.cif;
-    console.log(cif);
 
     try {
       const response = await fetch("/registro-ceo", {
