@@ -31,6 +31,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $empresa = Empresa::getEmpresaPorCIF($cif);
     Usuario::crearUsuario($empresa['id_empresa'], $nombre_usuario, 'Empresario', TRUE, TRUE, $email_ceo, $contra);
 
+    Database::getInstance($empresa['db_nombre']);
+
+    Empleado::darAltaEmpleado(
+                    NULL,
+                    $nombre,
+                    $apellidos,
+                    $dni,
+                    $num_seguridad_social,
+                    $email_ceo,
+                    $telefono_ceo,
+                    $fecha_incorporacion,
+                    $fecha_nacimiento,
+                    $categoria_profesional,
+                    $minusvalia,
+                    (int)$num_hijos,
+                    $estado_civil,
+                    (float)$salario_base
+                );
+
     echo json_encode(['exito' => TRUE]);
 
     exit;

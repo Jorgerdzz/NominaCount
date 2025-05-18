@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS departamentos (
 
 CREATE TABLE IF NOT EXISTS empleados (
     id_empleado INT AUTO_INCREMENT PRIMARY KEY,
-    id_departamento INT NOT NULL,
+    id_departamento INT,
     nombre VARCHAR(100) NOT NULL,
     apellidos VARCHAR(150) NOT NULL,
     dni VARCHAR(15) NOT NULL UNIQUE,
