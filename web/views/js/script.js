@@ -26,6 +26,7 @@ import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 import { importarCSV } from "./modules/importarCSV.js";
 import { registroDepartamento } from "./modules/registroDepartamento.js";
 import { establecerContra, existeEmail, validarComprobacionEmail, validarNuevaContra } from "./modules/olvidar-contra.js";
+import { registroCEO, validarRegistroCEO } from "./modules/registro-ceo.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -40,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     case "home":
       validarRegistro();
       existeEmpresa();
+      registroCEO();
+      validarRegistroCEO();
       validarInicioSesion();
       inicioSesion();
       validarComprobacionEmail();

@@ -3,6 +3,7 @@
     return [
         '/' => 'controllers/home.php',
         '/inicio-sesion' => 'controllers/Session/inicio-sesion.php',
+        '/registro-ceo' => 'controllers/Registro/registro-ceo.php',
         '/empresa' => 'controllers/Empresa/empresa.php',
         '/existe-empresa' => 'controllers/Empresa/existe-empresa.php',
         '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',

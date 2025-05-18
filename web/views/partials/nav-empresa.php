@@ -167,7 +167,7 @@
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #825abd;">
             <div class="modal-header" data-bs-theme="dark">
-                <h1 class="modal-title fs-5" id="titulo">Delegación de usuarios</h1>
+                <h1 class="modal-title fs-5" id="titulo">Delegación de funciones</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

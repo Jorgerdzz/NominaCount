@@ -11,9 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre_comercial = $_POST['nombre_comercial'] ?? '';
     $direccion = $_POST['direccion'] ?? '';
     $telefono = $_POST['telefono'] ?? '';
-    $persona = $_POST['persona'] ?? '';
-    $email = $_POST['email'] ?? '';
-    $contra = $_POST['contra'] ?? '';
+    $correo_empresa = $_POST['correo_empresa'] ?? '';
 
     $logo_path = '';
 
@@ -53,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $direccion,
                 $telefono,
                 $logo_path,
-                $email,
+                $correo_empresa,
                 $db_nombre
             );
             $empresa = Empresa::getEmpresaPorEmail($email);

@@ -44,6 +44,16 @@ class Empresa extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
+    public static function getEmpresaPorCIF($cif)
+    {
+        $instance = new self();
+        $query = "SELECT * FROM empresas WHERE cif = :cif;";
+        $params = [
+            'cif' => $$cif
+        ];
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function getEmpresaPorEmail($email)
     {
         $instance = new self();

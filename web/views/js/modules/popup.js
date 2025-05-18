@@ -48,7 +48,14 @@ export function existeEmpresa() {
           timerProgressBar: true,
         }).then(() => {
           form.submit();
-          window.location.href = "/";
+          const formRegistroCEO = document.getElementById(
+            "formularioRegistroCEO"
+          );
+          formRegistroCEO.dataset.cif = data.cif;
+          const modal = bootstrap.Modal.getInstance(
+            document.getElementById("datos-personales")
+          );
+          modal.show();
         });
       }
     } catch (error) {
@@ -104,7 +111,7 @@ export function inicioSesion() {
           timerProgressBar: true,
         }).then(() => {
           window.location.href = "/";
-        })
+        });
       }
     } catch (error) {
       console.error("Error:", error);
@@ -120,9 +127,11 @@ export function inicioSesion() {
 }
 
 export function crearDepartamento() {
-  const botonCrear = document.querySelectorAll(".dropdown-item.no-cambiar-departamento");
+  const botonCrear = document.querySelectorAll(
+    ".dropdown-item.no-cambiar-departamento"
+  );
   if (botonCrear.length === 0) return;
-  
+
   const formulario = document.getElementById("form-nuevo-departamento");
 
   if (!formulario || !botonCrear) return;
