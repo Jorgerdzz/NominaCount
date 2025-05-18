@@ -40,12 +40,15 @@ export function registroCEO() {
     const fecha_nacimiento = document.getElementById("fecha_nacimiento").value;
     const minusvalia = document.getElementById("minusvalia").value;
     const salario_base = document.getElementById("salario_base").value;
-
     const cif = form.dataset.cif;
+    console.log(cif);
 
     try {
       const response = await fetch("/registro-ceo", {
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           nombre: nombre,
           apellidos: apellidos,
@@ -84,14 +87,14 @@ export function registroCEO() {
           timer: 3000,
           timerProgressBar: true,
         }).then(() => {
-          form.submit();
+          window.location.href = "/";
         });
       }
     } catch (error) {
       console.error("Error:", error);
       Swal.fire({
         title: "Error",
-        text: "Ocurrió un error al verificar la empresa",
+        text: "Ocurrió un error al verificar el CEO",
         icon: "error",
         background: "#825abd",
         color: "#FFFFFF",

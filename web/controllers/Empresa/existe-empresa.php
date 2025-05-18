@@ -23,9 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $nombre_comercial,
         $direccion,
         $telefono,
-        $persona,
-        $email,
-        $contra
+        $correo_empresa
     )) {
         $db_nombre = db_nombre(db_maestra, $nombre_comercial);
         $existe = existeEmpresa($cif, $denominacion_social);
@@ -54,12 +52,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $correo_empresa,
                 $db_nombre
             );
-            $empresa = Empresa::getEmpresaPorEmail($email);
-            Usuario::crearUsuario($empresa['id_empresa'], $persona, 'Empresario', TRUE, TRUE, $email, $contra);
         }
     }
 
-    echo json_encode(['existe' => $existe]);
+    echo json_encode([
+        'existe' => $existe,
+        'cif' => $cif
+    ]);
 
     exit;
 }

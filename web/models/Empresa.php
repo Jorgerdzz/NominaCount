@@ -49,7 +49,7 @@ class Empresa extends Database
         $instance = new self();
         $query = "SELECT * FROM empresas WHERE cif = :cif;";
         $params = [
-            'cif' => $$cif
+            'cif' => $cif
         ];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }

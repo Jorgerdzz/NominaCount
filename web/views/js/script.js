@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     case "home":
       validarRegistro();
       existeEmpresa();
-      registroCEO();
       validarRegistroCEO();
       validarInicioSesion();
       inicioSesion();

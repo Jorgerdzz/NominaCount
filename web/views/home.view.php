@@ -122,7 +122,7 @@
           <div class="modal-dialog">
               <div class="modal-content" style="background-color: #825abd;">
                   <form id="formularioRegistroCEO" method="POST">
-                      <div class="modal-header">
+                      <div class="modal-header" data-bs-theme="dark">
                           <h1 class="modal-title fs-5">Datos personales y laborales (CEO)</h1>
                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                       </div>

@@ -1,3 +1,5 @@
+import { registroCEO } from "./registro-ceo.js";
+
 export function existeEmpresa() {
   const form = document.getElementById("formularioRegistro");
 
@@ -13,6 +15,7 @@ export function existeEmpresa() {
       });
 
       const data = await response.json();
+      console.log(data);
 
       if (data.existe) {
         Swal.fire({
@@ -47,15 +50,21 @@ export function existeEmpresa() {
           timer: 3000,
           timerProgressBar: true,
         }).then(() => {
-          form.submit();
           const formRegistroCEO = document.getElementById(
             "formularioRegistroCEO"
           );
           formRegistroCEO.dataset.cif = data.cif;
-          const modal = bootstrap.Modal.getInstance(
+
+          const modalEmpresa = bootstrap.Modal.getInstance(
+            document.getElementById("registrarse")
+          );
+          modalEmpresa.hide();
+
+          const modal = new bootstrap.Modal(
             document.getElementById("datos-personales")
           );
           modal.show();
+          registroCEO();
         });
       }
     } catch (error) {

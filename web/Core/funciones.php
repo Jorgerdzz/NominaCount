@@ -15,16 +15,14 @@ function validarCadena($string)
     return strlen($string) >= 2 && strlen($string) <= 255;
 }
 
-function validarCredenciales($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $persona, $email, $contra)
+function validarCredenciales($cif, $denominacion_social, $nombre_comercial, $direccion, $telefono, $email)
 {
     return validarCadena($cif)
         && validarCadena($denominacion_social)
         && validarCadena($nombre_comercial)
         && validarCadena($direccion)
         && validarCadena($telefono)
-        && validarCadena($persona)
-        && validarEmail($email)
-        && validarCadena($contra);
+        && validarEmail($email);
 }
 
 function db_nombre($db_maestra, $nombre_comercial)

@@ -26,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $nombre_usuario = $nombre . " " .  $apellidos;
 
+    Database::getInstance('sistema_empresas');
 
     $empresa = Empresa::getEmpresaPorCIF($cif);
     Usuario::crearUsuario($empresa['id_empresa'], $nombre_usuario, 'Empresario', TRUE, TRUE, $email_ceo, $contra);
