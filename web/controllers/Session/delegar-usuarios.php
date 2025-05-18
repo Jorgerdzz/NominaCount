@@ -1,5 +1,7 @@
 <?php
 
+header('Content-Type: application/json');
+
 define('contrasena', 'P@ssw0rd'); //contraseña por defecto
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -19,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         Database::getInstance($_SESSION['db_nombre']);
 
-        header('Location: /empresa');
+        echo json_encode(['exito' => TRUE]);
+        exit;
     }
 }

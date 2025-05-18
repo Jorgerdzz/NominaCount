@@ -26,7 +26,8 @@ import { crearCalendarioEmpleado } from "./modules/calendario-empleado.js";
 import { importarCSV } from "./modules/importarCSV.js";
 import { registroDepartamento } from "./modules/registroDepartamento.js";
 import { establecerContra, existeEmail, validarComprobacionEmail, validarNuevaContra } from "./modules/olvidar-contra.js";
-import { registroCEO, validarRegistroCEO } from "./modules/registro-ceo.js";
+import { validarRegistroCEO } from "./modules/registro-ceo.js";
+import { delegarFunciones, validarDelegarFunciones } from "./modules/delegar-funciones.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -36,6 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   setupBuscadorEmpleados();
   crearDepartamento();
   registroDepartamento();
+  validarDelegarFunciones();
+  delegarFunciones();
 
   switch (page) {
     case "home":

@@ -101,7 +101,7 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="<?= BASE_PATH . '/mi-cuenta'; ?>">Perfil</a></li>
                         <?php if ($_SESSION['usuarioActivo']['ceo']) : ?>
-                            <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar usuarios</a></li>
+                            <li><a class="dropdown-item" data-bs-toggle='modal' data-bs-target='#delegar_usuarios'>Delegar funciones</a></li>
                         <?php endif; ?>
                         <?php if($_SESSION['usuarioActivo']['delegado']) : 
                                 if($_SESSION['usuarioActivo']['rol'] == 'Empresario') : ?>
@@ -162,7 +162,7 @@
     </div>
 </div>
 
-<!-- Modal Delegar Usuarios -->
+<!-- Modal Delegar Funciones -->
 <div class="modal fade" id="delegar_usuarios" tabindex="-1" aria-labelledby="añadir-departamentoLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content" style="background-color: #825abd;">
@@ -171,7 +171,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-delegar-usuarios" method="POST" action="/delegar-usuarios">
+                <form id="formDelegarFunciones" method="POST" action="/delegar-usuarios">
                     <input type="hidden" name="accion" value="delegar_usuario">
                     <div class="mb-3">
                         <label for="delegar_nombre_usuario" class="form-label">Nombre y apellidos:</label>
@@ -183,7 +183,7 @@
                     </div>
                     <div class="modal-footer">
                         <div class="d-grid w-100">
-                            <button type="submit" class="btn btn-primary">Confirmar</button>
+                            <button type="submit" class="btn btn-primary" id="botonDelegarFunciones" disabled>Confirmar</button>
                         </div>
                     </div>
                 </form>
