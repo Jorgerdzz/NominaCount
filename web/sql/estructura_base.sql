@@ -136,6 +136,6 @@ CREATE TABLE IF NOT EXISTS finiquito (
     CONSTRAINT fk_empleado_finiquito FOREIGN KEY (id_empleado)
     REFERENCES empleados(id_empleado)
     ON DELETE CASCADE
-)
+);
 
 
