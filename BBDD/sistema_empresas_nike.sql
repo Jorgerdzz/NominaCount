@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-04-2025 a las 21:13:50
+-- Tiempo de generación: 20-05-2025 a las 19:34:45
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -760,12 +760,12 @@ CREATE TABLE `departamentos` (
 --
 
 INSERT INTO `departamentos` (`id_departamento`, `nombre_departamento`, `jefe_departamento`, `num_empleados`, `coste_total_departamento`) VALUES
-(1, 'Informática', 'Daniel García', NULL, 184851.33),
-(2, 'Finanzas', 'Alberto Dominguez', NULL, 85470.17),
-(3, 'Operaciones', 'Javier Torres', NULL, 171555.26),
-(4, 'Marketing', 'Ana Perez', NULL, 121836.91),
-(5, 'Investigación y Desarrollo', 'Fernando Díaz', NULL, 156323.34),
-(8, 'Recursos Humanos', 'Marta Fernández ', NULL, 88325.26);
+(1, 'Informática', 'Daniel García', 13, 184851.33),
+(2, 'Finanzas', 'Alberto Dominguez', 6, 85470.17),
+(3, 'Operaciones', 'Javier Torres', 13, 171555.26),
+(4, 'Marketing', 'Ana Perez', 8, 121836.91),
+(5, 'Investigación y Desarrollo', 'Fernando Díaz', 10, 156323.34),
+(8, 'Recursos Humanos', 'Marta Fernández ', 6, 88325.26);
 
 -- --------------------------------------------------------
 
@@ -796,62 +796,62 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id_empleado`, `id_departamento`, `nombre`, `apellidos`, `dni`, `num_seguridad_social`, `email`, `telefono`, `antiguedad_empresa`, `fecha_nacimiento`, `categoria_profesional`, `minusvalia`, `num_hijos`, `estado_civil`, `salario_base`) VALUES
-(1, 1, 'Daniel', 'García Maroto', '12345678A', '986957489050', 'daniel.garcia@nike.com', '600123456', '2015-03-12', '1985-07-20', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 1, 'casado', 4200.00),
-(2, 1, 'Laura', 'Martínez Hernández', '23456789B', '772668657351', 'laura.martinez@nike.com', '600234567', '2018-06-01', '1990-11-05', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 2900.00),
-(3, 1, 'Carlos', 'Ruiz Lopez', '34567890C', '788037947291', 'carlos.ruiz@nike.com', '600345678', '2020-01-10', '1992-03-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 2700.00),
-(4, 1, 'Elena', 'López García', '45678901D', '329940536937', 'elena.lopez@nike.com', '600456789', '2022-09-05', '1996-08-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 2500.00),
-(5, 1, 'Roberto', 'Ruiz Alonso', '34533890C', '105867910923', 'roberto.ruiz@nike.com', '674653278', '2020-03-10', '1990-08-08', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 3554.00),
-(6, 1, 'Diego', 'Garcia Bonacasa', '34522890P', '621429731164', 'diego.garcia@nike.com', '609890678', '2022-07-19', '1997-11-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'casado', 1754.00),
-(7, 1, 'Alejandro', 'Teso Ortiz', '30908890H', '647512331188', 'alejandro.teso@nike.com', '614325678', '2019-09-05', '1987-12-12', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 3, 'casado', 3680.00),
-(8, 1, 'Javier', 'Martinez Gutierrez', '74777890S', '362250925653', 'javier.martinez@nike.com', '609845678', '2020-02-25', '1992-06-01', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 3150.00),
-(9, 1, 'Aaron', 'Martin Casado', '34992390F', '923658861194', 'aaron.martin@nike.com', '617845678', '2023-01-12', '1990-07-19', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Igual o superior al 65%', 1, 'casado', 1760.00),
-(10, 1, 'Lucia', 'Esteban Ruiz', '11247890G', '777145859035', 'lucia.esteban@nike.com', '666295678', '2024-05-05', '2000-02-05', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 1880.00),
-(11, 1, 'Alejandra', 'Hernandez Hidalgo', '66427890H', '640486062255', 'alejandra.hernandez@nike.com', '693345778', '2018-08-09', '1999-03-28', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 3430.00),
-(12, 1, 'Jorge', 'Rubio Martín', '34721890P', '562030392795', 'jorge.rubio@nike.com', '666389278', '2022-01-20', '1996-01-20', 'Ayudantes no titulados', 'Sin discapacidad', 0, 'casado', 2750.00),
-(13, 2, 'Alberto', 'Domínguez González', '56789012E', '647214129204', 'alberto.dominguez@nike.com', '601123456', '2013-01-25', '1980-04-12', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 3, 'casado', 4500.00),
-(14, 2, 'Sonia', 'Reyes Lopez', '67890123F', '732533488076', 'sonia.reyes@nike.com', '601234567', '2017-07-10', '1988-12-10', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'divorciado', 3100.00),
-(15, 2, 'Mario', 'Ortega Campos', '78901234G', '724072003905', 'mario.ortega@nike.com', '601345678', '2019-02-15', '1991-05-03', 'Oficiales de primera y segunda', 'Sin discapacidad', 0, 'soltero', 2950.00),
-(16, 2, 'Carla', 'Roca Pérez', '55634234J', '769106834103', 'carla.roca@nike.com', '600845678', '2023-09-19', '1999-02-19', 'Oficiales de tercera y especialistas', 'Igual o superior al 65%', 0, 'soltero', 1650.00),
-(17, 2, 'Lorena', 'Gutiérrez Domínguez', '88312234L', '946590650519', 'lorena.gutierrez@nike.com', '686345678', '2017-06-05', '1994-01-03', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 1, '', 2950.00),
-(18, 2, 'Alberto', 'Calvo Rubio', '90345234S', '613779842874', 'alberto.calvo@nike.com', '696101678', '2020-12-22', '1987-01-23', 'Oficiales de primera y segunda', 'Sin discapacidad', 2, 'divorciado', 2100.00),
-(19, 3, 'Javier', 'Torres López', '89012345H', '210635040055', 'javier.torres@nike.com', '602123456', '2012-11-20', '1978-01-30', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 2, 'casado', 4700.00),
-(20, 3, 'Beatriz', 'Muñoz Casado', '90123456I', '229186079910', 'beatriz.munoz@nike.com', '602234567', '2016-04-18', '1986-09-09', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3200.00),
-(21, 3, 'Pablo', 'Navarro Domínguez', '01234567J', '561964420680', 'pablo.navarro@nike.com', '602345678', '2018-08-01', '1990-07-15', 'Oficiales de primera y segunda', 'Sin discapacidad', 1, 'pareja_hecho', 3100.00),
-(22, 3, 'Clara', 'Jiménez Perez', '71691267F', '789470156815', 'clara.jimenez@nike.com', '602456789', '2021-01-12', '1993-06-21', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 2800.00),
-(23, 3, 'Alicia', 'García Sánchez', '81239874S', '898720557757', 'alicia.garcia@nike.com', '656586789', '2018-01-23', '1996-07-01', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 0, 'soltero', 3100.00),
-(24, 3, 'Carmen', 'Gómez Cardona', '21231236S', '813310550957', 'carmen.lopez@nike.com', '609633289', '2023-05-07', '1989-01-27', 'Auxiliares administrativos', 'Sin discapacidad', 0, 'pareja_hecho', 1560.00),
-(25, 3, 'Roberto', 'Rodríguez Perez', '61239873P', '796355926124', 'roberto.rodriguez@nike.com', '663426789', '2024-07-27', '1982-09-09', 'Subalternos', 'Sin discapacidad', 1, 'casado', 1700.00),
-(26, 3, 'Andrés', 'Pérez Campos', '71233235G', '412520107652', 'andres.perez@nike.com', '602621889', '2016-03-02', '1999-09-02', 'Oficiales Administrativos', 'Sin discapacidad', 0, 'soltero', 3890.00),
-(27, 3, 'Alejandro', 'Fidalgo Casado', '31237471K', '252623250676', 'alejandro.fidalgo@nike.com', '619206789', '2021-09-14', '2000-03-06', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 0, 'soltero', 2340.00),
-(28, 3, 'Jorge', 'Ortiz Ramirez', '41239134V', '235088860945', 'jorge.ortiz@nike.com', '602400969', '2019-06-09', '1995-03-17', 'Subalternos', 'Entre el 33% y el 65%', 0, 'soltero', 2800.00),
-(29, 3, 'Borja', 'Morales Garrido', '61234232L', '376331746392', 'borja.morales@nike.com', '611156789', '2022-08-01', '1987-08-06', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 1, 'divorciado', 1800.00),
-(30, 3, 'Gonzalo', 'Díaz Muñoz', '97639167J', '485908001149', 'gonzalo.diaz@nike.com', '696746789', '2020-04-19', '1980-12-25', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 2, 'casado', 2250.00),
-(31, 3, 'Marta', 'Díaz López', '01234658N', '329780777765', 'marta.diaz@nike.com', '696426789', '2022-11-04', '1973-09-29', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 2, 'divorciado', 1860.00),
-(32, 4, 'Ana', 'Perez Ortiz', '12234567L', '113085128825', 'ana.perez@nike.com', '603123456', '2014-02-03', '1983-03-22', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 2, 'casado', 4300.00),
-(33, 4, 'Lucía', 'Santos Sánchez', '13234567M', '141330801248', 'lucia.santos@nike.com', '603234567', '2019-09-09', '1992-10-11', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 0, 'soltero', 3000.00),
-(34, 4, 'Hugo', 'Moreno Ortega', '14234567N', '936043727099', 'hugo.moreno@nike.com', '603345678', '2020-06-17', '1994-02-27', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 2850.00),
-(35, 4, 'Carlos', 'García Rubio', '15234567O', '423275621013', 'carlos.garcia@nike.com', '603456789', '2018-03-15', '1985-05-30', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'casado', 3200.00),
-(36, 4, 'María', 'López Calvo', '16234567P', '264167437909', 'maria.lopez@nike.com', '603567890', '2017-11-20', '1990-07-14', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 3100.00),
-(37, 4, 'Javier', 'Martínez Campos', '17234567Q', '412365164306', 'javier.martinez@nike.com', '603678901', '2021-01-10', '1988-12-05', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 2800.00),
-(38, 4, 'Elena', 'Fernández López', '18234567R', '509213771401', 'elena.fernandez@nike.com', '603789012', '2016-05-25', '1982-09-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3500.00),
-(39, 4, 'Sergio', 'Ramírez Martín', '19234567S', '529087020305', 'sergio.ramirez@nike.com', '603890123', '2015-08-30', '1991-03-12', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 3000.00),
-(100, 5, 'Fernando', 'Díaz Pérez', '15239667L', '413448175534', 'fernando.diaz@nike.com', '604123456', '2011-12-01', '1975-06-04', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 3, 'casado', 4900.00),
-(101, 5, 'Marta', 'Suárez Fernández', '01204567P', '771226744703', 'marta.suarez@nike .com', '604234567', '2017-03-22', '1987-04-18', 'Oficiales de tercera y especialistas', 'Igual o superior al 65%', 1, 'casado', 3100.00),
-(102, 5, 'Luis', 'Gil Morales', '17777167H', '897731948216', 'luis.gil@nike.com', '604345678', '2022-07-13', '1995-11-30', 'Subalternos', 'Sin discapacidad', 0, 'soltero', 2750.00),
-(103, 5, 'Clara', 'Morales Pérez', '18298527R', '361815217082', 'clara.morales@nike.com', '604456789', '2019-05-10', '1990-08-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 2900.00),
-(104, 5, 'Jorge', 'Cruz Torres', '11326797S', '325757043331', 'jorge.cruz@nike.com', '604567890', '2018-11-15', '1983-01-12', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3300.00),
-(105, 5, 'Patricia', 'Hernández López', '20234567T', '850555373787', 'patricia.hernandez@nike.com', '604678901', '2016-04-20', '1988-02-14', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'casado', 3200.00),
-(106, 5, 'Raúl', 'Jiménez Sánchez', '21234567U', '188483290192', 'raul.jimenez@nike.com', '604789012', '2020-09-05', '1992-11-22', 'Oficiales de primera y segunda', 'Sin discapacidad', 0, 'soltero', 2700.00),
-(107, 5, 'Verónica', 'Pérez Ruiz', '22234567V', '656850641670', 'veronica.perez@nike.com', '604890123', '2015-06-30', '1985-03-10', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Entre el 33% y el 65%', 2, 'casado', 3400.00),
-(108, 5, 'Andrés', 'Torres Castro', '23234567W', '296003805571', 'andres.torres@nike.com', '604901234', '2018-01-15', '1990-12-01', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Entre el 33% y el 65%', 0, 'soltero', 3000.00),
-(109, 5, 'Sofía', 'Ríos Martínez', '24234567X', '188816875750', 'sofia.rios@nike.com', '604012345', '2017-08-12', '1994-05-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 3100.00),
-(170, 1, 'Alberto', 'Campos Ortiz', '99999999R', '451282192908', 'alberto.campos@nike.com', '978765432', '2025-04-08', '1990-07-09', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 1345.56),
-(231, 8, 'Marta', 'Fernandez López', '16368567R', '721660997254', 'marta.fernandez@nike.com', '605123456', '2016-05-15', '1984-08-08', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 4100.00),
-(232, 8, 'Raúl', 'Vega Martínez', '19293627S', '920109100748', 'raul.vega@nike.com', '605234567', '2019-10-10', '1990-01-02', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'divorciado', 2950.00),
-(233, 8, 'Isabel', 'Ramos García', '97354567T', '156022994561', 'isabel.ramos@nike.com', '605345678', '2021-12-25', '1996-09-17', 'Auxiliares administrativos', 'Entre el 33% y el 65%', 0, 'soltero', 2700.00),
-(234, 8, 'Fernando', 'Moreno Sánchez', '63278967U', '419474339554', 'fernando.moreno@nike.com', '605456789', '2018-03-30', '1985-11-12', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'casado', 3200.00),
-(235, 8, 'Lucía', 'Cruz Torres', '22287587V', '475755253630', 'lucia.cruz@nike.com', '605567890', '2020-07-05', '1993-04-20', 'Auxiliares administrativos', 'Sin discapacidad', 0, 'soltero', 2800.00),
-(236, 8, 'Javier', 'Pérez Ruiz', '54896567W', '810944304580', 'javier.perez@nike.com', '605678901', '2017-11-15', '1989-02-28', 'Auxiliares administrativos', 'Sin discapacidad', 2, 'pareja_hecho', 3000.00);
+(1, 1, 'Daniel', 'García Maroto', '12345678A', '986957489050', 'daniel.garciamaroto@nike.com', '600123456', '2015-03-12', '1985-07-20', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 1, 'casado', 4200.00),
+(2, 1, 'Laura', 'Martínez Hernández', '23456789B', '772668657351', 'laura.martinezhernandez@nike.com', '600234567', '2018-06-01', '1990-11-05', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 2900.00),
+(3, 1, 'Carlos', 'Ruiz Lopez', '34567890C', '788037947291', 'carlos.ruizlopez@nike.com', '600345678', '2020-01-10', '1992-03-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'soltero', 2700.00),
+(4, 1, 'Elena', 'López García', '45678901D', '329940536937', 'elena.lopezgarcia@nike.com', '600456789', '2022-09-05', '1996-08-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 2500.00),
+(5, 1, 'Roberto', 'Ruiz Alonso', '34533890C', '105867910923', 'roberto.ruizalonso@nike.com', '674653278', '2020-03-10', '1990-08-08', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 3554.00),
+(6, 1, 'Diego', 'Garcia Bonacasa', '34522890P', '621429731164', 'diego.garciabonacasa@nike.com', '609890678', '2022-07-19', '1997-11-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'casado', 1754.00),
+(7, 1, 'Alejandro', 'Teso Ortiz', '30908890H', '647512331188', 'alejandro.tesortiz@nike.com', '614325678', '2019-09-05', '1987-12-12', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 3, 'casado', 3680.00),
+(8, 1, 'Javier', 'Martinez Gutierrez', '74777890S', '362250925653', 'javier.martinezgutierrez@nike.com', '609845678', '2020-02-25', '1992-06-01', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 3150.00),
+(9, 1, 'Aaron', 'Martin Casado', '34992390F', '923658861194', 'aaron.martincasado@nike.com', '617845678', '2023-01-12', '1990-07-19', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Igual o superior al 65%', 1, 'casado', 1760.00),
+(10, 1, 'Lucia', 'Esteban Ruiz', '11247890G', '777145859035', 'lucia.estebanruiz@nike.com', '666295678', '2024-05-05', '2000-02-05', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 1880.00),
+(11, 1, 'Alejandra', 'Hernandez Hidalgo', '66427890H', '640486062255', 'alejandra.hernandezhidalgo@nike.com', '693345778', '2018-08-09', '1999-03-28', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'pareja_hecho', 3430.00),
+(12, 1, 'Jorge', 'Rubio Martín', '34721890P', '562030392795', 'jorge.rubiomartin@nike.com', '666389278', '2022-01-20', '1996-01-20', 'Ayudantes no titulados', 'Sin discapacidad', 0, 'casado', 2750.00),
+(13, 2, 'Alberto', 'Domínguez González', '56789012E', '647214129204', 'alberto.dominguezgonzalez@nike.com', '601123456', '2013-01-25', '1980-04-12', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 3, 'casado', 4500.00),
+(14, 2, 'Sonia', 'Reyes Lopez', '67890123F', '732533488076', 'sonia.reyeslopez@nike.com', '601234567', '2017-07-10', '1988-12-10', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'divorciado', 3100.00),
+(15, 2, 'Mario', 'Ortega Campos', '78901234G', '724072003905', 'mario.ortegacampos@nike.com', '601345678', '2019-02-15', '1991-05-03', 'Oficiales de primera y segunda', 'Sin discapacidad', 0, 'soltero', 2950.00),
+(16, 2, 'Carla', 'Roca Pérez', '55634234J', '769106834103', 'carla.rocaperez@nike.com', '600845678', '2023-09-19', '1999-02-19', 'Oficiales de tercera y especialistas', 'Igual o superior al 65%', 0, 'soltero', 1650.00),
+(17, 2, 'Lorena', 'Gutiérrez Domínguez', '88312234L', '946590650519', 'lorena.gutierrezdominguez@nike.com', '686345678', '2017-06-05', '1994-01-03', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 1, 'divorciado', 2950.00),
+(18, 2, 'Alberto', 'Calvo Rubio', '90345234S', '613779842874', 'alberto.calvorubio@nike.com', '696101678', '2020-12-22', '1987-01-23', 'Oficiales de primera y segunda', 'Sin discapacidad', 2, 'divorciado', 2100.00),
+(19, 3, 'Javier', 'Torres López', '89012345H', '210635040055', 'javier.torreslopez@nike.com', '602123456', '2012-11-20', '1978-01-30', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 2, 'casado', 4700.00),
+(20, 3, 'Beatriz', 'Muñoz Casado', '90123456I', '229186079910', 'beatriz.munozcasado@nike.com', '602234567', '2016-04-18', '1986-09-09', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3200.00),
+(21, 3, 'Pablo', 'Navarro Domínguez', '01234567J', '561964420680', 'pablo.navarrodominguez@nike.com', '602345678', '2018-08-01', '1990-07-15', 'Oficiales de primera y segunda', 'Sin discapacidad', 1, 'pareja_hecho', 3100.00),
+(22, 3, 'Clara', 'Jiménez Perez', '71691267F', '789470156815', 'clara.jimenezperez@nike.com', '602456789', '2021-01-12', '1993-06-21', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 2800.00),
+(23, 3, 'Alicia', 'García Sánchez', '81239874S', '898720557757', 'alicia.garciasanchez@nike.com', '656586789', '2018-01-23', '1996-07-01', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 0, 'soltero', 3100.00),
+(24, 3, 'Carmen', 'Gómez Cardona', '21231236S', '813310550957', 'carmen.lopezcardona@nike.com', '609633289', '2023-05-07', '1989-01-27', 'Auxiliares administrativos', 'Sin discapacidad', 0, 'pareja_hecho', 1560.00),
+(25, 3, 'Roberto', 'Rodríguez Perez', '61239873P', '796355926124', 'roberto.rodriguezperez@nike.com', '663426789', '2024-07-27', '1982-09-09', 'Subalternos', 'Sin discapacidad', 1, 'casado', 1700.00),
+(26, 3, 'Andrés', 'Pérez Campos', '71233235G', '412520107652', 'andres.perezcampos@nike.com', '602621889', '2016-03-02', '1999-09-02', 'Oficiales Administrativos', 'Entre el 33% y el 65%', 0, 'soltero', 3890.00),
+(27, 3, 'Alejandro', 'Fidalgo Casado', '31237471K', '252623250676', 'alejandro.fidalgocasado@nike.com', '619206789', '2021-09-14', '2000-03-06', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 0, 'soltero', 2340.00),
+(28, 3, 'Jorge', 'Ortiz Ramirez', '41239134V', '235088860945', 'jorge.ortizramirez@nike.com', '602400969', '2019-06-09', '1995-03-17', 'Subalternos', 'Entre el 33% y el 65%', 0, 'soltero', 2800.00),
+(29, 3, 'Borja', 'Morales Garrido', '61234232L', '376331746392', 'borja.moralesgarrido@nike.com', '611156789', '2022-08-01', '1987-08-06', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 1, 'divorciado', 1800.00),
+(30, 3, 'Gonzalo', 'Díaz Muñoz', '97639167J', '485908001149', 'gonzalo.diazmuñoz@nike.com', '696746789', '2020-04-19', '1980-12-25', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 2, 'casado', 2250.00),
+(31, 3, 'Marta', 'Díaz López', '01234658N', '329780777765', 'marta.diazlopez@nike.com', '696426789', '2022-11-04', '1973-09-29', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 2, 'divorciado', 1860.00),
+(32, 4, 'Ana', 'Perez Ortiz', '12234567L', '113085128825', 'ana.perezortiz@nike.com', '603123456', '2014-02-03', '1983-03-22', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 2, 'casado', 4300.00),
+(33, 4, 'Lucía', 'Santos Sánchez', '13234567M', '141330801248', 'lucia.santosanchez@nike.com', '603234567', '2019-09-09', '1992-10-11', 'Jefes Administrativos y de Taller', 'Sin discapacidad', 0, 'soltero', 3000.00),
+(34, 4, 'Hugo', 'Moreno Ortega', '14234567N', '936043727099', 'hugo.morenortega@nike.com', '603345678', '2020-06-17', '1994-02-27', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 2850.00),
+(35, 4, 'Carlos', 'García Rubio', '15234567O', '423275621013', 'carlos.garciarubio@nike.com', '603456789', '2018-03-15', '1985-05-30', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'casado', 3200.00),
+(36, 4, 'María', 'López Calvo', '16234567P', '264167437909', 'maria.lopezcalvo@nike.com', '603567890', '2017-11-20', '1990-07-14', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 3100.00),
+(37, 4, 'Javier', 'Martínez Campos', '17234567Q', '412365164306', 'javier.martinezcampos@nike.com', '603678901', '2021-01-10', '1988-12-05', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 2800.00),
+(38, 4, 'Elena', 'Fernández López', '18234567R', '509213771401', 'elena.fernandezlopez@nike.com', '603789012', '2016-05-25', '1982-09-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3500.00),
+(39, 4, 'Sergio', 'Ramírez Martín', '19234567S', '529087020305', 'sergio.ramirezmartin@nike.com', '603890123', '2015-08-30', '1991-03-12', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 3000.00),
+(100, 5, 'Fernando', 'Díaz Pérez', '15239667L', '413448175534', 'fernando.diazperez@nike.com', '604123456', '2011-12-01', '1975-06-04', 'Ingenieros y Licenciados. Personal de alta dirección', 'Sin discapacidad', 3, 'casado', 4900.00),
+(101, 5, 'Marta', 'Suárez Fernández', '01204567P', '771226744703', 'marta.suarezfernandez@nike.com', '604234567', '2017-03-22', '1987-04-18', 'Oficiales de tercera y especialistas', 'Igual o superior al 65%', 1, 'casado', 3100.00),
+(102, 5, 'Luis', 'Gil Morales', '17777167H', '897731948216', 'luis.gilmorales@nike.com', '604345678', '2022-07-13', '1995-11-30', 'Subalternos', 'Sin discapacidad', 0, 'soltero', 2750.00),
+(103, 5, 'Clara', 'Morales Pérez', '18298527R', '361815217082', 'clara.moralesperez@nike.com', '604456789', '2019-05-10', '1990-08-25', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 0, 'soltero', 2900.00),
+(104, 5, 'Jorge', 'Cruz Torres', '11326797S', '325757043331', 'jorge.cruztorres@nike.com', '604567890', '2018-11-15', '1983-01-12', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 3300.00),
+(105, 5, 'Patricia', 'Hernández López', '20234567T', '850555373787', 'patricia.hernandezlopez@nike.com', '604678901', '2016-04-20', '1988-02-14', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'casado', 3200.00),
+(106, 5, 'Raúl', 'Jiménez Sánchez', '21234567U', '188483290192', 'raul.jimenezsanchez@nike.com', '604789012', '2020-09-05', '1992-11-22', 'Oficiales de primera y segunda', 'Sin discapacidad', 0, 'soltero', 2700.00),
+(107, 5, 'Verónica', 'Pérez Ruiz', '22234567V', '656850641670', 'veronica.perezruiz@nike.com', '604890123', '2015-06-30', '1985-03-10', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Entre el 33% y el 65%', 2, 'casado', 3400.00),
+(108, 5, 'Andrés', 'Torres Castro', '23234567W', '296003805571', 'andres.torrescastro@nike.com', '604901234', '2018-01-15', '1990-12-01', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Entre el 33% y el 65%', 0, 'soltero', 3000.00),
+(109, 5, 'Sofía', 'Ríos Martínez', '24234567X', '188816875750', 'sofia.riosmartinez@nike.com', '604012345', '2017-08-12', '1994-05-18', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 1, 'pareja_hecho', 3100.00),
+(170, 1, 'Alberto', 'Campos Ortiz', '99999999R', '451282192908', 'alberto.camposortiz@nike.com', '978765432', '2025-04-08', '1990-07-09', 'Oficiales de tercera y especialistas', 'Sin discapacidad', 0, 'soltero', 1345.56),
+(231, 8, 'Marta', 'Fernandez López', '16368567R', '721660997254', 'marta.fernandezlopez@nike.com', '605123456', '2016-05-15', '1984-08-08', 'Ingenieros Técnicos, Peritos y Ayudantes Titulados', 'Sin discapacidad', 2, 'casado', 4100.00),
+(232, 8, 'Raúl', 'Vega Martínez', '19293627S', '920109100748', 'raul.vegamartinez@nike.com', '605234567', '2019-10-10', '1990-01-02', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'divorciado', 2950.00),
+(233, 8, 'Isabel', 'Ramos García', '97354567T', '156022994561', 'isabel.ramosgarcia@nike.com', '605345678', '2021-12-25', '1996-09-17', 'Auxiliares administrativos', 'Entre el 33% y el 65%', 0, 'soltero', 2700.00),
+(234, 8, 'Fernando', 'Moreno Sánchez', '63278967U', '419474339554', 'fernando.morenosanchez@nike.com', '605456789', '2018-03-30', '1985-11-12', 'Auxiliares administrativos', 'Sin discapacidad', 1, 'casado', 3200.00),
+(235, 8, 'Lucía', 'Cruz Torres', '22287587V', '475755253630', 'lucia.cruztorres@nike.com', '605567890', '2020-07-05', '1993-04-20', 'Auxiliares administrativos', 'Sin discapacidad', 0, 'soltero', 2800.00),
+(236, 8, 'Javier', 'Pérez Ruiz', '54896567W', '810944304580', 'javier.perezruiz@nike.com', '605678901', '2017-11-15', '1989-02-28', 'Auxiliares administrativos', 'Sin discapacidad', 2, 'pareja_hecho', 3000.00);
 
 -- --------------------------------------------------------
 
@@ -1592,6 +1592,29 @@ INSERT INTO `nominas` (`id_nomina`, `id_empleado`, `fecha_inicio`, `fecha_fin`, 
 (702, 31, '2025-11-01', '2025-11-30', 1860.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 190.00, 2170.00, 2170.00, 101.99, 2.82, 33.63, 2.17, 0.00, 0.00, 140.62, 241.80, 382.42, 2050.00, 1667.58),
 (703, 31, '2025-12-01', '2025-12-31', 1860.00, 170.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 120.00, 0.00, 2488.33, 2488.33, 116.95, 3.23, 38.57, 2.49, 0.00, 0.00, 161.24, 279.50, 440.74, 2150.00, 1709.26);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `vacaciones`
+--
+
+CREATE TABLE `vacaciones` (
+  `id_vacacion` int(11) NOT NULL,
+  `id_empleado` int(11) DEFAULT NULL,
+  `fecha_inicio` date DEFAULT NULL,
+  `fecha_fin` date DEFAULT NULL,
+  `estado` enum('pendiente','aprobado','rechazado') DEFAULT 'pendiente',
+  `fecha_solicitud` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `vacaciones`
+--
+
+INSERT INTO `vacaciones` (`id_vacacion`, `id_empleado`, `fecha_inicio`, `fecha_fin`, `estado`, `fecha_solicitud`) VALUES
+(1, 12, '2025-05-13', '2025-05-20', 'aprobado', '2025-05-08 17:04:16'),
+(2, 9, '2025-08-01', '2025-08-20', 'rechazado', '2025-05-08 17:33:59');
+
 --
 -- Índices para tablas volcadas
 --
@@ -1626,6 +1649,13 @@ ALTER TABLE `nominas`
   ADD KEY `fk_empleado_nomina` (`id_empleado`);
 
 --
+-- Indices de la tabla `vacaciones`
+--
+ALTER TABLE `vacaciones`
+  ADD PRIMARY KEY (`id_vacacion`),
+  ADD KEY `fk_empleado_periodo_vacacional` (`id_empleado`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -1633,7 +1663,7 @@ ALTER TABLE `nominas`
 -- AUTO_INCREMENT de la tabla `costes_trabajador`
 --
 ALTER TABLE `costes_trabajador`
-  MODIFY `id_costo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=704;
+  MODIFY `id_costo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=705;
 
 --
 -- AUTO_INCREMENT de la tabla `departamentos`
@@ -1651,7 +1681,13 @@ ALTER TABLE `empleados`
 -- AUTO_INCREMENT de la tabla `nominas`
 --
 ALTER TABLE `nominas`
-  MODIFY `id_nomina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=704;
+  MODIFY `id_nomina` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=705;
+
+--
+-- AUTO_INCREMENT de la tabla `vacaciones`
+--
+ALTER TABLE `vacaciones`
+  MODIFY `id_vacacion` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
@@ -1674,6 +1710,12 @@ ALTER TABLE `empleados`
 --
 ALTER TABLE `nominas`
   ADD CONSTRAINT `fk_empleado_nomina` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `vacaciones`
+--
+ALTER TABLE `vacaciones`
+  ADD CONSTRAINT `fk_empleado_periodo_vacacional` FOREIGN KEY (`id_empleado`) REFERENCES `empleados` (`id_empleado`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
