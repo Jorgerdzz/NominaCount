@@ -21,7 +21,7 @@ body {
 }
 
 main {
-    min-height: 70vh;
+    min-height: 100vh;
 }
 
 h1,
@@ -109,5 +109,13 @@ a{
     color: white;
 }
 
+/* ==============================================
+   Footer
+   ============================================== */
 
+footer {
+    position: relative; 
+    background-color: #825abd; 
+    text-align: center; 
+}
 

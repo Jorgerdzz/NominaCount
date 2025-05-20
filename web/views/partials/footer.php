@@ -1,5 +1,42 @@
-<footer>
-    
+<footer class="p-3">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <?php if(!isset($_SESSION['usuarioActivo'])): ?>
+            <li class="nav-item">
+                <a href="<?= BASE_PATH . '/'; ?>" class="nav-link px-2 text-white">Home</a>
+            </li>
+        <?php elseif(isset($_SESSION['usuarioActivo']) && $_SESSION['usuarioActivo']['rol'] == 'Empresario'): ?>
+            <li class="nav-item">
+                <a href="<?= BASE_PATH . '/empresa'; ?>" class="nav-link px-2 text-white">Home</a>
+            </li>
+        <?php else: ?>
+            <li class="nav-item">
+                <a href="<?= BASE_PATH . '/usuario-empleado'; ?>" class="nav-link px-2 text-white">Home</a>
+            </li>
+        <?php endif; ?>
+        <li class="nav-item">
+            <a href="<?= BASE_PATH . '/politica-privacidad'; ?>" class="nav-link px-2 text-white">Política de privacidad</a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= BASE_PATH . '/cookies'; ?>" class="nav-link px-2 text-white">Cookies</a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= BASE_PATH . '/sobre-nosotros'; ?>" class="nav-link px-2 text-white">Sobre nosotros</a>
+        </li>
+        <li class="nav-item">
+            <a href="<?= BASE_PATH . '/contacto'; ?>" class="nav-link px-2 text-white">Contacto</a>
+        </li>
+    </ul>
+    <div class="row">
+        <div class="col-md-6">
+            <p class="text-center text-white">2025 NominaCount, Inc</p>
+        </div>
+        <div class="col-md-6">
+            <i class="bi bi-twitter-x m-3"></i>
+            <i class="bi bi-facebook m-3"></i>
+            <i class="bi bi-instagram m-3"></i>
+        </div>
+    </div>
+        
 </footer>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- script jQuery -->

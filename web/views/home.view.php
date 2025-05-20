@@ -1,6 +1,6 @@
   <style>
       #particles-js {
-          position: absolute;
+          position: fixed;
           top: 0;
           left: 0;
           width: 100%;
@@ -276,7 +276,6 @@
               </div>
           </div>
       </div>
-
   </main>
 
   <?php require_once 'views/partials/footer.php'; ?>

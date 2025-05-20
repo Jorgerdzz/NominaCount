@@ -37,4 +37,9 @@
         '/calendario-empleado/empleado' => 'controllers/UsuarioEmpleado/calendario-empleado.php',
         '/solicitar-dias-vacaciones' => 'controllers/UsuarioEmpleado/solicitar-dias-vacaciones.php',
         '/calendario-empleado-eventos' => 'controllers/UsuarioEmpleado/calendario-empleado-eventos.php',
+
+        '/politica-privacidad' => 'controllers/PagEstaticas/politica-privacidad.php',
+        '/cookies' => 'controllers/PagEstaticas/cookies.php',
+        '/sobre-nosotros' => 'controllers/PagEstaticas/sobre-nosotros.php',
+        '/contacto' => 'controllers/PagEstaticas/contacto.php',
     ];
