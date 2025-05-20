@@ -28,6 +28,7 @@ import { registroDepartamento } from "./modules/registroDepartamento.js";
 import { establecerContra, existeEmail, validarComprobacionEmail, validarNuevaContra } from "./modules/olvidar-contra.js";
 import { validarRegistroCEO } from "./modules/registro-ceo.js";
 import { delegarFunciones, validarDelegarFunciones } from "./modules/delegar-funciones.js";
+import { generarFiniquitoPDF } from "./modules/generar-finiquito.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -85,6 +86,9 @@ document.addEventListener("DOMContentLoaded", () => {
       break;
     case "calcular-finiquito":
       initCalculoFiniquito();
+      break;
+    case "finiquito":
+      generarFiniquitoPDF();
       break;
     case "calendario-empleado":
       crearCalendarioEmpleado();
