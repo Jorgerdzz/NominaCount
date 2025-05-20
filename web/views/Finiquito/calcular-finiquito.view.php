@@ -17,13 +17,13 @@
           <select class="form-select" id="motivo_baja" name="motivo_baja">
             <option value="">-- Seleccionar --</option>
             <option value="despido">Despido</option>
-            <option value="baja_voluntaria">Baja voluntaria</option>
-            <option value="fin_contrato">Fin de contrato</option>
+            <option value="baja voluntaria">Baja voluntaria</option>
+            <option value="fin contrato">Fin de contrato</option>
             <option value="jubilacion">Jubilación</option>
             <option value="incapacidad">Incapacidad permanente</option>
             <option value="fallecimiento">Fallecimiento</option>
             <option value="expediente">Despido disciplinario</option>
-            <option value="mutuo_acuerdo">Mutuo acuerdo</option>
+            <option value="mutuo acuerdo">Mutuo acuerdo</option>
           </select>
         </div>
       </div>
@@ -178,7 +178,7 @@
           <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>" class="btn btn-purple btn-lg">Volver</a>
         </div>
         <div class="col-md-6 d-grid">
-          <button type="button" class="btn btn-purple btn-lg" id="btn-calcular-finiquito">Calcular Finiquito</button>
+          <button type="submit" class="btn btn-purple btn-lg" id="btn-calcular-finiquito">Generar Finiquito</button>
         </div>
       </div>
     </form>

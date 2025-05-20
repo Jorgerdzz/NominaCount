@@ -24,6 +24,22 @@ if (isset($_GET['id'])) {
         'salario_base' => $empleado['salario_base']
     ];
 
+    if($_SERVER['REQUEST_METHOD'] === 'POST'){
+        $fecha_baja = $_POST['fecha_baja'];
+        $motivo_baja = $_POST['motivo_baja'];
+        $prorrateo_pagas_extra_salario_base = $_POST['prorrateo_pagas'];
+        $total_devengado_prorrateado = $_POST['total_devengado'];
+        $pago_vacaciones = $_POST['importe_vacaciones'];
+        $indemnizacion = $_POST['importe_indemnizacion'];
+        $total_finiquito = $_POST['total_finiquito'];
+
+        Finiquito::insertarFiniquito($datos_empleado['id_empleado'], $fecha_baja, $motivo_baja, $prorrateo_pagas_extra_salario_base, $total_devengado_prorrateado,
+        $pago_vacaciones, $indemnizacion, $total_finiquito);
+
+        header("Location: /finiquito/empleado?id=$id_empleado");
+
+    }
+
 }
 
 $page = "calcular-finiquito";

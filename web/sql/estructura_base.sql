@@ -111,7 +111,7 @@ CREATE TABLE IF NOT EXISTS costes_trabajador(
 
 CREATE TABLE IF NOT EXISTS vacaciones (
     id_vacacion INT AUTO_INCREMENT PRIMARY KEY,
-    id_empleado INT,
+    id_empleado INT NOT NULL,
     fecha_inicio DATE,
     fecha_fin DATE,
     estado ENUM('pendiente', 'aprobado', 'rechazado') DEFAULT 'pendiente',
@@ -121,3 +121,21 @@ CREATE TABLE IF NOT EXISTS vacaciones (
     REFERENCES empleados(id_empleado)
     ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS finiquito (
+    id_finiquito INT AUTO_INCREMENT PRIMARY KEY,
+    id_empleado INT NOT NULL,
+    fecha_baja DATE,
+    motivo_baja ENUM('despido', 'baja voluntaria', 'fin contrato', 'jubilacion', 'incapacidad', 'fallecimiento', 'expediente', 'mutuo acuerdo'),
+    prorrateo_pagas_extra_salario_base DECIMAL(10,2),
+    total_devengado_prorrateado DECIMAL(10,2),
+    pago_vacaciones DECIMAL(10,2),
+    indemnizacion DECIMAL(10,2),
+    total_finiquito DECIMAL(10,2),
+
+    CONSTRAINT fk_empleado_finiquito FOREIGN KEY (id_empleado)
+    REFERENCES empleados(id_empleado)
+    ON DELETE CASCADE
+)
+
+

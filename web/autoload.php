@@ -7,5 +7,6 @@ require_once 'models/Empleado.php';
 require_once 'models/Usuario.php';
 require_once 'models/Nomina.php';
 require_once 'models/Vacaciones.php';
+require_once 'models/Finiquito.php';
 require_once 'Core/funciones.php';
 require_once 'router.php';
