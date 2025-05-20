@@ -43,11 +43,13 @@ export function initCalculoFiniquito() {
     prorrateoInput.value = prorrateoPagas.toFixed(2);
     totalDevengadoInput.value = totalDevengadoFinal.toFixed(2);
 
-    const diasTotalesTrabajados = Math.floor(
-      (fechaBaja - fechaIncorporacion) / (1000 * 60 * 60 * 24)
+
+    const fechaInicioAnio = new Date(fechaBaja.getFullYear(), 0, 1);
+    const diasTrabajadosEsteAnio = Math.floor(
+      (fechaBaja - fechaInicioAnio) / (1000 * 60 * 60 * 24)
     );
 
-    const vacacionesDevengadas = (diasTotalesTrabajados * 12) / 365;
+    const vacacionesDevengadas = (diasTrabajadosEsteAnio * 30) / 365;
 
     const salarioDiarioVacaciones = (salarioBase + sumaDevengos) / 30;
     const importeVacaciones = salarioDiarioVacaciones * vacacionesDevengadas;
@@ -55,6 +57,10 @@ export function initCalculoFiniquito() {
     vacacionesInput.value = isNaN(importeVacaciones)
       ? ""
       : importeVacaciones.toFixed(2);
+
+    const diasTotalesTrabajados = Math.floor(
+      (fechaBaja - fechaIncorporacion) / (1000 * 60 * 60 * 24)
+    );
 
     let indemnizacion = 0;
     let salarioDiarioIndem = 0;
