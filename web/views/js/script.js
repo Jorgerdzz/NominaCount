@@ -30,6 +30,7 @@ import { validarRegistroCEO } from "./modules/registro-ceo.js";
 import { delegarFunciones, validarDelegarFunciones } from "./modules/delegar-funciones.js";
 import { generarFiniquitoPDF } from "./modules/generar-finiquito.js";
 import { enviarMensaje, validarFormContacto } from "./modules/contacto.js";
+import { eliminarEmpresa } from "./modules/eliminar-empresa.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -72,6 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
       modificarDatosUsuario();
       validarCambiarContra();
       modificarContra();
+      eliminarEmpresa();
       break;
     case "calcular-nomina":
       initNominaCalculator();

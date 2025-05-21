@@ -44,11 +44,17 @@ class Database
     public static function eliminarDatabase($db_nombre)
     {
         $instance = new self();
-        $query = "DROP DATABASE $db_nombre;";
+
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $db_nombre)) {
+            throw new Exception("Nombre de base de datos inválido.");
+        }
+
+        $query = "DROP DATABASE `$db_nombre`;";
         $instance->query($query);
     }
 
-    public static function ejecutarScriptSQL($rutaScript) {
+    public static function ejecutarScriptSQL($rutaScript)
+    {
         $instance = self::getInstance();
         $sql = file_get_contents($rutaScript);
         $instance->query($sql);
@@ -68,6 +74,4 @@ class Database
     {
         return $this->connection->rollback();
     }
-
-
 }

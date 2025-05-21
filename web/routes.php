@@ -6,6 +6,7 @@
         '/registro-ceo' => 'controllers/Registro/registro-ceo.php',
         '/empresa' => 'controllers/Empresa/empresa.php',
         '/existe-empresa' => 'controllers/Empresa/existe-empresa.php',
+        '/eliminar-empresa' => 'controllers/Empresa/eliminar-empresa.php',
         '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',
         '/departamento' => 'controllers/Departamento/departamento.php',
         '/crear-departamento' => 'controllers/Departamento/crear-departamento.php',

@@ -92,6 +92,14 @@ class Empresa extends Database
         return array_merge($estadisticas, $empleados);
     }
     
+    public static function eliminarEmpresa($id_empresa){
+        $instance = self::getInstance();
+        $query = "DELETE FROM empresas WHERE id_empresa = :id_empresa;";
+        $params = [
+            'id_empresa' => $id_empresa,
+        ];
+        $instance->query($query, $params);
+    }
 
 
 
