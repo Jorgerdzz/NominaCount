@@ -9,6 +9,8 @@
     }  
 ?>
 
+
+
 <main>
     <div class="container my-4">
         <h1 class="text-center mb-4">Contacta con NominaCount</h1>
@@ -19,30 +21,22 @@
                 <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <h2 class="mb-4" style="color: #825abd;">Escríbenos</h2>
-                        <form method="POST" id="contact-form">
+                        <form method="POST" id="formContacto">
                             <div class="row">
-                                <div class="col-md-6 mb-3">
-                                    <label for="name" class="form-label">Nombre*</label>
-                                    <input type="text" class="form-control" id="name" name="name" required 
-                                        value="<?= $name ?? '' ?>">
-                                </div>
-                                <div class="col-md-6 mb-3">
-                                    <label for="last-name" class="form-label">Apellidos*</label>
-                                    <input type="text" class="form-control" id="last-name" name="last-name" required
-                                        value="<?= $lastName ?? '' ?>">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Nombre y apellidos*</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
                                 </div>
                             </div>
                             
                             <div class="mb-3">
                                 <label for="email" class="form-label">Correo electrónico*</label>
-                                <input type="email" class="form-control" id="email" name="email" required
-                                    value="<?= $email ?? '' ?>">
+                                <input type="email" class="form-control" id="email" name="email" required>
                             </div>
                             
                             <div class="mb-3">
-                                <label for="company" class="form-label">Empresa</label>
-                                <input type="text" class="form-control" id="company" name="company"
-                                    value="<?= $company ?? '' ?>">
+                                <label for="company" class="form-label">Empresa*</label>
+                                <input type="text" class="form-control" id="company" name="company" required>
                             </div>
                             
                             <div class="mb-3">
@@ -62,7 +56,7 @@
                                 <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
                             </div>
                             
-                            <div class="mb-3 form-check">
+                            <div class="mb-4 form-check">
                                 <input type="checkbox" class="form-check-input" id="privacy" required>
                                 <label class="form-check-label" for="privacy">
                                     Acepto la <a href="<?= BASE_PATH . '/politica-privacidad'; ?>" class="link-primary">política de privacidad</a>*
@@ -70,7 +64,7 @@
                             </div>
                             
                             <div class="d-grid">
-                                <button type="submit" class="btn btn-purple btn-lg" id="send-btn">
+                                <button type="submit" class="btn btn-purple btn-lg" id="send-btn" disabled>
                                     Enviar mensaje
                                 </button>
                             </div>
@@ -81,7 +75,7 @@
             
             <!-- Información de contacto -->
             <div class="col-lg-6">
-                <div class="card shadow-sm h-100">
+                <div class="card shadow-sm">
                     <div class="card-body p-4">
                         <h2 class="mb-4" style="color: #825abd;">Información de contacto</h2>
                         
@@ -90,8 +84,8 @@
                                 <i class="fas fa-map-marker-alt fa-2x"></i>
                             </div>
                             <div>
-                                <h3 class="h6">Dirección</h3>
-                                <p class="mb-0">Calle Desarrollo Web, 123<br>28080 Madrid, España</p>
+                                <h3 class="h6"><strong>Dirección</strong></h3>
+                                <p class="mb-0">Avenida de la Ilustración, 123<br>28080 Madrid, España</p>
                             </div>
                         </div>
                         
@@ -100,7 +94,7 @@
                                 <i class="fas fa-envelope fa-2x"></i>
                             </div>
                             <div>
-                                <h3 class="h6">Correo electrónico</h3>
+                                <h3 class="h6"><strong>Correo electrónico</strong></h3>
                                 <p class="mb-0">
                                     <a href="mailto:info@nominacount.com" class="link-primary">info@nominacount.com</a><br>
                                     <a href="mailto:soporte@nominacount.com" class="link-primary">soporte@nominacount.com</a>
@@ -113,8 +107,9 @@
                                 <i class="fas fa-phone-alt fa-2x"></i>
                             </div>
                             <div>
-                                <h3 class="h6">Teléfono</h3>
-                                <p class="mb-0">+34 910 123 456<br>Lunes a viernes de 9:00 a 18:00</p>
+                                <h3 class="h6"><strong>Teléfono</strong></h3>
+                                <p class="mb-0 link-primary">+34 910 123 456<br></p>
+                                <p>Lunes a viernes de 9:00 a 18:00</p>
                             </div>
                         </div>
                         
@@ -123,21 +118,18 @@
                                 <i class="fas fa-info-circle fa-2x"></i>
                             </div>
                             <div>
-                                <h3 class="h6">Soporte técnico</h3>
-                                <p class="mb-0">Para incidencias urgentes, contacte con nuestro servicio de soporte 24/7:<br>
+                                <h3 class="h6"><strong>Soporte técnico</strong></h3>
+                                <p class="mb-0">Para incidencias urgentes, contacte con nuestro servicio de soporte:<br>
                                 <a href="tel:+34900123456" class="link-primary">900 123 456</a></p>
                             </div>
                         </div>
                         
                         <hr class="my-4">
                         
-                        <h3 class="h5 mb-3">¿Necesitas ayuda inmediata?</h3>
-                        <p>Consulta nuestra <a href="<?= BASE_PATH . '/faq'; ?>" class="link-primary">sección de preguntas frecuentes</a> donde encontrarás respuestas a las dudas más comunes sobre el uso de NominaCount.</p>
-                        
-                        <div class="mt-4">
-                            <a href="<?= BASE_PATH . '/demo'; ?>" class="btn btn-outline-primary me-2">Solicitar demo</a>
-                            <a href="<?= BASE_PATH . '/soporte'; ?>" class="btn btn-outline-secondary">Centro de ayuda</a>
-                        </div>
+                        <h3 class="h5 mb-4"><strong>Más información</strong></h3>
+                        <p>Si desea conocer más sobre nuestros servicios y cómo pueden beneficiarte, estamos aquí para ayudarle. </p>
+                        <p>No dude en contactar con nosostros para obtener información adicional 
+                            o resolver cualquier duda que pueda tener.</p> 
                     </div>
                 </div>
             </div>

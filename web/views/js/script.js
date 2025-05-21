@@ -29,6 +29,7 @@ import { establecerContra, existeEmail, validarComprobacionEmail, validarNuevaCo
 import { validarRegistroCEO } from "./modules/registro-ceo.js";
 import { delegarFunciones, validarDelegarFunciones } from "./modules/delegar-funciones.js";
 import { generarFiniquitoPDF } from "./modules/generar-finiquito.js";
+import { enviarMensaje, validarFormContacto } from "./modules/contacto.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   const page = document.body.dataset.page;
@@ -93,6 +94,9 @@ document.addEventListener("DOMContentLoaded", () => {
     case "calendario-empleado":
       crearCalendarioEmpleado();
       break;
+    case "contacto":
+      validarFormContacto();
+      enviarMensaje();
     default:
       break;
   }

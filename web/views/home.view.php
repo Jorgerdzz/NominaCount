@@ -104,7 +104,7 @@
                           </div>
                           <div class="mb-3 form-check">
                               <input type="checkbox" class="form-check-input" id="privacidad" name="privacidad">
-                              <label class="form-check-label" for="privacidad">Acepto la <a href="<?= BASE_PATH . '/politica-privacidad'">política de privacidad</a>.</label>
+                              <label class="form-check-label" for="privacidad">Acepto la <a href="<?= BASE_PATH . '/politica-privacidad';?>" style="text-decoration: underline;">política de privacidad</a>.</label>
                           </div>
                           <div class="modal-footer">
                               <div class="d-grid w-100">

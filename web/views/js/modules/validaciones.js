@@ -141,3 +141,12 @@ export function validarSalarioBase(salario){
     return isNumber && salarioValue >= salario_minimo;
 }
 
+//CONTACTO
+export function validarAsunto(asunto){
+  return asunto !== "";
+}
+
+export function validarMensaje(mensaje){
+  return mensaje !== ""
+}
+
