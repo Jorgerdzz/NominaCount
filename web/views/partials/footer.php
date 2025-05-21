@@ -28,7 +28,7 @@
     </ul>
     <div class="row">
         <div class="col-md-6">
-            <p class="text-center text-white">2025 NominaCount, Inc</p>
+            <p class="text-center text-white">© 2025 NominaCount, Inc</p>
         </div>
         <div class="col-md-6">
             <i class="bi bi-twitter-x m-3"></i>
