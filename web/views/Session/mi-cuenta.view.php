@@ -7,75 +7,78 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
 }
 ?>
 
-<div class="container my-5">
-    <div class="card p-4 bg-white">
-        <h2 class="text-start mb-4" style="color: #825abd;">Perfil de Usuario</h2>
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Nombre:</strong> <?= $nombre; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Correo electrónico:</strong> <?= $email; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>C.I.F:</strong> <?= $cif; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Denominación social:</strong> <?= $denominacion_social; ?>
-                </div>
-            </div>
-            <div class="col-md-6 ">
-                <div class="bg-light p-3 rounded">
-                    <strong>Nombre comercial:</strong> <?= $nombre_comercial; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Teléfono:</strong> <?= $telefono; ?>
-                </div>
-            </div>
-            <div class="col">
-                <div class=" bg-light p-3 rounded">
-                    <strong>Dirección:</strong> <?= $direccion; ?>
-                </div>
-            </div>
-        </div>
-
-        <div class="container mt-4">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
+<main>
+    <div class="container my-5">
+        <div class="card p-4 bg-white">
+            <h2 class="text-start mb-4" style="color: #825abd;">Perfil de Usuario</h2>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Nombre:</strong> <?= $nombre; ?>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Correo electrónico:</strong> <?= $email; ?>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-danger px-4">Eliminar cuenta</button>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>C.I.F:</strong> <?= $cif; ?>
                     </div>
                 </div>
-            </div>
-            <div class="row">
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Denominación social:</strong> <?= $denominacion_social; ?>
+                    </div>
+                </div>
+                <div class="col-md-6 ">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Nombre comercial:</strong> <?= $nombre_comercial; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Teléfono:</strong> <?= $telefono; ?>
+                    </div>
+                </div>
                 <div class="col">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-danger px-4" id="botonEliminarEmpresa">Eliminar empresa</button>
+                    <div class=" bg-light p-3 rounded">
+                        <strong>Dirección:</strong> <?= $direccion; ?>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-4">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-danger px-4">Eliminar cuenta</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-danger px-4" id="botonEliminarEmpresa">Eliminar empresa</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
+
 
 <!-- Modal Editar Perfil Usuario -->
 <div class="modal fade" id="editar-perfil-usuario" tabindex="-1" aria-labelledby="editar-perfil-usuarioLabel" aria-hidden="true">
@@ -160,10 +163,10 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
 </div>
 
 <script>
-window.empresaData = {
-    id_empresa: <?= json_encode($_SESSION['empresaActiva']['id_empresa']); ?>,
-    db_nombre: <?= json_encode($_SESSION['empresaActiva']['db_nombre']); ?>
-};
+    window.empresaData = {
+        id_empresa: <?= json_encode($_SESSION['empresaActiva']['id_empresa']); ?>,
+        db_nombre: <?= json_encode($_SESSION['empresaActiva']['db_nombre']); ?>
+    };
 </script>
 
 <?php require 'views/partials/footer.php'; ?>

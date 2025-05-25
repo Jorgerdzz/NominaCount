@@ -1,34 +1,34 @@
 <?php require_once 'views/partials/head.php'; ?>
 <?php require_once 'views/partials/nav-empresa.php'; ?>
 
+<main>
+    <!-- Tabla empleados -->
+    <section class="container mt-4">
 
-<!-- Tabla empleados -->
-<section class="container mt-4">
+        <div class="section-header">
+            <h2>Empleados del departamento de <?= $nombre_departamento; ?></h2>
+        </div>
 
-    <div class="section-header">
-        <h2>Empleados del departamento de <?= $nombre_departamento; ?></h2>
-    </div>
+        <div class="top-toolbar">
+            <!-- Controles de tabla arriba -->
+        </div>
 
-    <div class="top-toolbar">
-        <!-- Controles de tabla arriba -->
-    </div>
-
-    <table id="tabla-empleados">
-        <thead>
-            <tr>
-                <th>Ver perfil</th>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>DNI</th>
-                <th>Numero seguridad social</th>
-                <th>Correo electrónico</th>
-                <th>Salario base</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php
-            foreach ($empleados as $empleado) {
-                echo '<tr data-id="' . $empleado['id_empleado'] . '">
+        <table id="tabla-empleados">
+            <thead>
+                <tr>
+                    <th>Ver perfil</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>DNI</th>
+                    <th>Numero seguridad social</th>
+                    <th>Correo electrónico</th>
+                    <th>Salario base</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($empleados as $empleado) {
+                    echo '<tr data-id="' . $empleado['id_empleado'] . '">
                             <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle text-dark"></i></a> 
                             <td>' . $empleado['nombre'] . '</a></td>
                             <td>' . $empleado['apellidos'] . '</td>
@@ -37,45 +37,47 @@
                             <td>' . $empleado['email'] . '</td>
                             <td>' . $empleado['salario_base'] . ' €</td>
                         </tr>';
-            }
-            ?>
-        </tbody>
-    </table>
+                }
+                ?>
+            </tbody>
+        </table>
 
-    <div class="container my-3">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="d-grid">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
+        <div class="container my-3">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="d-grid">
-                    <button type="button" class="btn btn-primary">
-                        <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">Descargar plantilla csv</a>
-                    </button>
+                <div class="col-md-3">
+                    <div class="d-grid">
+                        <button type="button" class="btn btn-primary">
+                            <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">Descargar plantilla csv</a>
+                        </button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <div class="d-grid">
-                    <form id="formImportCSV" method="POST" enctype="multipart/form-data" style="display: none;">
-                        <input type="file" name="csv_empleados" id="csv_empleados" accept=".csv" required>
-                        <input type="hidden" name="importar_csv" value="1">
-                    </form>
-                    <button type="button" id="btnImportarCSV" class="btn btn-primary">Importar csv empleados</button>
+                <div class="col-md-3">
+                    <div class="d-grid">
+                        <form id="formImportCSV" method="POST" enctype="multipart/form-data" style="display: none;">
+                            <input type="file" name="csv_empleados" id="csv_empleados" accept=".csv" required>
+                            <input type="hidden" name="importar_csv" value="1">
+                        </form>
+                        <button type="button" id="btnImportarCSV" class="btn btn-primary">Importar csv empleados</button>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-3">
-                <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
-                <div class="d-grid">
-                    <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
-                        Eliminar departamento
-                    </button>
+                <div class="col-md-3">
+                    <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
+                    <div class="d-grid">
+                        <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
+                            Eliminar departamento
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
+
 
 
 <!-- Modal Añadir Empleado -->

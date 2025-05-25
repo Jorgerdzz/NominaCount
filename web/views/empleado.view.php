@@ -1,146 +1,149 @@
 <?php require_once 'views/partials/head.php'; ?>
 <?php require_once 'views/partials/nav-empresa.php'; ?>
 
-<div class="container my-5">
-    <div class="card p-4 bg-white">
-        <div class="row g-4 align-items-center mb-4">
-            <div class="col-md-9">
-                <h2 style="color: #825abd;">Perfil del Empleado</h2>
+<main>
+    <div class="container my-5">
+        <div class="card p-4 bg-white">
+            <div class="row g-4 align-items-center mb-4">
+                <div class="col-md-9">
+                    <h2 style="color: #825abd;">Perfil del Empleado</h2>
+                </div>
+                <div class="col-md-3 text-md-end text-center">
+                    <img src="https://via.placeholder.com/150" alt="Foto del empleado" class="profile-img">
+                </div>
             </div>
-            <div class="col-md-3 text-md-end text-center">
-                <img src="https://via.placeholder.com/150" alt="Foto del empleado" class="profile-img">
-            </div>
-        </div>
 
-        <div class="row g-3">
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Nombre:</strong> <?= $empleado['nombre']; ?>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Nombre:</strong> <?= $empleado['nombre']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Apellidos:</strong> <?= $empleado['apellidos']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>DNI:</strong> <?= $empleado['dni']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Numero seguridad social:</strong> <?= $empleado['num_seguridad_social']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Email:</strong> <?= $empleado['email']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Categoría profesional:</strong> <?= $empleado['categoria_profesional']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Teléfono:</strong> <?= $empleado['telefono']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Fecha de incorporación:</strong> <?= $empleado['antiguedad_empresa']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Número de Hijos:</strong> <?= $empleado['num_hijos']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Minusvalía:</strong> <?= $empleado['minusvalia']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Estado Civil:</strong> <?= $empleado['estado_civil']; ?>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Fecha de Nacimiento:</strong> <?= $empleado['fecha_nacimiento']; ?>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="bg-light p-3 rounded">
+                        <strong>Salario Base:</strong> <?= $empleado['salario_base']; ?> €
+                    </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Apellidos:</strong> <?= $empleado['apellidos']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>DNI:</strong> <?= $empleado['dni']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Numero seguridad social:</strong> <?= $empleado['num_seguridad_social']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Email:</strong> <?= $empleado['email']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Categoría profesional:</strong> <?= $empleado['categoria_profesional']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Teléfono:</strong> <?= $empleado['telefono']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Fecha de incorporación:</strong> <?= $empleado['antiguedad_empresa']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Número de Hijos:</strong> <?= $empleado['num_hijos']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Minusvalía:</strong> <?= $empleado['minusvalia']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Estado Civil:</strong> <?= $empleado['estado_civil']; ?>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="bg-light p-3 rounded">
-                    <strong>Fecha de Nacimiento:</strong> <?= $empleado['fecha_nacimiento']; ?>
-                </div>
-            </div>
-            <div class="col">
-                <div class="bg-light p-3 rounded">
-                    <strong>Salario Base:</strong> <?= $empleado['salario_base']; ?> €
-                </div>
-            </div>
-        </div>
 
-        <div class="container gap-3 mt-4">
-            <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button class="btn btn-purple px-4">
-                            <?php if($empleado['id_departamento'] != NULL) : ?>
-                                <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
-                            <?php else : ?>
-                                <a href="<?= BASE_PATH . '/empresa' ?>">Volver</a>
-                            <?php endif; ?>
-                        </button>
+            <div class="container gap-3 mt-4">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button class="btn btn-purple px-4">
+                                <?php if ($empleado['id_departamento'] != NULL) : ?>
+                                    <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
+                                <?php else : ?>
+                                    <a href="<?= BASE_PATH . '/empresa' ?>">Volver</a>
+                                <?php endif; ?>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4">
+                                <a href="<?= BASE_PATH . '/calcular-nomina/empleado?id=' . $id_empleado; ?>">Calcular nómina</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4">
+                                <a href="<?= BASE_PATH . '/calcular-finiquito/empleado?id=' . $id_empleado; ?>">Calcular finiquito</a>
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4">
-                            <a href="<?= BASE_PATH . '/calcular-nomina/empleado?id=' . $id_empleado; ?>">Calcular nómina</a>
-                        </button>
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4">
-                            <a href="<?= BASE_PATH . '/calcular-finiquito/empleado?id=' . $id_empleado; ?>">Calcular finiquito</a>
-                        </button>
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4">
+                                <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">Ver historial nóminas</a>
+                            </button>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div class="row justify-content-between align-items-center">
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
+                    <div class="col-12 col-md-3">
+                        <div class="d-grid m-3">
+                            <button type="button" class="btn btn-purple px-4">
+                                <a href="<?= BASE_PATH . '/finiquito/empleado?id=' . $id_empleado; ?>">Ver finiquito</a>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4">
-                            <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">Ver historial nóminas</a>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3">
-                    <div class="d-grid m-3">
-                        <button type="button" class="btn btn-purple px-4">
-                            <a href="<?= BASE_PATH . '/finiquito/empleado?id=' . $id_empleado; ?>">Ver finiquito</a>
-                        </button>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="d-grid m-3">
-                        <input type="hidden" id="id_empleado" value="<?= $empleado['id_empleado']; ?>">
-                        <input type="hidden" id="email_empleado" value="<?= $empleado['email']; ?>">
-                        <button type="button" id="baja_empleado" class="btn btn-danger px-4">
-                            Dar de baja empleado
-                        </button>
+                    <div class="col-12">
+                        <div class="d-grid m-3">
+                            <input type="hidden" id="id_empleado" value="<?= $empleado['id_empleado']; ?>">
+                            <input type="hidden" id="email_empleado" value="<?= $empleado['email']; ?>">
+                            <button type="button" id="baja_empleado" class="btn btn-danger px-4">
+                                Dar de baja empleado
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</main>
+
 
 <!-- Modal Editar Perfil Empleado -->
 <div class="modal fade" id="editar-perfil-empleado" tabindex="-1" aria-labelledby="editar-perfil-empleadoLabel">
