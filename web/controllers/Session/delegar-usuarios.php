@@ -2,8 +2,6 @@
 
 header('Content-Type: application/json');
 
-define('contrasena', 'P@ssw0rd'); //contraseña por defecto
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['accion']) && $_POST['accion'] === 'delegar_usuario') {
         $nombre_usuario = $_POST['delegar_nombre_usuario'];
@@ -15,13 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if($existe){
             Usuario::delegarUsuario($email_usuario, TRUE);
+            echo json_encode(['exito' => TRUE]);
         }else{
-            Usuario::crearUsuario($_SESSION['empresaActiva']['id_empresa'], $nombre_usuario, 'Empresario', FALSE, TRUE, $email_usuario, contrasena);
+            echo json_encode(['exito' => FALSE]);
         }
 
         Database::getInstance($_SESSION['db_nombre']);
-
-        echo json_encode(['exito' => TRUE]);
         exit;
     }
 }

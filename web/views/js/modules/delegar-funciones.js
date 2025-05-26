@@ -79,6 +79,25 @@ export function delegarFunciones() {
         }).then(() => {
             window.location.href = "/empresa";
         });
+      }else{
+        Swal.fire({
+          title: "Error",
+          text: "El usuario no existe",
+          icon: "error",
+          background: "#825abd",
+          color: "#FFFFFF",
+          showConfirmButton: true,
+          confirmButtonText: "OK",
+          customClass: {
+            title: "h3",
+            confirmButton: "btn-primary",
+          },
+          position: "center",
+          timer: 3000,
+          timerProgressBar: true,
+        }).then(() => {
+            window.location.href = "/empresa";
+        });
       }
     } catch (error) {
       console.error("Error:", error);

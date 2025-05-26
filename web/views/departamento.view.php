@@ -45,19 +45,19 @@
         <div class="container my-3">
             <div class="row">
                 <div class="col-md-3">
-                    <div class="d-grid">
+                    <div class="d-grid mb-3">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-empleado">Dar de alta empleado</button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="d-grid">
+                    <div class="d-grid mb-3">
                         <button type="button" class="btn btn-primary">
                             <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">Descargar plantilla csv</a>
                         </button>
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="d-grid">
+                    <div class="d-grid mb-3">
                         <form id="formImportCSV" method="POST" enctype="multipart/form-data" style="display: none;">
                             <input type="file" name="csv_empleados" id="csv_empleados" accept=".csv" required>
                             <input type="hidden" name="importar_csv" value="1">
@@ -65,7 +65,7 @@
                         <button type="button" id="btnImportarCSV" class="btn btn-primary">Importar csv empleados</button>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 mb-3">
                     <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
                     <div class="d-grid">
                         <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">

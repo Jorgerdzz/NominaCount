@@ -1,5 +1,6 @@
 export function crearTabla() {
     new DataTable('#tabla-empleados', {
+        responsive: true,
         paging: true,
         select: true,
         language: {
