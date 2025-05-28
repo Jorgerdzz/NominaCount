@@ -35,94 +35,90 @@
         </div>
 
         <div class="mt-5">
-    <h1 class="mb-4">Estadísticas Mensuales</h1>
-    
-    <div class="card shadow-sm border-0">
-        <div class="card-body p-0">
+            <h1 class="mb-4">Estadísticas Mensuales</h1>
             <ul class="nav nav-tabs nav-justified px-3 pt-3" id="tabsCostes" role="tablist">
                 <?php for ($i = 1; $i <= 12; $i++): ?>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link <?= $i === 1 ? 'active' : '' ?> rounded-top" 
-                            id="tab-mes-<?= $i ?>" 
-                            data-bs-toggle="tab" 
-                            data-bs-target="#mes-<?= $i ?>" 
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link <?= $i === 1 ? 'active' : '' ?> rounded-top"
+                            id="tab-mes-<?= $i ?>"
+                            data-bs-toggle="tab"
+                            data-bs-target="#mes-<?= $i ?>"
                             type="button" role="tab"
                             aria-controls="mes-<?= $i ?>"
                             aria-selected="<?= $i === 1 ? 'true' : 'false' ?>">
-                        <?= $meses[$i] ?>
-                    </button>
-                </li>
+                            <?= $meses[$i] ?>
+                        </button>
+                    </li>
                 <?php endfor; ?>
             </ul>
+            <div class="card shadow-sm border-0">
+                <div class="tab-content p-4" id="tabsContent">
+                    <?php for ($i = 1; $i <= 12; $i++):
+                        $datosMes = $estadisticas_mensuales['datos_mensuales'][$i] ?? [
+                            'coste_total' => 0,
+                            'num_empleados' => 0,
+                            'coste_medio_empleado' => 0,
+                            'nombre_mes' => $meses[$i]
+                        ];
+                    ?>
+                        <div class="tab-pane fade <?= $i === 1 ? 'show active' : '' ?>"
+                            id="mes-<?= $i ?>" role="tabpanel" aria-labelledby="tab-mes-<?= $i ?>">
 
-            <div class="tab-content p-4" id="tabsContent">
-                <?php for ($i = 1; $i <= 12; $i++): 
-                    $datosMes = $estadisticas_mensuales['datos_mensuales'][$i] ?? [
-                        'coste_total' => 0,
-                        'num_empleados' => 0,
-                        'coste_medio_empleado' => 0,
-                        'nombre_mes' => $meses[$i]
-                    ];
-                ?>
-                <div class="tab-pane fade <?= $i === 1 ? 'show active' : '' ?>" 
-                     id="mes-<?= $i ?>" role="tabpanel" aria-labelledby="tab-mes-<?= $i ?>">
-                    
-                    <!-- Gráfico grande -->
-                    <div class="card border-0 mb-4 shadow-sm">
-                        <div class="card-header bg-white border-0">
-                            <h5 class="card-title mb-0 text-primary">
-                                <i class="fas fa-chart-bar me-2"></i>
-                                Gráfico de <?= $meses[$i] ?>
-                            </h5>
-                        </div>
-                        <div class="card-body p-3">
-                            <canvas id="grafico-mes-<?= $i ?>" width="100%" height="400"></canvas>
-                        </div>
-                    </div>
-                    
-                    <!-- Card con estadísticas -->
-                    <div class="card border-0 shadow-sm">
-                        <div class="card-header bg-white border-0">
-                            <h5 class="card-title mb-0 text-primary">
-                                <i class="fas fa-calculator me-2"></i>
-                                Resumen de <?= $meses[$i] ?>
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4 border-end">
-                                    <div class="text-center py-2">
-                                        <div class="text-muted small">Coste Total</div>
-                                        <h3 class="text-primary my-2">
-                                            <?= number_format($datosMes['coste_total'], 2, ',', '.') ?> €
-                                        </h3>
-                                    </div>
+                            <!-- Gráfico grande -->
+                            <div class="card border-0 mb-4 shadow-sm">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="card-title mb-0 text-primary">
+                                        <i class="fas fa-chart-bar me-2"></i>
+                                        Gráfico de <?= $meses[$i] ?>
+                                    </h5>
                                 </div>
-                                <div class="col-md-4 border-end">
-                                    <div class="text-center py-2">
-                                        <div class="text-muted small">Coste Medio</div>
-                                        <h3 class="text-primary my-2">
-                                            <?= number_format($datosMes['coste_medio_empleado'], 2, ',', '.') ?> €
-                                        </h3>
-                                    </div>
+                                <div class="card-body p-3">
+                                    <canvas id="grafico-mes-<?= $i ?>" width="100%" height="400"></canvas>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="text-center py-2">
-                                        <div class="text-muted small">Empleados</div>
-                                        <h3 class="text-primary my-2">
-                                            <?= $datosMes['num_empleados'] ?>
-                                        </h3>
+                            </div>
+
+                            <!-- Card con estadísticas -->
+                            <div class="card border-0 shadow-sm">
+                                <div class="card-header bg-white border-0">
+                                    <h5 class="card-title mb-0 text-primary">
+                                        <i class="fas fa-calculator me-2"></i>
+                                        Resumen de <?= $meses[$i] ?>
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4 border-end">
+                                            <div class="text-center py-2">
+                                                <div class="text-muted small">Coste Total</div>
+                                                <h3 class="text-primary my-2">
+                                                    <?= number_format($datosMes['coste_total'], 2, ',', '.') ?> €
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 border-end">
+                                            <div class="text-center py-2">
+                                                <div class="text-muted small">Coste Medio</div>
+                                                <h3 class="text-primary my-2">
+                                                    <?= number_format($datosMes['coste_medio_empleado'], 2, ',', '.') ?> €
+                                                </h3>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="text-center py-2">
+                                                <div class="text-muted small">Empleados</div>
+                                                <h3 class="text-primary my-2">
+                                                    <?= $datosMes['num_empleados'] ?>
+                                                </h3>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endfor; ?>
                 </div>
-                <?php endfor; ?>
             </div>
         </div>
-    </div>
-</div>
     </div>
 </main>
 
