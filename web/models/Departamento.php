@@ -140,10 +140,6 @@ class Departamento extends Database
         $params = ['nombre_departamento' => $nombre_departamento];
         $departamento = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
 
-        if (!$departamento) {
-            return null; // Departamento no encontrado
-        }
-
         $query = "SELECT 
                     MONTH(ct.fecha_inicio) as mes,
                     SUM(ct.coste_total_trabajador) as coste_total_mes,
@@ -155,7 +151,6 @@ class Departamento extends Database
 
         $params = ['id_departamento' => $departamento['id_departamento']];
 
-        // Si se especificó un año, lo añadimos al filtro
         if ($anio !== null) {
             $query .= " AND YEAR(ct.fecha_inicio) = :anio";
             $params['anio'] = $anio;
@@ -165,7 +160,6 @@ class Departamento extends Database
 
         $resultados = $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
 
-        // Procesamos los resultados para devolverlos en un formato estructurado
         $estadisticas = [
             'nombre_departamento' => $nombre_departamento,
             'id_departamento' => $departamento['id_departamento'],
@@ -173,7 +167,6 @@ class Departamento extends Database
             'datos_mensuales' => []
         ];
 
-        // Inicializamos todos los meses (1-12) con valores por defecto
         for ($mes = 1; $mes <= 12; $mes++) {
             $estadisticas['datos_mensuales'][$mes] = [
                 'coste_total' => 0,
@@ -182,7 +175,6 @@ class Departamento extends Database
             ];
         }
 
-        // Rellenamos con los datos reales que tenemos
         foreach ($resultados as $fila) {
             $mes = (int)$fila['mes'];
             $estadisticas['datos_mensuales'][$mes] = [
