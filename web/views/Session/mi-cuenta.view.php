@@ -67,13 +67,15 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-danger px-4" id="botonEliminarEmpresa">Eliminar empresa</button>
+                <?php if($_SESSION['usuarioActivo']['ceo']==True): ?>
+                    <div class="row">
+                        <div class="col">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-danger px-4" id="botonEliminarEmpresa">Eliminar empresa</button>
+                            </div>
                         </div>
                     </div>
-                </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
