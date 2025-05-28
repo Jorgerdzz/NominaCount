@@ -129,4 +129,69 @@ class Departamento extends Database
             'coste_departamento_bd' => $departamento['coste_total_departamento']
         ];
     }
+
+    public static function getEstadisticasDepartamentoPorMes($nombre_departamento, $anio = null)
+    {
+        $instance = self::getInstance();
+
+        $query = "SELECT id_departamento, num_empleados 
+                FROM departamentos 
+                WHERE nombre_departamento = :nombre_departamento";
+        $params = ['nombre_departamento' => $nombre_departamento];
+        $departamento = $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+
+        if (!$departamento) {
+            return null; // Departamento no encontrado
+        }
+
+        $query = "SELECT 
+                    MONTH(ct.fecha_inicio) as mes,
+                    SUM(ct.coste_total_trabajador) as coste_total_mes,
+                    COUNT(DISTINCT e.id_empleado) as num_empleados_mes,
+                    AVG(ct.coste_total_trabajador) as coste_medio_empleado
+                FROM empleados e
+                JOIN costes_trabajador ct ON e.id_empleado = ct.id_empleado
+                WHERE e.id_departamento = :id_departamento";
+
+        $params = ['id_departamento' => $departamento['id_departamento']];
+
+        // Si se especificó un año, lo añadimos al filtro
+        if ($anio !== null) {
+            $query .= " AND YEAR(ct.fecha_inicio) = :anio";
+            $params['anio'] = $anio;
+        }
+
+        $query .= " GROUP BY MONTH(ct.fecha_inicio) ORDER BY mes";
+
+        $resultados = $instance->query($query, $params)->fetchAll(PDO::FETCH_ASSOC);
+
+        // Procesamos los resultados para devolverlos en un formato estructurado
+        $estadisticas = [
+            'nombre_departamento' => $nombre_departamento,
+            'id_departamento' => $departamento['id_departamento'],
+            'num_empleados_total' => $departamento['num_empleados'],
+            'datos_mensuales' => []
+        ];
+
+        // Inicializamos todos los meses (1-12) con valores por defecto
+        for ($mes = 1; $mes <= 12; $mes++) {
+            $estadisticas['datos_mensuales'][$mes] = [
+                'coste_total' => 0,
+                'num_empleados' => 0,
+                'coste_medio_empleado' => 0
+            ];
+        }
+
+        // Rellenamos con los datos reales que tenemos
+        foreach ($resultados as $fila) {
+            $mes = (int)$fila['mes'];
+            $estadisticas['datos_mensuales'][$mes] = [
+                'coste_total' => (float)$fila['coste_total_mes'],
+                'num_empleados' => (int)$fila['num_empleados_mes'],
+                'coste_medio_empleado' => (float)$fila['coste_medio_empleado']
+            ];
+        }
+
+        return $estadisticas;
+    }
 }
