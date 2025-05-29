@@ -11,7 +11,10 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
     <div class="container my-5">
         <div class="card p-4 bg-white">
             <h2 class="text-start mb-4" style="color: #825abd;">Perfil de Usuario</h2>
-            <div class="row g-3">
+
+            <!-- PERFIL DE USUARIO -->
+            <h5 class="text-muted">Información personal</h5>
+            <div class="row g-3 mb-4">
                 <div class="col-md-6">
                     <div class="bg-light p-3 rounded">
                         <strong>Nombre:</strong> <?= $nombre; ?>
@@ -22,6 +25,11 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
                         <strong>Correo electrónico:</strong> <?= $email; ?>
                     </div>
                 </div>
+            </div>
+
+            <!-- DATOS DE LA EMPRESA -->
+            <h5 class="text-muted">Datos de la empresa</h5>
+            <div class="row g-3 mb-4">
                 <div class="col-md-6">
                     <div class="bg-light p-3 rounded">
                         <strong>C.I.F:</strong> <?= $cif; ?>
@@ -32,7 +40,7 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
                         <strong>Denominación social:</strong> <?= $denominacion_social; ?>
                     </div>
                 </div>
-                <div class="col-md-6 ">
+                <div class="col-md-6">
                     <div class="bg-light p-3 rounded">
                         <strong>Nombre comercial:</strong> <?= $nombre_comercial; ?>
                     </div>
@@ -43,39 +51,38 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
                     </div>
                 </div>
                 <div class="col">
-                    <div class=" bg-light p-3 rounded">
+                    <div class="bg-light p-3 rounded">
                         <strong>Dirección:</strong> <?= $direccion; ?>
                     </div>
                 </div>
             </div>
 
-            <div class="container mt-4">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
+                    <?php if ($_SESSION['usuarioActivo']['ceo'] == True || $_SESSION['usuarioActivo']['delegado'] == True): ?>
+                        <div class="col-md-4">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
+                        <div class="col-md-4">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-danger px-4">Eliminar cuenta</button>
-                        </div>
-                    </div>
-                </div>
-                <?php if($_SESSION['usuarioActivo']['ceo']==True): ?>
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-md-4">
                             <div class="d-grid m-3">
                                 <button type="button" class="btn btn-danger px-4" id="botonEliminarEmpresa">Eliminar empresa</button>
                             </div>
                         </div>
-                    </div>
-                <?php endif; ?>
+                    <?php else: ?>
+                        <div class="col-md-12">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4" data-bs-toggle="modal" data-bs-target="#cambiar-contrasena">Cambiar contraseña</button>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>
