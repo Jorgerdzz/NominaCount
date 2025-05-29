@@ -13,54 +13,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="departamentoSeleccionado" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
+                <li class="nav-item">
+                    <a href="<?= BASE_PATH . '/departamentos'; ?>" class="nav-link active" aria-current="page">
                         Departamentos
                     </a>
-                    <ul class="dropdown-menu menu-departamento" id="menuDepartamento" data-dropdown-type="departamento">
-                        <?php
-                        if (isset($_SESSION['db_nombre'])) {
-                            Database::getInstance($_SESSION['db_nombre']);
-                            $departamentos = Departamento::getDepartamentos();
-
-                            if (!empty($departamentos)) {
-                                foreach ($departamentos as $departamento) {
-                                    $nombreDepartamento = urlencode($departamento['nombre_departamento']);
-                                    echo "<li><a class='dropdown-item' href='/departamento?departamento={$nombreDepartamento}'>{$departamento['nombre_departamento']}</a></li>";
-                                }
-                                echo "<li><hr class='dropdown-divider'></li>";
-                                echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal'
-                                data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
-                            } else {
-                                echo "<li class='dropdown-item'> No hay departamentos disponibles</li>";
-                                echo "<li><hr class='dropdown-divider'></li>";
-                                echo "<li><a class='dropdown-item no-cambiar-departamento' data-bs-toggle='modal' 
-                                    data-bs-target='#nuevo_departamento'>Añadir departamento</a></li>";
-                            }
-                        }
-                        ?>
-                    </ul>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Estadísticas
-                    </a>
-                    <ul class="dropdown-menu menu-estadisticas" id="menu-estadisticas" data-dropdown-type="estadisticas">
-                        <?php
-                        if (!empty($departamentos)) {
-                            foreach ($departamentos as $dep) {
-                                $nombreDepartamento = urlencode($dep['nombre_departamento']);
-                                echo "<li><a class='dropdown-item' href='/estadisticas?stats={$nombreDepartamento}'>{$dep['nombre_departamento']}</a></li>";
-                            }
-                        } else {
-                            echo "<li class='dropdown-item'> No hay departamentos disponibles</li>";
-                        }
-                        ?>
-                    </ul>
                 </li>
             </ul>
 
@@ -89,6 +45,7 @@
                             <?= htmlspecialchars($_SESSION['usuarioActivo']['nombre_usuario']) ?>
                         </a>
                         <?php
+                            Database::getInstance($_SESSION['db_nombre']);
                             $cont = Vacaciones::contarSolicitudesPendientes('pendiente');
                         ?>
                         <?php if($cont != 0):?>
@@ -132,35 +89,6 @@
         </div>
     </div>
 </nav>
-
-<!-- Modal Añadir Departamento -->
-<div class="modal fade" id="nuevo_departamento" tabindex="-1" aria-labelledby="añadir-departamentoLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content" style="background-color: #825abd;">
-            <div class="modal-header" data-bs-theme="dark">
-                <h1 class="modal-title fs-5" id="titulo">Nuevo departamento</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <form id="form-nuevo-departamento" method="POST" action="/crear-departamento">
-                    <div class="mb-3">
-                        <label for="nombre_departamento" class="form-label">Nombre del departamento:</label>
-                        <input type="text" class="form-control" id="nombre_departamento" name="nombre_departamento" aria-describedby="nombre_departamentolHelp">
-                    </div>
-                    <div class="mb-3">
-                        <label for="jefe_departamento" class="form-label">Jefe del departamento:</label>
-                        <input type="text" class="form-control" id="jefe_departamento" name="jefe_departamento" aria-describedby="jefe_departamentoHelp">
-                    </div>
-                    <div class="modal-footer">
-                        <div class="d-grid w-100">
-                            <button type="submit" id="registrar_departamento" class="btn btn-primary" disabled >Confirmar</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal Delegar Funciones -->
 <div class="modal fade" id="delegar_usuarios" tabindex="-1" aria-labelledby="añadir-departamentoLabel" aria-hidden="true">

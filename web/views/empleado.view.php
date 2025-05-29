@@ -87,7 +87,7 @@
                         <div class="d-grid m-3">
                             <button class="btn btn-purple px-4">
                                 <?php if ($empleado['id_departamento'] != NULL) : ?>
-                                    <a href="<?= BASE_PATH . '/departamento?departamento=' . $_SESSION['nombre_departamento']; ?>">Volver</a>
+                                    <a href="<?= BASE_PATH . '/departamento?id=' . $departamento['id_departamento']; ?>">Volver</a>
                                 <?php else : ?>
                                     <a href="<?= BASE_PATH . '/empresa' ?>">Volver</a>
                                 <?php endif; ?>

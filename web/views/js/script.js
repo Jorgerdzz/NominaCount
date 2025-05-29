@@ -1,6 +1,6 @@
 import { validarRegistro } from "./modules/registro.js";
 import { validarInicioSesion } from "./modules/inicioSesion.js";
-import { crearTabla } from "./modules/tablas.js";
+import { tablaEmpleados, tablaDepartamentos } from "./modules/tablas.js";
 import { registroEmpleado } from "./modules/registroEmpleado.js";
 import {
   crearDepartamento,
@@ -58,8 +58,11 @@ document.addEventListener("DOMContentLoaded", () => {
     case "empresa":
       graficoCostesDepartamentoTotales();
       break;
+    case "departamentos":
+      tablaDepartamentos();
+      break;
     case "departamento":
-      crearTabla();
+      tablaEmpleados();
       registroEmpleado();
       existeEmpleado();
       importarCSV();

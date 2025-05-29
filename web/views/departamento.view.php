@@ -5,9 +5,19 @@
     <!-- Tabla empleados -->
     <section class="container mt-4">
 
-        <div class="section-header">
-            <h2>Empleados del departamento de <?= $nombre_departamento; ?></h2>
+        <div class="row mb-3">
+            <div class="col-10 section-header">
+                <h2>Departamento de <?= $nombre_departamento; ?></h2>
+            </div>
+            <div class="col-2">
+                <div class="d-grid">
+                    <button type="button" id="VerEstadisticas" class="btn btn-primary">
+                        <a href="<?= BASE_PATH . '/estadisticas?stats=' . $id_departamento; ?>" class="text-dark">Ver estadísticas</a>
+                    </button>
+                </div>
+            </div>
         </div>
+
 
         <div class="top-toolbar">
             <!-- Controles de tabla arriba -->
@@ -68,7 +78,7 @@
                 <div class="col-md-3 mb-3">
                     <input type="hidden" id="id_departamento" value="<?= $departamentoActual['id_departamento']; ?>">
                     <div class="d-grid">
-                        <button type="submit" id="eliminar-departamento" class="btn btn-danger px-4">
+                        <button type="button" id="eliminar-departamento" class="btn btn-danger px-4">
                             Eliminar departamento
                         </button>
                     </div>

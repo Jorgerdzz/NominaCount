@@ -8,6 +8,7 @@
         '/existe-empresa' => 'controllers/Empresa/existe-empresa.php',
         '/eliminar-empresa' => 'controllers/Empresa/eliminar-empresa.php',
         '/buscar-empleados' => 'controllers/Empresa/buscar-empleados.php',
+        '/departamentos' => 'controllers/Departamento/departamentos.php',
         '/departamento' => 'controllers/Departamento/departamento.php',
         '/crear-departamento' => 'controllers/Departamento/crear-departamento.php',
         '/plantillaCSV' => 'controllers/Departamento/plantillaCSV.php',

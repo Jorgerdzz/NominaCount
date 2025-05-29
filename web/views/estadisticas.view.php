@@ -3,7 +3,18 @@
 
 <main>
     <div class="container my-5">
-        <h1>Estadísticas del departamento de <?= htmlspecialchars($nombre_departamento); ?></h1>
+        <div class="row mb-3">
+            <div class="col-10">
+                <h2>Estadísticas del departamento de <?= htmlspecialchars($departamento_actual['nombre_departamento']); ?></h2>
+            </div>
+            <div class="col-2">
+                <div class="d-grid">
+                    <button type="button" id="VerEstadisticas" class="btn btn-primary">
+                        <a href="<?= BASE_PATH . '/departamento?id=' . $id_departamento; ?>" class="text-dark">Volver</a>
+                    </button>
+                </div>
+            </div>
+        </div>
 
         <div class="chart-container card p-5 bg-white my-3">
             <div class="grafico-departamento-container" style="height: 500px; width: 100%">

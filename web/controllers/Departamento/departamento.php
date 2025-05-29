@@ -2,13 +2,13 @@
 
 define('contrasena', 'P@ssw0rd'); //contraseña por defecto
 
-if (isset($_GET['departamento'])) {
-    $nombre_departamento = $_GET['departamento'];
+if (isset($_GET['id'])) {
+    $id_departamento = $_GET['id'];
 
     Database::getInstance($_SESSION['db_nombre']);
-    $departamentoActual = Departamento::getDepartamentoPorNombre($nombre_departamento);
+    $departamentoActual = Departamento::getDepartamentoPorId($id_departamento);
 
-    $_SESSION['nombre_departamento'] = $departamentoActual['nombre_departamento'];
+    $nombre_departamento = $departamentoActual['nombre_departamento'];
     $empleados = Empleado::getEmpleadosPorDepartamento($departamentoActual['id_departamento']);
     $numEmpleados = Empleado::getNumEmpleadosPorDepartamento($departamentoActual['id_departamento']);
     Departamento::actualizarNumEmpleados($departamentoActual['id_departamento'], $numEmpleados['COUNT(*)']);

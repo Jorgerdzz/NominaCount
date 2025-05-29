@@ -9,7 +9,6 @@ if (isset($_GET['id'])) {
 
     if ($empleado['id_departamento'] != NULL) {
         $departamento = Departamento::getDepartamentoPorId($empleado['id_departamento']);
-        $_SESSION['nombre_departamento'] = $departamento['nombre_departamento'];
     }
 
     $nombre_empleado = $empleado['nombre'];

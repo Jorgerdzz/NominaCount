@@ -3,11 +3,11 @@
 header('Content-Type: application/json');
 
 if (isset($_GET['stats'])) {
-    $nombre_departamento = $_GET['stats'];
+    $id_departamento = $_GET['stats'];
     
     Database::getInstance($_SESSION['db_nombre']);
 
-    $departamento = Departamento::getDepartamentoPorNombre($nombre_departamento);
+    $departamento = Departamento::getDepartamentoPorId($id_departamento);
     
     if (!$departamento) {
         http_response_code(404);
