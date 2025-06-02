@@ -3,9 +3,9 @@ export function generarNominaPDF() {
 
   botones.forEach((botonPDF) => {
     botonPDF.addEventListener("click", () => {
-    
-      const contenido = botonPDF.closest(".pdf-nomina");
-
+      const card = botonPDF.closest(".card"); 
+      const contenido = card.querySelector(".pdf-nomina"); 
+      
       const nombre = botonPDF.dataset.nombre || "Empleado";
       const apellidos = botonPDF.dataset.apellidos || "";
       const fechaInicio = botonPDF.dataset.inicio || "";
