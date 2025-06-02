@@ -135,14 +135,10 @@ export function inicioSesion() {
 }
 
 export function crearDepartamento() {
-  const botonCrear = document.querySelectorAll(
-    ".dropdown-item.no-cambiar-departamento"
-  );
-  if (botonCrear.length === 0) return;
 
   const formulario = document.getElementById("form-nuevo-departamento");
 
-  if (!formulario || !botonCrear) return;
+  if (!formulario) return;
 
   formulario.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -181,9 +177,7 @@ export function crearDepartamento() {
           timer: 3000,
           timerProgressBar: true,
         }).then(() => {
-          window.location.href = `/departamento?departamento=${encodeURIComponent(
-            nombre_departamento
-          )}`;
+          window.location.href = '/departamentos';
         });
       } else {
         Swal.fire({
@@ -267,7 +261,7 @@ export function eliminarDepartamento() {
               timer: 3000,
               timerProgressBar: true,
             }).then(() => {
-              window.location.href = "/empresa";
+              window.location.href = "/departamentos";
             });
           })
           .catch((error) => {
@@ -330,9 +324,9 @@ export function existeEmpleado() {
           timerProgressBar: true,
         }).then(() => {
           const urlParams = new URLSearchParams(window.location.search);
-          const departamento = urlParams.get("departamento");
-          window.location.href = `/departamento?departamento=${encodeURIComponent(
-            departamento
+          const idDepartamento = urlParams.get("id");
+          window.location.href = `/departamento?id=${encodeURIComponent(
+            idDepartamento
           )}`;
         });
       } else {

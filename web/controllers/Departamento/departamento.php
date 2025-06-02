@@ -52,8 +52,9 @@ if (isset($_GET['id'])) {
 
         Usuario::crearUsuario($id_empresa, $nombre_usuario, 'Empleado', FALSE, FALSE, $_POST['email_empleado'], contrasena);
 
-        header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
+        header('Location: /departamento?id=' . $departamentoActual['id_departamento']);
         exit;
+
     }
 
     //AÑADIR EMPLEADOS MEDIANTE CSV
@@ -99,10 +100,12 @@ if (isset($_GET['id'])) {
         }
         fclose($archivo);
 
-        header('Location: /departamento?departamento=' . $_SESSION['nombre_departamento']);
+        header('Location: /departamento?id=' . $departamentoActual['id_departamento']);
         exit;
+
     }
 
     $page = 'departamento';
     require_once 'views/departamento.view.php';
+
 }

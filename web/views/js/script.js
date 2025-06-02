@@ -38,8 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
   console.log(page);
 
   setupBuscadorEmpleados();
-  crearDepartamento();
-  registroDepartamento();
   validarDelegarFunciones();
   delegarFunciones();
 
@@ -59,6 +57,8 @@ document.addEventListener("DOMContentLoaded", () => {
       graficoCostesDepartamentoTotales();
       break;
     case "departamentos":
+      registroDepartamento();
+      crearDepartamento();
       tablaDepartamentos();
       break;
     case "departamento":
