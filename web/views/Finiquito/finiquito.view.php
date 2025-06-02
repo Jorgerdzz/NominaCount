@@ -7,7 +7,20 @@
             <div class="card p-5 bg-white">
 
                 <section class="pdf-finiquito p-3">
-                    <h2 class="mb-4" style="color: #825abd;">Recibo de Finiquito</h2>
+                    <div class="row mb-4">
+                        <?php if (!empty($_SESSION['empresaActiva']['logo_path'])): ?>
+                            <div class="col-md-6 d-flex align-self-end">
+                                <h2 style="color: #825abd;">Recibo de Finiquito</h2>
+                            </div>
+                            <div class="col-md-6 text-end">
+                                <img src="<?= BASE_PATH . '/' . $_SESSION['empresaActiva']['logo_path'] ?>" style="max-height: 80px;">
+                            </div>
+                        <?php else: ?>
+                            <div class="col-12 d-flex align-self-end">
+                                <h2 style="color: #825abd;">Recibo de Finiquito</h2>
+                            </div>
+                        <?php endif; ?>
+                    </div>
 
                     <p class="mb-5">
                         D/Dª <strong><?= $nombreCompleto ?></strong>, mayor de edad, con D.N.I. <strong><?= $dni ?></strong>,
@@ -73,16 +86,13 @@
 
                     <!-- FIRMAS -->
                     <div class="row mt-5">
-                        <div class="col-md-4 text-start">
+                        <div class="col-md-6 text-start">
                             <p><strong>Firma del trabajador</strong></p>
                             <div style="height: 80px; border-bottom: 1px solid #000; width: 75%;"></div>
                         </div>
-                        <div class="col-md-4 text-start">
+                        <div class="col-md-6 text-start">
                             <p><strong>Firma de la empresa</strong></p>
                             <div style="height: 80px; border-bottom: 1px solid #000; width: 75%;"></div>
-                        </div>
-                        <div class="col-md-4 text-start">
-                            <img src="<?= BASE_PATH . '/' . $_SESSION['empresaActiva']['logo_path'] ?>" alt="Logo Empresa" style="max-height: 80px;">
                         </div>
                     </div>
 

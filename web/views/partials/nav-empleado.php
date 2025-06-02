@@ -5,9 +5,10 @@ $empleado = Empleado::getEmpleadoPorEmail($_SESSION['usuarioActivo']['email']);
 
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <?php if ($_SESSION['empresaActiva']['logo_path'] !== null): ?>
+        <?php if (!empty($_SESSION['empresaActiva']['logo_path'])): ?>
             <a class="navbar-brand" href="<?= BASE_PATH . '/usuario-empleado'; ?>">
-                <img src="<?= BASE_PATH . '/' . $_SESSION['empresaActiva']['logo_path'] ?>" style="height: 60px;"> </a>
+                <img src="<?= BASE_PATH . '/' . $_SESSION['empresaActiva']['logo_path'] ?>" style="height: 60px;">
+            </a>
         <?php else: ?>
             <a class="navbar-brand" href="<?= BASE_PATH . '/usuario-empleado'; ?>">NominaCount</a>
         <?php endif; ?>
