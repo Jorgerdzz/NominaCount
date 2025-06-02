@@ -270,8 +270,8 @@
                       <div class="mb-3">
                           <label for="nueva-contra" class="form-label">Nueva contraseña:</label>
                           <input type="password" class="form-control" id="nueva-contra" name="nueva-contra" placeholder="Introduzca al menos ocho caracteres" aria-describedby="nueva-contraHelp">
-                          <p><small>Para incrementar la fotaleza de la contraseña debe introducir algún número, mayúscula o caracter especial</small></p>
                           <div id="fuerzaNuevaContra" style="height: 5px; width: 0%; background-color: red;" class="rounded mt-1"></div>
+                          <p><small>Para incrementar la fotaleza de la contraseña debe introducir algún número, mayúscula o caracter especial</small></p>
                       </div>
                       <div class="modal-footer">
                           <div class="d-grid w-100">

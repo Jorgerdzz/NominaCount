@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $existe = Departamento::existeDepartamento($nombre_departamento);
 
         if (!$existe) {
-            Departamento::crearDepartamento($nombre_departamento, $jefe_departamento);
+            Departamento::crearDepartamento($nombre_departamento, $jefe_departamento, 0, 0);
             http_response_code(200);
             echo json_encode([
                 'creado' => true,

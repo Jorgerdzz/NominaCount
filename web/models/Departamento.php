@@ -30,15 +30,17 @@ class Departamento extends Database
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
 
-    public static function crearDepartamento($nombre_departamento, $jefe_departamento)
+    public static function crearDepartamento($nombre_departamento, $jefe_departamento, $num_empleados, $coste_total_departamento)
     {
         $instance = self::getInstance();
         $query = "INSERT INTO departamentos (id_departamento, nombre_departamento, jefe_departamento,
         num_empleados, coste_total_departamento) 
-        VALUES (NULL, :nombre_departamento, :jefe_departamento, NULL, NULL);";
+        VALUES (NULL, :nombre_departamento, :jefe_departamento, :num_empleados, :coste_total_departamento);";
         $params = [
             'nombre_departamento' => $nombre_departamento,
-            'jefe_departamento' => $jefe_departamento
+            'jefe_departamento' => $jefe_departamento,
+            'num_empleados' => $num_empleados,
+            'coste_total_departamento' => $coste_total_departamento
         ];
         $instance->query($query, $params);
     }

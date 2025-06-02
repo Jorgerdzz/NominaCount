@@ -25,21 +25,8 @@ if (isset($_GET['id'])) {
     $minusvalia = $empleado['minusvalia'];
     $salario_base = $empleado['salario_base'];
 
-    if (
-        isset($_POST['editar-nombre-empleado']) &&
-        isset($_POST['editar-apellidos-empleado']) &&
-        isset($_POST['editar-dni-empleado']) &&
-        isset($_POST['editar-num-seguridad-social']) &&
-        isset($_POST['editar-email-empleado']) &&
-        isset($_POST['editar-telefono-empleado']) &&
-        isset($_POST['editar-antiguedad-empleado']) &&
-        isset($_POST['editar-hijos-empleado']) &&
-        isset($_POST['editar-estado-empleado']) &&
-        isset($_POST['editar-nacimiento-empleado']) &&
-        isset($_POST['editar-categoria-profesional']) &&
-        isset($_POST['editar-minusvalia']) &&
-        isset($_POST['editar-salario-empleado'])
-    ) {
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
         Empleado::modificarDatosEmpleado(
             $id_empleado,
             $_POST['editar-nombre-empleado'],

@@ -185,8 +185,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="editar-categoria-profesional" class="form-label">Categoría profesional:</label>
-                        <select name="editar-categoria-profesional" id="editar-categoria-profesional" value="<?= $empleado['categoria_profesional']; ?>">
-                            <option value="" disabled selected>Seleccione una opción</option>
+                        <select class="form-select" name="editar-categoria-profesional" id="editar-categoria-profesional">
+                            <option value="" disabled <?= $empleado['categoria_profesional'] === '' ? 'selected' : '' ?>>Seleccione una opción</option>
                             <option value="Ingenieros y Licenciados. Personal de alta dirección">Ingenieros y Licenciados. Personal de alta dirección</option>
                             <option value="Ingenieros Técnicos, Peritos y Ayudantes Titulados">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
                             <option value="Jefes Administrativos y de Taller">Jefes Administrativos y de Taller</option>
@@ -206,8 +206,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="editar-estado-empleado" class="form-label">Estado civil:</label>
-                        <select name="editar-estado-empleado" id="editar-estado-empleado" value="<?= $empleado['nombre']; ?>">
-                            <option value="" disabled selected>Seleccione una opción</option>
+                        <select class="form-select" name="editar-estado-empleado" id="editar-estado-empleado">
+                            <option value="" disabled <?= $empleado['estado_civil'] === '' ? 'selected' : '' ?>>Seleccione una opción</option>
                             <option value="soltero">Soltero</option>
                             <option value="casado">Casado</option>
                             <option value="divorciado">Divorciado</option>
@@ -220,8 +220,8 @@
                     </div>
                     <div class="mb-3">
                         <label for="editar-minusvalia" class="form-label">Minusvalía:</label>
-                        <select name="editar-minusvalia" id="editar-minusvalia" value="<?= $empleado['minusvalia']; ?>">
-                            <option value="" disabled selected>Seleccione una opción</option>
+                        <select class="form-select" name="editar-minusvalia" id="editar-minusvalia">
+                            <option value="" disabled <?= $empleado['minusvalia'] === '' ? 'selected' : '' ?>>Seleccione una opción</option>
                             <option value="Sin discapacidad">Sin discapacidad</option>
                             <option value="Entre el 33% y el 65%">Entre el 33% y el 65%</option>
                             <option value="Igual o superior al 65%">Igual o superior al 65%</option>

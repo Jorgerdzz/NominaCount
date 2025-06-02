@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         Database::eliminarDatabase($db_nombre);
 
         echo json_encode(['success' => true]);
+
     } catch (Exception $e) {
         error_log("Error al eliminar empresa: " . $e->getMessage());
         echo json_encode(['success' => false, 'error' => $e->getMessage()]);

@@ -21,7 +21,11 @@ CREATE TABLE `usuarios` (
   `ceo` tinyint(1) DEFAULT 0,
   `delegado` tinyint(1) NOT NULL DEFAULT 0,
   `email` varchar(255) NOT NULL,
-  `contrasena` varchar(255) NOT NULL
+  `contrasena` varchar(255) NOT NULL,
+
+  CONSTRAINT fk_id_empresa FOREIGN KEY (id_empresa)
+  REFERENCES empresas(id_empresa)
+  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 

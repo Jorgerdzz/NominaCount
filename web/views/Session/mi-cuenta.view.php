@@ -9,6 +9,7 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
 
 <main>
     <div class="container my-5">
+        <?php var_dump($_SESSION['db_nombre'])?>
         <div class="card p-4 bg-white">
             <h2 class="text-start mb-4" style="color: #825abd;">Perfil de Usuario</h2>
 

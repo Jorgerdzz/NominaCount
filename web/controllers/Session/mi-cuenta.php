@@ -3,6 +3,7 @@
 $db_nombre = 'sistema_empresas';
 Database::getInstance($db_nombre);
 
+
 $id_empresa = $_SESSION['empresaActiva']['id_empresa'];
 $cif = $_SESSION['empresaActiva']['cif'];
 $denominacion_social = $_SESSION['empresaActiva']['denominacion_social'];
@@ -15,15 +16,7 @@ $nombre = $_SESSION['usuarioActivo']['nombre_usuario'];
 $email = $_SESSION['usuarioActivo']['email'];
 $contrasena = $_SESSION['usuarioActivo']['contrasena'];
 
-if (
-    isset($_POST['editar-cif']) &&
-    isset($_POST['editar-denominacion-social']) &&
-    isset($_POST['editar-nombre-comercial']) &&
-    isset($_POST['editar-direccion']) &&
-    isset($_POST['editar-telefono']) &&
-    isset($_POST['editar-nombre-usuario']) &&
-    isset($_POST['editar-email-usuario'])
-) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     Usuario::modificarUsuario(
         $id_empresa,
         $id_usuario,
