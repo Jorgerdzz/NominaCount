@@ -10,11 +10,11 @@
                 <h2>Departamento de <?= $nombre_departamento; ?></h2>
             </div>
             <div class="col-2">
-                <div class="d-grid">
-                    <button type="button" id="VerEstadisticas" class="btn btn-primary">
-                        <a href="<?= BASE_PATH . '/estadisticas?stats=' . $id_departamento; ?>" class="text-dark">Ver estadísticas</a>
-                    </button>
-                </div>
+                <a href="<?= BASE_PATH . '/estadisticas?stats=' . $id_departamento; ?>" class="text-dark">
+                    <div class="d-grid">
+                        <button type="button" id="VerEstadisticas" class="btn btn-primary">Ver estadísticas</button>
+                    </div>
+                </a>
             </div>
         </div>
 
@@ -60,11 +60,11 @@
                     </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="d-grid mb-3">
-                        <button type="button" class="btn btn-primary">
-                            <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">Descargar plantilla csv</a>
-                        </button>
-                    </div>
+                    <a class="text-dark" href="<?= BASE_PATH . '/plantillaCSV'; ?>">
+                        <div class="d-grid mb-3">
+                            <button type="button" class="btn btn-primary">Descargar plantilla csv</button>
+                        </div>
+                    </a> 
                 </div>
                 <div class="col-md-3">
                     <div class="d-grid mb-3">

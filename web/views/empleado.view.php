@@ -84,29 +84,33 @@
             <div class="container gap-3 mt-4">
                 <div class="row justify-content-between align-items-center">
                     <div class="col-12 col-md-3">
-                        <div class="d-grid m-3">
-                            <button class="btn btn-purple px-4">
-                                <?php if ($empleado['id_departamento'] != NULL) : ?>
-                                    <a href="<?= BASE_PATH . '/departamento?id=' . $departamento['id_departamento']; ?>">Volver</a>
-                                <?php else : ?>
-                                    <a href="<?= BASE_PATH . '/empresa' ?>">Volver</a>
-                                <?php endif; ?>
-                            </button>
-                        </div>
+                        <?php if ($empleado['id_departamento'] != NULL) : ?>
+                            <a href="<?= BASE_PATH . '/departamento?id=' . $departamento['id_departamento']; ?>">
+                                <div class="d-grid m-3">
+                                    <button class="btn btn-purple px-4">Volver</button>
+                                </div>
+                            </a>
+                        <?php else : ?>
+                            <a href="<?= BASE_PATH . '/empresa' ?>">
+                                <div class="d-grid m-3">
+                                    <button class="btn btn-purple px-4">Volver</button>
+                                </div>
+                            </a>
+                        <?php endif; ?>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4">
-                                <a href="<?= BASE_PATH . '/calcular-nomina/empleado?id=' . $id_empleado; ?>">Calcular nómina</a>
-                            </button>
-                        </div>
+                    <div class="col-12 col-md-3">    
+                        <a href="<?= BASE_PATH . '/calcular-nomina/empleado?id=' . $id_empleado; ?>">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4">Calcular nómina</button>
+                            </div>
+                        </a>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4">
-                                <a href="<?= BASE_PATH . '/calcular-finiquito/empleado?id=' . $id_empleado; ?>">Calcular finiquito</a>
-                            </button>
-                        </div>
+                    <div class="col-12 col-md-3">   
+                        <a href="<?= BASE_PATH . '/calcular-finiquito/empleado?id=' . $id_empleado; ?>">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4">Calcular finiquito</button>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div class="row justify-content-between align-items-center">
@@ -115,19 +119,19 @@
                             <button type="button" class="btn btn-purple px-4" id="modificarDatosEmpleado" data-bs-toggle="modal" data-bs-target="#editar-perfil-empleado">Editar perfil</button>
                         </div>
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4">
-                                <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">Ver historial nóminas</a>
-                            </button>
-                        </div>
+                    <div class="col-12 col-md-3">   
+                        <a href="<?= BASE_PATH . '/historial-nomina/empleado?id=' . $id_empleado; ?>">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4">Ver historial nóminas</button>
+                            </div>
+                        </a>   
                     </div>
-                    <div class="col-12 col-md-3">
-                        <div class="d-grid m-3">
-                            <button type="button" class="btn btn-purple px-4">
-                                <a href="<?= BASE_PATH . '/finiquito/empleado?id=' . $id_empleado; ?>">Ver finiquito</a>
-                            </button>
-                        </div>
+                    <div class="col-12 col-md-3">        
+                        <a href="<?= BASE_PATH . '/finiquito/empleado?id=' . $id_empleado; ?>">
+                            <div class="d-grid m-3">
+                                <button type="button" class="btn btn-purple px-4">Ver finiquito</button>
+                            </div>
+                        </a>    
                     </div>
                     <div class="col-12">
                         <div class="d-grid m-3">

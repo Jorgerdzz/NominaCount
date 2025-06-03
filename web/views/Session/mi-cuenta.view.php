@@ -59,7 +59,7 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
 
             <div class="container">
                 <div class="row">
-                    <?php if ($_SESSION['usuarioActivo']['ceo'] == True || $_SESSION['usuarioActivo']['delegado'] == True): ?>
+                    <?php if ($_SESSION['usuarioActivo']['rol'] === 'Empresario' && ($_SESSION['usuarioActivo']['ceo'] == True || $_SESSION['usuarioActivo']['delegado'] == True)): ?>
                         <div class="col-md-4">
                             <div class="d-grid m-3">
                                 <button type="button" class="btn btn-purple px-4" id="boton-editar-perfil-usuario" data-bs-toggle="modal" data-bs-target="#editar-perfil-usuario">Editar perfil</button>

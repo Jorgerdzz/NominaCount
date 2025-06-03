@@ -175,8 +175,12 @@
 
         <!-- ENVÍO -->
         <div class="row mt-5">
-          <div class="col-md-6 d-grid">
-            <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>" class="btn btn-purple btn-lg">Volver</a>
+          <div class="col-md-6">
+            <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
+              <div class="d-grid">
+                <button type="button" class="btn btn-purple btn-lg">Volver</button>
+              </div>
+            </a>
           </div>
           <div class="col-md-6 d-grid">
             <button type="submit" class="btn btn-purple btn-lg" id="btn-calcular-finiquito">Generar Finiquito</button>

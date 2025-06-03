@@ -6,14 +6,16 @@
         <?php if(isset($error)): ?>
             <h5 class="alert alert-info"><?= htmlspecialchars($error) ?></h5>
         <?php else: ?>   
-            <div class="row">
-                <div class="col-md-11">
+            <div class="row mb-3">
+                <div class="col-md-10">
                     <h2>Historial de Nóminas - <?= htmlspecialchars($empleado['nombre'] . ' ' . $empleado['apellidos']) ?></h2>
                 </div>
-                <div class="col-md-1">
-                    <button type="button" class="btn btn-primary">
-                        <a class="text-dark" href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">Volver</a>
-                    </button>
+                <div class="col-md-2">
+                    <a class="text-dark" href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
+                        <div class="d-grid">
+                            <button type="button" class="btn btn-primary">Volver</button>
+                        </div>
+                    </a>
                 </div>
             </div>
 

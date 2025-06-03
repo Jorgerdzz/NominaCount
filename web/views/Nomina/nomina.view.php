@@ -239,10 +239,12 @@
             </section>
 
             <div class="row mx-1">
-                <div class="col-md-6 d-grid">
-                    <button class="btn btn-purple btn-lg">
-                        <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">Finalizar</a>
-                    </button>
+                <div class="col-md-6">     
+                    <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
+                        <div class="d-grid">
+                            <button class="btn btn-purple btn-lg">Finalizar</button>
+                        </div>
+                    </a>
                 </div>
                 <div class="col-md-6 d-grid">
                     <button class="btn-descargar-pdf btn btn-purple btn-lg"

@@ -8,11 +8,11 @@
                 <h2>Estadísticas del departamento de <?= htmlspecialchars($departamento_actual['nombre_departamento']); ?></h2>
             </div>
             <div class="col-2">
-                <div class="d-grid">
-                    <button type="button" id="VerEstadisticas" class="btn btn-primary">
-                        <a href="<?= BASE_PATH . '/departamento?id=' . $id_departamento; ?>" class="text-dark">Volver</a>
-                    </button>
-                </div>
+                <a href="<?= BASE_PATH . '/departamento?id=' . $id_departamento; ?>" class="text-dark">
+                    <div class="d-grid">
+                        <button type="button" id="VerEstadisticas" class="btn btn-primary">Volver</button>
+                    </div>
+                </a>
             </div>
         </div>
 
