@@ -16,6 +16,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         Database::eliminarDatabase($db_nombre);
 
+        session_unset();
+        session_destroy();
+
         echo json_encode(['success' => true]);
 
     } catch (Exception $e) {

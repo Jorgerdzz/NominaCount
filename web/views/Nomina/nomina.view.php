@@ -124,52 +124,36 @@
                     <thead class="table-light">
                         <tr>
                             <th>Concepto</th>
-                            <th>Base (€)</th>
-                            <th>Tipo (%)</th>
                             <th>Importe (€)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>Contingencias comunes</td>
-                            <td><?= $nomina['base_cc'] ?></td>
-                            <td>4.70</td>
                             <td><?= $nomina['importe_cc'] ?></td>
                         </tr>
                         <tr>
                             <td>M.E.I</td>
-                            <td><?= $nomina['base_cc'] ?></td>
-                            <td>0.13</td>
                             <td><?= $nomina['importe_MEI'] ?></td>
                         </tr>
                         <tr>
                             <td>Desempleo</td>
-                            <td><?= $nomina['base_cp'] ?></td>
-                            <td>1.55</td>
                             <td><?= $nomina['importe_desempleo'] ?></td>
                         </tr>
                         <tr>
                             <td>Formación Profesional</td>
-                            <td><?= $nomina['base_cp'] ?></td>
-                            <td>0.10</td>
                             <td><?= $nomina['importe_fp'] ?></td>
                         </tr>
                         <tr>
                             <td>Horas Extraordinarias</td>
-                            <td><?= $nomina['horas_extra'] ?></td>
-                            <td>4.70</td>
                             <td><?= $nomina['importe_horas_extra'] ?></td>
                         </tr>
                         <tr>
                             <td>Horas Extra Fuerza Mayor</td>
-                            <td><?= $nomina['horas_complementarias'] ?></td>
-                            <td>2.00</td>
                             <td><?= $nomina['importe_horas_extra_fuerza_mayor'] ?></td>
                         </tr>
                         <tr>
                             <td>IRPF</td>
-                            <td><?= number_format($nomina['total_devengado'] - $nomina['salario_especie'] - $nomina['dietas'], 2); ?></td>
-                            <td>2.00</td>
                             <td><?= $nomina['importe_irpf'] ?></td>
                         </tr>
                         <tr class="table-light">
