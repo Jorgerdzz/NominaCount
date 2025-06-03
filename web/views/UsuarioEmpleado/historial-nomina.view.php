@@ -13,7 +13,7 @@
 
         <div class="mb-4">
             <form method="get" class="form-inline">
-                <input type="hidden" name="id_empleado" value="<?= $id_empleado ?>">
+                <input type="hidden" name="id" value="<?= $id_empleado ?>">
                 <label for="anio" class="mr-2">Seleccionar año:</label>
                 <select name="anio" id="anio" class="form-control mr-2" onchange="this.form.submit()">
                     <?php for ($y = date('Y'); $y >= 2020; $y--): ?>
@@ -23,10 +23,10 @@
             </form>
         </div>
 
-        <ul class="nav nav-tabs" id="nominaTabs" role="tablist">
+        <ul class="nav nav-tabs nav-justified px-3 pt-3" id="nominaTabs" role="tablist">
             <?php foreach ($meses as $numMes => $nombreMes): ?>
                 <li class="nav-item" role="presentation">
-                    <button class="nav-link <?= isset($nominasPorMes[$numMes]) ? '' : 'disabled' ?> <?= $numMes == $mes_seleccionado ? 'active' : ''  ?>"
+                    <button class="nav-link <?= $numMes == $mes_seleccionado ? 'active' : '' ?> rounded-top"
                         id="mes-<?= $numMes ?>-tab"
                         data-bs-toggle="tab"
                         data-bs-target="#mes-<?= $numMes ?>"
