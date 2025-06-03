@@ -96,6 +96,9 @@ document.addEventListener("DOMContentLoaded", () => {
     case "finiquito":
       generarFiniquitoPDF();
       break;
+    case "usuario-empleado-historial-nomina":
+      generarNominaPDF();
+      break;
     case "calendario-empleado":
       crearCalendarioEmpleado();
       break;
