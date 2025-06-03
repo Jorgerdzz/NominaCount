@@ -37,7 +37,7 @@ $ejemplo = [
     'Sin discapacidad',
     '2',
     'Casado',
-    '18000'
+    '2100'
 ];
 fputcsv($salida, $ejemplo);
 
