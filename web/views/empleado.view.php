@@ -133,6 +133,7 @@
                         <div class="d-grid m-3">
                             <input type="hidden" id="id_empleado" value="<?= $empleado['id_empleado']; ?>">
                             <input type="hidden" id="email_empleado" value="<?= $empleado['email']; ?>">
+                            <input type="hidden" id="departamento_empleado" value="<?= $empleado['id_departamento']; ?>">
                             <button type="button" id="baja_empleado" class="btn btn-danger px-4">
                                 Dar de baja empleado
                             </button>

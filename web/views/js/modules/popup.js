@@ -368,9 +368,11 @@ export function eliminarEmpleado() {
 
   botonEliminar.addEventListener("click", () => {
     const id_empleadoInput = document.getElementById("id_empleado");
+    const id_departamentoInput = document.getElementById("departamento_empleado");
     const email_empleadoInput = document.getElementById("email_empleado");
 
     const id_empleado = id_empleadoInput?.value;
+    const id_departamento = id_departamentoInput?.value;
     const email_empleado = email_empleadoInput?.value;
 
     if (!id_empleado || !email_empleado) {
@@ -435,7 +437,9 @@ export function eliminarEmpleado() {
               timer: 3000,
               timerProgressBar: true,
             }).then(() => {
-              window.location.href = "/empresa";
+              window.location.href = `/departamento?id=${encodeURIComponent(
+                id_departamento
+              )}`;
             });
           })
           .catch((error) => {
