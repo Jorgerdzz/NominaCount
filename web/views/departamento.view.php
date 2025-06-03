@@ -130,7 +130,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="categoria_profesional" class="form-label">Categoría profesional:</label>
-                        <select name="categoria_profesional" id="categoria_profesional">
+                        <select class="form-select" name="categoria_profesional" id="categoria_profesional">
                             <option value="" disabled selected>Seleccione una opción</option>
                             <option value="Ingenieros y Licenciados. Personal de alta dirección">Ingenieros y Licenciados. Personal de alta dirección</option>
                             <option value="Ingenieros Técnicos, Peritos y Ayudantes Titulados">Ingenieros Técnicos, Peritos y Ayudantes Titulados</option>
@@ -147,11 +147,11 @@
                     </div>
                     <div class="mb-3">
                         <label for="num_hijos" class="form-label">Número de hijos:</label>
-                        <input type="text" class="form-control" id="num_hijos" name="num_hijos" placeholder="Ej: 1" aria-describedby="num_hijosHelp">
+                        <input type="number" class="form-control" id="num_hijos" name="num_hijos" min="0" placeholder="Ej: 1" aria-describedby="num_hijosHelp">
                     </div>
                     <div class="mb-3">
                         <label for="estado_civil" class="form-label">Estado civil:</label>
-                        <select name="estado_civil" id="estado_civil">
+                        <select class="form-select" name="estado_civil" id="estado_civil">
                             <option value="" disabled selected>Seleccione una opción</option>
                             <option value="soltero">Soltero</option>
                             <option value="casado">Casado</option>
@@ -165,7 +165,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="minusvalia" class="form-label">Minusvalía:</label>
-                        <select name="minusvalia" id="minusvalia">
+                        <select class="form-select" name="minusvalia" id="minusvalia">
                             <option value="" disabled selected>Seleccione una opción</option>
                             <option value="Sin discapacidad">Sin discapacidad</option>
                             <option value="Entre el 33% y el 65%">Entre el 33% y el 65%</option>

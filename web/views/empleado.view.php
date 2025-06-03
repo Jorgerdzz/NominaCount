@@ -202,7 +202,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="editar-hijos-empleado" class="form-label">Número de hijos:</label>
-                        <input type="text" class="form-control" id="editar-hijos-empleado" name="editar-hijos-empleado" value="<?= $empleado['num_hijos']; ?>" aria-describedby="editar-hijos-empleadoHelp">
+                        <input type="number" class="form-control" id="editar-hijos-empleado" min="0" name="editar-hijos-empleado" value="<?= $empleado['num_hijos']; ?>" aria-describedby="editar-hijos-empleadoHelp">
                     </div>
                     <div class="mb-3">
                         <label for="editar-estado-empleado" class="form-label">Estado civil:</label>
