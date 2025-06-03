@@ -45,7 +45,7 @@ class Database
     {
         $instance = new self();
 
-        if (!preg_match('/^[a-zA-Z0-9_]+$/', $db_nombre)) {
+        if (!preg_match('/^[a-z0-9_]+$/', $db_nombre)) {
             throw new Exception("Nombre de base de datos inválido.");
         }
 

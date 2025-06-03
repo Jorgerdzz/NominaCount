@@ -25,10 +25,16 @@ function validarCredenciales($cif, $denominacion_social, $nombre_comercial, $dir
         && validarEmail($email);
 }
 
-function db_nombre($db_maestra, $nombre_comercial)
-{
-    $empresa = str_replace(' ', '', $nombre_comercial);
-    return $db_maestra . $empresa;
+function db_nombre($db_maestra, $nombre_comercial) {
+    $nombre = strtolower($nombre_comercial);
+    
+    $nombre = iconv('UTF-8', 'ASCII//TRANSLIT', $nombre);
+    
+    $nombre = preg_replace('/[^a-z0-9]/', '_', $nombre);
+    
+    $nombre = str_replace(' ', '', $nombre);
+    
+    return $db_maestra . $nombre;
 }
 
 function existeEmpresa($cif, $denominacion_social)
