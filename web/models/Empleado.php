@@ -184,9 +184,7 @@ class Empleado extends Database
 
         foreach ($costes as $coste) {
             $mes = date('n', strtotime($coste['fecha_fin']));
-            if (!isset($costesPorMes[$mes])) {
-                $costesPorMes[$mes] = $coste;
-            }
+            $costesPorMes[$mes] = $coste;
         }
 
         return $costesPorMes;

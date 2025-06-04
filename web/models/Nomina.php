@@ -91,7 +91,7 @@ class Nomina extends Database
     public static function getUltimaNominaEmpleado($id_empleado)
     {
         $instance = self::getInstance();
-        $query = "SELECT * FROM nominas WHERE id_empleado = :id_empleado ORDER BY fecha_fin DESC LIMIT 1";
+        $query = "SELECT * FROM nominas WHERE id_empleado = :id_empleado ORDER BY id_nomina DESC LIMIT 1";
         $params = ['id_empleado' => $id_empleado];
         return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
     }
@@ -122,10 +122,7 @@ class Nomina extends Database
 
         foreach ($nominas as $nomina) {
             $mes = date('n', strtotime($nomina['fecha_fin']));
-            
-            if (!isset($nominasPorMes[$mes])) {
-                $nominasPorMes[$mes] = $nomina;
-            }
+            $nominasPorMes[$mes] = $nomina;
         }
 
         return $nominasPorMes;
