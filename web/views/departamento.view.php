@@ -18,39 +18,37 @@
             </div>
         </div>
 
-
-        <div class="top-toolbar">
-            <!-- Controles de tabla arriba -->
+        <div class="table-responsive">
+            <table id="tabla-empleados">
+                <thead>
+                    <tr>
+                        <th>Ver perfil</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>DNI</th>
+                        <th>Numero seguridad social</th>
+                        <th>Correo electrónico</th>
+                        <th>Salario base</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($empleados as $empleado) {
+                        echo '<tr data-id="' . $empleado['id_empleado'] . '">
+                                <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle text-dark"></i></a> 
+                                <td>' . $empleado['nombre'] . '</a></td>
+                                <td>' . $empleado['apellidos'] . '</td>
+                                <td>' . $empleado['dni'] . '</td>
+                                <td>' . $empleado['num_seguridad_social'] . '</td>
+                                <td>' . $empleado['email'] . '</td>
+                                <td>' . $empleado['salario_base'] . ' €</td>
+                            </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
         </div>
-
-        <table id="tabla-empleados">
-            <thead>
-                <tr>
-                    <th>Ver perfil</th>
-                    <th>Nombre</th>
-                    <th>Apellidos</th>
-                    <th>DNI</th>
-                    <th>Numero seguridad social</th>
-                    <th>Correo electrónico</th>
-                    <th>Salario base</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($empleados as $empleado) {
-                    echo '<tr data-id="' . $empleado['id_empleado'] . '">
-                            <td><a href="' . BASE_PATH . '/empleado?id=' . $empleado['id_empleado'] . '"<i class="bi bi-person-circle text-dark"></i></a> 
-                            <td>' . $empleado['nombre'] . '</a></td>
-                            <td>' . $empleado['apellidos'] . '</td>
-                            <td>' . $empleado['dni'] . '</td>
-                            <td>' . $empleado['num_seguridad_social'] . '</td>
-                            <td>' . $empleado['email'] . '</td>
-                            <td>' . $empleado['salario_base'] . ' €</td>
-                        </tr>';
-                }
-                ?>
-            </tbody>
-        </table>
+        
 
         <div class="container my-3">
             <div class="row">

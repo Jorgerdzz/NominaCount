@@ -93,6 +93,16 @@ class Usuario extends Database
         $instance->query($query, $params);
     }
 
+    public static function eliminarUsuarioPorEmail($email)
+    {
+        $instance = new self();
+        $query = "DELETE FROM usuarios WHERE email = :email;";
+        $params = [
+            'email' => $email,
+        ];
+        $instance->query($query, $params);
+    }
+
     public static function eliminarUsuariosPorIdEmpresa($id_empresa)
     {
         $instance = new self();

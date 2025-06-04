@@ -7,8 +7,15 @@ $idDepartamento = $data['id_departamento'] ?? null;
 
 try {
     Database::getInstance($_SESSION['db_nombre']);
+    $empleados = Empleado::getEmpleadosPorDepartamento($idDepartamento);
+
+    foreach($empleados as $empleado){
+        $email = $empleado['email'];
+        Usuario::eliminarUsuarioPorEmail($email);
+    }
+
     $resultado = Departamento::eliminarDepartamento($idDepartamento);
-    
+
     http_response_code(200);
     echo json_encode(['message' => 'Departamento eliminado']);
     
