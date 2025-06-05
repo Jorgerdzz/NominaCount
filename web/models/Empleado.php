@@ -79,6 +79,19 @@ class Empleado extends Database
         $instance->query($query, $params);
     }
 
+    public static function actualizarFotoEmpleado($id_empleado, $ruta_foto)
+    {
+        $instance = self::getInstance();
+
+        $query = "UPDATE empleados SET foto_empleado = :foto_empleado WHERE id_empleado = :id_empleado";
+        $params = [
+            "foto_empleado" => $ruta_foto,
+            "id_empleado"   => $id_empleado
+        ];
+
+        $instance->query($query, $params);
+    }
+
     public static function darBajaEmpleado($id_empleado){
         $instance = self::getInstance();
         $query = "DELETE FROM empleados WHERE id_empleado = :id_empleado;";

@@ -16,6 +16,7 @@
         '/empleado' => 'controllers/Empleado/empleado.php',
         '/existe-empleado' => 'controllers/Empleado/existe-empleado.php',
         '/eliminar-empleado' => 'controllers/Empleado/eliminar-empleado.php',
+        '/foto-empleado' => 'controllers/Empleado/foto-empleado.php',
         '/mi-cuenta' => 'controllers/Session/mi-cuenta.php',
         '/cambiar-contrasena' => 'controllers/Session/cambiar-contrasena.php',
         '/comprobar-correo' => 'controllers/Session/comprobar-correo.php',

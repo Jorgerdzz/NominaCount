@@ -5,11 +5,15 @@
     <div class="container my-5">
         <div class="card p-4 bg-white">
             <div class="row g-4 align-items-center mb-4">
-                <div class="col-md-9">
-                    <h2 style="color: #825abd;">Datos personales</h2>
+                <div class="col-md-8 d-flex align-self-center">
+                    <h2 style="color: #825abd;">Perfil del Empleado</h2>
                 </div>
-                <div class="col-md-3 text-md-end text-center">
-                    <img src="https://via.placeholder.com/150" alt="Foto del empleado" class="profile-img">
+                <div class="col-md-4 text-center">
+                    <?php if (!empty($empleado['foto_empleado'])): ?>
+                        <img src="<?= BASE_PATH . '/' . $empleado['foto_empleado'] ?>" alt="Foto del empleado" class="profile-img rounded" style="width: 150px; height: 150px; object-fit: cover;">
+                    <?php else: ?>
+                        <i class="bi bi-person-bounding-box display-1"></i>
+                    <?php endif; ?>
                 </div>
             </div>
 

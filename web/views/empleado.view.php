@@ -5,11 +5,31 @@
     <div class="container my-5">
         <div class="card p-4 bg-white">
             <div class="row g-4 align-items-center mb-4">
-                <div class="col-md-9">
+                <div class="col-md-8">
                     <h2 style="color: #825abd;">Perfil del Empleado</h2>
                 </div>
-                <div class="col-md-3 text-md-end text-center">
-                    <img src="https://via.placeholder.com/150" alt="Foto del empleado" class="profile-img">
+                <div class="col-md-4 text-center">
+                    <?php if (!empty($empleado['foto_empleado'])): ?>
+                        <img src="<?= BASE_PATH . '/' . $empleado['foto_empleado'] ?>" alt="Foto del empleado" class="profile-img rounded" style="width: 150px; height: 150px; object-fit: cover;">
+                    <?php else: ?>
+                        <form id="form-foto-empleado" action="<?= BASE_PATH . '/foto-empleado' ?>" method="POST" enctype="multipart/form-data">
+                            <input type="hidden" name="id_empleado" value="<?= $empleado['id_empleado']; ?>">
+                            <div class="row ">
+                                <div class="col">
+                                    <label for="foto_empleado" class="form-label text-muted">
+                                        <i class="bi bi-person-bounding-box display-1 d-flex justify-content-center"></i>
+                                        <input type="file" name="foto_empleado" id="foto_empleado" accept="image/*" class="form-control mb-2" style="display: none;">
+                                    </label>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <script>
+                            document.getElementById('foto_empleado').addEventListener('change', function () {
+                                document.getElementById('form-foto-empleado').submit();
+                            });
+                        </script>
+                    <?php endif; ?>
                 </div>
             </div>
 

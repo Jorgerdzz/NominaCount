@@ -33,6 +33,7 @@ CREATE TABLE IF NOT EXISTS empleados (
     NOT NULL,
     num_hijos INT DEFAULT 0,
     estado_civil ENUM('soltero', 'casado', 'divorciado', 'viudo', 'pareja_hecho') NOT NULL,
+    foto_empleado VARCHAR(255) DEFAULT NULL,
     salario_base DECIMAL(10,2) NOT NULL,
     
     CONSTRAINT fk_departamento_empleado FOREIGN KEY (id_departamento)
