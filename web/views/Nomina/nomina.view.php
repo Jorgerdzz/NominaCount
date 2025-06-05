@@ -7,43 +7,46 @@
             <h2 class="mx-3" style="color: #825abd;">Nómina calculada</h2>
 
             <section class="pdf-nomina p-3">
-                <table class="table table-bordered mb-4">
-                    <thead class="table-light">
-                        <tr>
-                            <th colspan="4" class="text-center text-uppercase text-muted">Datos Nómina</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><strong>Empresa</strong></td>
-                            <td><?= $_SESSION['empresaActiva']['denominacion_social']; ?></td>
-                            <td><strong>Trabajador</strong></td>
-                            <td><?= $empleado['nombre'] . ' ' . $empleado['apellidos']; ?></td>
-                        </tr>
-                        <tr>
-                            <td><strong>CIF</strong></td>
-                            <td><?= $_SESSION['empresaActiva']['cif']; ?></td>
-                            <td><strong>DNI</strong></td>
-                            <td><?= $empleado['dni']; ?></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Dirección</strong></td>
-                            <td><?= $_SESSION['empresaActiva']['direccion']; ?></td>
-                            <td><strong>Nº SS</strong></td>
-                            <td><?= $empleado['num_seguridad_social']; ?></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Teléfono empresa</strong></td>
-                            <td><?= $_SESSION['empresaActiva']['telefono']; ?></td>
-                            <td><strong>Categoría profesional</strong></td>
-                            <td><?= $empleado['categoria_profesional']; ?></td>
-                        </tr>
-                        <tr>
-                            <td><strong>Periodo de liquidación</strong></td>
-                            <td colspan="3"><?= $nomina['fecha_inicio']; ?> a <?= $nomina['fecha_fin']; ?></td>
-                        </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table table-bordered mb-4">
+                        <thead class="table-light">
+                            <tr>
+                                <th colspan="4" class="text-center text-uppercase text-muted">Datos Nómina</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Empresa</strong></td>
+                                <td><?= $_SESSION['empresaActiva']['denominacion_social']; ?></td>
+                                <td><strong>Trabajador</strong></td>
+                                <td><?= $empleado['nombre'] . ' ' . $empleado['apellidos']; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>CIF</strong></td>
+                                <td><?= $_SESSION['empresaActiva']['cif']; ?></td>
+                                <td><strong>DNI</strong></td>
+                                <td><?= $empleado['dni']; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Dirección</strong></td>
+                                <td><?= $_SESSION['empresaActiva']['direccion']; ?></td>
+                                <td><strong>Nº SS</strong></td>
+                                <td><?= $empleado['num_seguridad_social']; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Teléfono empresa</strong></td>
+                                <td><?= $_SESSION['empresaActiva']['telefono']; ?></td>
+                                <td><strong>Categoría profesional</strong></td>
+                                <td><?= $empleado['categoria_profesional']; ?></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Periodo de liquidación</strong></td>
+                                <td colspan="3"><?= $nomina['fecha_inicio']; ?> a <?= $nomina['fecha_fin']; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
 
                 <!-- DEVENGOS -->
                 <h4 class="mt-4 mb-3" style="color: #825abd;">I. Devengos</h4>
@@ -241,19 +244,22 @@
             <div class="row mx-1">
                 <div class="col-md-6">     
                     <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
-                        <div class="d-grid">
+                        <div class="d-grid m-2">
                             <button class="btn btn-purple btn-lg">Finalizar</button>
                         </div>
                     </a>
                 </div>
-                <div class="col-md-6 d-grid">
-                    <button class="btn-descargar-pdf btn btn-purple btn-lg"
-                        data-nombre="<?= $empleado['nombre']; ?>"
-                        data-apellidos="<?= $empleado['apellidos']; ?>"
-                        data-inicio="<?= $nomina['fecha_inicio']; ?>"
-                        data-fin="<?= $nomina['fecha_fin']; ?>">
-                        Descargar PDF
-                    </button>
+                <div class="col-md-6">
+                    <div class="d-grid m-2">
+                        <button class="btn-descargar-pdf btn btn-purple btn-lg"
+                            data-nombre="<?= $empleado['nombre']; ?>"
+                            data-apellidos="<?= $empleado['apellidos']; ?>"
+                            data-inicio="<?= $nomina['fecha_inicio']; ?>"
+                            data-fin="<?= $nomina['fecha_fin']; ?>">
+                            Descargar PDF
+                        </button>
+                    </div>
+                    
                 </div>
             </div>
 

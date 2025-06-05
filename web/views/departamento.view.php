@@ -6,10 +6,10 @@
     <section class="container mt-4">
 
         <div class="row mb-3">
-            <div class="col-10 section-header">
+            <div class="col-md-10 section-header">
                 <h2>Departamento de <?= $nombre_departamento; ?></h2>
             </div>
-            <div class="col-2">
+            <div class="col-md-2">
                 <a href="<?= BASE_PATH . '/estadisticas?stats=' . $id_departamento; ?>" class="text-dark">
                     <div class="d-grid">
                         <button type="button" id="VerEstadisticas" class="btn btn-primary">Ver estadísticas</button>

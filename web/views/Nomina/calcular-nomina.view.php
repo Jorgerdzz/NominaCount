@@ -26,7 +26,7 @@
 
                 <div class="row mb-2 align-items-center">
                     <div class="col-md-6">Salario base</div>
-                    <div class="col-md-6"><input value="<?= $datos_empleado['salario_base']; ?>" name="salario_base" class="form-control"></div>
+                    <div class="col-md-6"><input value="<?= $datos_empleado['salario_base']; ?>" name="salario_base" class="form-control" readonly></div>
                 </div>
 
                 <h5 class="mt-4 mb-3" style="color: #825abd;">I.II. Complementos salariales</h5>
@@ -116,7 +116,7 @@
                 <!-- TOTAL DEVENGADO -->
                 <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                     <div class="col-md-6"><strong>Total Devengado</strong></div>
-                    <div class="col-md-6"><input name="total_devengado" class="form-control"></div>
+                    <div class="col-md-6"><input name="total_devengado" class="form-control" readonly></div>
                 </div>
 
                 <!-- II. DEDUCCIONES -->
@@ -182,30 +182,32 @@
                 <!-- TOTAL DEDUCCIONES -->
                 <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                     <div class="col-md-6"><strong>Total Aportaciones a la Seguridad Social</strong></div>
-                    <div class="col-md-6"><input name="total_aportaciones" class="form-control"></div>
+                    <div class="col-md-6"><input name="total_aportaciones" class="form-control" readonly></div>
                 </div>
                 <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                     <div class="col-md-6"><strong>Total Deducciones</strong></div>
-                    <div class="col-md-6"><input name="total_deducir" class="form-control"></div>
+                    <div class="col-md-6"><input name="total_deducir" class="form-control" readonly></div>
                 </div>
 
                 <!-- LIQUIDO A PERCIBIR -->
                 <div class="row mt-4 mb-3 align-items-center bg-light p-2 rounded">
                     <div class="col-md-6"><strong>Líquido total a percibir</strong></div>
-                    <div class="col-md-6"><input name="liquido" class="form-control"></div>
+                    <div class="col-md-6"><input name="liquido" class="form-control" readonly></div>
                 </div>
 
                 <!-- ENVÍO -->
-                <div class="row mt-5">
+                <div class="row">
                     <div class="col-md-6">      
                         <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
-                            <div class="d-grid">
+                            <div class="d-grid m-2">
                                 <button type="button" class="btn btn-purple btn-lg">Volver</button>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-6 d-grid">
-                        <button type="submit" class="btn btn-purple btn-lg">Generar nómina</button>
+                    <div class="col-md-6">
+                        <div class="d-grid m-2">
+                            <button type="submit" class="btn btn-purple btn-lg">Generar nómina</button>
+                        </div>
                     </div>
                 </div>
 

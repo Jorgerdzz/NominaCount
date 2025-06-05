@@ -102,16 +102,18 @@
                 <div class="row mt-5">
                     <div class="col-md-6">
                         <a href="<?= BASE_PATH . '/empleado?id=' . $id_empleado; ?>">
-                            <div class="d-grid">
+                            <div class="d-grid m-2">
                                 <button type="button" class="btn btn-purple btn-lg">Finalizar</button>
                             </div>
                         </a>
                     </div>
-                    <div class="col-md-6 d-grid">
-                        <button class="btn-descargar-finiquitopdf btn btn-purple btn-lg"
-                            data-nombre="<?= $nombreCompleto; ?>">
-                            Descargar PDF
-                        </button>
+                    <div class="col-md-6">
+                        <div class="d-grid m-2">
+                            <button class="btn-descargar-finiquitopdf btn btn-purple btn-lg"
+                                data-nombre="<?= $nombreCompleto; ?>">
+                                Descargar PDF
+                            </button>
+                        </div>  
                     </div>
                 </div>
             </div>

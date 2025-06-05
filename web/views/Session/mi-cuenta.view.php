@@ -29,7 +29,7 @@ if ($_SESSION['usuarioActivo']['rol'] === 'Empresario') {
 
             <!-- DATOS DE LA EMPRESA -->
             <h5 class="text-muted">Datos de la empresa</h5>
-            <div class="row g-3 mb-4">
+            <div class="row g-3 mb-2">
                 <div class="col-md-6">
                     <div class="bg-light p-3 rounded">
                         <strong>C.I.F:</strong> <?= $cif; ?>

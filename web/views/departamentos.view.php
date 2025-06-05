@@ -9,37 +9,39 @@
             <div class="col-md-10 section-header">
                 <h2>Departamentos</h2>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-2 d-grid">
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#anadir-departamento">Añadir departamento</button>
             </div>
         </div>
 
+        <div class="table-responsive">
+            <table id="tabla-departamentos">
+                <thead>
+                    <tr>
+                        <th>Ver departamento</th>
+                        <th>Nombre departamento</th>
+                        <th>Jefe departamento</th>
+                        <th>Número de empleados</th>
+                        <th>Coste total departamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($departamentos as $departamento) {
+                        echo '<tr data-id="' . $departamento['id_departamento'] . '">
+                                <td><a href="' . BASE_PATH . '/departamento?id=' . $departamento['id_departamento'] . '"<i class="bi bi-building text-dark"></i></a> 
+                                <td>' . $departamento['nombre_departamento'] . '</a></td>
+                                <td>' . $departamento['jefe_departamento'] . '</td>
+                                <td>' . $departamento['num_empleados'] . '</td>
+                                <td>' . $departamento['coste_total_departamento'] . ' € </td>
+                            </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        
 
-
-        <table id="tabla-departamentos">
-            <thead>
-                <tr>
-                    <th>Ver departamento</th>
-                    <th>Nombre departamento</th>
-                    <th>Jefe departamento</th>
-                    <th>Número de empleados</th>
-                    <th>Coste total departamento</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($departamentos as $departamento) {
-                    echo '<tr data-id="' . $departamento['id_departamento'] . '">
-                            <td><a href="' . BASE_PATH . '/departamento?id=' . $departamento['id_departamento'] . '"<i class="bi bi-building text-dark"></i></a> 
-                            <td>' . $departamento['nombre_departamento'] . '</a></td>
-                            <td>' . $departamento['jefe_departamento'] . '</td>
-                            <td>' . $departamento['num_empleados'] . '</td>
-                            <td>' . $departamento['coste_total_departamento'] . ' € </td>
-                        </tr>';
-                }
-                ?>
-            </tbody>
-        </table>
     </section>
 </main>
 
