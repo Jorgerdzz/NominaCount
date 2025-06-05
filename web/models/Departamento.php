@@ -101,6 +101,19 @@ class Departamento extends Database
         return $instance->query($query)->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    public static function getCosteTotalTrabajadoresPorDepartamento($id_departamento)
+    {
+        $instance = self::getInstance();
+        $query = "SELECT SUM(ct.coste_total_trabajador) as coste_total
+                  FROM costes_trabajador ct
+                  JOIN empleados e ON e.id_empleado = ct.id_empleado
+                  WHERE e.id_departamento = :id_departamento;";
+        $params = [
+            'id_departamento' => $id_departamento
+        ];          
+        return $instance->query($query, $params)->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function getEstadisticasDepartamento($nombre_departamento)
     {
         $instance = self::getInstance();
