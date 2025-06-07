@@ -54,7 +54,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form id="form-nuevo-departamento" method="POST" action="/crear-departamento">
+                <form id="form-nuevo-departamento" method="POST" action="<?= BASE_PATH . '/crear-departamento' ?>">
                     <div class="mb-3">
                         <label for="nombre_departamento" class="form-label">Nombre del departamento:</label>
                         <input type="text" class="form-control" id="nombre_departamento" name="nombre_departamento" aria-describedby="nombre_departamentolHelp">

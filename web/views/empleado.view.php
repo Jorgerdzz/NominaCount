@@ -18,11 +18,13 @@
                                 <div class="col">
                                     <label for="foto_empleado" class="form-label text-muted">
                                         <i class="bi bi-person-bounding-box display-1 d-flex justify-content-center"></i>
+                                        <div class="mt-2">
+                                            <strong>Subir foto empleado</strong>
+                                        </div>
                                         <input type="file" name="foto_empleado" id="foto_empleado" accept="image/*" class="form-control mb-2" style="display: none;">
                                     </label>
                                 </div>
-                            </div>
-                            
+                            </div>    
                         </form>
                         <script>
                             document.getElementById('foto_empleado').addEventListener('change', function () {
