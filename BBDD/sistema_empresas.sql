@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-05-2025 a las 21:00:17
+-- Tiempo de generación: 09-06-2025 a las 17:27:57
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.1.25
 
@@ -45,7 +45,7 @@ CREATE TABLE `empresas` (
 
 INSERT INTO `empresas` (`id_empresa`, `cif`, `denominacion_social`, `nombre_comercial`, `direccion`, `telefono`, `logo_path`, `email`, `db_nombre`) VALUES
 (156, 'A34321434', 'Nike S.A.', 'Nike', 'Avenida del mundo Nº20, Madrid, España', '976453621', 'views/img/logos/logo_nike.png', 'martinez@nike.com', 'sistema_empresas_Nike'),
-(160, 'A74567644', 'Adidas S.A.', 'Adidas', 'calle real numero 8 , Murcia, España', '999923213', 'views/img/logos/logo_adidas.png', 'nerea.estebanruiz@adidas.com', 'sistema_empresas_Adidas'),
+(160, 'A74567644', 'Adidas S.A.', 'Adidas', 'calle real numero 8 , Murcia, España', '999923213', 'views/img/logos/logo_adidas.png', 'alberto.gutierrezsanchez@adidas.com', 'sistema_empresas_Adidas'),
 (162, 'B97704035', 'Umbro', 'Umbro', 'Calle Médico Salvador Úbeda núm. 5 3 6, 46800', '952239000', 'views/img/logos/logo_umbro.png', 'fernando.tejerohernandez@umbro.com', 'sistema_empresas_Umbro'),
 (182, 'B85868339', 'Puma S.A.', 'Puma', 'Calle José Abascal, 45 - PISO 2, Madrid, 28003, Madrid', '635897456', 'views/img/logos/logo_puma.png', 'contacto@puma.com', 'sistema_empresas_Puma');
 
@@ -77,7 +77,6 @@ INSERT INTO `usuarios` (`id_usuario`, `id_empresa`, `nombre_usuario`, `rol`, `ce
 (101, 160, 'Jimena Campos Ruiz', 'Empleado', 0, 0, 'jimena.camposruiz@adidas.com', '$2y$10$2cMWXnC8rdmYHyt3H2eIE.pgvzVgDLWlgXMqZFoQYnW98.VwSg0wm'),
 (102, 160, 'Juan Perez Lopez', 'Empleado', 0, 0, 'juan.perezlopez@adidas.com', '$2y$10$kufEqAxORLNuFqVJvsr58uvM/czQyiITeoGktOjqNmXQ1ol/lVGDG'),
 (103, 160, 'Ana Gomez Ruiz', 'Empleado', 0, 0, 'ana.gomezruiz@adidas.com', '$2y$10$cpNzvDioc/jcf2u0yHzKwepNjDva00Y.CrifD.2r4CkL0bu3x9.ZC'),
-(104, 160, 'Aurora Lopez Martin', 'Empleado', 0, 0, 'aurora.lopezmartin@adidas.com', '$2y$10$nJz/dCukV0uneES5wzXSr.qe0euqEvoD/oHV7lUbTBetiQ/G.r9V.'),
 (105, 160, 'Andres Martin Bravo', 'Empleado', 0, 0, 'andres.martinbravo@adidas.com', '$2y$10$pvaSf7VhhKj3CWEU9qhXgOrIXOOcrJiqG6Mn82XAqUzYhbQLOJcda'),
 (107, 162, 'Fernando Tejero Hernández', 'Empresario', 1, 0, 'fernando.tejerohernandez@umbro.com', '$2y$10$DrWzyKzh2GaWnsZvsNL8Xe03dWL3dGMFDha9OJ7ClQLYTB6rqa8D6'),
 (110, 156, 'Daniel García Maroto', 'Empresario', 0, 1, 'daniel.garciamaroto@nike.com', '$2y$10$TFg5RYMewmBEDC5NF/hIseXa8Mdq2GRop4gcjjrrDrJnhkiM1jydC'),
@@ -136,7 +135,9 @@ INSERT INTO `usuarios` (`id_usuario`, `id_empresa`, `nombre_usuario`, `rol`, `ce
 (163, 156, 'Fernando Moreno Sánchez', 'Empleado', 0, 0, 'fernando.morenosanchez@nike.com', '$2y$10$fB2O.gWYI3CJPiI2jF64FOa9yOD7msXm1Ip8mg147HFW6uBJDlnle'),
 (164, 156, 'Lucía Cruz Torres', 'Empleado', 0, 0, 'lucia.cruztorres@nike.com', '$2y$10$0yeWPFOhbyGjRLl16v6OEed.gkMPd0I98aLMZgokJMsKQmIrdB1bO'),
 (165, 156, 'Javier Pérez Ruiz', 'Empleado', 0, 0, 'javier.perezruiz@nike.com', '$2y$10$tbch/Wkij0w9zJsXj6/2B.8Su0XgVRWOigsth6p8mbAHyfi7YZiXy'),
-(169, 182, 'Alicia Casado Martin', 'Empresario', 1, 1, 'alicia.casadomartin@puma.com', '$2y$10$rqDdjhYcLQjtUTHwIx.vVu6kHonILkYwmGyq0ZvPrAKS8qHEoQ9SO');
+(169, 182, 'Alicia Casado Martin', 'Empresario', 1, 1, 'alicia.casadomartin@puma.com', '$2y$10$rqDdjhYcLQjtUTHwIx.vVu6kHonILkYwmGyq0ZvPrAKS8qHEoQ9SO'),
+(179, 182, 'Juan Pérez García', 'Empleado', 0, 0, 'juan.perezgarcia@puma.com', '$2y$10$Qciu/bgw65i3ZfJ6fnuehOic3aBDGjYs9OuziIUeNgSxIAI9R51Be'),
+(180, 182, 'Javier Campos Ruiz', 'Empleado', 0, 0, 'javier.camposruiz@puma.com', '$2y$10$WO0RZdkPtTlCU4ayuMQBEuvpshQBhrTi4op1.goMAJ2m5FhMDwVAa');
 
 --
 -- Índices para tablas volcadas
@@ -163,13 +164,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `empresas`
 --
 ALTER TABLE `empresas`
-  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=183;
+  MODIFY `id_empresa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=174;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=181;
 
 --
 -- Restricciones para tablas volcadas
